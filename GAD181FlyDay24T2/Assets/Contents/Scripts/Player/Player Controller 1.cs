@@ -6,7 +6,8 @@ public class PlayerController1 : MonoBehaviour
 {
     public Animator playerAnimator;
     public Rigidbody playerRigidbody;
-    public float wSpeed, sSpeed, dSpeed, aSpeed, rotateSpeed;
+    public float dSpeed, rotateSpeed;
+    public 
    
 
     // Start is called before the first frame update
@@ -18,15 +19,17 @@ public class PlayerController1 : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.D))
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Horizontal");
+
+        Vector3 movement = new Vector3(horizontal, 0, vertical).normalized;
+
+        if (movement == Vector3.zero)
         {
-            playerRigidbody.velocity = transform.forward * dSpeed * Time.deltaTime;
+            return;
         }
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            playerRigidbody.velocity = -transform.forward * aSpeed * Time.deltaTime; ;
-        }
-         
+
+        playerRigidbody.MovePosition(playerRigidbody.position + movement * Time.fixedDeltaTime);
     }
 
     private void Update()
@@ -51,6 +54,5 @@ public class PlayerController1 : MonoBehaviour
         {
 
         }
-
     }
 }

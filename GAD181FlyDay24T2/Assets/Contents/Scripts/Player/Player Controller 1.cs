@@ -7,7 +7,8 @@ public class PlayerController1 : MonoBehaviour
     public Animator playerAnimator;
     public Rigidbody playerRigidbody;
     public float wSpeed, sSpeed, dSpeed, aSpeed, rotateSpeed;
-    public bool Walking, Running, Jumping, Sneaking;
+   
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +31,15 @@ public class PlayerController1 : MonoBehaviour
 
     private void Update()
     {
-       if (Input.GetKeyDown(KeyCode.D))
+        bool pressSneak = (Input.GetKeyDown(KeyCode.C));
+        bool pressWalk = (Input.GetKeyDown(KeyCode.D));
+        bool pressRunning = (Input.GetKeyDown(KeyCode.D));
+        bool running = playerAnimator.GetBool("Running");
+        bool walking = playerAnimator.GetBool("Walking");
+        bool sneaking = playerAnimator.GetBool("Sneaking");
+
+
+        if (Input.GetKeyDown(KeyCode.D))
         {
             playerAnimator.SetBool("Walking", true);
         }
@@ -40,10 +49,8 @@ public class PlayerController1 : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.C))
         {
-            if (Walking = true)
-            {
-                playerAnimator.SetBool("Sneaking", true);
-            }
+
         }
+
     }
 }

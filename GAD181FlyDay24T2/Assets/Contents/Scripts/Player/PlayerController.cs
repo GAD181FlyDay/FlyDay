@@ -2,21 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController1 : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     public Animator playerAnimator;
     public Rigidbody playerRigidbody;
-    public float dSpeed, rotateSpeed;
-    public 
+    public float dSpeed, rotateSpeed; 
    
 
-    // Start is called before the first frame update
+    
     void Start()
     {
         
     }
 
-    // Update is called once per frame
+    
     void FixedUpdate()
     {
         float horizontal = Input.GetAxis("Horizontal");

@@ -551,7 +551,7 @@ Transform:
   m_GameObject: {fileID: 405465472}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.25132, z: 1.2211397}
+  m_LocalPosition: {x: 0, y: -0.135, z: 1.2211397}
   m_LocalScale: {x: 5.3495436, y: 0.13754506, z: 5.4708314}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1217,7 +1217,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 48
   m_CollisionDetection: 0
 --- !u!136 &1713083871
 CapsuleCollider:
@@ -1256,10 +1256,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerAnimator: {fileID: 1713083868}
   playerRigidbody: {fileID: 1713083870}
-  wSpeed: 50
-  sSpeed: 100
   dSpeed: 100
-  aSpeed: 100
   rotateSpeed: 0
 --- !u!1 &1832734185
 GameObject:
@@ -1416,10 +1413,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3

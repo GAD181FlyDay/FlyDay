@@ -57,6 +57,15 @@ namespace XAndOMinigame
             // If it isn't empty then do the following:
             // Nothing! No input feedback.
         }
+
+        /// <summary>
+        /// Allows the players to restart the X and O game.
+        /// </summary>
+        public void RestartGame()
+        {
+
+        }
+
         #endregion
     }
 }

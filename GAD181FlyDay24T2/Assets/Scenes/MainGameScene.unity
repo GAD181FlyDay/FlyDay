@@ -2125,8 +2125,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerAnimator: {fileID: 1713083868}
   playerRigidbody: {fileID: 1713083870}
-  dSpeed: 0.2
-  rotateSpeed: 200
+  dSpeed: 0.175
+  rotateSpeed: 1200
+  acceleration: 0.75
 --- !u!4 &1713083873 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: aefe2b9ce1f43ed439a11bc2006b3f30, type: 3}

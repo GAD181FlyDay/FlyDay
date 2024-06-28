@@ -10,7 +10,9 @@ namespace PlayerOne
     {
         public Animator playerAnimator;
         public Rigidbody playerRigidbody;
-        public float dSpeed, rotateSpeed;
+        public float dSpeed = 0.175f, rotateSpeed = 200;
+        public float acceleration;
+        private float currentSpeed = 0f;
 
 
 
@@ -25,7 +27,7 @@ namespace PlayerOne
             float horizontal = Input.GetAxis("Horizontal");
             float vertical = Input.GetAxis("Vertical");
 
-            Vector3 movement = new Vector3(horizontal, 0, vertical).normalized;
+            Vector3 movement = new Vector3(horizontal, 0, vertical);
             movement.Normalize();
 
             if (movement == Vector3.zero)
@@ -33,10 +35,11 @@ namespace PlayerOne
                 return;
             }
 
-            playerRigidbody.MovePosition(playerRigidbody.position + movement * Time.fixedDeltaTime);
-            transform.Translate(movement * dSpeed * Time.fixedDeltaTime, Space.World);
+           
             if (movement != Vector3.zero)
             {
+                currentSpeed = Mathf.MoveTowards(currentSpeed, dSpeed, acceleration * Time.fixedDeltaTime);
+                playerRigidbody.MovePosition(playerRigidbody.position + movement * currentSpeed * Time.fixedDeltaTime);
                 Quaternion rotateQuat = Quaternion.LookRotation(movement,Vector3.up);
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, rotateQuat, rotateSpeed * Time.deltaTime);
             }
@@ -47,7 +50,7 @@ namespace PlayerOne
         {
             bool pressSneak = (Input.GetKeyDown(KeyCode.C));
             bool pressWalk = (Input.GetKeyDown(KeyCode.D));
-            bool pressRunning = (Input.GetKeyDown(KeyCode.D));
+            bool pressRunning = (Input.GetKeyDown(KeyCode.LeftShift));
             bool running = playerAnimator.GetBool("Running");
             bool walking = playerAnimator.GetBool("Walking");
             bool sneaking = playerAnimator.GetBool("Sneaking");

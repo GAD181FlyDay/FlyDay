@@ -948,7 +948,8 @@ GameObject:
   - component: {fileID: 998503107}
   - component: {fileID: 998503106}
   - component: {fileID: 998503105}
-  m_Layer: 0
+  - component: {fileID: 998503108}
+  m_Layer: 6
   m_Name: Couch
   m_TagString: Interactible
   m_Icon: {fileID: 0}
@@ -1043,6 +1044,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 998503103}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &998503108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998503103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f405cca19fee85429566aa0780c0fb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1009778862
 GameObject:
   m_ObjectHideFlags: 0
@@ -1561,7 +1574,8 @@ GameObject:
   - component: {fileID: 1353572592}
   - component: {fileID: 1353572591}
   - component: {fileID: 1353572590}
-  m_Layer: 0
+  - component: {fileID: 1353572593}
+  m_Layer: 6
   m_Name: SecondCouch
   m_TagString: Interactible
   m_Icon: {fileID: 0}
@@ -1656,6 +1670,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1353572588}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1353572593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353572588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f405cca19fee85429566aa0780c0fb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1408680461
 GameObject:
   m_ObjectHideFlags: 0
@@ -2121,6 +2147,9 @@ MonoBehaviour:
   playerModel: {fileID: 1713083873}
   PressE: {fileID: 263141325}
   InteractRange: 0.75
+  interactibleLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &1789318666
 GameObject:
   m_ObjectHideFlags: 0

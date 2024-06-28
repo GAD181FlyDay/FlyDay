@@ -932,6 +932,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: aefe2b9ce1f43ed439a11bc2006b3f30, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1713083872}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: aefe2b9ce1f43ed439a11bc2006b3f30, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1713083874}
   m_SourcePrefab: {fileID: 100100000, guid: aefe2b9ce1f43ed439a11bc2006b3f30, type: 3}
 --- !u!1 &998503103
 GameObject:
@@ -947,7 +950,7 @@ GameObject:
   - component: {fileID: 998503105}
   m_Layer: 0
   m_Name: Couch
-  m_TagString: Untagged
+  m_TagString: Interactible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1560,7 +1563,7 @@ GameObject:
   - component: {fileID: 1353572590}
   m_Layer: 0
   m_Name: SecondCouch
-  m_TagString: Untagged
+  m_TagString: Interactible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2098,6 +2101,26 @@ MonoBehaviour:
   playerRigidbody: {fileID: 1713083870}
   dSpeed: 0.2
   rotateSpeed: 200
+--- !u!4 &1713083873 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: aefe2b9ce1f43ed439a11bc2006b3f30, type: 3}
+  m_PrefabInstance: {fileID: 616901439}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1713083874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1713083867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb0616a55d1854b48972787359b0997f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerModel: {fileID: 1713083873}
+  PressE: {fileID: 263141325}
+  InteractRange: 0.75
 --- !u!1 &1789318666
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,21 +3,28 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+
+
+
 public class Scripts_Player_GenericInteractions : MonoBehaviour
 {
+    public Transform playerModel;
     public TextMeshProUGUI PressE;
-    // Start is called before the first frame update
+    public float InteractRange;
     void Awake()
     {
         PressE.gameObject.SetActive(false);
     }
 
-    // Update is called once per frame
-    private void OnCollisionEnter(Collision collision)
+    private void Update()
     {
-        if (collision.gameObject.tag == "Interactible")
+        Ray interactRay = new Ray(playerModel.position, playerModel.forward);
+        if(Physics.Raycast (interactRay, out RaycastHit hitInfo, InteractRange))
         {
-            PressE.gameObject.SetActive(false);
+            if (hitInfo.collider.tag == "Interactible")
+            {
+                PressE.gameObject.SetActive (true);
+            }
         }
         else
         {

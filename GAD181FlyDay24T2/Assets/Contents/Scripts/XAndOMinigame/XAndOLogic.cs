@@ -9,7 +9,6 @@ namespace XAndOMinigame
     /// It contains the following details: Button arrays, Checks if the players won or not, 
     /// Changes UI text,  and displays buttons.
     /// </summary>
-   
     public class XAndOLogic : MonoBehaviour
     {
         #region Variables
@@ -17,6 +16,7 @@ namespace XAndOMinigame
         [SerializeField] private TMP_Text[] buttonTexts;
         [SerializeField] private Button restartButton;
         [SerializeField] private Button exitButton;
+        [SerializeField] private TMP_Text playerWonOrDrawText;
 
         private string _currentPlayer = "X";
         private int _moveCount = 0;
@@ -35,24 +35,31 @@ namespace XAndOMinigame
         #region Button input 'listener'.
         public void OnButtonClick(Button button)
         {
-            Debug.Log("The current player is: " + " " + _currentPlayer);
+            Debug.Log("Button clicked by: " + _currentPlayer);
+
             // Execute the code only if the game is not over.
             if (!_gameOver)
             {
-                // Find the number of the interracted with button in the button array.
+                // Find the number of the interacted with button in the button array.
                 int index = System.Array.IndexOf(buttons, button);
 
-                // If the button has not been clicked on...
+                if (index == -1)
+                {
+                    Debug.LogError("Button not found in the array.");
+                    return;
+                }
+
                 if (buttonTexts[index].text == "")
                 {
-                    // Set the interracted with button's text to the current player's symbol.
+                    // Set the interacted with button's text to the current player's symbol.
                     buttonTexts[index].text = _currentPlayer;
                     _moveCount++;
 
-                    // Check if the current player has won.
-                    if (CheckWin(buttons, _currentPlayer))
+                    // Check if the current player won.
+                    if (CheckWin())
                     {
                         ShowEndGameButtons();
+                        playerWonOrDrawText.text = _currentPlayer + " Won!";
                         Debug.Log(_currentPlayer + " Wins!");
                         _gameOver = true;
                     }
@@ -60,6 +67,7 @@ namespace XAndOMinigame
                     else if (_moveCount == 9)
                     {
                         ShowEndGameButtons();
+                        playerWonOrDrawText.text = "Draw!";
                         Debug.Log("Draw!");
                     }
                     // Switch to the next player.
@@ -73,7 +81,7 @@ namespace XAndOMinigame
         #endregion
 
         #region Win conditions checker
-        public bool CheckWin(Button[] buttons, string currentPlayer)
+        public bool CheckWin()
         {
             // Run through all the win combinations.
             for (int i = 0; i < winningConditions.GetLength(0); i++)
@@ -83,9 +91,9 @@ namespace XAndOMinigame
                 int c = winningConditions[i, 2];
 
                 // Check if the current player has all three positions in a winning combination.
-                if (buttons[a].GetComponentInChildren<TMP_Text>().text == currentPlayer &&
-                    buttons[b].GetComponentInChildren<TMP_Text>().text == currentPlayer &&
-                    buttons[c].GetComponentInChildren<TMP_Text>().text == currentPlayer)
+                if (buttons[a].GetComponentInChildren<TMP_Text>().text == _currentPlayer &&
+                    buttons[b].GetComponentInChildren<TMP_Text>().text == _currentPlayer &&
+                    buttons[c].GetComponentInChildren<TMP_Text>().text == _currentPlayer)
                 {
                     return true;
                 }
@@ -101,20 +109,24 @@ namespace XAndOMinigame
             // Clear the text of all buttons.
             foreach (TMP_Text buttonText in buttonTexts)
             {
-                buttonText.text = "";
+                if (buttonText != null)
+                {
+                    buttonText.text = "";
+                }
             }
 
             // Reset the game back to the starting state.
             _currentPlayer = "X";
             _moveCount = 0;
             _gameOver = false;
+            playerWonOrDrawText.text = "";
             restartButton.gameObject.SetActive(false);
             exitButton.gameObject.SetActive(false);
         }
 
         public void ExitMinigame()
         {
-            Debug.Log("Game has been exitted.");
+            Debug.Log("Game has been exited.");
             // Scene unloads or the panel switches off.
         }
         #endregion
@@ -133,14 +145,14 @@ namespace XAndOMinigame
         #region A collection of win conditions.
         private int[,] winningConditions = new int[,]
         {
-        { 0, 1, 2 }, // up left to right.
-        { 3, 4, 5 }, // middle left to right.
-        { 6, 7, 8 }, // down left to right.
-        { 0, 3, 6 }, // left up to bottom.
-        { 1, 4, 7 }, // middle up to bottom.
-        { 2, 5, 8 }, // right up to bottom.
-        { 0, 4, 8 }, // top left to right bottom.
-        { 2, 4, 6 }  // top righ to bottom left.
+            { 0, 1, 2 }, // up left to right.
+            { 3, 4, 5 }, // middle left to right.
+            { 6, 7, 8 }, // down left to right.
+            { 0, 3, 6 }, // left up to bottom.
+            { 1, 4, 7 }, // middle up to bottom.
+            { 2, 5, 8 }, // right up to bottom.
+            { 0, 4, 8 }, // top left to right bottom.
+            { 2, 4, 6 }  // top right to bottom left.
         };
         #endregion
 
@@ -154,6 +166,5 @@ namespace XAndOMinigame
         #endregion
 
         #endregion
-
     }
 }

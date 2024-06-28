@@ -2096,8 +2096,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerAnimator: {fileID: 1713083868}
   playerRigidbody: {fileID: 1713083870}
-  dSpeed: 100
-  rotateSpeed: 0
+  dSpeed: 0.2
+  rotateSpeed: 200
 --- !u!1 &1789318666
 GameObject:
   m_ObjectHideFlags: 0

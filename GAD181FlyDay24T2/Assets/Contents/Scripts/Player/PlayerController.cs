@@ -13,7 +13,7 @@ namespace PlayerOne
         public float dSpeed = 0.175f, rotateSpeed = 200;
         public float acceleration;
         private float currentSpeed = 0f;
-
+        bool walking;
 
 
         void Start()
@@ -48,12 +48,16 @@ namespace PlayerOne
 
         private void Update()
         {
-            bool pressSneak = (Input.GetKeyDown(KeyCode.C));
-            bool pressWalk = (Input.GetKeyDown(KeyCode.D));
-            bool pressRunning = (Input.GetKeyDown(KeyCode.LeftShift));
-            bool running = playerAnimator.GetBool("Running");
-            bool walking = playerAnimator.GetBool("Walking");
-            bool sneaking = playerAnimator.GetBool("Sneaking");
+            if (playerAnimator != null)
+            {
+                bool pressSneak = (Input.GetKeyDown(KeyCode.C));
+                bool pressWalk = (Input.GetKeyDown(KeyCode.D));
+                bool pressRunning = (Input.GetKeyDown(KeyCode.LeftShift));
+                bool running = playerAnimator.GetBool("Running");
+                walking = playerAnimator.GetBool("Walking");
+                bool sneaking = playerAnimator.GetBool("Sneaking");
+            }
+           
 
 
             if (Input.GetKey(KeyCode.W))

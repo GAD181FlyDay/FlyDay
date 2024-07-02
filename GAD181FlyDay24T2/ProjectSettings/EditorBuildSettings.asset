@@ -11,5 +11,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainGameScene.unity
     guid: 8c84950ce2efe9d44978907ba2540b30
+  - enabled: 1
+    path: Assets/Scenes/Haqqi_ Minigame/SeesawBridge.unity
+    guid: 382d16b44b7e9254aac4838ee10bf187
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

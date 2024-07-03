@@ -86,6 +86,9 @@ namespace PlayerOne
             {
                 playerAnimator.SetBool("Jumping", true);
             }
+
+
+
             if (Input.GetKey(KeyCode.RightShift))
             {   
                 if (walking == true)

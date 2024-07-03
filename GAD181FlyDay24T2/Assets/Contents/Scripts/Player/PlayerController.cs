@@ -86,6 +86,12 @@ namespace PlayerOne
             {
                 playerAnimator.SetBool("Jumping", true);
             }
+
+            else
+            {
+                playerAnimator.SetBool("Jumping", false) ;
+            }
+
             if (Input.GetKey(KeyCode.C))
             {   
                 if (walking == true)

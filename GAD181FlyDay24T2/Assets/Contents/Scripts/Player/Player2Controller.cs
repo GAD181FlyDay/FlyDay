@@ -2,10 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace PlayerOne
+namespace Player.Tw0
 {
-
-
     public class Player2Controller : MonoBehaviour
     {
         public Animator playerAnimator;
@@ -85,6 +83,7 @@ namespace PlayerOne
             if (Input.GetKeyDown(KeyCode.RightControl))
             {
                 playerAnimator.SetBool("Jumping", true);
+                // This player can jump Higher than the other player.
             }
 
 

@@ -562,11 +562,32 @@ PrefabInstance:
       propertyPath: m_Name
       value: TaxiMeterStand
       objectReference: {fileID: 0}
+    - target: {fileID: 4739142876546556795, guid: 2be6d207939981d40941cb5d65c18dd9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4739142876546556795, guid: 2be6d207939981d40941cb5d65c18dd9, type: 3}
+      propertyPath: m_TagString
+      value: Interactible
+      objectReference: {fileID: 0}
     - target: {fileID: 6470032715478539389, guid: 2be6d207939981d40941cb5d65c18dd9, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 484039451}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5929649597545006040, guid: 2be6d207939981d40941cb5d65c18dd9, type: 3}
+    - {fileID: 8606080894460080762, guid: 2be6d207939981d40941cb5d65c18dd9, type: 3}
+    - {fileID: 584462649686898122, guid: 2be6d207939981d40941cb5d65c18dd9, type: 3}
+    - {fileID: 1158245819517336571, guid: 2be6d207939981d40941cb5d65c18dd9, type: 3}
+    - {fileID: 8549051711584143856, guid: 2be6d207939981d40941cb5d65c18dd9, type: 3}
+    - {fileID: 368825615010832111, guid: 2be6d207939981d40941cb5d65c18dd9, type: 3}
+    - {fileID: 2773120881493387115, guid: 2be6d207939981d40941cb5d65c18dd9, type: 3}
+    - {fileID: 1701943957079977432, guid: 2be6d207939981d40941cb5d65c18dd9, type: 3}
+    - {fileID: 8817756377512654807, guid: 2be6d207939981d40941cb5d65c18dd9, type: 3}
+    - {fileID: 1549044757863118978, guid: 2be6d207939981d40941cb5d65c18dd9, type: 3}
+    - {fileID: 8195066514632727285, guid: 2be6d207939981d40941cb5d65c18dd9, type: 3}
+    - {fileID: 1641055973782137470, guid: 2be6d207939981d40941cb5d65c18dd9, type: 3}
+    - {fileID: 6161485646252247056, guid: 2be6d207939981d40941cb5d65c18dd9, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

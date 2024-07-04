@@ -4,8 +4,6 @@ using UnityEngine;
 
 namespace PlayerOne
 {
-
-
     public class PlayerController : MonoBehaviour
     {
         public Animator playerAnimator;
@@ -57,7 +55,12 @@ namespace PlayerOne
                 walking = playerAnimator.GetBool("Walking");
                 bool sneaking = playerAnimator.GetBool("Sneaking");
             }
-           
+            else if (playerAnimator == null)
+            {
+                Debug.Log("Won't play aniamtions");
+                return;
+            }
+
 
 
             if (Input.GetKey(KeyCode.W))

@@ -14,8 +14,6 @@ namespace CameraBehavior
         #region Variables
         public Transform player1;
         public Transform player2;
-        [SerializeField] private float minOrthographicSize = 5f;
-        [SerializeField] private float maxOrthographicSize = 10f;
         [SerializeField] private float zoomSpeed = 2f;
         [SerializeField] private float cameraHeight = -65f;
         [SerializeField] private float cameraSmoothSpeed = 0.125f;

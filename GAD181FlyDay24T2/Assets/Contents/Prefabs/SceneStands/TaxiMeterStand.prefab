@@ -134,7 +134,7 @@ Transform:
   m_GameObject: {fileID: 933170681540184763}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7599518, y: -0, z: -0, w: 0.64997953}
-  m_LocalPosition: {x: 0, y: -0.742, z: 0.388}
+  m_LocalPosition: {x: 0.282, y: -0.774, z: 1.338}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -223,7 +223,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1.54
+      scalar: 0.6
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -772,10 +772,10 @@ ParticleSystem:
     serializedVersion: 6
     enabled: 1
     type: 4
-    angle: 25
+    angle: 21.46
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
-    radiusThickness: 0.89
+    radiusThickness: 0.94
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
@@ -858,7 +858,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 1.27
+      value: 0.32
       mode: 0
       spread: 0
       speed:
@@ -4041,7 +4041,7 @@ ParticleSystem:
         m_RotationOrder: 4
     maxLights: 20
   TrailModule:
-    enabled: 1
+    enabled: 0
     mode: 0
     ratio: 0.36
     lifetime:
@@ -4114,7 +4114,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 0.8153527, b: 0.3066038, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -4887,7 +4887,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: ffe7df7a2ce78b54786c5245f5aef56e, type: 2}
-  - {fileID: 2100000, guid: 1e4694811f6ecb141b5730e2cb01837f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5300,9 +5299,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3260167142210197000}
   - component: {fileID: 6775682535051003862}
-  m_Layer: 0
+  - component: {fileID: 687411936312074146}
+  m_Layer: 6
   m_Name: TaxiMeterStand
-  m_TagString: Untagged
+  m_TagString: Interactible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5317,7 +5317,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.27302003, y: 0.27302003, z: 0.27302003}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4700364791578424422}
@@ -5334,7 +5334,6 @@ Transform:
   - {fileID: 7345042596983876036}
   - {fileID: 5342741093955288838}
   - {fileID: 4920869400734871688}
-  - {fileID: 6455809002726046269}
   - {fileID: 3468177683568946734}
   - {fileID: 7949450375200417104}
   m_Father: {fileID: 0}
@@ -5360,6 +5359,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3.0896454, y: 1.6228305, z: 1.1291752}
   m_Center: {x: -0.16382122, y: -0.3114149, z: -0.43682957}
+--- !u!114 &687411936312074146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4739142876546556795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80831ba99dec0024f8e98036e2c42019, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4785218861982590259
 GameObject:
   m_ObjectHideFlags: 0
@@ -5676,99 +5687,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!1 &5649123289311522439
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6455809002726046269}
-  - component: {fileID: 791156383102857159}
-  m_Layer: 0
-  m_Name: YellowPointLights
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6455809002726046269
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5649123289311522439}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.208, y: 0.629, z: -0.015}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3260167142210197000}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!108 &791156383102857159
-Light:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5649123289311522439}
-  m_Enabled: 1
-  serializedVersion: 11
-  m_Type: 2
-  m_Color: {r: 1, g: 0.7544644, b: 0, a: 1}
-  m_Intensity: 2.4
-  m_Range: 2.2195184
-  m_SpotAngle: 30
-  m_InnerSpotAngle: 21.80208
-  m_CookieSize: 10
-  m_Shadows:
-    m_Type: 0
-    m_Resolution: -1
-    m_CustomResolution: -1
-    m_Strength: 1
-    m_Bias: 0.05
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
-    m_CullingMatrixOverride:
-      e00: 1
-      e01: 0
-      e02: 0
-      e03: 0
-      e10: 0
-      e11: 1
-      e12: 0
-      e13: 0
-      e20: 0
-      e21: 0
-      e22: 1
-      e23: 0
-      e30: 0
-      e31: 0
-      e32: 0
-      e33: 1
-    m_UseCullingMatrixOverride: 0
-  m_Cookie: {fileID: 0}
-  m_DrawHalo: 0
-  m_Flare: {fileID: 0}
-  m_RenderMode: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingLayerMask: 1
-  m_Lightmapping: 4
-  m_LightShadowCasterMode: 0
-  m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 2.93
-  m_ColorTemperature: 6570
-  m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
-  m_UseBoundingSphereOverride: 0
-  m_UseViewFrustumForShadowCasterCull: 1
-  m_ShadowRadius: 0
-  m_ShadowAngle: 0
 --- !u!1 &6654810973295008753
 GameObject:
   m_ObjectHideFlags: 0
@@ -6115,13 +6033,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7989723337942541542}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.437, y: 0.629, z: -0.038}
+  m_LocalRotation: {x: 0.671525, y: -0.49179423, z: 0.45714658, w: 0.31338426}
+  m_LocalPosition: {x: -1.77, y: 2.96, z: 1.95}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3260167142210197000}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 60.521, y: -218.409, z: -130.54}
 --- !u!108 &1115274178576857961
 Light:
   m_ObjectHideFlags: 0
@@ -6131,11 +6049,11 @@ Light:
   m_GameObject: {fileID: 7989723337942541542}
   m_Enabled: 1
   serializedVersion: 11
-  m_Type: 2
+  m_Type: 0
   m_Color: {r: 0.8773585, g: 0.6608589, b: 0, a: 1}
   m_Intensity: 2.7
-  m_Range: 2.2195184
-  m_SpotAngle: 30
+  m_Range: 2.8943045
+  m_SpotAngle: 53.19862
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:

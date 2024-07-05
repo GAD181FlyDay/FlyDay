@@ -2,15 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace PlayerOne
+namespace Player.One
 {
-
-
     public class PlayerController : MonoBehaviour
     {
         public Animator playerAnimator;
         public Rigidbody playerRigidbody;
-        public float dSpeed = 0.175f, rotateSpeed = 200;
+        public float dSpeed = 0.27f, rotateSpeed = 200;
         public float acceleration;
         private float currentSpeed = 0f;
         bool walking;
@@ -57,7 +55,12 @@ namespace PlayerOne
                 walking = playerAnimator.GetBool("Walking");
                 bool sneaking = playerAnimator.GetBool("Sneaking");
             }
-           
+            else if (playerAnimator == null)
+            {
+                Debug.Log("Won't play aniamtions");
+                return;
+            }
+
 
 
             if (Input.GetKey(KeyCode.W))
@@ -90,19 +93,26 @@ namespace PlayerOne
             {
                 playerAnimator.SetBool("Jumping", true);
             }
+
+            else
+            {
+                playerAnimator.SetBool("Jumping", false) ;
+            }
+
             if (Input.GetKey(KeyCode.C))
             {   
                 if (walking == true)
                 {
                     playerAnimator.SetBool("Sneaking", true);
-                    dSpeed = 0.05f;
+                    dSpeed = 0.07f;
                 }
 
             }
             else
             {
                 playerAnimator.SetBool("Sneaking", false);
-                dSpeed = 0.175f;
+                dSpeed = 0.27f;
+                // This player can walk faster than the other player.
             }
         }
     }

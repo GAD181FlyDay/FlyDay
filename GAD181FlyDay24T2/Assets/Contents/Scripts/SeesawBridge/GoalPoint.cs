@@ -10,6 +10,8 @@ public class GoalPoint : MonoBehaviour
         if (other.tag == "Player")
         {
             GoalPointManager.EnableGameOverUI();
+            Time.timeScale = 0f;
+            Debug.Log("Time has been paused");
         }
     }
 }

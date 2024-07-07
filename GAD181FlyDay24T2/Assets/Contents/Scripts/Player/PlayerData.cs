@@ -3,9 +3,9 @@ using UnityEngine;
 [System.Serializable]
 public class PlayerData
 {
-    public int playerLevel;
-    public float playerHealth;
-    public Vector3 playerPosition;
+    public int playerMoney;
+    public int playerMischief;
+   
 }
 
 public class PlayerDataManager : MonoBehaviour
@@ -19,9 +19,10 @@ public class PlayerDataManager : MonoBehaviour
 
     public void SavePlayerData()
     {
-        playerData.playerPosition = transform.position;
+
         PlayerPrefs.SetString("PlayerData", JsonUtility.ToJson(playerData));
         PlayerPrefs.Save();
+        Debug.Log("Saved");
     }
 
     public void LoadPlayerData()
@@ -29,7 +30,6 @@ public class PlayerDataManager : MonoBehaviour
         if (PlayerPrefs.HasKey("PlayerData"))
         {
             playerData = JsonUtility.FromJson<PlayerData>(PlayerPrefs.GetString("PlayerData"));
-            transform.position = playerData.playerPosition;
         }
     }
 

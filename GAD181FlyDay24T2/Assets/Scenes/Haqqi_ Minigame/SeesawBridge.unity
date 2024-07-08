@@ -616,6 +616,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e13c57158431bca48a31db8d4687e741, type: 3}
+--- !u!4 &550288175 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4162324074057881099, guid: e13c57158431bca48a31db8d4687e741, type: 3}
+  m_PrefabInstance: {fileID: 550288174}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &584102518
 GameObject:
   m_ObjectHideFlags: 0
@@ -1475,6 +1480,7 @@ GameObject:
   - component: {fileID: 1105767654}
   - component: {fileID: 1105767653}
   - component: {fileID: 1105767652}
+  - component: {fileID: 1105767655}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1549,13 +1555,28 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1105767651}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.21313305, y: -0, z: -0, w: 0.97702324}
-  m_LocalPosition: {x: 1.9690001, y: 1.222, z: -2.4680002}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.13, y: 0.62, z: -2.85}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 24.612, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1105767655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105767651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03658e00b409ba849b7294f4608c729f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player1: {fileID: 1807629283}
+  player2: {fileID: 550288175}
+  cameraSmoothSpeed: 0.125
 --- !u!1 &1120026080
 GameObject:
   m_ObjectHideFlags: 0
@@ -2328,6 +2349,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a3ce45b007f7244b9c175fbfea79cc6, type: 3}
+--- !u!4 &1807629283 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5443016217510239027, guid: 2a3ce45b007f7244b9c175fbfea79cc6, type: 3}
+  m_PrefabInstance: {fileID: 1807629282}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2140701707
 GameObject:
   m_ObjectHideFlags: 0

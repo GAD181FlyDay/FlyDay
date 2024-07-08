@@ -9,13 +9,13 @@ namespace XAndOMinigame
     /// It contains the following details: Button arrays, Checks if the players won or not, 
     /// Changes UI text,  and displays buttons.
     /// </summary>
+   
     public class XAndOLogic : MonoBehaviour
     {
         #region Variables
         [SerializeField] private Button[] buttons;
         [SerializeField] private TMP_Text[] buttonTexts;
-        [SerializeField] private Button restartButton;
-        [SerializeField] private Button exitButton;
+        [SerializeField] private GameObject endGamePanel;
         [SerializeField] private TMP_Text playerWonOrDrawText;
 
         private string _currentPlayer = "X";
@@ -25,9 +25,8 @@ namespace XAndOMinigame
 
         private void Start()
         {
-            // Hides the restart button and exit button from appearance.
-            restartButton.gameObject.SetActive(false);
-            exitButton.gameObject.SetActive(false);
+            // Hides the restart button and exit button within the panel from appearance.
+            endGamePanel.gameObject.SetActive(false);
         }
 
         #region Public Functions
@@ -120,8 +119,7 @@ namespace XAndOMinigame
             _moveCount = 0;
             _gameOver = false;
             playerWonOrDrawText.text = "";
-            restartButton.gameObject.SetActive(false);
-            exitButton.gameObject.SetActive(false);
+            endGamePanel.gameObject.SetActive(false);
         }
 
         public void ExitMinigame()
@@ -159,9 +157,8 @@ namespace XAndOMinigame
         #region Displays end game buttons.
         private void ShowEndGameButtons()
         {
-            // Show the restart button and the exit button when the game ends.
-            restartButton.gameObject.SetActive(true);
-            exitButton.gameObject.SetActive(true);
+            // Show the restart button and the exit button within the panel when the game ends.
+            endGamePanel.gameObject.SetActive(true);
         }
         #endregion
 

@@ -17,6 +17,11 @@ public class Scripts_Player_GenericInteractions : MonoBehaviour
 
     void Awake()
     {
+        if (PressE == null)
+        {
+            return;
+        }
+
         PressE.gameObject.SetActive(false);
     }
 
@@ -25,6 +30,11 @@ public class Scripts_Player_GenericInteractions : MonoBehaviour
         Ray interactRay = new Ray(playerModel.position, playerModel.forward);
 
         Debug.DrawLine(playerModel.position, playerModel.position + playerModel.forward * InteractRange, Color.red);
+
+        if(PressE == null)
+        {
+            return;
+        }
 
         if (Physics.Raycast(interactRay, out RaycastHit hitInfo, InteractRange, interactibleLayer))
         {

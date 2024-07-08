@@ -16,6 +16,7 @@ namespace SeesawBridge
         public float cameraSmoothSpeed = 0.125f;
         private float fixedXPosition;
         private float fixedYPosition;
+        private const float DistanceFromCamera = 1.2f;
         #endregion
 
         void Start()
@@ -41,7 +42,7 @@ namespace SeesawBridge
 
         private void AdjustCameraPosition(Vector3 midpoint)
         {
-            Vector3 targetPosition = new Vector3(fixedXPosition, fixedYPosition, midpoint.z - 0.8f);
+            Vector3 targetPosition = new Vector3(fixedXPosition, fixedYPosition, midpoint.z - DistanceFromCamera);
             Vector3 smoothPosition = Vector3.Lerp(transform.position, targetPosition, cameraSmoothSpeed);
             transform.position = smoothPosition;
         }

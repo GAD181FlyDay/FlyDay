@@ -10,17 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbee9beeb50adb74498cc76d28238f5e, type: 3}
-  m_Name: State_PacsonsHouse
+  m_Name: State_ReachedAirport
   m_EditorClassIdentifier: 
   stateType: 0
   narrativeEntries:
-  - 'Brother: Theo, Age: 12, Hobby: Playing with toy cars.'
-  - Theo watches TV.
-  - 'Sister: Cleo, Age: 17, Hobby: Reading romance novels.'
-  - Cleo packs her suitcase.
-  - /// 10 Minutes Later ... ///
-  - Cleo books a taxi.
-  - She soon notices that Theo's suitcase remained unpacked.
-  - Cleo yells at Theo for not packing his suitcase.
-  - 'Cleo: "#$!!?#@@!!!"'
-  nextState: 1
+  - The siblings head towards the Passport control area.
+  nextState: 0

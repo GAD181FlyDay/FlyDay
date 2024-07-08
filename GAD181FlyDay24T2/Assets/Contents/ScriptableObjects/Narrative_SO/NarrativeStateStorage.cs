@@ -17,6 +17,8 @@ namespace Narrative
             PacsonsHouse,
             Taxi,
             ReachedAirport,
+            PassportControl,
+            LuggageCheck,
             InsideAirport,
             ReachedDutyFree,
             PlaneBoarded,

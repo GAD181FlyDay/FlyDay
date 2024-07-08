@@ -10,9 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbee9beeb50adb74498cc76d28238f5e, type: 3}
-  m_Name: State_Taxi
+  m_Name: State_PlaneBoarded
   m_EditorClassIdentifier: 
-  stateType: 1
-  narrativeEntries:
-  - 'Cleo: Taxi is here!'
-  nextState: 2
+  stateType: 7
+  narrativeEntries: []
+  nextState: 8

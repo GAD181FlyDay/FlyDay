@@ -93,7 +93,7 @@ namespace Player.Tw0
                 if (walking == true)
                 {
                     playerAnimator.SetBool("Sneaking", true);
-                    dSpeed = 0.05f;
+                    dSpeed = 0.2f;
                 }
 
             }

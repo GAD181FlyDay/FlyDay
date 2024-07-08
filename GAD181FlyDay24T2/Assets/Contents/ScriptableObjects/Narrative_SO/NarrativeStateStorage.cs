@@ -4,20 +4,29 @@ using UnityEngine;
 
 namespace Narrative
 {
+    /// <summary>
+    /// This is a Scriptable object that stores Narrative related data.
+    /// </summary>
 
-
-    public class NarrativeStateStorage : MonoBehaviour
+    #region Enum
+    public enum NarrativeStates
     {
-        // Start is called before the first frame update
-        void Start()
-        {
+        PacsonsHouse,
+        Taxi,
+        ReachedAirport,
+        InsideAirport,
+        ReachedDutyFree,
+        PlaneBoarded,
+        FinchsHouse
+        // Add more stages as needed
+    }
+    #endregion
 
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
+    [CreateAssetMenu(fileName = "NarrativeStateData")]
+    public class NarrativeStateStorage : ScriptableObject
+    {
+        public NarrativeStates stateType; // What state is it right now?
+        public string[] narrativeEntries; // What narrative is related to that state?
+        public NarrativeStates nextState; // What state is it after the narrative has been played?
     }
 }

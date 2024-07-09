@@ -1605,6 +1605,7 @@ GameObject:
   - component: {fileID: 695733723}
   - component: {fileID: 695733724}
   - component: {fileID: 695733725}
+  - component: {fileID: 695733726}
   m_Layer: 0
   m_Name: --- Script Holder ---
   m_TagString: Untagged
@@ -1654,6 +1655,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameDuration: 120
   timerText: {fileID: 380366898}
+  minigameManager: {fileID: 695733726}
+--- !u!114 &695733726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 695733722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f30bac45c70de5a439192b3f0b232044, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endGamePanel: {fileID: 1093549928}
 --- !u!1 &761383594
 GameObject:
   m_ObjectHideFlags: 0
@@ -2005,37 +2020,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &940032570
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 940032572}
-  m_Layer: 0
-  m_Name: SideScriptsHolder
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &940032572
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 940032570}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.715727, y: 6.1044097, z: -11.537388}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &965325941
 GameObject:
   m_ObjectHideFlags: 0
@@ -2285,7 +2269,7 @@ GameObject:
   - component: {fileID: 1093549931}
   - component: {fileID: 1093549930}
   m_Layer: 5
-  m_Name: EndGameOptions
+  m_Name: EndGamePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3625,7 +3609,6 @@ SceneRoots:
   - {fileID: 761383597}
   - {fileID: 1529691762}
   - {fileID: 695733723}
-  - {fileID: 940032572}
   - {fileID: 1159115776}
   - {fileID: 1248658763}
   - {fileID: 678854597}

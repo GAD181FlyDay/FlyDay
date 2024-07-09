@@ -1,51 +1,65 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class RandomRotation : MonoBehaviour
 {
-
     public bool hasRotated;
-    [SerializeField] Rigidbody playerRb;
+    public float rotationSpeed;
+    public GameObject panel;
+    public GameObject losePanel;
     void Start()
     {
+        Time.timeScale = 1;
         StartCoroutine(RotationLoop());
     }
-
-    
     void Update()
     {
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
-        if (hasRotated && horizontal > 0 || hasRotated && horizontal < 0 || hasRotated && vertical > 0 || hasRotated && vertical < 0 )
+        if (hasRotated && horizontal > 0 || hasRotated && horizontal < 0 || hasRotated && vertical > 0 || hasRotated && vertical < 0)
         {
-            Debug.Log("You Lose");
+            panel.SetActive(true);
+            losePanel.SetActive(true);
+            if (Time.timeScale == 1)
+            {
+                Time.timeScale = 0;
+            }
+            
         }
-        Debug.Log(horizontal + " " + vertical);
     }
-
-    IEnumerator RotationLoop ()
+    IEnumerator RotationLoop()
     {
         while (true)
         {
-            float randomTime = Random.Range(1.0f, 10.0f);
-            
+            float randomTime = Random.Range(2.0f, 15.0f);
             yield return new WaitForSeconds(randomTime);
-            float randomChance = Random.Range(1.0f, 10.0f);
-            
-            if (randomChance > 5) 
+            if (!hasRotated)
             {
+                yield return RotateEnemy(180);
                 hasRotated = true;
-                RotateEnemy(180);
             }
-            yield return new WaitForSeconds(5);
-            RotateEnemy(-180);
-            hasRotated = false;
+            float randomTimeToBack = Random.Range(2.0f, 10f);
+            yield return new WaitForSeconds(randomTimeToBack);
+            if (hasRotated)
+            {
+                yield return RotateEnemy(-180);
+                hasRotated = false;
+            }
         }
     }
-
-    void RotateEnemy (float rotationAmount)
+    IEnumerator RotateEnemy(float rotationAmount)
     {
-        transform.Rotate(0, rotationAmount, 0);
+        Quaternion rotation = transform.rotation;
+        Quaternion targetRotation = transform.rotation * Quaternion.Euler(0, rotationAmount, 0);
+        float timelapse = 0;
+
+        while (timelapse < Mathf.Abs(rotationAmount) / rotationSpeed) 
+        {
+            transform.rotation = Quaternion.Slerp(rotation, targetRotation, timelapse / (Mathf.Abs(rotationAmount) / rotationSpeed));
+            timelapse += Time.deltaTime;
+            yield return null;
+
+        }
+        transform.rotation = targetRotation;
     }
 }

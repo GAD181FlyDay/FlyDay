@@ -8,6 +8,7 @@ TagManager:
   - StickTogether
   - FirstPlayerCamera
   - SecondPlayerCamera
+  - MatchArea
   layers:
   - Default
   - TransparentFX

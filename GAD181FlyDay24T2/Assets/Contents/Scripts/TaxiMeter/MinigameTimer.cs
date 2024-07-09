@@ -13,7 +13,9 @@ namespace TaxiMeter
         #region Variables
         public float gameDuration = 120f; // The game is 2 minutes long for now.
         [SerializeField] private TMP_Text timerText; // UI to display the timer on, might remove it.
+        [SerializeField] private MinigameManager minigameManager;
         private float _remainingTime; // Remaining game time which helps with timer calculations.
+        
         #endregion
 
         private void Start()
@@ -31,7 +33,7 @@ namespace TaxiMeter
 
                 if (_remainingTime <= 0)
                 {
-                    EndGame();
+                    minigameManager.EndGame();
                 }
             }
         }

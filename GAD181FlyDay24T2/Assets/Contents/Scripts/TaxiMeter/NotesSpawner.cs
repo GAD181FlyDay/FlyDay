@@ -12,17 +12,13 @@ namespace TaxiMeter
     {
         #region Variables
         public GameObject[] notePrefabs;
+        [SerializeField] private Transform spawnPoint;
         [SerializeField] private float spawnRate = 1f;
         [SerializeField] private PlayerKeysHandler playerKeysHandlerOne;
         [SerializeField] private PlayerKeysHandler playerKeysHandlerTwo;
         private float _nextSpawnTime;  // Time at which the next note should spawn by.
         
         #endregion
-
-        private void Start()
-        {
-            _nextSpawnTime = Time.time + spawnRate;
-        }
 
         private void Update()
         {
@@ -48,14 +44,11 @@ namespace TaxiMeter
             /// Responsible for spawning random notes. Will provide it with 
             /// 4 positions to randomly spawn from.
             /// </summary>
-            int noteCount = Random.Range(1, 5); // Randomly determine how many notes to spawn
-            for (int i = 0; i < noteCount; i++)
-            {
-                int randomIndex = Random.Range(0, notePrefabs.Length);
-                Instantiate(notePrefabs[randomIndex], transform.position, Quaternion.identity);
-            }
-            playerKeysHandlerOne.SetMaxInputs(noteCount);
-            playerKeysHandlerTwo.SetMaxInputs(noteCount);
+            int noteIndex = Random.Range(0, notePrefabs.Length);
+            Instantiate(notePrefabs[noteIndex], spawnPoint.position, Quaternion.identity);
+        
+            playerKeysHandlerOne.SetMaxInputs(2);
+            playerKeysHandlerTwo.SetMaxInputs(2);
         }
         #endregion
     }

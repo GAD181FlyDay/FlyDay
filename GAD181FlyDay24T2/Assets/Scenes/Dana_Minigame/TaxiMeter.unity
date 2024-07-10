@@ -1028,7 +1028,8 @@ MonoBehaviour:
   - {fileID: 5095083083977584042, guid: 74eb276fc697d994eb0ae585b05e0ef7, type: 3}
   - {fileID: 7937362451734021800, guid: 6b5c616176a7d32419ef824f71ff5258, type: 3}
   - {fileID: 6985949319007859545, guid: 296e41167096a544a8538b46863daf7e, type: 3}
-  spawnRate: 2
+  spawnPoint: {fileID: 557477551}
+  spawnRate: 1.5
   playerKeysHandlerOne: {fileID: 1248658762}
   playerKeysHandlerTwo: {fileID: 678854596}
 --- !u!1 &576715030
@@ -1443,6 +1444,7 @@ MonoBehaviour:
   - {fileID: 5095083083977584042, guid: 74eb276fc697d994eb0ae585b05e0ef7, type: 3}
   - {fileID: 7937362451734021800, guid: 6b5c616176a7d32419ef824f71ff5258, type: 3}
   - {fileID: 6985949319007859545, guid: 296e41167096a544a8538b46863daf7e, type: 3}
+  spawnPoint: {fileID: 630315242}
   spawnRate: 2
   playerKeysHandlerOne: {fileID: 1248658762}
   playerKeysHandlerTwo: {fileID: 678854596}
@@ -1961,7 +1963,8 @@ MonoBehaviour:
   - {fileID: 5095083083977584042, guid: 74eb276fc697d994eb0ae585b05e0ef7, type: 3}
   - {fileID: 7937362451734021800, guid: 6b5c616176a7d32419ef824f71ff5258, type: 3}
   - {fileID: 6985949319007859545, guid: 296e41167096a544a8538b46863daf7e, type: 3}
-  spawnRate: 2
+  spawnPoint: {fileID: 908634577}
+  spawnRate: 1
   playerKeysHandlerOne: {fileID: 1248658762}
   playerKeysHandlerTwo: {fileID: 678854596}
 --- !u!1 &923085561
@@ -2400,7 +2403,8 @@ MonoBehaviour:
   - {fileID: 5095083083977584042, guid: 74eb276fc697d994eb0ae585b05e0ef7, type: 3}
   - {fileID: 7937362451734021800, guid: 6b5c616176a7d32419ef824f71ff5258, type: 3}
   - {fileID: 6985949319007859545, guid: 296e41167096a544a8538b46863daf7e, type: 3}
-  spawnRate: 2
+  spawnPoint: {fileID: 1113022129}
+  spawnRate: 2.5
   playerKeysHandlerOne: {fileID: 1248658762}
   playerKeysHandlerTwo: {fileID: 678854596}
 --- !u!1 &1159115775

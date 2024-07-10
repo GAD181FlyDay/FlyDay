@@ -1445,7 +1445,7 @@ MonoBehaviour:
   - {fileID: 7937362451734021800, guid: 6b5c616176a7d32419ef824f71ff5258, type: 3}
   - {fileID: 6985949319007859545, guid: 296e41167096a544a8538b46863daf7e, type: 3}
   spawnPoint: {fileID: 630315242}
-  spawnRate: 2
+  spawnRate: 4
   playerKeysHandlerOne: {fileID: 1248658762}
   playerKeysHandlerTwo: {fileID: 678854596}
 --- !u!1 &634516575
@@ -1613,7 +1613,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f0659464b7643e43a011da254cb276c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: 0
+  player: 1
   matchAreaCollider: {fileID: 965325946}
   taxiMeter: {fileID: 695733724}
 --- !u!4 &678854597
@@ -1964,7 +1964,7 @@ MonoBehaviour:
   - {fileID: 7937362451734021800, guid: 6b5c616176a7d32419ef824f71ff5258, type: 3}
   - {fileID: 6985949319007859545, guid: 296e41167096a544a8538b46863daf7e, type: 3}
   spawnPoint: {fileID: 908634577}
-  spawnRate: 1
+  spawnRate: 5
   playerKeysHandlerOne: {fileID: 1248658762}
   playerKeysHandlerTwo: {fileID: 678854596}
 --- !u!1 &923085561

@@ -1,4 +1,3 @@
-using OpenCover.Framework.Model;
 using UnityEngine;
 
 namespace TaxiMeter
@@ -13,8 +12,11 @@ namespace TaxiMeter
         public enum Player { PlayerOne, PlayerTwo }
         public Player player;
 
-        public Collider2D matchAreaCollider; // Collider for the match area.
+        public Collider matchAreaCollider; // Collider for the match area.
         public TaxiMeterBaseLogic taxiMeter; // Reference to the TaxiMeterBaseLogic script.
+
+        private int inputCounter = 0; // Tracks the number of inputs
+        private int maxInputs = 0; // Max inputs based on spawned notes
 
         private const float CorrectlyMatchedNoteMeterValue = 0.25f;
         private const float IncorrectlyMatchedNoteMeterValue = 1.5f;
@@ -36,38 +38,38 @@ namespace TaxiMeter
             ///</ summary >
             if (player == Player.PlayerOne)
             {
-                if (Input.GetKeyDown(KeyCode.W))
+                if (Input.GetKeyDown(KeyCode.W) && inputCounter < maxInputs)
                 {
                     CheckMatch("W");
                 }
-                else if (Input.GetKeyDown(KeyCode.A))
+                else if (Input.GetKeyDown(KeyCode.A) && inputCounter < maxInputs)
                 {
                     CheckMatch("A");
                 }
-                else if (Input.GetKeyDown(KeyCode.S))
+                else if (Input.GetKeyDown(KeyCode.S) && inputCounter < maxInputs)
                 {
                     CheckMatch("S");
                 }
-                else if (Input.GetKeyDown(KeyCode.D))
+                else if (Input.GetKeyDown(KeyCode.D) && inputCounter < maxInputs)
                 {
                     CheckMatch("D");
                 }
             }
             else if (player == Player.PlayerTwo)
             {
-                if (Input.GetKeyDown(KeyCode.UpArrow))
+                if (Input.GetKeyDown(KeyCode.UpArrow) && inputCounter < maxInputs)
                 {
                     CheckMatch("Up");
                 }
-                else if (Input.GetKeyDown(KeyCode.LeftArrow))
+                else if (Input.GetKeyDown(KeyCode.LeftArrow) && inputCounter < maxInputs) 
                 {
                     CheckMatch("Left");
                 }
-                else if (Input.GetKeyDown(KeyCode.DownArrow))
+                else if (Input.GetKeyDown(KeyCode.DownArrow) && inputCounter < maxInputs)
                 {
                     CheckMatch("Down");
                 }
-                else if (Input.GetKeyDown(KeyCode.RightArrow))
+                else if (Input.GetKeyDown(KeyCode.RightArrow) && inputCounter < maxInputs)
                 {
                     CheckMatch("Right");
                 }
@@ -78,7 +80,9 @@ namespace TaxiMeter
             /// <summary>
             /// Checks if the note is within the match area collider by checking all colliders in the notes.
             /// </summary> 
-            Collider2D[] colliders = Physics2D.OverlapPointAll(transform.position);
+            inputCounter++;
+            Bounds matchAreaBounds = matchAreaCollider.bounds;
+            Collider[] colliders = Physics.OverlapSphere(transform.position, 0.1f); // Use a small sphere to detect the note
             foreach (var collider in colliders)
             {
                 if (collider == matchAreaCollider)
@@ -102,6 +106,13 @@ namespace TaxiMeter
             // Note was not in match area.
             taxiMeter.AdjustMeter(IncorrectlyMatchedNoteMeterValue); // Incorrect match therefore add incorrect amount to meter.
         }
+
+        public void SetMaxInputs(int maxInputs)
+        {
+            this.maxInputs = maxInputs;
+            inputCounter = 0; // Reset input counter each time new notes are spawned
+        }
+
         #endregion
     }
 }

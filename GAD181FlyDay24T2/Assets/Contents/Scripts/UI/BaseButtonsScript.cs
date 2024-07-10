@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
-namespace UI
+namespace UnityEngine.EventSystems
 {
     /// <summary>
     /// This is the base UI script. 
@@ -15,6 +16,7 @@ namespace UI
         #region Variables.
         [SerializeField] private GameObject optionsPanel;
         [SerializeField] private GameObject creditsPanel;
+        [SerializeField] private GameObject lastSelectedButton;
 
         #endregion
 
@@ -40,12 +42,14 @@ namespace UI
         {
             optionsPanel.SetActive(true);
         }
+
         /// <summary>
         /// Turns off the options panel.
         /// </summary>
         public void TurnOffOptionPanel()
         {
             optionsPanel.SetActive(false);
+            EventSystem.current.SetSelectedGameObject(lastSelectedButton);
         }
         #endregion
 
@@ -65,7 +69,7 @@ namespace UI
         public void TurnOffCreditsPanel()
         {
             creditsPanel.SetActive(false);
-        }    
+        }
 
         #endregion
 

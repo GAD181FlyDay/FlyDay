@@ -13,12 +13,15 @@ namespace TaxiMeter
         #region Variables
         public GameObject[] notePrefabs;
         [SerializeField] private float spawnRate = 1f;
-        private float nextSpawnTime;  // Time at which the next note should spawn by.
+        [SerializeField] private PlayerKeysHandler playerKeysHandlerOne;
+        [SerializeField] private PlayerKeysHandler playerKeysHandlerTwo;
+        private float _nextSpawnTime;  // Time at which the next note should spawn by.
+        
         #endregion
 
         private void Start()
         {
-            nextSpawnTime = Time.time + spawnRate;
+            _nextSpawnTime = Time.time + spawnRate;
         }
 
         private void Update()
@@ -32,10 +35,10 @@ namespace TaxiMeter
             /// <summary>
             /// Spawns a note each second. The value is to be changed.
             /// </summary>
-            if (Time.time >= nextSpawnTime)
+            if (Time.time >= _nextSpawnTime)
             {
                 SpawnNote();
-                nextSpawnTime = Time.time + spawnRate;
+                _nextSpawnTime = Time.time + spawnRate;
             }
         }
 
@@ -45,8 +48,14 @@ namespace TaxiMeter
             /// Responsible for spawning random notes. Will provide it with 
             /// 4 positions to randomly spawn from.
             /// </summary>
-            int randomIndex = Random.Range(0, notePrefabs.Length);
-            Instantiate(notePrefabs[randomIndex], transform.position, Quaternion.identity);
+            int noteCount = Random.Range(1, 5); // Randomly determine how many notes to spawn
+            for (int i = 0; i < noteCount; i++)
+            {
+                int randomIndex = Random.Range(0, notePrefabs.Length);
+                Instantiate(notePrefabs[randomIndex], transform.position, Quaternion.identity);
+            }
+            playerKeysHandlerOne.SetMaxInputs(noteCount);
+            playerKeysHandlerTwo.SetMaxInputs(noteCount);
         }
         #endregion
     }

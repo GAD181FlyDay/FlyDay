@@ -13,31 +13,36 @@ namespace TaxiMeter
         #region Variables
         public float gameDuration = 120f; // The game is 2 minutes long for now.
         [SerializeField] private TMP_Text timerText; // UI to display the timer on, might remove it.
+        [SerializeField] private MinigameManager minigameManager;
         private float _remainingTime; // Remaining game time which helps with timer calculations.
+        
         #endregion
 
         private void Start()
         {
-            // Remaining time variable assigned with a value.
-            // Set the timer's text to the remaining time text.
+            _remainingTime = gameDuration;
             UpdateTimerText();
         }
 
         private void Update()
         {
-            // Keeps checking if the timer has run out.
+            if (_remainingTime > 0)
+            {
+                _remainingTime -= Time.deltaTime;
+                UpdateTimerText();
+
+                if (_remainingTime <= 0)
+                {
+                    minigameManager.EndGame();
+                }
+            }
         }
 
         #region Private Functions
 
         private void UpdateTimerText()
         {
-            // Timer text updator, if i decide to display the text :P.
-        }
-
-        private void EndGame()
-        {
-            // show end game panel which shows the final money loss.
+            timerText.text = "Time: " + Mathf.Max(0, _remainingTime).ToString("0.00");
         }
 
         #endregion

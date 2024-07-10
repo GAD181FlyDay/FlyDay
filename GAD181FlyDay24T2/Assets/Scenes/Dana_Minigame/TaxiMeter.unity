@@ -154,7 +154,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -80, y: -0.000061035156}
+  m_AnchoredPosition: {x: -80, y: -0.00012207031}
   m_SizeDelta: {x: 503.356, y: 350}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &195501926
@@ -984,7 +984,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 557477551}
-  - component: {fileID: 557477552}
   m_Layer: 0
   m_Name: 'NoteFourSpawner '
   m_TagString: Untagged
@@ -1007,31 +1006,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1159115776}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &557477552
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 557477548}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c97375f8725ea004db393a5dc3c36f95, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  notePrefabs:
-  - {fileID: 6306857759127912309, guid: f8715ac1b0939cb42b96b87179c2805a, type: 3}
-  - {fileID: 2757076159164834386, guid: 8ae9b2a48340c6b40a4a6b144ab2be8a, type: 3}
-  - {fileID: 3412864879023794170, guid: 2b9591a351abb0e47b65006b56ca0f06, type: 3}
-  - {fileID: 2035658329821475630, guid: b7abec0b724fa8b40b8bc44535a28231, type: 3}
-  - {fileID: 2786094779867722491, guid: 090eba701594bd94493786eeb9854d4e, type: 3}
-  - {fileID: 5095083083977584042, guid: 74eb276fc697d994eb0ae585b05e0ef7, type: 3}
-  - {fileID: 7937362451734021800, guid: 6b5c616176a7d32419ef824f71ff5258, type: 3}
-  - {fileID: 6985949319007859545, guid: 296e41167096a544a8538b46863daf7e, type: 3}
-  spawnPoint: {fileID: 557477551}
-  spawnRate: 1.5
-  playerKeysHandlerOne: {fileID: 1248658762}
-  playerKeysHandlerTwo: {fileID: 678854596}
 --- !u!1 &576715030
 GameObject:
   m_ObjectHideFlags: 0
@@ -1400,7 +1374,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 630315242}
-  - component: {fileID: 630315243}
   m_Layer: 0
   m_Name: NoteThreeSpawner
   m_TagString: Untagged
@@ -1423,31 +1396,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1159115776}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &630315243
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 630315239}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c97375f8725ea004db393a5dc3c36f95, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  notePrefabs:
-  - {fileID: 6306857759127912309, guid: f8715ac1b0939cb42b96b87179c2805a, type: 3}
-  - {fileID: 2757076159164834386, guid: 8ae9b2a48340c6b40a4a6b144ab2be8a, type: 3}
-  - {fileID: 3412864879023794170, guid: 2b9591a351abb0e47b65006b56ca0f06, type: 3}
-  - {fileID: 2035658329821475630, guid: b7abec0b724fa8b40b8bc44535a28231, type: 3}
-  - {fileID: 2786094779867722491, guid: 090eba701594bd94493786eeb9854d4e, type: 3}
-  - {fileID: 5095083083977584042, guid: 74eb276fc697d994eb0ae585b05e0ef7, type: 3}
-  - {fileID: 7937362451734021800, guid: 6b5c616176a7d32419ef824f71ff5258, type: 3}
-  - {fileID: 6985949319007859545, guid: 296e41167096a544a8538b46863daf7e, type: 3}
-  spawnPoint: {fileID: 630315242}
-  spawnRate: 4
-  playerKeysHandlerOne: {fileID: 1248658762}
-  playerKeysHandlerTwo: {fileID: 678854596}
 --- !u!1 &634516575
 GameObject:
   m_ObjectHideFlags: 0
@@ -1963,10 +1911,13 @@ MonoBehaviour:
   - {fileID: 5095083083977584042, guid: 74eb276fc697d994eb0ae585b05e0ef7, type: 3}
   - {fileID: 7937362451734021800, guid: 6b5c616176a7d32419ef824f71ff5258, type: 3}
   - {fileID: 6985949319007859545, guid: 296e41167096a544a8538b46863daf7e, type: 3}
-  spawnPoint: {fileID: 908634577}
+  spawnPoints:
+  - {fileID: 908634577}
+  - {fileID: 1113022129}
+  - {fileID: 630315242}
+  - {fileID: 557477551}
   spawnRate: 5
-  playerKeysHandlerOne: {fileID: 1248658762}
-  playerKeysHandlerTwo: {fileID: 678854596}
+  spawnInterval: 1
 --- !u!1 &923085561
 GameObject:
   m_ObjectHideFlags: 0
@@ -2359,7 +2310,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1113022129}
-  - component: {fileID: 1113022130}
   m_Layer: 0
   m_Name: NoteTwoSpawner
   m_TagString: Untagged
@@ -2382,31 +2332,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1159115776}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1113022130
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1113022126}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c97375f8725ea004db393a5dc3c36f95, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  notePrefabs:
-  - {fileID: 6306857759127912309, guid: f8715ac1b0939cb42b96b87179c2805a, type: 3}
-  - {fileID: 2757076159164834386, guid: 8ae9b2a48340c6b40a4a6b144ab2be8a, type: 3}
-  - {fileID: 3412864879023794170, guid: 2b9591a351abb0e47b65006b56ca0f06, type: 3}
-  - {fileID: 2035658329821475630, guid: b7abec0b724fa8b40b8bc44535a28231, type: 3}
-  - {fileID: 2786094779867722491, guid: 090eba701594bd94493786eeb9854d4e, type: 3}
-  - {fileID: 5095083083977584042, guid: 74eb276fc697d994eb0ae585b05e0ef7, type: 3}
-  - {fileID: 7937362451734021800, guid: 6b5c616176a7d32419ef824f71ff5258, type: 3}
-  - {fileID: 6985949319007859545, guid: 296e41167096a544a8538b46863daf7e, type: 3}
-  spawnPoint: {fileID: 1113022129}
-  spawnRate: 2.5
-  playerKeysHandlerOne: {fileID: 1248658762}
-  playerKeysHandlerTwo: {fileID: 678854596}
 --- !u!1 &1159115775
 GameObject:
   m_ObjectHideFlags: 0

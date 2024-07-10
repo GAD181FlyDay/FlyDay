@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 namespace TaxiMeter
@@ -12,12 +13,12 @@ namespace TaxiMeter
     {
         #region Variables
         public GameObject[] notePrefabs;
-        [SerializeField] private Transform spawnPoint;
-        [SerializeField] private float spawnRate = 1f;
-        [SerializeField] private PlayerKeysHandler playerKeysHandlerOne;
-        [SerializeField] private PlayerKeysHandler playerKeysHandlerTwo;
-        private float _nextSpawnTime;  // Time at which the next note should spawn by.
-        
+        public Transform[] spawnPoints;
+        public float spawnInterval = 1.0f;
+        private float timer = 0.0f;
+
+        public static List<GameObject> activeNotes = new List<GameObject>();
+
         #endregion
 
         private void Update()
@@ -31,10 +32,11 @@ namespace TaxiMeter
             /// <summary>
             /// Spawns a note each second. The value is to be changed.
             /// </summary>
-            if (Time.time >= _nextSpawnTime)
+            timer += Time.deltaTime;
+            if (timer >= spawnInterval)
             {
                 SpawnNote();
-                _nextSpawnTime = Time.time + spawnRate;
+                timer = 0.0f;
             }
         }
 
@@ -44,11 +46,12 @@ namespace TaxiMeter
             /// Responsible for spawning random notes. Will provide it with 
             /// 4 positions to randomly spawn from.
             /// </summary>
-            int noteIndex = Random.Range(0, notePrefabs.Length);
-            Instantiate(notePrefabs[noteIndex], spawnPoint.position, Quaternion.identity);
-        
-            playerKeysHandlerOne.SetMaxInputs(2);
-            playerKeysHandlerTwo.SetMaxInputs(2);
+            int randomIndex = Random.Range(0, notePrefabs.Length);
+            int spawnPointIndex = Random.Range(0, spawnPoints.Length);
+
+            GameObject note = Instantiate(notePrefabs[randomIndex], spawnPoints[spawnPointIndex].position, Quaternion.identity);
+            note.GetComponent<Notes>().noteType = notePrefabs[randomIndex].name;
+            activeNotes.Add(note);
         }
         #endregion
     }

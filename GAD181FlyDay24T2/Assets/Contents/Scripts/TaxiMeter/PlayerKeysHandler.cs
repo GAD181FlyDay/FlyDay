@@ -18,7 +18,7 @@ namespace TaxiMeter
 
 
         private int inputCounter = 0; // Tracks the number of inputs
-        private int maxInputs = 0; // Max inputs based on spawned notes
+        private int maxInputs = 4; // Max inputs based on spawned notes
 
         private float inputCooldown = 0f;
         private float cooldownTime = 0.1f;
@@ -30,6 +30,14 @@ namespace TaxiMeter
         {
             BothPlayersInputchecker();
         }
+
+        #region Public Functions
+        public void SetMaxInputs(int maxInputs)
+        {
+            this.maxInputs = maxInputs;
+            inputCounter = 0; // Reset input counter each time new notes are spawned.
+        }
+        #endregion
 
         #region Private Functions
         private void BothPlayersInputchecker()
@@ -121,34 +129,35 @@ namespace TaxiMeter
 
             inputCounter++;
 
-            GameObject noteObject = GameObject.Find(note + "Notes");
-            if (noteObject != null)
+            bool matched = false;
+            float matchThreshold = 0.5f; // Adjust this value based on your match area size
+            foreach (GameObject activeNote in NotesSpawner.activeNotes)
             {
-                if (noteObject != null && noteObject.GetComponent<Notes>().isInMatchArea)
+                if (activeNote.GetComponent<Notes>().noteType == note)
                 {
-                    taxiMeter.AdjustMeter(CorrectlyMatchedNoteMeterValue);
-                    Destroy(noteObject);
-                    Debug.Log("Matched: " + note);
-                }
-                else
-                {
-                    taxiMeter.AdjustMeter(IncorrectlyMatchedNoteMeterValue);
-                    Debug.Log("Not matched: " + note + " (Not in MatchArea)");
+                    float distance = Mathf.Abs(activeNote.transform.position.y - transform.position.y);
+                    if (distance <= matchThreshold)
+                    {
+                        matched = true;
+                        taxiMeter.AdjustMeter(CorrectlyMatchedNoteMeterValue);
+                        Destroy(activeNote);
+                        NotesSpawner.activeNotes.Remove(activeNote);
+                        Debug.Log("Matched: " + note);
+                        break;
+                    }
                 }
             }
-            else
+
+            if (!matched)
             {
                 taxiMeter.AdjustMeter(IncorrectlyMatchedNoteMeterValue);
-                Debug.Log("Not matched: " + note + " (No note found)");
+                Debug.Log("Not matched: " + note);
             }
         }
 
-        public void SetMaxInputs(int maxInputs)
-        {
-            this.maxInputs = maxInputs;
-            inputCounter = 0; // Reset input counter each time new notes are spawned
-        }
+        
 
         #endregion
+        
     }
 }

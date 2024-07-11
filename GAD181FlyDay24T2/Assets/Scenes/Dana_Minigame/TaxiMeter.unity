@@ -1426,7 +1426,7 @@ GameObject:
   - component: {fileID: 695733727}
   - component: {fileID: 695733728}
   m_Layer: 0
-  m_Name: --- Script Holder ---
+  m_Name: --- Scripts Holder ---
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

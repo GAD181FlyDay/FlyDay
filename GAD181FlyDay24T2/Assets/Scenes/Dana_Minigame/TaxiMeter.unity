@@ -985,7 +985,7 @@ GameObject:
   m_Component:
   - component: {fileID: 557477551}
   m_Layer: 0
-  m_Name: 'NoteFourSpawner '
+  m_Name: 03_NotesSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1375,7 +1375,7 @@ GameObject:
   m_Component:
   - component: {fileID: 630315242}
   m_Layer: 0
-  m_Name: NoteThreeSpawner
+  m_Name: 02_NotesSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1869,7 +1869,7 @@ GameObject:
   - component: {fileID: 908634577}
   - component: {fileID: 908634578}
   m_Layer: 0
-  m_Name: NoteOneSpawner
+  m_Name: 00_NotesSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1902,21 +1902,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c97375f8725ea004db393a5dc3c36f95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  notePrefabs:
+  wasdNotePrefabs:
+  - {fileID: 6985949319007859545, guid: 296e41167096a544a8538b46863daf7e, type: 3}
   - {fileID: 6306857759127912309, guid: f8715ac1b0939cb42b96b87179c2805a, type: 3}
+  - {fileID: 5095083083977584042, guid: 74eb276fc697d994eb0ae585b05e0ef7, type: 3}
   - {fileID: 2757076159164834386, guid: 8ae9b2a48340c6b40a4a6b144ab2be8a, type: 3}
+  arrowNotePrefabs:
   - {fileID: 3412864879023794170, guid: 2b9591a351abb0e47b65006b56ca0f06, type: 3}
   - {fileID: 2035658329821475630, guid: b7abec0b724fa8b40b8bc44535a28231, type: 3}
   - {fileID: 2786094779867722491, guid: 090eba701594bd94493786eeb9854d4e, type: 3}
-  - {fileID: 5095083083977584042, guid: 74eb276fc697d994eb0ae585b05e0ef7, type: 3}
   - {fileID: 7937362451734021800, guid: 6b5c616176a7d32419ef824f71ff5258, type: 3}
-  - {fileID: 6985949319007859545, guid: 296e41167096a544a8538b46863daf7e, type: 3}
-  spawnPoints:
+  wasdSpawnPoints:
   - {fileID: 908634577}
   - {fileID: 1113022129}
+  arrowSpawnPoints:
   - {fileID: 630315242}
   - {fileID: 557477551}
-  spawnRate: 5
   spawnInterval: 1
 --- !u!1 &923085561
 GameObject:
@@ -2039,8 +2040,8 @@ Transform:
   m_GameObject: {fileID: 965325941}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -119.06, y: -121.829445, z: -7.72}
-  m_LocalScale: {x: 18.594328, y: 1.3861793, z: 1}
+  m_LocalPosition: {x: -119.06, y: -121.829445, z: -0.14}
+  m_LocalScale: {x: 18.594328, y: 1.3861793, z: 3.8516}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1159115776}
@@ -2311,7 +2312,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1113022129}
   m_Layer: 0
-  m_Name: NoteTwoSpawner
+  m_Name: 01_NotesSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -12,8 +12,14 @@ namespace TaxiMeter
     public class NotesSpawner : MonoBehaviour
     {
         #region Variables
-        public GameObject[] notePrefabs;
-        public Transform[] spawnPoints;
+        // Separate note prefabs.
+        [SerializeField] private GameObject[] wasdNotePrefabs;
+        [SerializeField] private GameObject[] arrowNotePrefabs;
+
+        //Separate note spawn points.
+        [SerializeField] private Transform[] wasdSpawnPoints;     
+        [SerializeField] private Transform[] arrowSpawnPoints;
+
         public float spawnInterval = 1.0f;
         private float timer = 0.0f;
 
@@ -43,15 +49,26 @@ namespace TaxiMeter
         private void SpawnNote()
         {
             ///<summary>
-            /// Responsible for spawning random notes. Will provide it with 
-            /// 4 positions to randomly spawn from.
+            /// Responsible for spawning random notes.
             /// </summary>
-            int randomIndex = Random.Range(0, notePrefabs.Length);
-            int spawnPointIndex = Random.Range(0, spawnPoints.Length);
+            
+            // Logic to spawn random WASD keys!
+            for (int i = 0; i < wasdNotePrefabs.Length; i++)
+            {
+                int randomIndex = Random.Range(0, wasdSpawnPoints.Length);
+                GameObject note = Instantiate(wasdNotePrefabs[i], wasdSpawnPoints[randomIndex].position, Quaternion.identity);
+                note.GetComponent<Notes>().noteType = wasdNotePrefabs[i].name;
+                activeNotes.Add(note);
+            }
 
-            GameObject note = Instantiate(notePrefabs[randomIndex], spawnPoints[spawnPointIndex].position, Quaternion.identity);
-            note.GetComponent<Notes>().noteType = notePrefabs[randomIndex].name;
-            activeNotes.Add(note);
+            // aandd logic to spawn random Arrow keys.
+            for (int i = 0; i < arrowNotePrefabs.Length; i++)
+            {
+                int randomIndex = Random.Range(0, arrowSpawnPoints.Length);
+                GameObject note = Instantiate(arrowNotePrefabs[i], arrowSpawnPoints[randomIndex].position, Quaternion.identity);
+                note.GetComponent<Notes>().noteType = arrowNotePrefabs[i].name;
+                activeNotes.Add(note);
+            }
         }
         #endregion
     }

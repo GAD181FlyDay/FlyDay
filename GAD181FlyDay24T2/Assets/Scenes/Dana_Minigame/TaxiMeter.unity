@@ -1591,6 +1591,7 @@ GameObject:
   - component: {fileID: 695733724}
   - component: {fileID: 695733725}
   - component: {fileID: 695733726}
+  - component: {fileID: 695733727}
   m_Layer: 0
   m_Name: --- Script Holder ---
   m_TagString: Untagged
@@ -1654,6 +1655,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   endGamePanel: {fileID: 1093549928}
+--- !u!114 &695733727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 695733722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c97375f8725ea004db393a5dc3c36f95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wasdNotePrefabs:
+  - {fileID: 6985949319007859545, guid: 296e41167096a544a8538b46863daf7e, type: 3}
+  - {fileID: 6306857759127912309, guid: f8715ac1b0939cb42b96b87179c2805a, type: 3}
+  - {fileID: 5095083083977584042, guid: 74eb276fc697d994eb0ae585b05e0ef7, type: 3}
+  - {fileID: 2757076159164834386, guid: 8ae9b2a48340c6b40a4a6b144ab2be8a, type: 3}
+  arrowNotePrefabs:
+  - {fileID: 3412864879023794170, guid: 2b9591a351abb0e47b65006b56ca0f06, type: 3}
+  - {fileID: 2035658329821475630, guid: b7abec0b724fa8b40b8bc44535a28231, type: 3}
+  - {fileID: 2786094779867722491, guid: 090eba701594bd94493786eeb9854d4e, type: 3}
+  - {fileID: 7937362451734021800, guid: 6b5c616176a7d32419ef824f71ff5258, type: 3}
+  wasdSpawnPoints:
+  - {fileID: 908634577}
+  - {fileID: 1113022129}
+  arrowSpawnPoints:
+  - {fileID: 630315242}
+  - {fileID: 557477551}
+  minSpawnInterval: 1
+  maxSpawnInterval: 3
+  intervalDecreaseRate: 0.05
 --- !u!1 &761383594
 GameObject:
   m_ObjectHideFlags: 0
@@ -1867,7 +1899,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 908634577}
-  - component: {fileID: 908634578}
   m_Layer: 0
   m_Name: 00_NotesSpawnPoint
   m_TagString: Untagged
@@ -1890,35 +1921,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1159115776}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &908634578
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 908634576}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c97375f8725ea004db393a5dc3c36f95, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wasdNotePrefabs:
-  - {fileID: 6985949319007859545, guid: 296e41167096a544a8538b46863daf7e, type: 3}
-  - {fileID: 6306857759127912309, guid: f8715ac1b0939cb42b96b87179c2805a, type: 3}
-  - {fileID: 5095083083977584042, guid: 74eb276fc697d994eb0ae585b05e0ef7, type: 3}
-  - {fileID: 2757076159164834386, guid: 8ae9b2a48340c6b40a4a6b144ab2be8a, type: 3}
-  arrowNotePrefabs:
-  - {fileID: 3412864879023794170, guid: 2b9591a351abb0e47b65006b56ca0f06, type: 3}
-  - {fileID: 2035658329821475630, guid: b7abec0b724fa8b40b8bc44535a28231, type: 3}
-  - {fileID: 2786094779867722491, guid: 090eba701594bd94493786eeb9854d4e, type: 3}
-  - {fileID: 7937362451734021800, guid: 6b5c616176a7d32419ef824f71ff5258, type: 3}
-  wasdSpawnPoints:
-  - {fileID: 908634577}
-  - {fileID: 1113022129}
-  arrowSpawnPoints:
-  - {fileID: 630315242}
-  - {fileID: 557477551}
-  spawnInterval: 1
 --- !u!1 &923085561
 GameObject:
   m_ObjectHideFlags: 0

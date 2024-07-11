@@ -101,8 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab88a6cab3ff0f14c908e440e65f4d81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  bottomScreenOutboundReachedPosition: -5.5
+  speed: 4
 --- !u!65 &4108353776543718731
 BoxCollider:
   m_ObjectHideFlags: 0

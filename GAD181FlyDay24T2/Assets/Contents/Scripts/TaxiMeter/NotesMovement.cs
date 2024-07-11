@@ -9,8 +9,9 @@ namespace TaxiMeter
     public class NotesMovement : MonoBehaviour
     {
         #region Variables
-        public float speed = 5f; // Speed at which the note falls
-        [SerializeField] private float bottomScreenOutboundReachedPosition = -5.5f; // make this a const once I'm sure of the screen outbound.
+        public float noteSpeed = 2.0f; 
+
+        public TaxiMeterBaseLogic taxiMeterBaseLogicInstance;
         #endregion
 
         private void Update()
@@ -21,13 +22,16 @@ namespace TaxiMeter
         #region Private Functions
         private void NotesMovementLogic()
         {
-            // Move the note downwards.
-            transform.Translate(Vector3.down * speed * Time.deltaTime);
+            // Move the note downward.
+            transform.Translate(Vector3.down * noteSpeed * Time.deltaTime);
 
-            // Check if the note has exited the screen
-            if (transform.position.y < bottomScreenOutboundReachedPosition)
+            // Deactivate note if it goes off-screen.
+            if (transform.position.y < -10)
             {
-                Destroy(gameObject);
+
+                gameObject.SetActive(false);
+                taxiMeterBaseLogicInstance.UpdateMeter(false);
+
             }
         }
         #endregion

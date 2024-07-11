@@ -1,112 +1,96 @@
-using System.Collections;
-using System.Collections.Generic;
 using TaxiMeter;
 using UnityEngine;
 
 public class MatchingNotes : MonoBehaviour
 {
-    public Transform matchArea; // Match area transform
-    public float matchTolerance = 0.1f; // Tolerance for matching notes
-    public int maxInputs = 2; // Maximum inputs per player
-
-    private int inputCounter = 0;
-    private float meter = 0.0f;
+    #region Variables
+    // public int maxInputsPerSpawn = 2;
+    public NotesPooling wasdNotePool;
+    public NotesPooling arrowNotePool;
+    [SerializeField] private Transform matchArea;
+    private float _matchRangeMinY = -0.5f;
+    private float _matchRangeMaxY = 0.5f;
+    #endregion
 
     void Update()
     {
-        // Player one inputs
-        if (inputCounter < maxInputs)
-        {
-            if (Input.GetKeyDown(KeyCode.W))
-            {
-                CheckMatch("W");
-                inputCounter++;
-            }
-            else if (Input.GetKeyDown(KeyCode.A))
-            {
-                CheckMatch("A");
-                inputCounter++;
-            }
-            else if (Input.GetKeyDown(KeyCode.S))
-            {
-                CheckMatch("S");
-                inputCounter++;
-            }
-            else if (Input.GetKeyDown(KeyCode.D))
-            {
-                CheckMatch("D");
-                inputCounter++;
-            }
-        }
-
-        // Player two inputs
-        if (inputCounter < maxInputs * 2)
-        {
-            if (Input.GetKeyDown(KeyCode.UpArrow))
-            {
-                CheckMatch("Up");
-                inputCounter++;
-            }
-            else if (Input.GetKeyDown(KeyCode.LeftArrow))
-            {
-                CheckMatch("Left");
-                inputCounter++;
-            }
-            else if (Input.GetKeyDown(KeyCode.DownArrow))
-            {
-                CheckMatch("Down");
-                inputCounter++;
-            }
-            else if (Input.GetKeyDown(KeyCode.RightArrow))
-            {
-                CheckMatch("Right");
-                inputCounter++;
-            }
-        }
+        InputChecker();
     }
 
-    void CheckMatch(string noteType)
+    #region Private Functions
+    private void CheckMatch(string note)
     {
-        List<GameObject> notesToRemove = new List<GameObject>();
-        bool matched = false;
-
-        foreach (GameObject note in NotesSpawner.activeNotes)
+        GameObject[] activeNotes = wasdNotePool.pooledNotes.FindAll(note => note.activeInHierarchy).ToArray();
+        if (note.StartsWith("Up") || note.StartsWith("Left") || note.StartsWith("Down") || note.StartsWith("Right"))
         {
-            Notes noteComponent = note.GetComponent<Notes>();
+            activeNotes = arrowNotePool.pooledNotes.FindAll(note => note.activeInHierarchy).ToArray();
+        }
 
-            if (noteComponent.noteType == noteType)
+        foreach (GameObject activeNote in activeNotes)
+        {
+            if (activeNote.GetComponent<Notes>().noteType == note && IsWithinMatchArea(activeNote.transform))
             {
-                float distance = Vector2.Distance(note.transform.position, matchArea.position);
-                if (distance <= matchTolerance)
-                {
-                    matched = true;
-                    notesToRemove.Add(note);
-                }
+                // The note is in the match area.
+                TaxiMeterBaseLogic.taxiMeterBaseLogic.UpdateMeter(true);
+                activeNote.SetActive(false);
+                Debug.Log("Matched!!!");
+                return;
             }
         }
-
-        if (matched)
-        {
-            meter += 0.25f;
-            Debug.Log("Matched: " + noteType);
-        }
-        else
-        {
-            meter += 1.0f;
-            Debug.Log("Not Matched: " + noteType);
-        }
-
-        foreach (GameObject note in notesToRemove)
-        {
-            NotesSpawner.activeNotes.Remove(note);
-            Destroy(note);
-        }
-
-        Debug.Log("Meter: " + meter);
+        TaxiMeterBaseLogic.taxiMeterBaseLogic.UpdateMeter(false);
+        Debug.Log("Didn't match");
     }
 
-    public void ResetInputs()
+    private void InputChecker()
     {
-        inputCounter = 0;
+        #region WASD inputs.
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            CheckMatch("W");
+        }
+        else if (Input.GetKeyDown(KeyCode.A))
+        {
+            CheckMatch("A");
+        }
+        else if (Input.GetKeyDown(KeyCode.S))
+        {
+            CheckMatch("S");
+        }
+        else if (Input.GetKeyDown(KeyCode.D))
+        {
+            CheckMatch("D");
+        }
+        #endregion
+
+        #region Directional arrows inputs
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            CheckMatch("Up");
+        }
+        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            CheckMatch("Left");
+        }
+        else if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            CheckMatch("Down");
+        }
+        else if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            CheckMatch("Right");
+        }
+        #endregion
     }
+
+    private bool IsWithinMatchArea(Transform noteTransform)
+    {
+        // Checks if the notes are in the matched area based on its Y axis.
+        float _noteY = noteTransform.position.y;
+        float _matchAreaY = matchArea.position.y;
+        float _matchRangeMin = _matchAreaY + _matchRangeMinY;
+        float _matchRangeMax = _matchAreaY + _matchRangeMaxY;
+
+        return _noteY >= _matchRangeMin && _noteY <= _matchRangeMax;
+    }
+    #endregion
 }

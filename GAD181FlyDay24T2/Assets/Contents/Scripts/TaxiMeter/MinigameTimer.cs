@@ -11,40 +11,55 @@ namespace TaxiMeter
     public class MinigameTimer : MonoBehaviour
     {
         #region Variables
-        public float gameDuration = 120f; // The game is 2 minutes long for now.
-        [SerializeField] private TMP_Text timerText; // UI to display the timer on, might remove it.
-        [SerializeField] private MinigameManager minigameManager;
-        private float _remainingTime; // Remaining game time which helps with timer calculations.
+        public bool gameEnded = false;
+        public NotesSpawner noteSpawner;
+        public float gameDuration = 120f; // 2 minutes
+        [SerializeField] private TMP_Text timerText;
+        [SerializeField] private TMP_Text endGameText;
+        private float elapsedTime = 0f;
         
         #endregion
 
-        private void Start()
+        void Update()
         {
-            _remainingTime = gameDuration;
-            UpdateTimerText();
-        }
-
-        private void Update()
-        {
-            if (_remainingTime > 0)
-            {
-                _remainingTime -= Time.deltaTime;
-                UpdateTimerText();
-
-                if (_remainingTime <= 0)
-                {
-                    minigameManager.EndGame();
-                }
-            }
+            TakeActionWhenTheMiniGameHasEnded();
         }
 
         #region Private Functions
-
-        private void UpdateTimerText()
+        private void TakeActionWhenTheMiniGameHasEnded()
         {
-            timerText.text = "Time: " + Mathf.Max(0, _remainingTime).ToString("0.00");
+            if (gameEnded) return;
+
+            elapsedTime += Time.deltaTime;
+            float remainingTime = gameDuration - elapsedTime;
+
+            if (remainingTime <= 0)
+            {
+                EndMiniGame();
+            }
+            else if (remainingTime <= 60f)
+            {
+                noteSpawner.spawnInterval = Mathf.Lerp(1f, 0.5f, (60f - remainingTime) / 60f); // Speed up notes in the last minute
+            }
+
+            timerText.text = "Time: " + Mathf.CeilToInt(remainingTime).ToString();
         }
 
+        private void EndMiniGame()
+        {
+            gameEnded = true;
+            timerText.text = "Time: 0";
+            // Handle end of the game, like showing results, etc.
+            if (TaxiMeterBaseLogic.taxiMeterBaseLogic.meterValue > 100)
+            {
+                Debug.Log("Game Ended. You owe the Taxi driver: 100 lucky coins");
+            }
+            else
+            {
+                Debug.Log("Game Ended. Final Meter Value: " + TaxiMeterBaseLogic.taxiMeterBaseLogic.meterValue);
+            }
+
+        }
         #endregion
     }
 }

@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 namespace TaxiMeter
@@ -12,111 +9,52 @@ namespace TaxiMeter
     public class NotesSpawner : MonoBehaviour
     {
         #region Variables
-        // Separate note prefabs.
-        [SerializeField] private GameObject[] wasdNotePrefabs;
-        [SerializeField] private GameObject[] arrowNotePrefabs;
 
-        //Separate note spawn points.
-        [SerializeField] private Transform[] wasdSpawnPoints;     
-        [SerializeField] private Transform[] arrowSpawnPoints;
-
-        [SerializeField] private float minSpawnInterval = 0.5f;   // Minimum spawn interval
-        [SerializeField] private float maxSpawnInterval = 2.0f;   // Maximum spawn interval
-        [SerializeField] private float intervalDecreaseRate = 0.01f; // Rate at which the interval decreases
-
-        private float currentSpawnInterval;
-        private float timer = 0.0f;
-
-        public static List<GameObject> activeNotes = new List<GameObject>();
+        public NotesPooling wasdNotePool;
+        public NotesPooling arrowNotePool;
+        public Transform[] wasdSpawnPoints;
+        public Transform[] arrowSpawnPoints;
+        public float spawnInterval = 1f;
+        private float nextSpawnTime;
 
         #endregion
 
-        void Start()
+        private void Start()
         {
-            RandomiseSpawnIntervals();  
+            nextSpawnTime = Time.time + spawnInterval;
         }
-
 
         private void Update()
         {
-            SpawnANewNoteWhenItsTimeToSpawn();
+            // Spawn a new note when it is time to do so.
+            if (Time.time >= nextSpawnTime)
+            {
+                SpawnNotes();
+                nextSpawnTime = Time.time + spawnInterval;
+            }
         }
 
-        #region Private Functions.
-        private void SpawnANewNoteWhenItsTimeToSpawn()
+        #region Private Functions
+        private void SpawnNotes()
         {
-            /// <summary>
-            /// Spawns a note based off of interval time.
-            /// The interval gets gradually decreased over the
-            /// game's duration.
-            /// </summary>
-            timer += Time.deltaTime;
-
-            if (timer >= currentSpawnInterval)
+            // Spawn a WASD note
+            GameObject wasdNote = wasdNotePool.GetPooledNote();
+            if (wasdNote != null)
             {
-                SpawnNote();
-                timer = 0.0f;
-
-                // Randomize the next spawn interval within the decreasing range
-                currentSpawnInterval = Mathf.Max(minSpawnInterval, currentSpawnInterval - intervalDecreaseRate);
+                Transform wasdSpawnPoint = wasdSpawnPoints[Random.Range(0, wasdSpawnPoints.Length)];
+                wasdNote.transform.position = wasdSpawnPoint.position;
+                wasdNote.SetActive(true);
             }
 
-            // Gradually decrease the interval over the duration of the game
-            if (currentSpawnInterval > minSpawnInterval)
+            // Spawn an arrow note
+            GameObject arrowNote = arrowNotePool.GetPooledNote();
+            if (arrowNote != null)
             {
-                currentSpawnInterval -= (intervalDecreaseRate * Time.deltaTime);
+                Transform arrowSpawnPoint = arrowSpawnPoints[Random.Range(0, arrowSpawnPoints.Length)];
+                arrowNote.transform.position = arrowSpawnPoint.position;
+                arrowNote.SetActive(true);
             }
         }
-
-        private void SpawnNote()
-        {
-            ///<summary>
-            /// Responsible for spawning random notes.
-            /// </summary>
-
-            Shuffle(wasdSpawnPoints);
-            Shuffle(arrowSpawnPoints);
-
-            // Logic to spawn random WASD keys!
-            for (int i = 0; i < wasdNotePrefabs.Length; i++)
-            {
-                int randomIndex = Random.Range(0, wasdSpawnPoints.Length);
-                GameObject note = Instantiate(wasdNotePrefabs[i], wasdSpawnPoints[randomIndex].position, Quaternion.identity);
-                note.GetComponent<Notes>().noteType = wasdNotePrefabs[i].name;
-                activeNotes.Add(note);
-            }
-
-            // aandd logic to spawn random Arrow keys.
-            for (int i = 0; i < arrowNotePrefabs.Length; i++)
-            {
-                int randomIndex = Random.Range(0, arrowSpawnPoints.Length);
-                GameObject note = Instantiate(arrowNotePrefabs[i], arrowSpawnPoints[randomIndex].position, Quaternion.identity);
-                note.GetComponent<Notes>().noteType = arrowNotePrefabs[i].name;
-                activeNotes.Add(note);
-            }
-        }
-
-        private void RandomiseSpawnIntervals()
-        {
-            ///<summary>
-            /// Sets the current spawn interval differently to 
-            /// make sure the notes aren't always spawning at the same rate.
-            /// </summary>
-            currentSpawnInterval = Random.Range(minSpawnInterval, maxSpawnInterval);
-
-        }
-
-        private void Shuffle(Transform[] array)
-        {
-            for (int i = 0; i < array.Length; i++)
-            {
-                Transform temp = array[i];
-                int randomIndex = Random.Range(i, array.Length);
-                array[i] = array[randomIndex];
-                array[randomIndex] = temp;
-            }
-        }
-
         #endregion
     }
 }

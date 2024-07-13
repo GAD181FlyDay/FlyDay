@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Player.Tw0
@@ -9,16 +7,14 @@ namespace Player.Tw0
         public Animator playerAnimator;
         public Rigidbody playerRigidbody;
         public float dSpeed = 0.175f, rotateSpeed = 200;
+        [SerializeField] private float inspectorChangeablePlayerSpeed = 2f;
         public float acceleration;
         private float currentSpeed = 0f;
-
-
 
         void Start()
         {
 
         }
-
 
         void FixedUpdate()
         {
@@ -33,12 +29,12 @@ namespace Player.Tw0
                 return;
             }
 
-           
+
             if (movement != Vector3.zero)
             {
                 currentSpeed = Mathf.MoveTowards(currentSpeed, dSpeed, acceleration * Time.fixedDeltaTime);
                 playerRigidbody.MovePosition(playerRigidbody.position + movement * currentSpeed * Time.fixedDeltaTime);
-                Quaternion rotateQuat = Quaternion.LookRotation(movement,Vector3.up);
+                Quaternion rotateQuat = Quaternion.LookRotation(movement, Vector3.up);
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, rotateQuat, rotateSpeed * Time.deltaTime);
             }
         }
@@ -89,7 +85,7 @@ namespace Player.Tw0
 
 
             if (Input.GetKey(KeyCode.RightShift))
-            {   
+            {
                 if (walking == true)
                 {
                     playerAnimator.SetBool("Sneaking", true);
@@ -100,8 +96,12 @@ namespace Player.Tw0
             else
             {
                 playerAnimator.SetBool("Sneaking", false);
-                dSpeed = 0.27f;
+                PlayerOneSpeedChanger(inspectorChangeablePlayerSpeed);
             }
+        }
+        private void PlayerOneSpeedChanger(float speed)
+        {
+            dSpeed = speed;
         }
     }
 }

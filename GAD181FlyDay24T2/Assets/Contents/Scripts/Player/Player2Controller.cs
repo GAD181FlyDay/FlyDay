@@ -100,7 +100,7 @@ namespace Player.Tw0
             else
             {
                 playerAnimator.SetBool("Sneaking", false);
-                dSpeed = 0.175f;
+                dSpeed = 0.27f;
             }
         }
     }

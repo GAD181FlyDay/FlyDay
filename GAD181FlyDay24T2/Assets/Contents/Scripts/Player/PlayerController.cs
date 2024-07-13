@@ -9,17 +9,16 @@ namespace Player.One
         public Animator playerAnimator;
         public Rigidbody playerRigidbody;
         public float dSpeed = 0.27f, rotateSpeed = 200;
+        [SerializeField] private float inspectorChangeablePlayerSpeed = 2f;
         public float acceleration;
         private float currentSpeed = 0f;
         bool walking;
-
 
 
         void Start()
         {
 
         }
-
 
         void FixedUpdate()
         {
@@ -61,8 +60,6 @@ namespace Player.One
                 Debug.Log("Won't play aniamtions");
                 return;
             }
-
-
 
             if (Input.GetKey(KeyCode.W))
             {
@@ -112,9 +109,14 @@ namespace Player.One
             else
             {
                 playerAnimator.SetBool("Sneaking", false);
-                dSpeed = 0.27f;
-                // This player can walk faster than the other player.
+                PlayerTwoSpeedChanger(inspectorChangeablePlayerSpeed);
             }
         }
+   
+        private void PlayerTwoSpeedChanger(float speed)
+        {
+            dSpeed = speed;
+        }
+       
     }
 }

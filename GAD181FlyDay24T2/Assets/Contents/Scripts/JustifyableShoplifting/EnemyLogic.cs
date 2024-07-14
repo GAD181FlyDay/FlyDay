@@ -10,6 +10,10 @@ namespace JustifyableShoplifting
     public class EnemyLogic : MonoBehaviour
     {
         #region Variables
+
+        public PlayerWonLogic playerWon;
+        public PlayerBustedLogic playerBusted;
+
         [SerializeField] private Transform pointA;
         [SerializeField] private Transform pointB;
         [SerializeField] private Transform pointC;
@@ -78,7 +82,7 @@ namespace JustifyableShoplifting
                     break;
                 case 3:
                     Debug.Log("You won");
-                    // Player winning script reference.
+                    playerWon.WinGame();
                     break;
             }
         }
@@ -120,7 +124,7 @@ namespace JustifyableShoplifting
                 if (_detectionTime >= detectionDuration)
                 {
                     Debug.Log("You Lost");
-                    // Bust player script reference.
+                    playerBusted.LoseGame();
                 }
             }
             else

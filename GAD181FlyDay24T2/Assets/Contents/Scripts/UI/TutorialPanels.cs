@@ -14,6 +14,7 @@ public class TutorialPanels : MonoBehaviour
     [SerializeField] private GameObject[] textsThatAreHidden;
     #endregion
 
+
     private void Update()
     {
         OnSpaceTurnOffThePanel();
@@ -33,8 +34,9 @@ public class TutorialPanels : MonoBehaviour
         }
     }
 
-    private void Awake()
+    private void OnEnable()
     {
+        tutorialPanel.SetActive(true);
         Time.timeScale = 0;
     }
 

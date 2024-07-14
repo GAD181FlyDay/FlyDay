@@ -27,7 +27,7 @@ namespace JustifyableShoplifting
             Collider[] players = Physics.OverlapSphere(transform.position, interactionRadius, playerLayer);
             foreach (Collider player in players)
             {
-                if (Input.GetKeyDown(KeyCode.LeftControl)) 
+                if (Input.GetKeyDown(KeyCode.RightControl)) 
                 {
                     DisableWalls();
                 }

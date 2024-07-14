@@ -18,13 +18,13 @@ namespace JustifyableShoplifting
         [SerializeField] private float detectionRadius = 5.0f;
         [SerializeField] private LayerMask playerLayer;
         [SerializeField] private LayerMask wallLayer;
+        [SerializeField] private float detectionDuration = 1.0f;
 
         private Transform _currentTarget;
         private Transform _playerTransform;
         private int _currentCheckpoint = 0;
         private bool _playerDetected = false;
         private float _detectionTime = 0.0f;
-        private float _detectionDuration = 1.5f;
         #endregion
 
         #region Event subscription Functions.
@@ -102,14 +102,14 @@ namespace JustifyableShoplifting
             {
                 if (!Physics.Linecast(transform.position, player.transform.position, wallLayer))
                 {
-                    Debug.Log("Player detected without obstruction");
+                    // Debug.Log("Player detected without obstruction");
                     _playerDetected = true;
                     _playerTransform = player.transform;
                     break;
                 }
                 else
                 {
-                    Debug.Log("Player detected but obstructed by wall");
+                    // Debug.Log("Player detected but obstructed by wall");
                     _playerDetected = false;
                 }
             }
@@ -117,7 +117,7 @@ namespace JustifyableShoplifting
             if (_playerDetected)
             {
                 _detectionTime += Time.deltaTime;
-                if (_detectionTime >= _detectionDuration)
+                if (_detectionTime >= detectionDuration)
                 {
                     Debug.Log("You Lost");
                     // Bust player script reference.

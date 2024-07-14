@@ -9,12 +9,11 @@ namespace JustifyableShoplifting
 
     public class EnemyLogic : MonoBehaviour
     {
-        #region Variables.
+        #region Variables
         [SerializeField] private Transform pointA;
         [SerializeField] private Transform pointB;
         [SerializeField] private Transform pointC;
         [SerializeField] private Transform pointD;
-        [SerializeField] private Transform[] checkpoints;
         [SerializeField] private float moveSpeed = 2.0f;
         [SerializeField] private float detectionRadius = 5.0f;
         [SerializeField] private LayerMask playerLayer;
@@ -28,6 +27,18 @@ namespace JustifyableShoplifting
         private float _detectionDuration = 1.5f;
         #endregion
 
+        #region Event subscription Functions.
+        private void OnEnable()
+        {
+            Checkpoint.OnCheckpointReached += UpdateCheckpoint;
+        }
+
+        private void OnDisable()
+        {
+            Checkpoint.OnCheckpointReached -= UpdateCheckpoint;
+        }
+        #endregion
+
         private void Start()
         {
             _currentTarget = pointA;
@@ -39,7 +50,7 @@ namespace JustifyableShoplifting
             DetectPlayer();
         }
 
-        #region Private Functions.
+        #region Private Functions
         private void Patrol()
         {
             if (_currentTarget == null) return;
@@ -66,40 +77,39 @@ namespace JustifyableShoplifting
                     _currentTarget = _currentTarget == pointC ? pointD : pointC;
                     break;
                 case 3:
-                    // Player winnin script reference.
+                    Debug.Log("You won");
+                    // Player winning script reference.
                     break;
             }
         }
 
-        private void OnTriggerEnter(Collider other)
+        private void UpdateCheckpoint(int index)
         {
-            if (other.CompareTag("Checkpoint"))
-            {
-                for (int i = 0; i < checkpoints.Length; i++)
-                {
-                    if (other.transform == checkpoints[i])
-                    {
-                        _currentCheckpoint = i + 1;
-                        break;
-                    }
-                }
-            }
+            _currentCheckpoint = index;
+            Debug.Log($"Checkpoint {index} reached.");
         }
 
         private void DetectPlayer()
         {
             Collider[] players = Physics.OverlapSphere(transform.position, detectionRadius, playerLayer);
 
+            if (players.Length == 0)
+            {
+                Debug.Log("No players detected within radius");
+            }
+
             foreach (Collider player in players)
             {
                 if (!Physics.Linecast(transform.position, player.transform.position, wallLayer))
                 {
+                    Debug.Log("Player detected without obstruction");
                     _playerDetected = true;
                     _playerTransform = player.transform;
                     break;
                 }
                 else
                 {
+                    Debug.Log("Player detected but obstructed by wall");
                     _playerDetected = false;
                 }
             }
@@ -109,6 +119,7 @@ namespace JustifyableShoplifting
                 _detectionTime += Time.deltaTime;
                 if (_detectionTime >= _detectionDuration)
                 {
+                    Debug.Log("You Lost");
                     // Bust player script reference.
                 }
             }

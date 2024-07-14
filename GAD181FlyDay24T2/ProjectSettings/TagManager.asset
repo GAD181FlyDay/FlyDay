@@ -10,6 +10,9 @@ TagManager:
   - SecondPlayerCamera
   - MatchArea
   - Checkpoint
+  - DestroyableWallOne
+  - DestroyableWallTwo
+  - DestroyableWallThree
   layers:
   - Default
   - TransparentFX

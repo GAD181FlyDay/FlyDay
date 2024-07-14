@@ -784,12 +784,13 @@ GameObject:
   - component: {fileID: 333462862}
   - component: {fileID: 333462861}
   - component: {fileID: 333462860}
+  - component: {fileID: 333462863}
   m_Layer: 0
   m_Name: InteractableButtonToRemoveWallOne
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &333462859
 Transform:
@@ -825,8 +826,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.3284378, y: 1.6017889, z: 5.7651453}
-  m_Center: {x: 0.18864731, y: -0.018290175, z: -2.3825715}
+  m_Size: {x: 2.3284378, y: 1.6017889, z: 0.2826013}
+  m_Center: {x: 0.18864731, y: -0.018290175, z: 0.35870072}
 --- !u!23 &333462861
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -879,6 +880,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 333462858}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &333462863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 333462858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 893ba87ecdfb1364f8db102b53c4ddc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wallTags:
+  - DestroyableWallTwo
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  interactionRadius: 2
 --- !u!1 &349230352
 GameObject:
   m_ObjectHideFlags: 0
@@ -1364,7 +1383,7 @@ Transform:
   m_GameObject: {fileID: 799456855}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.7189999, y: -1.3043003, z: -5.468889}
+  m_LocalPosition: {x: -1.7189999, y: -1.3043003, z: -0.56}
   m_LocalScale: {x: 1.601, y: 1.601, z: 1.601}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1829,7 +1848,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointA: {fileID: 1001090366}
   pointB: {fileID: 82409262}
-  speed: 2
+  speed: 0.35
 --- !u!1001 &1041889349
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2001,12 +2020,13 @@ GameObject:
   - component: {fileID: 1115629304}
   - component: {fileID: 1115629303}
   - component: {fileID: 1115629302}
+  - component: {fileID: 1115629305}
   m_Layer: 0
   m_Name: InteractableButtonToRemoveWallOne (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1115629301
 Transform:
@@ -2042,8 +2062,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.3284378, y: 1.6017889, z: 5.7651453}
-  m_Center: {x: 0.18864731, y: -0.018290175, z: -2.3825715}
+  m_Size: {x: 2.3284378, y: 1.6017889, z: 0.13485564}
+  m_Center: {x: 0.18864731, y: -0.018290175, z: 0.43257365}
 --- !u!23 &1115629303
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2096,6 +2116,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1115629300}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1115629305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1115629300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 893ba87ecdfb1364f8db102b53c4ddc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wallTags:
+  - DestroyableWallThree
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  interactionRadius: 2
 --- !u!1 &1128257635
 GameObject:
   m_ObjectHideFlags: 0
@@ -2272,12 +2310,13 @@ GameObject:
   - component: {fileID: 1226464449}
   - component: {fileID: 1226464448}
   - component: {fileID: 1226464447}
+  - component: {fileID: 1226464451}
   m_Layer: 0
   m_Name: InteractableButtonToRemoveWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!65 &1226464447
 BoxCollider:
@@ -2298,8 +2337,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.3284378, y: 1.6017889, z: 5.7651453}
-  m_Center: {x: 0.18864731, y: -0.018290175, z: -2.3825715}
+  m_Size: {x: 2.3284378, y: 1.6017889, z: 0.10598836}
+  m_Center: {x: 0.18864731, y: -0.018290175, z: 0.44700706}
 --- !u!23 &1226464448
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2367,6 +2406,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2006884673}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1226464451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1226464446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 893ba87ecdfb1364f8db102b53c4ddc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wallTags:
+  - DestroyableWallOne
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  interactionRadius: 2
 --- !u!1 &1282075800
 GameObject:
   m_ObjectHideFlags: 0
@@ -3322,8 +3379,8 @@ GameObject:
   - component: {fileID: 1655686755}
   - component: {fileID: 1655686758}
   m_Layer: 9
-  m_Name: ToBeDisabledWall
-  m_TagString: Untagged
+  m_Name: DestroyableWallTwo
+  m_TagString: DestroyableWallTwo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3450,8 +3507,8 @@ GameObject:
   - component: {fileID: 1706853171}
   - component: {fileID: 1706853170}
   m_Layer: 9
-  m_Name: RemovableWall
-  m_TagString: Untagged
+  m_Name: DestroyableWallOne
+  m_TagString: DestroyableWallOne
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4655,8 +4712,8 @@ GameObject:
   - component: {fileID: 1978100294}
   - component: {fileID: 1978100293}
   m_Layer: 9
-  m_Name: RemovableWall (1)
-  m_TagString: Untagged
+  m_Name: DestroyableWallThree
+  m_TagString: DestroyableWallThree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -10,8 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbee9beeb50adb74498cc76d28238f5e, type: 3}
-  m_Name: State_LuggageCheck
+  m_Name: State_TetrisMiniGame
   m_EditorClassIdentifier: 
   stateType: 0
-  narrativeEntries: []
-  nextState: 5
+  narrativeEntries:
+  - 'Theo: Look let''s play another game'
+  - 'Cleo: Alright 1v1 battle'
+  - Mini Game Instructions
+  - 'Cleo: Yay I win!!'
+  nextState: 0

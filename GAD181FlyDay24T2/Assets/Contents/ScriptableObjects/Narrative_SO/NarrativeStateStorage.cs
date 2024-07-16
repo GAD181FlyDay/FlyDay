@@ -22,7 +22,12 @@ namespace Narrative
             InsideAirport,
             ReachedDutyFree,
             PlaneBoarded,
-            FinchsHouse
+            FinchsHouse,
+            TetrisMiniGame,
+            GoodEnding,
+            BadEnding,
+            LuggagePackingMiniGame
+
             // Add more stages as needed
         }
         #endregion

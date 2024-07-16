@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: State+InsideAirport
   m_EditorClassIdentifier: 
   stateType: 5
-  narrativeEntries: []
+  narrativeEntries:
+  - At the Airport
   nextState: 6

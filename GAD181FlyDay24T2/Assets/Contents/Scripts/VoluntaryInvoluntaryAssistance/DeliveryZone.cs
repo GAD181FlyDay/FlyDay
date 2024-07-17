@@ -21,33 +21,58 @@ namespace VoluntaryInvoluntaryAssistance
             UpdateScoreText();
         }
 
-        #region Private Functions.
-        private void OnTriggerEnter2D(Collider2D other)
+        #region Private Functions
+        private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Luggage"))
+            if (other.CompareTag("Player"))
             {
-                Luggage luggage = other.GetComponent<Luggage>();
+                PlayersInteraction player = other.GetComponent<PlayersInteraction>();
+                if (player == null) return;
+
+                // Check if the player is holding luggage and a plate
+                bool hasPlate = false;
                 bool matched = false;
 
-                for (int i = 0; i < orderManager.activeOrders.Count; i++)
+                foreach (GameObject luggageObj in player.GetHeldLuggage())
                 {
-                    if (orderManager.activeOrders[i].luggageType == luggage.luggageType)
+                    Luggage luggage = luggageObj.GetComponent<Luggage>();
+                    if (luggage != null && luggage.isOnPlate)
                     {
-                        matched = true;
-                        orderManager.activeOrders.RemoveAt(i);
-                        Destroy(other.gameObject);
-                        score++;
+                        hasPlate = true;
                         break;
                     }
                 }
 
-                if (!matched)
+                if (hasPlate)
                 {
-                    score--;
-                    Destroy(other.gameObject);
-                }
+                    foreach (GameObject luggageObj in player.GetHeldLuggage())
+                    {
+                        Luggage luggage = luggageObj.GetComponent<Luggage>();
+                        if (luggage == null) continue;
 
-                UpdateScoreText();
+                        for (int i = 0; i < orderManager.activeOrders.Count; i++)
+                        {
+                            if (orderManager.activeOrders[i].luggageType == luggage.luggageType)
+                            {
+                                matched = true;
+                                orderManager.activeOrders.RemoveAt(i);
+                                player.RemoveLuggage(luggageObj);
+                                luggageObj.SetActive(false);
+                                score++;
+                                break;
+                            }
+                        }
+
+                        if (!matched)
+                        {
+                            score--;
+                            player.RemoveLuggage(luggageObj);
+                            luggageObj.SetActive(false);
+                        }
+
+                        UpdateScoreText();
+                    }
+                }
             }
         }
 

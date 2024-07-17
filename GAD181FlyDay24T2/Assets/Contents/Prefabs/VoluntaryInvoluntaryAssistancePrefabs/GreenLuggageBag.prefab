@@ -14,7 +14,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2708498254336735132, guid: c1e15c6453efb0643a013b60df0d1d08, type: 3}
       propertyPath: m_Name
-      value: GreenLuggageBag Variant
+      value: GreenLuggageBag
+      objectReference: {fileID: 0}
+    - target: {fileID: 2708498254336735132, guid: c1e15c6453efb0643a013b60df0d1d08, type: 3}
+      propertyPath: m_TagString
+      value: Luggage
       objectReference: {fileID: 0}
     - target: {fileID: 6970750880416704040, guid: c1e15c6453efb0643a013b60df0d1d08, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'

@@ -14,7 +14,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2699248596386096006, guid: 49328eb787838674b8a66ae86275b71e, type: 3}
       propertyPath: m_Name
-      value: RedLuggageBag Variant
+      value: RedLuggageBag
       objectReference: {fileID: 0}
     - target: {fileID: 6944049788403561010, guid: 49328eb787838674b8a66ae86275b71e, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'

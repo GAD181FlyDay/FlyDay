@@ -11,8 +11,11 @@ namespace VoluntaryInvoluntaryAssistance
     {
         #region Variables
         public Players player;
-        private List<GameObject> heldLuggage = new List<GameObject>();
+        public Transform holdPoint;
         public KeyCode interactionKey;
+        public KeyCode dropKey;
+
+        private List<GameObject> heldLuggage = new List<GameObject>();
         #endregion
 
         private void Start()
@@ -21,9 +24,11 @@ namespace VoluntaryInvoluntaryAssistance
             {
                 case Players.one:
                     interactionKey = KeyCode.E;
+                    dropKey = KeyCode.Q;
                     break;
                 case Players.two:
                     interactionKey = KeyCode.RightShift;
+                    dropKey = KeyCode.RightControl;
                     break;
             }
         }
@@ -34,8 +39,7 @@ namespace VoluntaryInvoluntaryAssistance
             {
                 if (heldLuggage.Count == 0)
                 {
-                    // Pick up luggage.
-                    Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 0.5f);
+                    Collider[] colliders = Physics.OverlapSphere(transform.position, 0.5f);
                     foreach (var collider in colliders)
                     {
                         if (collider.CompareTag("Luggage"))
@@ -45,24 +49,27 @@ namespace VoluntaryInvoluntaryAssistance
                         }
                     }
                 }
-                else
-                {
-                    // Drop luggage.
-                    foreach (var luggage in heldLuggage)
-                    {
-                        luggage.transform.SetParent(null);
-                    }
-                    heldLuggage.Clear();
-                }
+            }
+
+            if (Input.GetKeyDown(dropKey))
+            {
+                DropLuggage();
             }
         }
 
-        #region Public Functions.
+        #region Public Functions
         public void PickUpLuggage(GameObject luggage)
         {
             heldLuggage.Add(luggage);
-            luggage.transform.SetParent(transform);
-            luggage.transform.localPosition = Vector2.zero;
+            luggage.transform.SetParent(holdPoint);
+            luggage.transform.localPosition = Vector3.up * heldLuggage.Count;
+            luggage.transform.localRotation = Quaternion.identity;
+
+            Rigidbody rb = luggage.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                rb.isKinematic = true; 
+            }
         }
 
         public bool CanPickUpLuggage()
@@ -81,10 +88,35 @@ namespace VoluntaryInvoluntaryAssistance
                 return heldLuggage.Count < 2;
             }
         }
+
+        public List<GameObject> GetHeldLuggage()
+        {
+            return heldLuggage;
+        }
+
+        public void RemoveLuggage(GameObject luggage)
+        {
+            heldLuggage.Remove(luggage);
+        }
         #endregion
 
-        #region Private Functions.
-        private void OnTriggerEnter2D(Collider2D other)
+        #region Private Functions
+        private void DropLuggage()
+        {
+            foreach (var luggage in heldLuggage)
+            {
+                luggage.transform.SetParent(null);
+
+                Rigidbody rb = luggage.GetComponent<Rigidbody>();
+                if (rb != null)
+                {
+                    rb.isKinematic = false; 
+                }
+            }
+            heldLuggage.Clear();
+        }
+
+        private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Luggage"))
             {
@@ -97,8 +129,16 @@ namespace VoluntaryInvoluntaryAssistance
                     if (lastLuggage.CanStackLuggage())
                     {
                         luggage.isOnPlate = lastLuggage.isOnPlate;
-                        luggage.transform.SetParent(transform);
-                        luggage.transform.localPosition = new Vector2(0, heldLuggage.Count * 0.5f);
+                        luggage.transform.SetParent(holdPoint);
+                        // luggage.transform.localPosition = new Vector3(0, heldLuggage.Count * 0.5f, 0);
+                        // luggage.transform.localRotation = Quaternion.identity;
+
+                        Rigidbody rb = luggage.GetComponent<Rigidbody>();
+                        if (rb != null)
+                        {
+                            rb.isKinematic = true; 
+                        }
+
                         lastLuggage.AddLuggage();
                         heldLuggage.Add(other.gameObject);
                     }

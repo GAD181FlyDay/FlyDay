@@ -1475,7 +1475,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameEnded: 0
   noteSpawner: {fileID: 695733727}
-  gameDuration: 120
+  gameDuration: 60
   timerText: {fileID: 2093657666}
   endGameText: {fileID: 634516577}
 --- !u!114 &695733726

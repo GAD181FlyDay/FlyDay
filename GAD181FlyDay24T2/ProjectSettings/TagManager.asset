@@ -13,6 +13,7 @@ TagManager:
   - DestroyableWallOne
   - DestroyableWallTwo
   - DestroyableWallThree
+  - Luggage
   layers:
   - Default
   - TransparentFX

@@ -20,6 +20,7 @@ public class InteractingPaint : MonoBehaviour
     private void Start()
     {
         paintRenderer.color = new Color(1f, 1f, 1f, 0);
+        transparency = 0;
     }
 
     private void Update()
@@ -34,7 +35,7 @@ public class InteractingPaint : MonoBehaviour
 
     void FadePaint()
     {
-        if (paintRenderer.color.a >= 0)
+        if (paintRenderer.color.a > 0)
         {
             transparency -= Time.deltaTime * fadeSpeed;
             paintRenderer.color = new Color(1f, 1f, 1f, transparency);

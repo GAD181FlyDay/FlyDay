@@ -1125,10 +1125,10 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1780154032}
   - {fileID: 1159241285}
   - {fileID: 1961781023}
   - {fileID: 1870734515}
+  - {fileID: 1780154032}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -3747,8 +3747,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 180, y: -25}
-  m_SizeDelta: {x: 200, y: -80}
+  m_AnchoredPosition: {x: 202.858, y: -144.67}
+  m_SizeDelta: {x: 245.717, y: 159.341}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1159241286
 MonoBehaviour:
@@ -5836,7 +5836,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1780154032
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5911,7 +5911,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialPanel: {fileID: 1780154031}
-  textsThatAreHidden: []
+  textsThatAreHidden:
+  - {fileID: 1159241284}
+  - {fileID: 1961781022}
+  - {fileID: 1870734514}
 --- !u!1 &1815003835
 GameObject:
   m_ObjectHideFlags: 0

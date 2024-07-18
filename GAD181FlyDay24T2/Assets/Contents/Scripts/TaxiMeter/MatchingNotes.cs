@@ -4,7 +4,6 @@ using UnityEngine;
 public class MatchingNotes : MonoBehaviour
 {
     #region Variables
-    // public int maxInputsPerSpawn = 2;
     public NotesPooling wasdNotePool;
     public NotesPooling arrowNotePool;
     [SerializeField] private Transform matchArea;

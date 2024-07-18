@@ -17,7 +17,7 @@ namespace TaxiMeter
         public float meterValue = 0.00f;
         private float _correctMatchIncrease = 0.25f;
         [SerializeField] private TMP_Text meterText;
-        private float _incorrectMatchIncrease = 1.5f;
+        private float _incorrectMatchIncrease = 0.75f;
 
         #endregion
 
@@ -67,10 +67,10 @@ namespace TaxiMeter
             /// only have 100 lucky coins.
             /// </summary>
              
-            if (meterValue > 100f)
+            if (meterValue > 150f)
             {
-                meterValue = 100f;
-                meterText.text = 100 + " $";
+                meterValue = 149f;
+                meterText.text = 149 + " $";
                 return;
             }
         }

@@ -1,18 +1,45 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InteractingPaint : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] Sprite paint;
+    [SerializeField] SpriteRenderer paintRenderer;
+    float transparency = 1;
+    [SerializeField] float fadeSpeed = 5;
+
+    void EnablePaint()
     {
-        
+        paintRenderer.color = new Color(1f, 1f, 1f, 1);
+
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        paintRenderer.color = new Color(1f, 1f, 1f, 0);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            EnablePaint();
+        }
+        FadePaint();
+    }
+
+    void FadePaint()
+    {
+        if (paintRenderer.color.a >= 0)
+        {
+            transparency -= Time.deltaTime * fadeSpeed;
+            paintRenderer.color = new Color(1f, 1f, 1f, transparency);
+        }
+        else if(paintRenderer.color.a <= 0)
+        {
+            transparency = 1;
+        }
     }
 }

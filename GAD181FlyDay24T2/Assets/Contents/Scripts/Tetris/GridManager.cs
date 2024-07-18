@@ -13,8 +13,7 @@ public class GridManager : MonoBehaviour
     {
         if (instance == null)
             instance = this;
-        else if (instance != this)
-            Destroy(gameObject);
+            return;
 
         grid = new Transform[(int)gridDimensions.x, (int)gridDimensions.y];
     }

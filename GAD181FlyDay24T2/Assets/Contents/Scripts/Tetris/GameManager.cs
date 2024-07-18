@@ -6,9 +6,9 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     public GameObject[] tetrominoShapes; 
-    public float fallSpeed = 1.0f; 
+    public float fallSpeed = 0.15f; 
 
-    private GameObject nextTetromino;
+    [SerializeField] private GameObject nextTetromino;
     private bool gameOver = false;
 
     void Awake()
@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
         else if (instance != this)
             Destroy(gameObject);
     }
+
 
     void Start()
     {

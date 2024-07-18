@@ -9,7 +9,7 @@ namespace XAndOMinigame
     /// It contains the following details: Button arrays, Checks if the players won or not, 
     /// Changes UI text,  and displays buttons.
     /// </summary>
-   
+
     public class XAndOLogic : MonoBehaviour
     {
         #region Variables
@@ -17,16 +17,19 @@ namespace XAndOMinigame
         [SerializeField] private TMP_Text[] buttonTexts;
         [SerializeField] private GameObject endGamePanel;
         [SerializeField] private TMP_Text playerWonOrDrawText;
+        [SerializeField] private TMP_Text currentPlayerText; 
 
-        private string _currentPlayer = "X";
+        private string _currentPlayer;
         private int _moveCount = 0;
         private bool _gameOver = false;
         #endregion
 
         private void Start()
         {
-            // Hides the restart button and exit button within the panel from appearance.
             endGamePanel.gameObject.SetActive(false);
+
+            _currentPlayer = Random.Range(0, 2) == 0 ? "X" : "O";
+            UpdateCurrentPlayerText();
         }
 
         #region Public Functions
@@ -36,10 +39,8 @@ namespace XAndOMinigame
         {
             Debug.Log("Button clicked by: " + _currentPlayer);
 
-            // Execute the code only if the game is not over.
             if (!_gameOver)
             {
-                // Find the number of the interacted with button in the button array.
                 int index = System.Array.IndexOf(buttons, button);
 
                 if (index == -1)
@@ -50,29 +51,29 @@ namespace XAndOMinigame
 
                 if (buttonTexts[index].text == "")
                 {
-                    // Set the interacted with button's text to the current player's symbol.
                     buttonTexts[index].text = _currentPlayer;
                     _moveCount++;
 
-                    // Check if the current player won.
                     if (CheckWin())
                     {
                         ShowEndGameButtons();
                         playerWonOrDrawText.text = _currentPlayer + " Won!";
                         Debug.Log(_currentPlayer + " Wins!");
                         _gameOver = true;
+                        currentPlayerText.gameObject.SetActive(false); 
                     }
-                    // Check if all 9 moves are made.
                     else if (_moveCount == 9)
                     {
                         ShowEndGameButtons();
                         playerWonOrDrawText.text = "Draw!";
                         Debug.Log("Draw!");
+                        _gameOver = true;
+                        currentPlayerText.gameObject.SetActive(false); 
                     }
-                    // Switch to the next player.
                     else
                     {
                         SwitchPlayer();
+                        UpdateCurrentPlayerText();
                     }
                 }
             }
@@ -82,14 +83,12 @@ namespace XAndOMinigame
         #region Win conditions checker
         public bool CheckWin()
         {
-            // Run through all the win combinations.
             for (int i = 0; i < winningConditions.GetLength(0); i++)
             {
                 int a = winningConditions[i, 0];
                 int b = winningConditions[i, 1];
                 int c = winningConditions[i, 2];
 
-                // Check if the current player has all three positions in a winning combination.
                 if (buttons[a].GetComponentInChildren<TMP_Text>().text == _currentPlayer &&
                     buttons[b].GetComponentInChildren<TMP_Text>().text == _currentPlayer &&
                     buttons[c].GetComponentInChildren<TMP_Text>().text == _currentPlayer)
@@ -105,7 +104,7 @@ namespace XAndOMinigame
         public void RestartGame()
         {
             Debug.Log("Game has been restarted.");
-            // Clear the text of all buttons.
+         
             foreach (TMP_Text buttonText in buttonTexts)
             {
                 if (buttonText != null)
@@ -114,18 +113,18 @@ namespace XAndOMinigame
                 }
             }
 
-            // Reset the game back to the starting state.
-            _currentPlayer = "X";
+            _currentPlayer = Random.Range(0, 2) == 0 ? "X" : "O";
             _moveCount = 0;
             _gameOver = false;
-            playerWonOrDrawText.text = "";
+            playerWonOrDrawText.text = ""; 
             endGamePanel.gameObject.SetActive(false);
+            currentPlayerText.gameObject.SetActive(true); 
+            UpdateCurrentPlayerText();
         }
 
         public void ExitMinigame()
         {
             Debug.Log("Game has been exited.");
-            // Scene unloads or the panel switches off.
         }
         #endregion
 
@@ -135,7 +134,6 @@ namespace XAndOMinigame
         #region Switches players per turn.
         private void SwitchPlayer()
         {
-            // Switch the current player from X to O or from O to X.
             _currentPlayer = _currentPlayer == "X" ? "O" : "X";
         }
         #endregion
@@ -143,25 +141,32 @@ namespace XAndOMinigame
         #region A collection of win conditions.
         private int[,] winningConditions = new int[,]
         {
-            { 0, 1, 2 }, // up left to right.
-            { 3, 4, 5 }, // middle left to right.
-            { 6, 7, 8 }, // down left to right.
-            { 0, 3, 6 }, // left up to bottom.
-            { 1, 4, 7 }, // middle up to bottom.
-            { 2, 5, 8 }, // right up to bottom.
-            { 0, 4, 8 }, // top left to right bottom.
-            { 2, 4, 6 }  // top right to bottom left.
+    { 0, 1, 2 }, 
+    { 3, 4, 5 },
+    { 6, 7, 8 },
+    { 0, 3, 6 },
+    { 1, 4, 7 }, 
+    { 2, 5, 8 }, 
+    { 0, 4, 8 }, 
+    { 2, 4, 6 }  
         };
         #endregion
 
         #region Displays end game buttons.
         private void ShowEndGameButtons()
         {
-            // Show the restart button and the exit button within the panel when the game ends.
             endGamePanel.gameObject.SetActive(true);
         }
         #endregion
 
+        #region Updates the current player text.
+        private void UpdateCurrentPlayerText()
+        {
+            currentPlayerText.text = "Current Player: " + _currentPlayer;
+        }
         #endregion
+
+        #endregion
+
     }
 }

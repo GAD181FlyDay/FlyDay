@@ -16,4 +16,4 @@ MonoBehaviour:
   narrativeEntries:
   - 'Cleo: Taxi is here!'
   - Both siblings enter the Taxi.
-  nextState: 0
+  nextState: 2

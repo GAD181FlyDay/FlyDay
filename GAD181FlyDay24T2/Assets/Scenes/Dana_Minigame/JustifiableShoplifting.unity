@@ -4442,7 +4442,7 @@ MonoBehaviour:
   pointC: {fileID: 349230353}
   pointD: {fileID: 1908042018}
   moveSpeed: 1.5
-  detectionRadius: 7
+  detectionRadius: 4
   playerLayer:
     serializedVersion: 2
     m_Bits: 256

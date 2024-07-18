@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbee9beeb50adb74498cc76d28238f5e, type: 3}
-  m_Name: State_LuggageCheck
+  m_Name: State_LuggagePackingMiniGameWon
   m_EditorClassIdentifier: 
   stateType: 0
-  narrativeEntries: []
-  nextState: 5
+  narrativeEntries:
+  - 'Cleo: "Let''s get to the taxi"'
+  nextState: 1

@@ -15,7 +15,7 @@ namespace VoluntaryInvoluntaryAssistance
         #endregion
 
         #region Private Functions.
-        void OnTriggerStay(Collider other)
+        private void OnTriggerStay(Collider other)
         {
             if (other.CompareTag("Player"))
             {
@@ -52,7 +52,7 @@ namespace VoluntaryInvoluntaryAssistance
             }
         }
 
-        string GetTagName(string type)
+        private string GetTagName(string type)
         {
             switch (type.ToLower())
             {

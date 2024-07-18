@@ -1,13 +1,20 @@
-using System.Collections;
 using UnityEngine;
 
 public class Tetromino : MonoBehaviour
 {
+    public Players player;
     private float lastFall = 0;
     private GameManager gameManager;
 
+    private KeyCode moveLeftKey;
+    private KeyCode moveRightKey;
+    private KeyCode rotateKey;
+    private KeyCode fallDownKey;
+
     void Start()
     {
+        SetControls(player);
+
         gameManager = GameManager.instance;
         if (gameManager == null)
             Debug.LogError("GameManager not found!");
@@ -15,13 +22,55 @@ public class Tetromino : MonoBehaviour
 
     void Update()
     {
+        HandleMovement();
+    }
+
+    void SetControls(Players player)
+    {
+        switch (player)
+        {
+            case Players.one:
+                moveLeftKey = KeyCode.A;
+                moveRightKey = KeyCode.D;
+                rotateKey = KeyCode.W;
+                fallDownKey = KeyCode.S;
+                break;
+            case Players.two:
+                moveLeftKey = KeyCode.LeftArrow;
+                moveRightKey = KeyCode.RightArrow;
+                rotateKey = KeyCode.UpArrow;
+                fallDownKey = KeyCode.DownArrow;
+                break;
+        }
+    }
+
+    void HandleMovement()
+    {
+        if (Input.GetKeyDown(moveLeftKey))
+            Move(Vector3.left);
+        else if (Input.GetKeyDown(moveRightKey))
+            Move(Vector3.right);
+        else if (Input.GetKeyDown(rotateKey))
+            Rotate();
+        else if (Input.GetKeyDown(fallDownKey))
+            IncreaseFallSpeed();
+
         if (Time.time - lastFall >= gameManager.fallSpeed)
         {
-            transform.position += Vector3.down;
+            Move(Vector3.down);
+            lastFall = Time.time;
+        }
+    }
 
-            if (!IsValidPosition())
+    void Move(Vector3 direction)
+    {
+        transform.position += direction;
+
+        if (!IsValidPosition())
+        {
+            transform.position -= direction;
+            if (direction == Vector3.down)
             {
-                transform.position -= Vector3.down;
                 GridManager.instance.StoreTetromino(transform);
                 GridManager.instance.CheckLines();
 
@@ -30,9 +79,20 @@ public class Tetromino : MonoBehaviour
 
                 enabled = false;
             }
-
-            lastFall = Time.time;
         }
+    }
+
+    void Rotate()
+    {
+        transform.Rotate(0, 0, -90);
+
+        if (!IsValidPosition())
+            transform.Rotate(0, 0, 90);
+    }
+
+    void IncreaseFallSpeed()
+    {
+        lastFall = Time.time - gameManager.fallSpeed;
     }
 
     bool IsValidPosition()
@@ -52,5 +112,3 @@ public class Tetromino : MonoBehaviour
         return true;
     }
 }
-
-

@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 public class GridManager : MonoBehaviour
@@ -7,7 +6,7 @@ public class GridManager : MonoBehaviour
     public static GridManager instance;
     public Vector2 gridDimensions = new Vector2(10, 20); 
 
-    private Transform[,] grid;
+    public Transform[,] grid;
 
     void Awake()
     {
@@ -15,7 +14,6 @@ public class GridManager : MonoBehaviour
             instance = this;
             return;
 
-        grid = new Transform[(int)gridDimensions.x, (int)gridDimensions.y];
     }
 
     public bool IsInsideGrid(Vector3 position)

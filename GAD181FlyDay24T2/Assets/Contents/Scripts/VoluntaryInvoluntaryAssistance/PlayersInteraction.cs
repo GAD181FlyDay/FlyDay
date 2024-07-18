@@ -24,11 +24,11 @@ namespace VoluntaryInvoluntaryAssistance
             {
                 case Players.one:
                     interactionKey = KeyCode.E;
-                    dropKey = KeyCode.Q;
+                    dropKey = KeyCode.LeftAlt;
                     break;
                 case Players.two:
                     interactionKey = KeyCode.RightShift;
-                    dropKey = KeyCode.RightControl;
+                    dropKey = KeyCode.RightAlt;
                     break;
             }
         }
@@ -68,7 +68,7 @@ namespace VoluntaryInvoluntaryAssistance
             Rigidbody rb = luggage.GetComponent<Rigidbody>();
             if (rb != null)
             {
-                rb.isKinematic = true; 
+                rb.isKinematic = true;
             }
         }
 
@@ -98,6 +98,14 @@ namespace VoluntaryInvoluntaryAssistance
         {
             heldLuggage.Remove(luggage);
         }
+
+        public void UpdateLuggagePositions()
+        {
+            for (int i = 0; i < heldLuggage.Count; i++)
+            {
+                heldLuggage[i].transform.localPosition = Vector3.up * (i + 1);
+            }
+        }
         #endregion
 
         #region Private Functions
@@ -110,7 +118,7 @@ namespace VoluntaryInvoluntaryAssistance
                 Rigidbody rb = luggage.GetComponent<Rigidbody>();
                 if (rb != null)
                 {
-                    rb.isKinematic = false; 
+                    rb.isKinematic = false;
                 }
             }
             heldLuggage.Clear();
@@ -130,13 +138,13 @@ namespace VoluntaryInvoluntaryAssistance
                     {
                         luggage.isOnPlate = lastLuggage.isOnPlate;
                         luggage.transform.SetParent(holdPoint);
-                        // luggage.transform.localPosition = new Vector3(0, heldLuggage.Count * 0.5f, 0);
-                        // luggage.transform.localRotation = Quaternion.identity;
+                        luggage.transform.localPosition = new Vector3(0, heldLuggage.Count * 0.1f, 0);
+                        luggage.transform.localRotation = Quaternion.identity;
 
                         Rigidbody rb = luggage.GetComponent<Rigidbody>();
                         if (rb != null)
                         {
-                            rb.isKinematic = true; 
+                            rb.isKinematic = true;
                         }
 
                         lastLuggage.AddLuggage();

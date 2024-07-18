@@ -11,65 +11,91 @@ namespace VoluntaryInvoluntaryAssistance
     public class OrderManager : MonoBehaviour
     {
         #region Variables
-        public TMP_Text ordersText;
-        public float orderLifetime = 20f;
-        public float orderInterval = 5f;
         public List<Order> activeOrders = new List<Order>();
-
-        private float _timeSinceLastOrder = 0f;
+        public TMP_Text orderText;
+        public float orderInterval = 20f; // Time interval for generating new orders
+        private float orderTimer;
+        private List<float> orderTimers = new List<float>();
         #endregion
+
+        private void Start()
+        {
+            GenerateNewOrder();
+            orderTimer = orderInterval;
+        }
 
         private void Update()
         {
-            _timeSinceLastOrder += Time.deltaTime;
-
-            if (_timeSinceLastOrder >= orderInterval)
+            orderTimer -= Time.deltaTime;
+            if (orderTimer <= 0)
             {
-                GenerateOrder();
-                _timeSinceLastOrder = 0f;
+                GenerateNewOrder();
+                orderTimer = orderInterval;
             }
 
-            UpdateOrders();
-            DisplayOrders();
-        }
-
-        #region Private Functions.
-        private void GenerateOrder()
-        {
-            string[] luggageTypes = { "black", "red", "green" };
-            string newOrderType = luggageTypes[Random.Range(0, luggageTypes.Length)];
-            Order newOrder = new Order { luggageType = newOrderType, timeRemaining = orderLifetime };
-            activeOrders.Add(newOrder);
-        }
-
-        private void UpdateOrders()
-        {
-            for (int i = activeOrders.Count - 1; i >= 0; i--)
+            for (int i = 0; i < orderTimers.Count; i++)
             {
-                activeOrders[i].timeRemaining -= Time.deltaTime;
-                if (activeOrders[i].timeRemaining <= 0)
+                orderTimers[i] -= Time.deltaTime;
+                if (orderTimers[i] <= 0)
                 {
-                    activeOrders.RemoveAt(i);
+                    RemoveOrder(i);
+                    i--; // Adjust the index after removal
                 }
             }
         }
 
-        private void DisplayOrders()
+        #region Private Functions.
+        public void CompleteOrder(int index)
         {
-            ordersText.text = "Orders:\n";
-            foreach (Order order in activeOrders)
+            if (index >= 0 && index < activeOrders.Count)
             {
-                ordersText.text += $"{order.luggageType} ({order.timeRemaining:F1}s)\n";
+                activeOrders.RemoveAt(index);
+                orderTimers.RemoveAt(index);
+                UpdateOrderDisplay();
+            }
+        }
+
+        public void GenerateNewOrder()
+        {
+            string[] luggageTypes = { "black", "red", "green" };
+            string randomLuggageType = luggageTypes[Random.Range(0, luggageTypes.Length)];
+
+            Order newOrder = new Order { luggageType = randomLuggageType };
+            activeOrders.Add(newOrder);
+            orderTimers.Add(20f); // Set timer for the new order
+
+            UpdateOrderDisplay();
+        }
+
+        private void RemoveOrder(int index)
+        {
+            if (index >= 0 && index < activeOrders.Count)
+            {
+                activeOrders.RemoveAt(index);
+                orderTimers.RemoveAt(index);
+                UpdateOrderDisplay();
+            }
+        }
+
+        private void UpdateOrderDisplay()
+        {
+            if (orderText != null)
+            {
+                orderText.text = string.Empty;
+                foreach (var order in activeOrders)
+                {
+                    orderText.text += order.luggageType + "\n";
+                }
             }
         }
         #endregion
-
-        #region Class
-        public class Order
-        {
-            public string luggageType;
-            public float timeRemaining;
-        }
-        #endregion
     }
+
+    #region Class.
+    [System.Serializable]
+    public class Order
+    {
+        public string luggageType;
+    }
+    #endregion
 }

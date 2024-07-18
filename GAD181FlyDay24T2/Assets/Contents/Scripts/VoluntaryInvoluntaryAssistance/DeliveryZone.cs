@@ -9,10 +9,9 @@ namespace VoluntaryInvoluntaryAssistance
 
     public class DeliveryZone : MonoBehaviour
     {
-        #region Variables.
+        #region Variables
         public int score = 0;
         public TMP_Text scoreText;
-
         [SerializeField] private OrderManager orderManager;
         #endregion
 
@@ -21,64 +20,50 @@ namespace VoluntaryInvoluntaryAssistance
             UpdateScoreText();
         }
 
-        #region Private Functions
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Player"))
+            if (other.CompareTag("Luggage"))
             {
-                PlayersInteraction player = other.GetComponent<PlayersInteraction>();
-                if (player == null) return;
-
-                // Check if the player is holding luggage and a plate
-                bool hasPlate = false;
-                bool matched = false;
-
-                foreach (GameObject luggageObj in player.GetHeldLuggage())
+                Luggage luggage = other.GetComponent<Luggage>();
+                if (luggage != null)
                 {
-                    Luggage luggage = luggageObj.GetComponent<Luggage>();
-                    if (luggage != null && luggage.isOnPlate)
-                    {
-                        hasPlate = true;
-                        break;
-                    }
-                }
-
-                if (hasPlate)
-                {
-                    foreach (GameObject luggageObj in player.GetHeldLuggage())
-                    {
-                        Luggage luggage = luggageObj.GetComponent<Luggage>();
-                        if (luggage == null) continue;
-
-                        for (int i = 0; i < orderManager.activeOrders.Count; i++)
-                        {
-                            if (orderManager.activeOrders[i].luggageType == luggage.luggageType)
-                            {
-                                matched = true;
-                                orderManager.activeOrders.RemoveAt(i);
-                                player.RemoveLuggage(luggageObj);
-                                luggageObj.SetActive(false);
-                                score++;
-                                break;
-                            }
-                        }
-
-                        if (!matched)
-                        {
-                            score--;
-                            player.RemoveLuggage(luggageObj);
-                            luggageObj.SetActive(false);
-                        }
-
-                        UpdateScoreText();
-                    }
+                    HandleLuggageDelivery(luggage);
+                    other.gameObject.SetActive(false);
                 }
             }
         }
 
+        #region Private Functions
+        private void HandleLuggageDelivery(Luggage luggage)
+        {
+            bool matched = false;
+
+            for (int i = 0; i < orderManager.activeOrders.Count; i++)
+            {
+                if (orderManager.activeOrders[i].luggageType == luggage.luggageType)
+                {
+                    matched = true;
+                    orderManager.CompleteOrder(i);
+                    score++;
+                    break;
+                }
+            }
+
+            if (!matched)
+            {
+                score--;
+            }
+
+            UpdateScoreText();
+        }
+
         private void UpdateScoreText()
         {
-            scoreText.text = "Score: " + score;
+            if (scoreText != null)
+            {
+                scoreText.text = "Score: " + score;
+            }
+
         }
         #endregion
     }

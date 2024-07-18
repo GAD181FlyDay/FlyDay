@@ -9,6 +9,7 @@ public class InteractingPaint : MonoBehaviour
     [SerializeField] SpriteRenderer paintRenderer;
     float transparency = 1;
     [SerializeField] float fadeSpeed = 5;
+    bool playerDetected;
 
     void EnablePaint()
     {
@@ -23,11 +24,12 @@ public class InteractingPaint : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.P) && playerDetected == true )
         {
             EnablePaint();
         }
         FadePaint();
+
     }
 
     void FadePaint()
@@ -40,6 +42,22 @@ public class InteractingPaint : MonoBehaviour
         else if(paintRenderer.color.a <= 0)
         {
             transparency = 1;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            playerDetected = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            playerDetected = false;
         }
     }
 }

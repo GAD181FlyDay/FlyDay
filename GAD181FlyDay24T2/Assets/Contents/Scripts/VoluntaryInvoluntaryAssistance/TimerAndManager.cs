@@ -24,6 +24,7 @@ namespace VoluntaryInvoluntaryAssistance
 
         private void Start()
         {
+            Cursor.visible = false;
             _timeRemaining = gameDuration;
             _isGameActive = true;
             endGamePanel.SetActive(false);
@@ -57,6 +58,7 @@ namespace VoluntaryInvoluntaryAssistance
             endGamePanel.SetActive(true);
             endGameText.text = "Game Over! You Earned: " + deliveryZone.luckyCoins;
             timerTextComponent.SetActive(false);
+            Cursor.visible = true;
             Time.timeScale = 0f; 
         }
 
@@ -64,6 +66,7 @@ namespace VoluntaryInvoluntaryAssistance
         {
             Time.timeScale = 1f;
             timerTextComponent.SetActive(true);
+            Cursor.visible = false;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); 
         }
         #endregion

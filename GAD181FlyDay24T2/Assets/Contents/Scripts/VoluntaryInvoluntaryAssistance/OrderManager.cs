@@ -15,7 +15,8 @@ namespace VoluntaryInvoluntaryAssistance
         public DeliveryZone deliveryZone;
         public TMP_Text orderText;
         public float orderInterval = 20f; // Time interval for generating new orders
-        private float orderTimer;
+        [SerializeField] private float orderTimer; 
+        private float orderTimerValue;
         private List<float> orderTimers = new List<float>();
         #endregion
 
@@ -65,8 +66,8 @@ namespace VoluntaryInvoluntaryAssistance
 
             Order newOrder = new Order { luggageType = randomLuggageType };
             activeOrders.Add(newOrder);
-            orderTimers.Add(20f); // Set timer for the new order.
-
+            orderTimers.Add(orderTimerValue);
+            
             UpdateOrderDisplay();
         }
 

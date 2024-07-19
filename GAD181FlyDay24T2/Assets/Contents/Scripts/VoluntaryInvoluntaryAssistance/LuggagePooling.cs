@@ -4,8 +4,7 @@ using UnityEngine;
 namespace VoluntaryInvoluntaryAssistance
 {
     /// <summary>
-    ///  The spawning wasn't working so Instead I'm using 
-    ///  object pooling to active and disable the luggages isntead.
+    ///  Creates luggage instances which are then reusable.
     /// </summary>
 
     public class LuggagePooling : MonoBehaviour

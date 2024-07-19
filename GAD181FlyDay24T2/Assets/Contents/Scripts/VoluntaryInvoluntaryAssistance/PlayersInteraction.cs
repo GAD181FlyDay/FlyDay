@@ -3,10 +3,6 @@ using UnityEngine;
 
 namespace VoluntaryInvoluntaryAssistance
 {
-    /// <summary>
-    /// Luggage interractions (Dropping and picking up.)
-    /// </summary>
-
     public class PlayersInteraction : MonoBehaviour
     {
         #region Variables
@@ -14,6 +10,8 @@ namespace VoluntaryInvoluntaryAssistance
         public Transform holdPoint;
         public KeyCode interactionKey;
         public KeyCode dropKey;
+        public float luggageSpacing = 0.5f; // Adjustable spacing between luggage
+        public int maxLuggageCount = 3; // Max number of luggage the player can carry
 
         private List<GameObject> heldLuggage = new List<GameObject>();
         #endregion
@@ -37,7 +35,7 @@ namespace VoluntaryInvoluntaryAssistance
         {
             if (Input.GetKeyDown(interactionKey))
             {
-                if (heldLuggage.Count == 0)
+                if (heldLuggage.Count < maxLuggageCount) // Check if the player can pick up more luggage
                 {
                     Collider[] colliders = Physics.OverlapSphere(transform.position, 0.5f);
                     foreach (var collider in colliders)
@@ -62,8 +60,7 @@ namespace VoluntaryInvoluntaryAssistance
         {
             heldLuggage.Add(luggage);
             luggage.transform.SetParent(holdPoint);
-            luggage.transform.localPosition = Vector3.up * heldLuggage.Count;
-            luggage.transform.localRotation = Quaternion.identity;
+            UpdateLuggagePositions();
 
             Rigidbody rb = luggage.GetComponent<Rigidbody>();
             if (rb != null)
@@ -74,19 +71,7 @@ namespace VoluntaryInvoluntaryAssistance
 
         public bool CanPickUpLuggage()
         {
-            if (heldLuggage.Count == 0)
-                return true;
-
-            Luggage lastLuggage = heldLuggage[heldLuggage.Count - 1].GetComponent<Luggage>();
-
-            if (lastLuggage.isOnPlate)
-            {
-                return heldLuggage.Count < 3;
-            }
-            else
-            {
-                return heldLuggage.Count < 2;
-            }
+            return heldLuggage.Count < maxLuggageCount;
         }
 
         public List<GameObject> GetHeldLuggage()
@@ -97,13 +82,14 @@ namespace VoluntaryInvoluntaryAssistance
         public void RemoveLuggage(GameObject luggage)
         {
             heldLuggage.Remove(luggage);
+            UpdateLuggagePositions();
         }
 
         public void UpdateLuggagePositions()
         {
             for (int i = 0; i < heldLuggage.Count; i++)
             {
-                heldLuggage[i].transform.localPosition = Vector3.up * (i + 1);
+                heldLuggage[i].transform.localPosition = Vector3.up * (i * luggageSpacing);
             }
         }
         #endregion
@@ -138,7 +124,7 @@ namespace VoluntaryInvoluntaryAssistance
                     {
                         luggage.isOnPlate = lastLuggage.isOnPlate;
                         luggage.transform.SetParent(holdPoint);
-                        luggage.transform.localPosition = new Vector3(0, heldLuggage.Count * 0.1f, 0);
+                        luggage.transform.localPosition = new Vector3(0, heldLuggage.Count * luggageSpacing, 0);
                         luggage.transform.localRotation = Quaternion.identity;
 
                         Rigidbody rb = luggage.GetComponent<Rigidbody>();

@@ -12,9 +12,11 @@ namespace VoluntaryInvoluntaryAssistance
     {
         #region Variables
         public List<Order> activeOrders = new List<Order>();
+        public DeliveryZone deliveryZone;
         public TMP_Text orderText;
         public float orderInterval = 20f; // Time interval for generating new orders
-        private float orderTimer;
+        [SerializeField] private float orderTimer; 
+        private float orderTimerValue;
         private List<float> orderTimers = new List<float>();
         #endregion
 
@@ -39,7 +41,9 @@ namespace VoluntaryInvoluntaryAssistance
                 if (orderTimers[i] <= 0)
                 {
                     RemoveOrder(i);
-                    i--; // Adjust the index after removal
+                    deliveryZone.luckyCoins-= 2;
+                    deliveryZone.UpdateScoreText();
+                    i--; 
                 }
             }
         }
@@ -62,8 +66,8 @@ namespace VoluntaryInvoluntaryAssistance
 
             Order newOrder = new Order { luggageType = randomLuggageType };
             activeOrders.Add(newOrder);
-            orderTimers.Add(20f); // Set timer for the new order
-
+            orderTimers.Add(orderTimerValue);
+            
             UpdateOrderDisplay();
         }
 

@@ -7,6 +7,10 @@ public class GameManager : MonoBehaviour
     public GameObject[] tetrominoShapes;
     public float fallSpeed = 0.15f;
 
+
+    [SerializeField] private Vector2 playerOneTempPos = new Vector2 (0, 21);
+    [SerializeField] private Vector2 playerTwoTempPos = new Vector2(20, 21);
+
     private GameObject currentTetrominoPlayer1;
     private GameObject currentTetrominoPlayer2;
     private bool gameOver = false;
@@ -41,7 +45,7 @@ public class GameManager : MonoBehaviour
                 Destroy(currentTetrominoPlayer1);
 
             int randomIndex = Random.Range(0, tetrominoShapes.Length);
-            currentTetrominoPlayer1 = Instantiate(tetrominoShapes[randomIndex], new Vector3(3, 20, 0), Quaternion.identity);
+            currentTetrominoPlayer1 = Instantiate(tetrominoShapes[randomIndex], playerOneTempPos, Quaternion.identity);
             currentTetrominoPlayer1.GetComponent<Tetromino>().player = Players.one;
         }
         else if (player == Players.two)
@@ -50,7 +54,7 @@ public class GameManager : MonoBehaviour
                 Destroy(currentTetrominoPlayer2);
 
             int randomIndex = Random.Range(0, tetrominoShapes.Length);
-            currentTetrominoPlayer2 = Instantiate(tetrominoShapes[randomIndex], new Vector3(7, 20, 0), Quaternion.identity);
+            currentTetrominoPlayer2 = Instantiate(tetrominoShapes[randomIndex], playerTwoTempPos, Quaternion.identity);
             currentTetrominoPlayer2.GetComponent<Tetromino>().player = Players.two;
         }
     }

@@ -3,20 +3,23 @@ using UnityEngine;
 public class Tetromino : MonoBehaviour
 {
     public Players player;
-    private float lastFall = 0;
-    private GameManager gameManager;
 
-    private KeyCode moveLeftKey;
-    private KeyCode moveRightKey;
-    private KeyCode rotateKey;
-    private KeyCode fallDownKey;
+    [SerializeField] private float normalFallSpeed = 0.5f; // The lower the value the faster.
+    [SerializeField] private float forcedFalSpeed = 0.1f;
+
+    private float _lastFall = 0;
+    private GameManager _gameManager;
+    private KeyCode _moveLeftKey;
+    private KeyCode _moveRightKey;
+    private KeyCode _rotateKey;
+    private KeyCode _fallDownKey;
 
     void Start()
     {
         SetControls(player);
 
-        gameManager = GameManager.instance;
-        if (gameManager == null)
+        _gameManager = GameManager.instance;
+        if (_gameManager == null)
             Debug.LogError("GameManager not found!");
     }
 
@@ -30,36 +33,49 @@ public class Tetromino : MonoBehaviour
         switch (player)
         {
             case Players.one:
-                moveLeftKey = KeyCode.A;
-                moveRightKey = KeyCode.D;
-                rotateKey = KeyCode.W;
-                fallDownKey = KeyCode.S;
+                _moveLeftKey = KeyCode.A;
+                _moveRightKey = KeyCode.D;
+                _rotateKey = KeyCode.W;
+                _fallDownKey = KeyCode.S;
                 break;
             case Players.two:
-                moveLeftKey = KeyCode.LeftArrow;
-                moveRightKey = KeyCode.RightArrow;
-                rotateKey = KeyCode.UpArrow;
-                fallDownKey = KeyCode.DownArrow;
+                _moveLeftKey = KeyCode.LeftArrow;
+                _moveRightKey = KeyCode.RightArrow;
+                _rotateKey = KeyCode.UpArrow;
+                _fallDownKey = KeyCode.DownArrow;
                 break;
         }
     }
 
     void HandleMovement()
     {
-        if (Input.GetKeyDown(moveLeftKey))
+        if (Input.GetKeyDown(_moveLeftKey))
             Move(Vector3.left);
-        else if (Input.GetKeyDown(moveRightKey))
+        else if (Input.GetKeyDown(_moveRightKey))
             Move(Vector3.right);
-        else if (Input.GetKeyDown(rotateKey))
+        else if (Input.GetKeyDown(_rotateKey))
             Rotate();
-        else if (Input.GetKeyDown(fallDownKey))
-            IncreaseFallSpeed();
 
-        if (Time.time - lastFall >= gameManager.fallSpeed)
+        if (Input.GetKey(_fallDownKey) && Time.time - _lastFall >= forcedFalSpeed)
         {
-            Move(Vector3.down);
-            lastFall = Time.time;
+            IncreaseFallSpeed();
         }
+        else if (Time.time - _lastFall >= normalFallSpeed)
+        {
+            MaintainNormalFallSpeed();
+        }
+    }
+
+    void IncreaseFallSpeed()
+    {
+        Move(Vector3.down);
+        _lastFall = Time.time;
+    }
+
+    void MaintainNormalFallSpeed()
+    {
+        Move(Vector3.down);
+        _lastFall = Time.time;
     }
 
     void Move(Vector3 direction)
@@ -75,7 +91,7 @@ public class Tetromino : MonoBehaviour
                 GridManager.instance.CheckLines();
 
                 if (GridManager.instance.IsGameOver(transform))
-                    gameManager.GameOver();
+                    _gameManager.GameOver();
 
                 enabled = false;
             }
@@ -88,11 +104,6 @@ public class Tetromino : MonoBehaviour
 
         if (!IsValidPosition())
             transform.Rotate(0, 0, 90);
-    }
-
-    void IncreaseFallSpeed()
-    {
-        lastFall = Time.time - gameManager.fallSpeed;
     }
 
     bool IsValidPosition()

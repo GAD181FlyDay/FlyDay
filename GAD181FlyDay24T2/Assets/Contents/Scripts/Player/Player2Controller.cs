@@ -78,7 +78,8 @@ namespace Player.Tw0
 
             if (Input.GetKeyDown(KeyCode.RightControl))
             {
-                playerAnimator.SetBool("Jumping", true);
+                return;
+                // playerAnimator.SetBool("Jumping", true);
                 // This player can jump Higher than the other player.
             }
 

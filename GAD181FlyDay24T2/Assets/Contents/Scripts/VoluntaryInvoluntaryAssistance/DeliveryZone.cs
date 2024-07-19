@@ -10,7 +10,7 @@ namespace VoluntaryInvoluntaryAssistance
     public class DeliveryZone : MonoBehaviour
     {
         #region Variables
-        public int score = 0;
+        public int luckyCoins = 0;
         public TMP_Text scoreText;
         [SerializeField] private OrderManager orderManager;
         #endregion
@@ -44,24 +44,24 @@ namespace VoluntaryInvoluntaryAssistance
                 {
                     matched = true;
                     orderManager.CompleteOrder(i);
-                    score++;
+                    luckyCoins += 5;
                     break;
                 }
             }
 
             if (!matched)
             {
-                score--;
+                luckyCoins--;
             }
 
             UpdateScoreText();
         }
 
-        private void UpdateScoreText()
+        public void UpdateScoreText()
         {
             if (scoreText != null)
             {
-                scoreText.text = "Score: " + score;
+                scoreText.text = "Coins: " + luckyCoins;
             }
 
         }

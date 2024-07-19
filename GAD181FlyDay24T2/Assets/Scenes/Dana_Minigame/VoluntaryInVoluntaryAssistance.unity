@@ -1369,14 +1369,14 @@ PrefabInstance:
       addedObject: {fileID: 1310998097}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3641260482481261745, guid: e13c57158431bca48a31db8d4687e741, type: 3}
+      insertIndex: 4
+      addedObject: {fileID: 2017905393}
+    - targetCorrespondingSourceObject: {fileID: 3641260482481261745, guid: e13c57158431bca48a31db8d4687e741, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2017905392}
     - targetCorrespondingSourceObject: {fileID: 3641260482481261745, guid: e13c57158431bca48a31db8d4687e741, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2017905399}
-    - targetCorrespondingSourceObject: {fileID: 3641260482481261745, guid: e13c57158431bca48a31db8d4687e741, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2017905393}
   m_SourcePrefab: {fileID: 100100000, guid: e13c57158431bca48a31db8d4687e741, type: 3}
 --- !u!1 &245660560 stripped
 GameObject:
@@ -1781,7 +1781,7 @@ GameObject:
   - component: {fileID: 383661759}
   - component: {fileID: 383661760}
   m_Layer: 0
-  m_Name: RedLuggage
+  m_Name: GreenLuggage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2800,7 +2800,7 @@ GameObject:
   - component: {fileID: 857943781}
   - component: {fileID: 857943782}
   m_Layer: 0
-  m_Name: GreenLuggage
+  m_Name: RedLuggage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4623,6 +4623,7 @@ MonoBehaviour:
   deliveryZone: {fileID: 103164793}
   orderText: {fileID: 1159241286}
   orderInterval: 6
+  orderTimer: 0
 --- !u!4 &1291265787
 Transform:
   m_ObjectHideFlags: 0
@@ -7774,7 +7775,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9233882505a35ce459900ac198dc0eba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: 0
+  player: 1
   holdPoint: {fileID: 1310998097}
   interactionKey: 0
   dropKey: 0

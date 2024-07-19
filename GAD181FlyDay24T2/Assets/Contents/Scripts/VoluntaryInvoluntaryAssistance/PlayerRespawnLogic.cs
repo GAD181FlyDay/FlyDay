@@ -23,7 +23,7 @@ namespace VoluntaryInvoluntaryAssistance
 
         private void Start()
         {
-            _countdownTimer = new Timer(3f); // Initialize the timer with 3 seconds
+            _countdownTimer = new Timer(3f); 
         }
 
         private void Update()
@@ -32,16 +32,16 @@ namespace VoluntaryInvoluntaryAssistance
             {
                 _countdownTimer.Update(Time.deltaTime);
 
-                // Update the countdown text
+               
                 int secondsRemaining = Mathf.CeilToInt(_countdownTimer.TimeRemaining);
                 countdownText.text = secondsRemaining.ToString();
 
-                // Check if the timer has finished
+               
                 if (_countdownTimer.HasFinished)
                 {
                     RespawnPlayer();
                     _isCountingDown = false;
-                    countdownText.text = ""; // Clear the countdown text
+                    countdownText.text = ""; 
                 }
             }
         }

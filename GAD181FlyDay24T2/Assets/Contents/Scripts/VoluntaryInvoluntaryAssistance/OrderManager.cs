@@ -16,7 +16,7 @@ namespace VoluntaryInvoluntaryAssistance
         public TMP_Text orderText;
         public float orderInterval = 20f; // Time interval for generating new orders
         [SerializeField] private float orderTimer; 
-        private float orderTimerValue;
+        private float orderTimerValue = 25f;
         private List<float> orderTimers = new List<float>();
         #endregion
 

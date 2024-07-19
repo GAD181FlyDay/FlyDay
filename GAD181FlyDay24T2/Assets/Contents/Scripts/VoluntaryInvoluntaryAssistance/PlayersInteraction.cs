@@ -10,8 +10,8 @@ namespace VoluntaryInvoluntaryAssistance
         public Transform holdPoint;
         public KeyCode interactionKey;
         public KeyCode dropKey;
-        public float luggageSpacing = 0.5f; // Adjustable spacing between luggage
-        public int maxLuggageCount = 3; // Max number of luggage the player can carry
+        public float luggageSpacing = 0.5f; 
+        public int maxLuggageCount = 3; 
 
         private List<GameObject> heldLuggage = new List<GameObject>();
         #endregion
@@ -35,7 +35,7 @@ namespace VoluntaryInvoluntaryAssistance
         {
             if (Input.GetKeyDown(interactionKey))
             {
-                if (heldLuggage.Count < maxLuggageCount) // Check if the player can pick up more luggage
+                if (heldLuggage.Count < maxLuggageCount)
                 {
                     Collider[] colliders = Physics.OverlapSphere(transform.position, 0.5f);
                     foreach (var collider in colliders)

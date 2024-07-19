@@ -1,4 +1,3 @@
-using UnityEditor.EditorTools;
 using UnityEngine;
 
 namespace VoluntaryInvoluntaryAssistance
@@ -37,7 +36,7 @@ namespace VoluntaryInvoluntaryAssistance
                             Debug.LogError("Couldn't spawn luggage from the pool: " + tag);
                             return;
                         }
-
+                       
                         Luggage luggage = newLuggage.GetComponent<Luggage>();
                         if (luggage == null)
                         {

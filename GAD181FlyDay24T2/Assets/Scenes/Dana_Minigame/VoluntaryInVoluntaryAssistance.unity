@@ -1298,6 +1298,14 @@ PrefabInstance:
       value: Player 2
       objectReference: {fileID: 0}
     - target: {fileID: 3933927944803999143, guid: e13c57158431bca48a31db8d4687e741, type: 3}
+      propertyPath: m_Drag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3933927944803999143, guid: e13c57158431bca48a31db8d4687e741, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3933927944803999143, guid: e13c57158431bca48a31db8d4687e741, type: 3}
       propertyPath: m_UseGravity
       value: 1
       objectReference: {fileID: 0}
@@ -1703,7 +1711,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posA: {fileID: 356438417}
   posB: {fileID: 1270524502}
-  speed: 0.24
+  speed: 0.3
 --- !u!1 &356438416
 GameObject:
   m_ObjectHideFlags: 0
@@ -2542,6 +2550,14 @@ PrefabInstance:
       value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 8741788125555376242, guid: 2a3ce45b007f7244b9c175fbfea79cc6, type: 3}
+      propertyPath: m_Drag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8741788125555376242, guid: 2a3ce45b007f7244b9c175fbfea79cc6, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8741788125555376242, guid: 2a3ce45b007f7244b9c175fbfea79cc6, type: 3}
       propertyPath: m_UseGravity
       value: 1
       objectReference: {fileID: 0}
@@ -2583,7 +2599,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bd89f2553d4f1b4a8090a58269cd261, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashSpeed: 2
+  dashSpeed: 100
   dashDuration: 0.5
   player: 0
 --- !u!114 &784390195
@@ -2626,6 +2642,7 @@ MonoBehaviour:
   playerTwoSpawnPosition: {x: 0.779, y: 0.104, z: -1.8}
   outboundObject: {fileID: 7095743}
   countdownText: {fileID: 1980598572}
+  playersInteraction: {fileID: 784390195}
 --- !u!1 &806061982
 GameObject:
   m_ObjectHideFlags: 0
@@ -3994,10 +4011,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: Hello
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4027,13 +4044,13 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_characterSpacing: 22.03
+  m_wordSpacing: 1.43
+  m_lineSpacing: 12.24
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -4463,7 +4480,7 @@ GameObject:
   - component: {fileID: 1262008333}
   - component: {fileID: 1262008332}
   m_Layer: 0
-  m_Name: FalseOutBound
+  m_Name: LuggageOutBound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5321,6 +5338,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2205036541414190006, guid: c1e15c6453efb0643a013b60df0d1d08, type: 3}
+      propertyPath: playerRespawnLogic
+      value: 
+      objectReference: {fileID: 784390207}
     - target: {fileID: 2708498254336735132, guid: c1e15c6453efb0643a013b60df0d1d08, type: 3}
       propertyPath: m_Name
       value: BlackLuggageBag
@@ -5583,6 +5604,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2543547291902410133, guid: d7a78d8c51d452f4dacf351be643c629, type: 3}
+      propertyPath: playerRespawnLogic
+      value: 
+      objectReference: {fileID: 784390207}
     - target: {fileID: 4871955365126438519, guid: d7a78d8c51d452f4dacf351be643c629, type: 3}
       propertyPath: m_UseGravity
       value: 0
@@ -7329,6 +7354,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2196333363825917868, guid: 49328eb787838674b8a66ae86275b71e, type: 3}
+      propertyPath: playerRespawnLogic
+      value: 
+      objectReference: {fileID: 784390207}
     - target: {fileID: 2699248596386096006, guid: 49328eb787838674b8a66ae86275b71e, type: 3}
       propertyPath: m_Name
       value: GreenLuggageBag
@@ -7760,7 +7789,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bd89f2553d4f1b4a8090a58269cd261, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashSpeed: 2
+  dashSpeed: 100
   dashDuration: 0.5
   player: 1
 --- !u!114 &2017905393
@@ -7775,7 +7804,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9233882505a35ce459900ac198dc0eba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: 1
+  player: 0
   holdPoint: {fileID: 1310998097}
   interactionKey: 0
   dropKey: 0
@@ -7798,6 +7827,7 @@ MonoBehaviour:
   playerTwoSpawnPosition: {x: 0.779, y: 0.104, z: -1.8}
   outboundObject: {fileID: 7095743}
   countdownText: {fileID: 115848199}
+  playersInteraction: {fileID: 2017905393}
 --- !u!1 &2105051670
 GameObject:
   m_ObjectHideFlags: 0

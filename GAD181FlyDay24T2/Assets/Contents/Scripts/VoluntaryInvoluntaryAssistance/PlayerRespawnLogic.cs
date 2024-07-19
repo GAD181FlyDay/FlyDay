@@ -11,11 +11,14 @@ namespace VoluntaryInvoluntaryAssistance
     public class PlayerRespawnLogic : MonoBehaviour
     {
         #region Variables
+
         public Players player;
         public Vector3 playerOneSpawnPosition;
         public Vector3 playerTwoSpawnPosition;
         public GameObject outboundObject;
         public TMP_Text countdownText;
+
+        [SerializeField] private PlayersInteraction playersInteraction;
 
         private Timer _countdownTimer;
         private bool _isCountingDown = false;
@@ -23,7 +26,7 @@ namespace VoluntaryInvoluntaryAssistance
 
         private void Start()
         {
-            _countdownTimer = new Timer(3f); 
+            _countdownTimer = new Timer(3f);
         }
 
         private void Update()
@@ -32,16 +35,16 @@ namespace VoluntaryInvoluntaryAssistance
             {
                 _countdownTimer.Update(Time.deltaTime);
 
-               
+
                 int secondsRemaining = Mathf.CeilToInt(_countdownTimer.TimeRemaining);
                 countdownText.text = secondsRemaining.ToString();
 
-               
+
                 if (_countdownTimer.HasFinished)
                 {
                     RespawnPlayer();
                     _isCountingDown = false;
-                    countdownText.text = ""; 
+                    countdownText.text = "";
                 }
             }
         }
@@ -50,6 +53,7 @@ namespace VoluntaryInvoluntaryAssistance
         {
             if (collision.gameObject == outboundObject && !_isCountingDown)
             {
+                playersInteraction.DropLuggage();
                 _isCountingDown = true;
                 _countdownTimer.Reset();
             }

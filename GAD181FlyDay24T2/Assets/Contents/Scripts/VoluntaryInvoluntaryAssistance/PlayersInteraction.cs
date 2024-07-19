@@ -10,8 +10,8 @@ namespace VoluntaryInvoluntaryAssistance
         public Transform holdPoint;
         public KeyCode interactionKey;
         public KeyCode dropKey;
-        public float luggageSpacing = 0.5f; 
-        public int maxLuggageCount = 3; 
+        public float luggageSpacing = 0.5f;
+        public int maxLuggageCount = 3;
 
         private List<GameObject> heldLuggage = new List<GameObject>();
         #endregion
@@ -56,6 +56,21 @@ namespace VoluntaryInvoluntaryAssistance
         }
 
         #region Public Functions
+        public void DropLuggage()
+        {
+            foreach (var luggage in heldLuggage)
+            {
+                luggage.transform.SetParent(null);
+
+                Rigidbody rb = luggage.GetComponent<Rigidbody>();
+                if (rb != null)
+                {
+                    rb.isKinematic = false;
+                }
+            }
+            heldLuggage.Clear();
+        }
+
         public void PickUpLuggage(GameObject luggage)
         {
             heldLuggage.Add(luggage);
@@ -95,21 +110,6 @@ namespace VoluntaryInvoluntaryAssistance
         #endregion
 
         #region Private Functions
-        private void DropLuggage()
-        {
-            foreach (var luggage in heldLuggage)
-            {
-                luggage.transform.SetParent(null);
-
-                Rigidbody rb = luggage.GetComponent<Rigidbody>();
-                if (rb != null)
-                {
-                    rb.isKinematic = false;
-                }
-            }
-            heldLuggage.Clear();
-        }
-
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Luggage"))

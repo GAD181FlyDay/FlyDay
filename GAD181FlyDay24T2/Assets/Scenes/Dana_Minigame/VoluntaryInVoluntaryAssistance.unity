@@ -8084,7 +8084,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9233882505a35ce459900ac198dc0eba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: 0
+  player: 1
   holdPoint: {fileID: 1310998097}
   interactionKey: 0
   dropKey: 0

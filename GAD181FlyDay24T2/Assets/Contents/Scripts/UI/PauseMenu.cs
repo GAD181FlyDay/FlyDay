@@ -40,7 +40,10 @@ public class PauseMenu : MonoBehaviour
     /// </summary>
     public void ToggleOptionsPanel()
     {
-        optionsPanel.SetActive(!optionsPanel.activeSelf);
+        // Depending on the options panel's active state the time pauses or unpauses.
+        bool isPanelActive = !optionsPanel.activeSelf; 
+        optionsPanel.SetActive(isPanelActive);
+        Time.timeScale = isPanelActive ? 0 : 1;
     }
     #endregion
 

@@ -44,6 +44,17 @@ public class PauseMenu : MonoBehaviour
         bool isPanelActive = !optionsPanel.activeSelf; 
         optionsPanel.SetActive(isPanelActive);
         Time.timeScale = isPanelActive ? 0 : 1;
+
+        if (isPanelActive)
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
+        else
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
     }
     #endregion
 

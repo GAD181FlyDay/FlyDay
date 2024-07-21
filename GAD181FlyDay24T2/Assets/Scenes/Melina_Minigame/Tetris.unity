@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 122934716}
   - component: {fileID: 122934718}
   - component: {fileID: 122934719}
+  - component: {fileID: 122934720}
   m_Layer: 0
   m_Name: 4
   m_TagString: Untagged
@@ -277,6 +278,33 @@ PolygonCollider2D:
       - {x: 0.9637823, y: 1.0056267}
       - {x: 1.0069032, y: 2.6911354}
   m_UseDelaunayMesh: 0
+--- !u!50 &122934720
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 122934715}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &151897778
 GameObject:
   m_ObjectHideFlags: 0
@@ -390,6 +418,7 @@ GameObject:
   - component: {fileID: 210651540}
   - component: {fileID: 210651542}
   - component: {fileID: 210651543}
+  - component: {fileID: 210651544}
   m_Layer: 0
   m_Name: 6
   m_TagString: Untagged
@@ -536,6 +565,33 @@ PolygonCollider2D:
       - {x: 0.984375, y: -0.984375}
       - {x: 0.984375, y: 4.1875}
   m_UseDelaunayMesh: 0
+--- !u!50 &210651544
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210651539}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &409818533
 GameObject:
   m_ObjectHideFlags: 0
@@ -548,6 +604,7 @@ GameObject:
   - component: {fileID: 409818534}
   - component: {fileID: 409818536}
   - component: {fileID: 409818537}
+  - component: {fileID: 409818538}
   m_Layer: 0
   m_Name: 3
   m_TagString: Untagged
@@ -696,6 +753,33 @@ PolygonCollider2D:
       - {x: 2.59375, y: 0.65625}
       - {x: 2.59375, y: 2.59375}
   m_UseDelaunayMesh: 0
+--- !u!50 &409818538
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 409818533}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1100056386
 GameObject:
   m_ObjectHideFlags: 0
@@ -895,6 +979,7 @@ GameObject:
   - component: {fileID: 1468726145}
   - component: {fileID: 1468726147}
   - component: {fileID: 1468726148}
+  - component: {fileID: 1468726149}
   m_Layer: 0
   m_Name: 5
   m_TagString: Untagged
@@ -1042,6 +1127,33 @@ PolygonCollider2D:
       - {x: 2.59375, y: 0.984375}
       - {x: 2.5625, y: 0.984375}
   m_UseDelaunayMesh: 0
+--- !u!50 &1468726149
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1468726144}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1676642773
 GameObject:
   m_ObjectHideFlags: 0
@@ -1054,6 +1166,7 @@ GameObject:
   - component: {fileID: 1676642774}
   - component: {fileID: 1676642776}
   - component: {fileID: 1676642777}
+  - component: {fileID: 1676642778}
   m_Layer: 0
   m_Name: 7
   m_TagString: Untagged
@@ -1200,6 +1313,33 @@ PolygonCollider2D:
       - {x: 2.59375, y: 2.171875}
       - {x: 2.59375, y: 4.1875}
   m_UseDelaunayMesh: 0
+--- !u!50 &1676642778
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1676642773}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1716200795
 GameObject:
   m_ObjectHideFlags: 0
@@ -1262,7 +1402,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 5d5641618064e84468244c53b89eab84, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1439,6 +1579,7 @@ GameObject:
   - component: {fileID: 1720181836}
   - component: {fileID: 1720181838}
   - component: {fileID: 1720181839}
+  - component: {fileID: 1720181840}
   m_Layer: 0
   m_Name: 1
   m_TagString: Untagged
@@ -1582,6 +1723,33 @@ PolygonCollider2D:
       - {x: 1.953125, y: -0.03125}
       - {x: 1.953125, y: 1.953125}
   m_UseDelaunayMesh: 0
+--- !u!50 &1720181840
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1720181835}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1724995050
 GameObject:
   m_ObjectHideFlags: 0
@@ -1594,6 +1762,7 @@ GameObject:
   - component: {fileID: 1724995051}
   - component: {fileID: 1724995053}
   - component: {fileID: 1724995054}
+  - component: {fileID: 1724995055}
   m_Layer: 0
   m_Name: 2
   m_TagString: Untagged
@@ -1736,6 +1905,33 @@ PolygonCollider2D:
       - {x: 0.984375, y: 4.1875}
       - {x: -0.984375, y: 4.1875}
   m_UseDelaunayMesh: 0
+--- !u!50 &1724995055
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1724995050}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1728821101
 GameObject:
   m_ObjectHideFlags: 0
@@ -1798,7 +1994,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 5d5641618064e84468244c53b89eab84, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

@@ -1234,7 +1234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06bfcb05062d70f46bdacf6dea70c692, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puzzleCode: 5a000000b40000000e010000
+  puzzleCode: b40000005a00000000000000
   statueMovingCode:
   - {fileID: 1093372507}
   - {fileID: 633297531}

@@ -16,6 +16,13 @@ public class GameManager : MonoBehaviour
     private GameObject currentTetrominoPlayer2;
     private bool gameOver = false;
 
+    // Enum to represent player numbers
+    public enum PlayerNumber
+    {
+        One,
+        Two
+    }
+
     void Awake()
     {
         if (instance == null)
@@ -35,44 +42,44 @@ public class GameManager : MonoBehaviour
         {
             yield return new WaitForSeconds(Random.Range(minSpawnDelay, maxSpawnDelay));
 
-            SpawnNextTetromino(Players.one);
+            SpawnNextTetromino(PlayerNumber.One);
 
             yield return new WaitForSeconds(Random.Range(minSpawnDelay, maxSpawnDelay));
 
-            SpawnNextTetromino(Players.two);
+            SpawnNextTetromino(PlayerNumber.Two);
         }
     }
 
-    public void SpawnNextTetromino(Players player)
+    public void SpawnNextTetromino(PlayerNumber player)
     {
-        if (player == Players.one)
+        if (player == PlayerNumber.One)
         {
             if (currentTetrominoPlayer1 != null)
                 Destroy(currentTetrominoPlayer1);
 
             int randomIndex = Random.Range(0, tetrominoShapes.Length);
             currentTetrominoPlayer1 = Instantiate(tetrominoShapes[randomIndex], playerOneTempPos, Quaternion.identity);
-            currentTetrominoPlayer1.GetComponent<Tetromino>().player = Players.one;
+            currentTetrominoPlayer1.GetComponent<Tetromino>().player = PlayerNumber.One;
         }
-        else if (player == Players.two)
+        else if (player == PlayerNumber.Two)
         {
             if (currentTetrominoPlayer2 != null)
                 Destroy(currentTetrominoPlayer2);
 
             int randomIndex = Random.Range(0, tetrominoShapes.Length);
             currentTetrominoPlayer2 = Instantiate(tetrominoShapes[randomIndex], playerTwoTempPos, Quaternion.identity);
-            currentTetrominoPlayer2.GetComponent<Tetromino>().player = Players.two;
+            currentTetrominoPlayer2.GetComponent<Tetromino>().player = PlayerNumber.Two;
         }
     }
 
-    public void GameOver(Players player)
+    public void GameOver(PlayerNumber player)
     {
-        if (player == Players.one)
+        if (player == PlayerNumber.One)
         {
             if (currentTetrominoPlayer1 != null)
                 Destroy(currentTetrominoPlayer1);
         }
-        else if (player == Players.two)
+        else if (player == PlayerNumber.Two)
         {
             if (currentTetrominoPlayer2 != null)
                 Destroy(currentTetrominoPlayer2);
@@ -83,8 +90,3 @@ public class GameManager : MonoBehaviour
     }
 }
 
-public enum Players
-{
-    one,
-    two
-}

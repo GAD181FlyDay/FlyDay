@@ -1574,7 +1574,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6762536583c882d44829ef9572904f30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startTime: 10
+  startTime: 60
   goalPointManager: {fileID: 1715021441}
   timerValue: {fileID: 1009623821}
 --- !u!4 &669389643

@@ -6,21 +6,23 @@ public class PuzzleCode : MonoBehaviour
 {
     [SerializeField] int[] puzzleCode;
     [SerializeField] StatueMovingCode[] statueMovingCode;
+    public bool codeHasMatch;
 
-    bool CheckStatueCode()
+    void CheckStatueCode()
     {
         for (int i = 0; i < puzzleCode.Length; i++)
         {
             if (statueMovingCode[i].currentCodeRotation != puzzleCode[i])
             {
-                return false;
+                codeHasMatch = false;
+                return;
             }
         }
-        return true;
+        codeHasMatch = true;
     }
 
     private void Update()
     {
-        Debug.Log(CheckStatueCode());
+        CheckStatueCode();
     }
 }

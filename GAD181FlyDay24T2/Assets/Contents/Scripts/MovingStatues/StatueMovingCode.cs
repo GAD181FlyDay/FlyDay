@@ -10,9 +10,9 @@ public class StatueMovingCode : MonoBehaviour
     void RotateStatue()
     {
         transform.Rotate(new Vector3(0, 90, 0)); 
-        if (currentCodeRotation < 3)
+        if (currentCodeRotation < 270)
         {
-            currentCodeRotation ++;
+            currentCodeRotation += 90;
         }
         else 
         {

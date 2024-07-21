@@ -894,8 +894,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06bfcb05062d70f46bdacf6dea70c692, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puzzleCode: 010000000200000003000000
-  statueMovingCode: []
+  puzzleCode: 5a000000b40000000e010000
+  statueMovingCode:
+  - {fileID: 1093372507}
+  - {fileID: 633297531}
+  - {fileID: 1837471272}
+  codeHasMatch: 0
 --- !u!1 &476599998
 GameObject:
   m_ObjectHideFlags: 0
@@ -1688,6 +1692,8 @@ GameObject:
   - component: {fileID: 1299904104}
   - component: {fileID: 1299904103}
   - component: {fileID: 1299904102}
+  - component: {fileID: 1299904107}
+  - component: {fileID: 1299904106}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -1783,6 +1789,42 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -90.508, z: 0}
+--- !u!114 &1299904106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1299904101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64c310577fef98140b8b209876060bb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Animator: {fileID: 1299904107}
+  puzzleCode: {fileID: 417996324}
+--- !u!95 &1299904107
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1299904101}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1eb863987f552db45bc70732fdf237ff, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1837471267
 GameObject:
   m_ObjectHideFlags: 0

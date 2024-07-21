@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -5,10 +6,10 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     public GameObject[] tetrominoShapes;
-    public float fallSpeed = 0.15f;
+    public float minSpawnDelay = 1f;
+    public float maxSpawnDelay = 3f;
 
-
-    [SerializeField] private Vector2 playerOneTempPos = new Vector2 (0, 21);
+    [SerializeField] private Vector2 playerOneTempPos = new Vector2(0, 21);
     [SerializeField] private Vector2 playerTwoTempPos = new Vector2(20, 21);
 
     private GameObject currentTetrominoPlayer1;
@@ -25,16 +26,21 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        SpawnNextTetromino(Players.one);
-        SpawnNextTetromino(Players.two);
+        StartCoroutine(SpawnTetrominoes());
     }
 
-    void Update()
+    IEnumerator SpawnTetrominoes()
     {
-        if (gameOver)
-            return;
+        while (!gameOver)
+        {
+            yield return new WaitForSeconds(Random.Range(minSpawnDelay, maxSpawnDelay));
 
-        // Additional logic can be added here if needed
+            SpawnNextTetromino(Players.one);
+
+            yield return new WaitForSeconds(Random.Range(minSpawnDelay, maxSpawnDelay));
+
+            SpawnNextTetromino(Players.two);
+        }
     }
 
     public void SpawnNextTetromino(Players player)
@@ -59,9 +65,26 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void GameOver()
+    public void GameOver(Players player)
     {
+        if (player == Players.one)
+        {
+            if (currentTetrominoPlayer1 != null)
+                Destroy(currentTetrominoPlayer1);
+        }
+        else if (player == Players.two)
+        {
+            if (currentTetrominoPlayer2 != null)
+                Destroy(currentTetrominoPlayer2);
+        }
+
         gameOver = true;
-        Debug.Log("Game Over!");
+        Debug.Log("Player " + player + " Game Over!");
     }
+}
+
+public enum Players
+{
+    one,
+    two
 }

@@ -4,10 +4,6 @@ public class Tetromino : MonoBehaviour
 {
     public Players player;
 
-    [SerializeField] private float normalFallSpeed = 0.5f; // The lower the value the faster.
-    [SerializeField] private float forcedFalSpeed = 0.1f;
-
-    private float _lastFall = 0;
     private GameManager _gameManager;
     private KeyCode _moveLeftKey;
     private KeyCode _moveRightKey;
@@ -56,26 +52,15 @@ public class Tetromino : MonoBehaviour
         else if (Input.GetKeyDown(_rotateKey))
             Rotate();
 
-        if (Input.GetKey(_fallDownKey) && Time.time - _lastFall >= forcedFalSpeed)
+        if (Input.GetKey(_fallDownKey))
         {
             IncreaseFallSpeed();
-        }
-        else if (Time.time - _lastFall >= normalFallSpeed)
-        {
-            MaintainNormalFallSpeed();
         }
     }
 
     void IncreaseFallSpeed()
     {
         Move(Vector3.down);
-        _lastFall = Time.time;
-    }
-
-    void MaintainNormalFallSpeed()
-    {
-        Move(Vector3.down);
-        _lastFall = Time.time;
     }
 
     void Move(Vector3 direction)
@@ -123,3 +108,4 @@ public class Tetromino : MonoBehaviour
         return true;
     }
 }
+

@@ -1,96 +1,36 @@
-using System.Collections;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    public float fallSpeed = 1.0f;
+    public GameObject[] tetrominoPrefabs; // Array of Tetromino Prefabs
+    public Transform playerOneSpawner;
+    public Transform playerTwoSpawner;
 
-    public GameObject[] tetrominoShapes;
-    public float minSpawnDelay = 1f;
-    public float maxSpawnDelay = 3f;
-
-    [SerializeField] private Vector2 playerOneTempPos = new Vector2(0, 21);
-    [SerializeField] private Vector2 playerTwoTempPos = new Vector2(20, 21);
-
-    private GameObject currentTetrominoPlayer1;
-    private GameObject currentTetrominoPlayer2;
-    private bool gameOver = false;
-
-    // Enum to represent player numbers
-    public enum PlayerNumber
-    {
-        One,
-        Two
-    }
-
-    void Awake()
+    private void Awake()
     {
         if (instance == null)
             instance = this;
-        else if (instance != this)
-            Destroy(gameObject);
     }
 
-    void Start()
+    private void Start()
     {
-        StartCoroutine(SpawnTetrominoes());
+        SpawnTetromino(1);
+        SpawnTetromino(2);
     }
 
-    IEnumerator SpawnTetrominoes()
+    public void SpawnTetromino(int playerNumber)
     {
-        while (!gameOver)
-        {
-            yield return new WaitForSeconds(Random.Range(minSpawnDelay, maxSpawnDelay));
-
-            SpawnNextTetromino(PlayerNumber.One);
-
-            yield return new WaitForSeconds(Random.Range(minSpawnDelay, maxSpawnDelay));
-
-            SpawnNextTetromino(PlayerNumber.Two);
-        }
+        int index = Random.Range(0, tetrominoPrefabs.Length);
+        Vector3 spawnPosition = playerNumber == 1 ? playerOneSpawner.position : playerTwoSpawner.position;
+        GameObject tetromino = Instantiate(tetrominoPrefabs[index], spawnPosition, Quaternion.identity);
+        tetromino.GetComponent<Tetromino>().playerNumber = playerNumber;
     }
 
-    public void SpawnNextTetromino(PlayerNumber player)
+    public void GameOver(int playerNumber)
     {
-        if (player == PlayerNumber.One)
-        {
-            if (currentTetrominoPlayer1 != null)
-                Destroy(currentTetrominoPlayer1);
-
-            int randomIndex = Random.Range(0, tetrominoShapes.Length);
-            currentTetrominoPlayer1 = Instantiate(tetrominoShapes[randomIndex], playerOneTempPos, Quaternion.identity);
-            currentTetrominoPlayer1.GetComponent<Tetromino>().player = (Players)PlayerNumber.One;
-        }
-        else if (player == PlayerNumber.Two)
-        {
-            if (currentTetrominoPlayer2 != null)
-                Destroy(currentTetrominoPlayer2);
-
-            int randomIndex = Random.Range(0, tetrominoShapes.Length);
-            currentTetrominoPlayer2 = Instantiate(tetrominoShapes[randomIndex], playerTwoTempPos, Quaternion.identity);
-            currentTetrominoPlayer2.GetComponent<Tetromino>().player = (Players)PlayerNumber.Two;
-        }
-    }
-
-    public void GameOver(PlayerNumber player)
-    {
-        if (player == PlayerNumber.One)
-        {
-            if (currentTetrominoPlayer1 != null)
-                Destroy(currentTetrominoPlayer1);
-        }
-        else if (player == PlayerNumber.Two)
-        {
-            if (currentTetrominoPlayer2 != null)
-                Destroy(currentTetrominoPlayer2);
-        }
-
-        gameOver = true;
-        Debug.Log("Player " + player + " Game Over!");
-    }
-
-    public void WinGame()
-    {
-        Debug.Log(" Something is happening here, Check Game Manager script, the function is called WinGame.");
+        Debug.Log("Player " + playerNumber + " has lost!");
+        // Game Over logic like stopping the game, displaying UI yada yada.
     }
 }

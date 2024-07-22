@@ -1,66 +1,84 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Tetromino : MonoBehaviour
 {
-    public Players player;
+    private float lastFall = 0;
+    private GameManager gameManager;
+    private GridManager gridManager;
+    public int playerNumber; // 1 for Player One, 2 for Player Two
 
-    private GameManager _gameManager;
-    private KeyCode _moveLeftKey;
-    private KeyCode _moveRightKey;
-    private KeyCode _rotateKey;
-    private KeyCode _fallDownKey;
+    private KeyCode moveLeftKey;
+    private KeyCode moveRightKey;
+    private KeyCode rotateKey;
+    private KeyCode fallDownKey;
+
+    private bool isFastFalling = false;
+    private float fastFallSpeed = 0.05f; // Adjust as needed for faster fall speed
 
     void Start()
     {
-        SetControls(player);
+        gameManager = GameManager.instance;
+        gridManager = GridManager.instance;
+        if (gameManager == null || gridManager == null)
+        {
+            Debug.LogError("GameManager or GridManager not found!");
+            return;
+        }
 
-        _gameManager = GameManager.instance;
-        if (_gameManager == null)
-            Debug.LogError("GameManager not found!");
+        switch (playerNumber)
+        {
+            case 1:
+                moveLeftKey = KeyCode.A;
+                moveRightKey = KeyCode.D;
+                rotateKey = KeyCode.W;
+                fallDownKey = KeyCode.S;
+                break;
+            case 2:
+                moveLeftKey = KeyCode.LeftArrow;
+                moveRightKey = KeyCode.RightArrow;
+                rotateKey = KeyCode.UpArrow;
+                fallDownKey = KeyCode.DownArrow;
+                break;
+        }
     }
 
-    void Update()
+    private void Update()
     {
         HandleMovement();
     }
 
-    void SetControls(Players player)
-    {
-        switch (player)
-        {
-            case Players.one:
-                _moveLeftKey = KeyCode.A;
-                _moveRightKey = KeyCode.D;
-                _rotateKey = KeyCode.W;
-                _fallDownKey = KeyCode.S;
-                break;
-            case Players.two:
-                _moveLeftKey = KeyCode.LeftArrow;
-                _moveRightKey = KeyCode.RightArrow;
-                _rotateKey = KeyCode.UpArrow;
-                _fallDownKey = KeyCode.DownArrow;
-                break;
-        }
-    }
-
     void HandleMovement()
     {
-        if (Input.GetKeyDown(_moveLeftKey))
+        if (Input.GetKeyDown(moveLeftKey))
             Move(Vector3.left);
-        else if (Input.GetKeyDown(_moveRightKey))
+        else if (Input.GetKeyDown(moveRightKey))
             Move(Vector3.right);
-        else if (Input.GetKeyDown(_rotateKey))
+        else if (Input.GetKeyDown(rotateKey))
             Rotate();
 
-        if (Input.GetKey(_fallDownKey))
-        {
-            IncreaseFallSpeed();
-        }
-    }
+        if (Input.GetKeyDown(fallDownKey))
+            isFastFalling = true;
+        if (Input.GetKeyUp(fallDownKey))
+            isFastFalling = false;
 
-    void IncreaseFallSpeed()
-    {
-        Move(Vector3.down);
+        if (isFastFalling)
+        {
+            if (Time.time - lastFall >= fastFallSpeed)
+            {
+                Move(Vector3.down);
+                lastFall = Time.time;
+            }
+        }
+        else
+        {
+            if (Time.time - lastFall >= gameManager.fallSpeed)
+            {
+                Move(Vector3.down);
+                lastFall = Time.time;
+            }
+        }
     }
 
     void Move(Vector3 direction)
@@ -72,11 +90,17 @@ public class Tetromino : MonoBehaviour
             transform.position -= direction;
             if (direction == Vector3.down)
             {
-                GridManager.instance.StoreTetromino(transform);
-                GridManager.instance.CheckLines();
+                gridManager.StoreTetromino(transform, playerNumber);
+                gridManager.CheckLines(playerNumber);
 
-                if (GridManager.instance.IsGameOver(transform))
-                   // _gameManager.GameOver();
+                if (gridManager.IsGameOver(playerNumber))
+                {
+                    gameManager.GameOver(playerNumber);
+                }
+                else
+                {
+                    gameManager.SpawnTetromino(playerNumber);
+                }
 
                 enabled = false;
             }
@@ -96,16 +120,16 @@ public class Tetromino : MonoBehaviour
         foreach (Transform block in transform)
         {
             Vector3 position = block.position;
-            position = GridManager.instance.RoundPosition(position);
+            position = gridManager.RoundPosition(position);
 
-            if (!GridManager.instance.IsInsideGrid(position))
+            if (!gridManager.IsInsideGrid(position, playerNumber))
                 return false;
 
-            if (GridManager.instance.GetTransformAtGridPosition(position) != null && GridManager.instance.GetTransformAtGridPosition(position).parent != transform)
+            if (gridManager.GetTransformAtGridPosition(position, playerNumber) != null &&
+                gridManager.GetTransformAtGridPosition(position, playerNumber).parent != transform)
                 return false;
         }
 
         return true;
     }
 }
-

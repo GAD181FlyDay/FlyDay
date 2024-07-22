@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88531d08cfa269044a0837b67a7fac6d, type: 3}
   m_Name: Opt1
   m_EditorClassIdentifier: 
-  dialogueText: 
+  stage: 0
+  dialogueText: Once upon a time, errors occured. Never again.
   nextStage: 0
-  buttonTexts: []
+  buttonTexts:
+  - Heeyyyyy Look at that!
+  - It's workin!!!!

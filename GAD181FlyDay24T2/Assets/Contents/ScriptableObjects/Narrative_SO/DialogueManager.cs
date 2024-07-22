@@ -13,7 +13,7 @@ public class DialogueManager : MonoBehaviour
 
     public void Start()
     {
-        currentState = DialogueStage.Greeting;
+        currentState = DialogueStage.PacHouse;
         DisplayDialogue();
     }
 

@@ -76,7 +76,7 @@ public class Tetromino : MonoBehaviour
                 GridManager.instance.CheckLines();
 
                 if (GridManager.instance.IsGameOver(transform))
-                    _gameManager.GameOver();
+                   // _gameManager.GameOver();
 
                 enabled = false;
             }

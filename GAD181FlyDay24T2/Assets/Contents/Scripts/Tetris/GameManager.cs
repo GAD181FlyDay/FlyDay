@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
 
             int randomIndex = Random.Range(0, tetrominoShapes.Length);
             currentTetrominoPlayer1 = Instantiate(tetrominoShapes[randomIndex], playerOneTempPos, Quaternion.identity);
-            currentTetrominoPlayer1.GetComponent<Tetromino>().player = PlayerNumber.One;
+            currentTetrominoPlayer1.GetComponent<Tetromino>().player = (Players)PlayerNumber.One;
         }
         else if (player == PlayerNumber.Two)
         {
@@ -68,7 +68,7 @@ public class GameManager : MonoBehaviour
 
             int randomIndex = Random.Range(0, tetrominoShapes.Length);
             currentTetrominoPlayer2 = Instantiate(tetrominoShapes[randomIndex], playerTwoTempPos, Quaternion.identity);
-            currentTetrominoPlayer2.GetComponent<Tetromino>().player = PlayerNumber.Two;
+            currentTetrominoPlayer2.GetComponent<Tetromino>().player = (Players)PlayerNumber.Two;
         }
     }
 

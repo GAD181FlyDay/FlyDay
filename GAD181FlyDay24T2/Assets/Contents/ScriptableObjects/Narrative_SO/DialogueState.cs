@@ -3,6 +3,7 @@ using UnityEngine;
 public class DialogueState : MonoBehaviour
 {
     public DialogueManager dialogueManager;
+    public int money;
 
     void Start()
     {
@@ -13,18 +14,18 @@ public class DialogueState : MonoBehaviour
     {
         switch (currentState)
         {
-            case DialogueStage.Greeting:
-                if (option == 0)
+            case DialogueStage.ParentsOpenGift:
+                if (money < 250)
                 {
-                    return DialogueStage.Question;
+                    return DialogueStage.GoodEnding;
                 }
                 else
                 {
-                    return DialogueStage.Farewell;
+                    return DialogueStage.BadEnding;
                 }
-            case DialogueStage.Question:
-                return DialogueStage.Farewell;
-            case DialogueStage.Farewell:
+            case DialogueStage.TheoIntro:
+                return DialogueStage.TheoTV;
+            case DialogueStage.TheoTV:
                 return DialogueStage.End;
             case DialogueStage.End:
                 // Conversation ends, no further state

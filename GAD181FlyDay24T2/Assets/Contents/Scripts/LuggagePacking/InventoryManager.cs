@@ -37,7 +37,7 @@ public class InventoryManager : MonoBehaviour
     {
         if (itemCount >= totalItems)
         {
-            GameManager.instance.WinGame();
+            //GameManager.instance.WinGame();
         }
     }
 }

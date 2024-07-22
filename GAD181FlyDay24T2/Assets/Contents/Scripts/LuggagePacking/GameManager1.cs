@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager1 : MonoBehaviour
 {
-    public static GameManager instance;
+    public static GameManager1 instance;
     public float timeLimit = 60f;
     private float timeRemaining;
     private bool gameActive = true;

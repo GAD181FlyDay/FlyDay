@@ -89,4 +89,3 @@ public class GameManager : MonoBehaviour
         Debug.Log("Player " + player + " Game Over!");
     }
 }
-

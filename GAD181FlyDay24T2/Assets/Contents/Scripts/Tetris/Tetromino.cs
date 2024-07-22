@@ -7,7 +7,7 @@ public class Tetromino : MonoBehaviour
     private float lastFall = 0;
     private GameManager gameManager;
     private GridManager gridManager;
-    public int playerNumber; // 1 for Player One, 2 for Player Two
+    public int playerNumber; 
 
     private KeyCode moveLeftKey;
     private KeyCode moveRightKey;
@@ -15,7 +15,8 @@ public class Tetromino : MonoBehaviour
     private KeyCode fallDownKey;
 
     private bool isFastFalling = false;
-    private float fastFallSpeed = 0.05f; // Adjust as needed for faster fall speed
+    private float fastFallSpeed = 0.05f; 
+
 
     void Start()
     {

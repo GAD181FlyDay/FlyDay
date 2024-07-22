@@ -4,7 +4,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public float fallSpeed = 1.0f;
-    public GameObject[] tetrominoPrefabs; // Array of Tetromino Prefabs
+    public GameObject[] tetrominoPrefabs;
     public Transform playerOneSpawner;
     public Transform playerTwoSpawner;
 

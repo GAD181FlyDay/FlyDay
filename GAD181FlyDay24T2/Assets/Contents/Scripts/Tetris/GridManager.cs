@@ -1,12 +1,11 @@
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class GridManager : MonoBehaviour
 {
     public static GridManager instance;
     public Vector2 gridDimensions = new Vector2(9, 18);
-    public float cellSize = 1f; // Size of each grid cell
-    public Color gridColor = Color.gray; // Color for grid lines
+    public float cellSize = 1f;
+    public Color gridColor = Color.gray; 
 
     private Transform[,] playerOneGrid;
     private Transform[,] playerTwoGrid;

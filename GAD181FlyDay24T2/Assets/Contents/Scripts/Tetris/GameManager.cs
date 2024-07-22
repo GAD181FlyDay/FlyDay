@@ -88,4 +88,9 @@ public class GameManager : MonoBehaviour
         gameOver = true;
         Debug.Log("Player " + player + " Game Over!");
     }
+
+    public void WinGame()
+    {
+        Debug.Log(" Something is happening here, Check Game Manager script, the function is called WinGame.");
+    }
 }

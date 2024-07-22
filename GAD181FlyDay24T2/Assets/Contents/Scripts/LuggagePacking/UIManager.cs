@@ -18,6 +18,17 @@ public class UIManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    public void ShowWinScreen()
+    {
+        Debug.Log("Win screen is shown.");
+        // Display a panel or something idk.
+    }
+
+    public void ShowLoseScreen()
+    {
+        Debug.Log("Loss screen is shown.");
+        // Display a panel or something idk.
+    }
 
     public void ShowInteractText(bool show)
     {
@@ -28,5 +39,6 @@ public class UIManager : MonoBehaviour
     {
         timerText.text = "Time Remaining: " + Mathf.Ceil(timeRemaining).ToString() + "s";
     }
+
 }
 

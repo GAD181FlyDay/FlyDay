@@ -22,7 +22,7 @@ public class DialogueManager : MonoBehaviour
         DialogueOption currentOption = GetDialogueOption(currentState);
         if (currentOption == null)
         {
-            Debug.LogError("No DialogueOption for this state" + currentState);
+            Debug.LogError("No DialogueOption for this state " + currentState);
             return;
         }
 
@@ -91,7 +91,7 @@ public class DialogueManager : MonoBehaviour
             if (option == null)
             {
                 Debug.LogError("One (or more) of the dialogueOptions is null!");
-                continue; // continue siterating through dialogueOptions.
+                continue; // continue sifting through options.
             }
 
             if (option.nextStage == stage)

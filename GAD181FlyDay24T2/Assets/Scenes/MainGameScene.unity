@@ -648,9 +648,8 @@ MonoBehaviour:
   - {fileID: 1122359833}
   dialogueOptions:
   - {fileID: 11400000, guid: 03003c8ce74e4144aae39e822e239deb, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  currentState: 0
+  - {fileID: 11400000, guid: 13ba6d5dd40a02c40983377915fdfe0d, type: 2}
+  currentState: 13
 --- !u!4 &191200386
 Transform:
   m_ObjectHideFlags: 0
@@ -1928,7 +1927,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1124233667}
-  - component: {fileID: 1124233666}
   m_Layer: 0
   m_Name: _____StateMachine
   m_TagString: Untagged
@@ -1936,19 +1934,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1124233666
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1124233665}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6f7bf3b0c4158b4f989768fee5a8cb4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  initialState: {fileID: 11400000, guid: 82ad41f4369ff434e874d37c85d6f1a9, type: 2}
 --- !u!4 &1124233667
 Transform:
   m_ObjectHideFlags: 0

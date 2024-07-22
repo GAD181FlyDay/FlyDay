@@ -6,5 +6,6 @@ public class DialogueOption : ScriptableObject
     public DialogueStage stage;
     public string dialogueText;
     public DialogueStage nextStage;
+    public DialogueStage alternativeStage;
     public string[] buttonTexts;
 }

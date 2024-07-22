@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -5,11 +6,22 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     public GameObject[] tetrominoShapes;
-    public float fallSpeed = 0.15f;
+    public float minSpawnDelay = 1f;
+    public float maxSpawnDelay = 3f;
+
+    [SerializeField] private Vector2 playerOneTempPos = new Vector2(0, 21);
+    [SerializeField] private Vector2 playerTwoTempPos = new Vector2(20, 21);
 
     private GameObject currentTetrominoPlayer1;
     private GameObject currentTetrominoPlayer2;
     private bool gameOver = false;
+
+    // Enum to represent player numbers
+    public enum PlayerNumber
+    {
+        One,
+        Two
+    }
 
     void Awake()
     {
@@ -21,43 +33,64 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        SpawnNextTetromino(Players.one);
-        SpawnNextTetromino(Players.two);
+        StartCoroutine(SpawnTetrominoes());
     }
 
-    void Update()
+    IEnumerator SpawnTetrominoes()
     {
-        if (gameOver)
-            return;
+        while (!gameOver)
+        {
+            yield return new WaitForSeconds(Random.Range(minSpawnDelay, maxSpawnDelay));
 
-        // Additional logic can be added here if needed
+            SpawnNextTetromino(PlayerNumber.One);
+
+            yield return new WaitForSeconds(Random.Range(minSpawnDelay, maxSpawnDelay));
+
+            SpawnNextTetromino(PlayerNumber.Two);
+        }
     }
 
-    public void SpawnNextTetromino(Players player)
+    public void SpawnNextTetromino(PlayerNumber player)
     {
-        if (player == Players.one)
+        if (player == PlayerNumber.One)
         {
             if (currentTetrominoPlayer1 != null)
                 Destroy(currentTetrominoPlayer1);
 
             int randomIndex = Random.Range(0, tetrominoShapes.Length);
-            currentTetrominoPlayer1 = Instantiate(tetrominoShapes[randomIndex], new Vector3(3, 20, 0), Quaternion.identity);
-            currentTetrominoPlayer1.GetComponent<Tetromino>().player = Players.one;
+            currentTetrominoPlayer1 = Instantiate(tetrominoShapes[randomIndex], playerOneTempPos, Quaternion.identity);
+            currentTetrominoPlayer1.GetComponent<Tetromino>().player = (Players)PlayerNumber.One;
         }
-        else if (player == Players.two)
+        else if (player == PlayerNumber.Two)
         {
             if (currentTetrominoPlayer2 != null)
                 Destroy(currentTetrominoPlayer2);
 
             int randomIndex = Random.Range(0, tetrominoShapes.Length);
-            currentTetrominoPlayer2 = Instantiate(tetrominoShapes[randomIndex], new Vector3(7, 20, 0), Quaternion.identity);
-            currentTetrominoPlayer2.GetComponent<Tetromino>().player = Players.two;
+            currentTetrominoPlayer2 = Instantiate(tetrominoShapes[randomIndex], playerTwoTempPos, Quaternion.identity);
+            currentTetrominoPlayer2.GetComponent<Tetromino>().player = (Players)PlayerNumber.Two;
         }
     }
 
-    public void GameOver()
+    public void GameOver(PlayerNumber player)
     {
+        if (player == PlayerNumber.One)
+        {
+            if (currentTetrominoPlayer1 != null)
+                Destroy(currentTetrominoPlayer1);
+        }
+        else if (player == PlayerNumber.Two)
+        {
+            if (currentTetrominoPlayer2 != null)
+                Destroy(currentTetrominoPlayer2);
+        }
+
         gameOver = true;
-        Debug.Log("Game Over!");
+        Debug.Log("Player " + player + " Game Over!");
+    }
+
+    public void WinGame()
+    {
+        Debug.Log(" Something is happening here, Check Game Manager script, the function is called WinGame.");
     }
 }

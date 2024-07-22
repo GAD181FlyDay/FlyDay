@@ -543,6 +543,10 @@ PrefabInstance:
       propertyPath: dSpeed
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 1238964025483861244, guid: e13c57158431bca48a31db8d4687e741, type: 3}
+      propertyPath: acceleration
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 3641260482481261745, guid: e13c57158431bca48a31db8d4687e741, type: 3}
       propertyPath: m_Name
       value: Player 2
@@ -553,7 +557,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3933927944803999143, guid: e13c57158431bca48a31db8d4687e741, type: 3}
       propertyPath: m_Mass
-      value: 1500
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 3933927944803999143, guid: e13c57158431bca48a31db8d4687e741, type: 3}
       propertyPath: m_Interpolate
@@ -1580,7 +1584,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player1: {fileID: 1807629283}
   player2: {fileID: 550288175}
-  cameraSmoothSpeed: 0.125
+  cameraSmoothSpeed: 0.001
 --- !u!1 &1120026080
 GameObject:
   m_ObjectHideFlags: 0
@@ -2336,9 +2340,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8116306560781045990, guid: 2a3ce45b007f7244b9c175fbfea79cc6, type: 3}
+      propertyPath: acceleration
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 8741788125555376242, guid: 2a3ce45b007f7244b9c175fbfea79cc6, type: 3}
       propertyPath: m_Mass
-      value: 1500
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 8741788125555376242, guid: 2a3ce45b007f7244b9c175fbfea79cc6, type: 3}
       propertyPath: m_Interpolate

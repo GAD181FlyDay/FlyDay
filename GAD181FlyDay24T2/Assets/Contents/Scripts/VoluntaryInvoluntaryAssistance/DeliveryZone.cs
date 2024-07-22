@@ -63,7 +63,6 @@ namespace VoluntaryInvoluntaryAssistance
             {
                 scoreText.text = "Coins: " + luckyCoins;
             }
-
         }
         #endregion
     }

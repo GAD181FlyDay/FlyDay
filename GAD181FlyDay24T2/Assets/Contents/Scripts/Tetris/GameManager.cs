@@ -3,34 +3,38 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    public float fallSpeed = 1.0f;
-    public GameObject[] tetrominoPrefabs;
-    public Transform playerOneSpawner;
-    public Transform playerTwoSpawner;
 
-    private void Awake()
+    public GameObject[] tetrominoPrefabs;
+    public Transform playerOneSpawnPoint;
+    public Transform playerTwoSpawnPoint;
+    public float fallSpeed = 1f;
+    public float fastFallSpeed = 0.5f;
+
+    void Awake()
     {
         if (instance == null)
             instance = this;
     }
 
-    private void Start()
+    void Start()
     {
-        SpawnTetromino(1);
-        SpawnTetromino(2);
+        SpawnNextTetromino(1);
+        SpawnNextTetromino(2);
     }
 
-    public void SpawnTetromino(int playerNumber)
+    public void SpawnNextTetromino(int playerNumber)
     {
-        int index = Random.Range(0, tetrominoPrefabs.Length);
-        Vector3 spawnPosition = playerNumber == 1 ? playerOneSpawner.position : playerTwoSpawner.position;
-        GameObject tetromino = Instantiate(tetrominoPrefabs[index], spawnPosition, Quaternion.identity);
-        tetromino.GetComponent<Tetromino>().playerNumber = playerNumber;
+        Transform spawnPoint = playerNumber == 1 ? playerOneSpawnPoint : playerTwoSpawnPoint;
+        GameObject[] tetrominos = playerNumber == 1 ? tetrominoPrefabs : tetrominoPrefabs;
+
+        GameObject tetromino = Instantiate(tetrominos[Random.Range(0, tetrominos.Length)], spawnPoint.position, Quaternion.identity);
+        Tetromino tetrominoScript = tetromino.GetComponent<Tetromino>();
+        tetrominoScript.playerNumber = playerNumber;
+        tetrominoScript.players = playerNumber == 1 ? Players.one : Players.two;
     }
 
-    public void GameOver(int playerNumber)
+    public void GameOver()
     {
-        Debug.Log("Player " + playerNumber + " has lost!");
-        // Game Over logic like stopping the game, displaying UI yada yada.
+        Debug.Log("Game Over!");
     }
 }

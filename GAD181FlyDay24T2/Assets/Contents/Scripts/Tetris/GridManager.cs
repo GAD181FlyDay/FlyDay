@@ -1,19 +1,21 @@
+
 using UnityEngine;
 
 public class GridManager : MonoBehaviour
 {
     public static GridManager instance;
-    public Vector2 gridDimensions = new Vector2(9, 18);
-    public float cellSize = 1f;
-    public Color gridColor = Color.gray; 
 
-    private Transform[,] playerOneGrid;
-    private Transform[,] playerTwoGrid;
+    public Transform[,] playerOneGrid;
+    public Transform[,] playerTwoGrid;
+
+    public Vector2 gridDimensions; 
 
     void Awake()
     {
         if (instance == null)
             instance = this;
+
+        gridDimensions = new Vector2(Mathf.RoundToInt(transform.localScale.x), Mathf.RoundToInt(transform.localScale.y));
 
         playerOneGrid = new Transform[(int)gridDimensions.x, (int)gridDimensions.y];
         playerTwoGrid = new Transform[(int)gridDimensions.x, (int)gridDimensions.y];
@@ -21,20 +23,18 @@ public class GridManager : MonoBehaviour
 
     void OnDrawGizmos()
     {
-        if (!Application.isPlaying) return;
+        Gizmos.color = Color.yellow;
 
-        Gizmos.color = gridColor;
-
-        for (int x = 0; x <= gridDimensions.x; x++)
+        for (int x = 0; x < gridDimensions.x; x++)
         {
-            Gizmos.DrawLine(new Vector3(x * cellSize, 0, 0), new Vector3(x * cellSize, gridDimensions.y * cellSize, 0));
-        }
-
-        for (int y = 0; y <= gridDimensions.y; y++)
-        {
-            Gizmos.DrawLine(new Vector3(0, y * cellSize, 0), new Vector3(gridDimensions.x * cellSize, y * cellSize, 0));
+            for (int y = 0; y < gridDimensions.y; y++)
+            {
+                Vector3 position = transform.position + new Vector3(x, y, 0);
+                Gizmos.DrawWireCube(position, Vector3.one);
+            }
         }
     }
+
     public bool IsInsideGrid(Vector3 position, int playerNumber)
     {
         return (int)position.x >= 0 && (int)position.x < gridDimensions.x &&
@@ -48,22 +48,10 @@ public class GridManager : MonoBehaviour
 
     public Transform GetTransformAtGridPosition(Vector3 position, int playerNumber)
     {
-        if (playerNumber == 1)
-        {
-            if (position.y > gridDimensions.y - 1)
-                return null;
+        if (position.y >= gridDimensions.y)
+            return null;
 
-            return playerOneGrid[(int)position.x, (int)position.y];
-        }
-        else if (playerNumber == 2)
-        {
-            if (position.y > gridDimensions.y - 1)
-                return null;
-
-            return playerTwoGrid[(int)position.x, (int)position.y];
-        }
-
-        return null;
+        return playerNumber == 1 ? playerOneGrid[(int)position.x, (int)position.y] : playerTwoGrid[(int)position.x, (int)position.y];
     }
 
     public void StoreTetromino(Transform tetromino, int playerNumber)

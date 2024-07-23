@@ -1,84 +1,81 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Tetromino : MonoBehaviour
 {
+    public Players players;
+    public int playerNumber; 
+    public float fallDistance = 1f;
     private float lastFall = 0;
     private GameManager gameManager;
-    private GridManager gridManager;
-    public int playerNumber; 
-
-    private KeyCode moveLeftKey;
-    private KeyCode moveRightKey;
-    private KeyCode rotateKey;
-    private KeyCode fallDownKey;
-
+    private KeyCode _moveLeftKey;
+    private KeyCode _moveRightKey;
+    private KeyCode _rotateKey;
+    private KeyCode _fallDownKey;
     private bool isFastFalling = false;
-    private float fastFallSpeed = 0.05f; 
-
 
     void Start()
     {
-        gameManager = GameManager.instance;
-        gridManager = GridManager.instance;
-        if (gameManager == null || gridManager == null)
+        switch (players)
         {
-            Debug.LogError("GameManager or GridManager not found!");
-            return;
+            case Players.one:
+                _moveLeftKey = KeyCode.A;
+                _moveRightKey = KeyCode.D;
+                _rotateKey = KeyCode.W;
+                _fallDownKey = KeyCode.S;
+                break;
+            case Players.two:
+                _moveLeftKey = KeyCode.LeftArrow;
+                _moveRightKey = KeyCode.RightArrow;
+                _rotateKey = KeyCode.UpArrow;
+                _fallDownKey = KeyCode.DownArrow;
+                break;
         }
 
-        switch (playerNumber)
-        {
-            case 1:
-                moveLeftKey = KeyCode.A;
-                moveRightKey = KeyCode.D;
-                rotateKey = KeyCode.W;
-                fallDownKey = KeyCode.S;
-                break;
-            case 2:
-                moveLeftKey = KeyCode.LeftArrow;
-                moveRightKey = KeyCode.RightArrow;
-                rotateKey = KeyCode.UpArrow;
-                fallDownKey = KeyCode.DownArrow;
-                break;
-        }
+        gameManager = GameManager.instance;
+        if (gameManager == null)
+            Debug.LogError("GameManager not found!");
     }
 
-    private void Update()
+    void Update()
     {
         HandleMovement();
     }
 
     void HandleMovement()
     {
-        if (Input.GetKeyDown(moveLeftKey))
-            Move(Vector3.left);
-        else if (Input.GetKeyDown(moveRightKey))
-            Move(Vector3.right);
-        else if (Input.GetKeyDown(rotateKey))
-            Rotate();
-
-        if (Input.GetKeyDown(fallDownKey))
-            isFastFalling = true;
-        if (Input.GetKeyUp(fallDownKey))
-            isFastFalling = false;
-
-        if (isFastFalling)
+        if (playerNumber == 1)
         {
-            if (Time.time - lastFall >= fastFallSpeed)
-            {
-                Move(Vector3.down);
-                lastFall = Time.time;
-            }
+            if (Input.GetKeyDown(_moveLeftKey))
+                Move(Vector3.left);
+            else if (Input.GetKeyDown(_moveRightKey))
+                Move(Vector3.right);
+            else if (Input.GetKeyDown(_rotateKey))
+                Rotate();
+            else if (Input.GetKey(_fallDownKey))
+                isFastFalling = true;
+            else if (Input.GetKeyUp(_fallDownKey))
+                isFastFalling = false;
         }
-        else
+        else if (playerNumber == 2)
         {
-            if (Time.time - lastFall >= gameManager.fallSpeed)
-            {
-                Move(Vector3.down);
-                lastFall = Time.time;
-            }
+            if (Input.GetKeyDown(_moveLeftKey))
+                Move(Vector3.left);
+            else if (Input.GetKeyDown(_moveRightKey))
+                Move(Vector3.right);
+            else if (Input.GetKeyDown(_rotateKey))
+                Rotate();
+            else if (Input.GetKey(_fallDownKey))
+                isFastFalling = true;
+            else if (Input.GetKeyUp(_fallDownKey))
+                isFastFalling = false;
+        }
+
+        float fallSpeed = isFastFalling ? gameManager.fastFallSpeed : gameManager.fallSpeed;
+
+        if (Time.time - lastFall >= fallSpeed)
+        {
+            Move(Vector3.down * fallDistance);
+            lastFall = Time.time;
         }
     }
 
@@ -89,20 +86,15 @@ public class Tetromino : MonoBehaviour
         if (!IsValidPosition())
         {
             transform.position -= direction;
-            if (direction == Vector3.down)
+            if (direction == Vector3.down * fallDistance)
             {
-                gridManager.StoreTetromino(transform, playerNumber);
-                gridManager.CheckLines(playerNumber);
+                GridManager.instance.StoreTetromino(transform, playerNumber);
+                GridManager.instance.CheckLines(playerNumber);
 
-                if (gridManager.IsGameOver(playerNumber))
-                {
-                    gameManager.GameOver(playerNumber);
-                }
-                else
-                {
-                    gameManager.SpawnTetromino(playerNumber);
-                }
+                if (GridManager.instance.IsGameOver(playerNumber))
+                    gameManager.GameOver();
 
+                gameManager.SpawnNextTetromino(playerNumber); 
                 enabled = false;
             }
         }
@@ -121,13 +113,13 @@ public class Tetromino : MonoBehaviour
         foreach (Transform block in transform)
         {
             Vector3 position = block.position;
-            position = gridManager.RoundPosition(position);
+            position = GridManager.instance.RoundPosition(position);
 
-            if (!gridManager.IsInsideGrid(position, playerNumber))
+            if (!GridManager.instance.IsInsideGrid(position, playerNumber))
                 return false;
 
-            if (gridManager.GetTransformAtGridPosition(position, playerNumber) != null &&
-                gridManager.GetTransformAtGridPosition(position, playerNumber).parent != transform)
+            if (GridManager.instance.GetTransformAtGridPosition(position, playerNumber) != null &&
+                GridManager.instance.GetTransformAtGridPosition(position, playerNumber).parent != transform)
                 return false;
         }
 

@@ -29,21 +29,21 @@ public class GridManager : MonoBehaviour
         {
             for (int y = 0; y < gridDimensions.y; y++)
             {
-                Vector3 position = transform.position + new Vector3(x, y, 0);
-                Gizmos.DrawWireCube(position, Vector3.one);
+                Vector2 position = transform.position + new Vector3(x, y);
+                Gizmos.DrawWireCube(position, Vector2.one);
             }
         }
     }
 
-    public bool IsInsideGrid(Vector3 position, int playerNumber)
+    public bool IsInsideGrid(Vector2 position, int playerNumber)
     {
         return (int)position.x >= 0 && (int)position.x < gridDimensions.x &&
                (int)position.y >= 0 && (int)position.y < gridDimensions.y;
     }
 
-    public Vector3 RoundPosition(Vector3 position)
+    public Vector3 RoundPosition(Vector2 position)
     {
-        return new Vector3(Mathf.Round(position.x), Mathf.Round(position.y), Mathf.Round(position.z));
+        return new Vector3(Mathf.Round(position.x), Mathf.Round(position.y));
     }
 
     public Transform GetTransformAtGridPosition(Vector3 position, int playerNumber)

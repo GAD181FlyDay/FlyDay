@@ -6,6 +6,7 @@ namespace Player.One
 {
     public class PlayerController : MonoBehaviour
     {
+        [SerializeField] private PlayerSaveData playerOneData;
         public Animator playerAnimator;
         public Rigidbody playerRigidbody;
         public float dSpeed = 0.27f, rotateSpeed = 200;
@@ -46,6 +47,11 @@ namespace Player.One
 
         private void Update()
         {
+            // If player is in Main Game Scene then...
+            #region Give player's position to ScriptableObject.
+            playerOneData.playerOnePos = transform.position;
+            #endregion
+
             if (playerAnimator != null)
             {
                 bool pressSneak = (Input.GetKeyDown(KeyCode.C));

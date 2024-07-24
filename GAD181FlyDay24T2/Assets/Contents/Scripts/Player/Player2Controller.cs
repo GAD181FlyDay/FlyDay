@@ -4,6 +4,7 @@ namespace Player.Tw0
 {
     public class Player2Controller : MonoBehaviour
     {
+        [SerializeField] private PlayerSaveData playerTwoData;
         public Animator playerAnimator;
         public Rigidbody playerRigidbody;
         public float dSpeed = 0.175f, rotateSpeed = 200;
@@ -42,6 +43,11 @@ namespace Player.Tw0
 
         private void Update()
         {
+            // If player is in Main Game Scene then...
+            #region Give player's position to ScriptableObject.
+            playerTwoData.playerTwoPos = transform.position;
+            #endregion
+
             bool pressSneak = (Input.GetKeyDown(KeyCode.C));
             bool pressWalk = (Input.GetKeyDown(KeyCode.D));
             bool pressRunning = (Input.GetKeyDown(KeyCode.LeftShift));

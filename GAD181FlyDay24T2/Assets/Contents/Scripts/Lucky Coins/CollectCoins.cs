@@ -1,17 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CoinCollect : MonoBehaviour
 {
     [SerializeField]private GameObject Coin;
     
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-            playerEnter = true;
+            // playerEnter = true;
             Destroy(Coin);
             Debug.Log("You got +5 Lucky Coins!!! ");
         }

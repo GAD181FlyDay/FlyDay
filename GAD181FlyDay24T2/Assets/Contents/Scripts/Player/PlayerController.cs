@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 namespace Player.One
@@ -47,10 +46,8 @@ namespace Player.One
 
         private void Update()
         {
-            // If player is in Main Game Scene then...
-            #region Give player's position to ScriptableObject.
-            playerOneData.playerOnePos = transform.position;
-            #endregion
+            CurrentSceneChecker();
+            
 
             if (playerAnimator != null)
             {
@@ -123,6 +120,20 @@ namespace Player.One
         {
             dSpeed = speed;
         }
-       
+
+        #region Private Functions
+
+        private void CurrentSceneChecker()
+        {
+            Scene currentScene = SceneManager.GetActiveScene();
+            if (currentScene.name == "MainGameScene")
+            {
+                #region Give player's position to ScriptableObject.
+                playerOneData.playerOnePos = transform.position;
+                #endregion
+            }
+        }
+        #endregion
+
     }
 }

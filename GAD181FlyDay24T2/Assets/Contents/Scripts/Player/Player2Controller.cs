@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Player.Tw0
 {
@@ -43,10 +44,7 @@ namespace Player.Tw0
 
         private void Update()
         {
-            // If player is in Main Game Scene then...
-            #region Give player's position to ScriptableObject.
-            playerTwoData.playerTwoPos = transform.position;
-            #endregion
+            CurrentSceneChecker();
 
             bool pressSneak = (Input.GetKeyDown(KeyCode.C));
             bool pressWalk = (Input.GetKeyDown(KeyCode.D));
@@ -106,9 +104,24 @@ namespace Player.Tw0
                 PlayerOneSpeedChanger(inspectorChangeablePlayerSpeed);
             }
         }
+        #region Private Functions
         private void PlayerOneSpeedChanger(float speed)
         {
             dSpeed = speed;
         }
+
+        private void CurrentSceneChecker()
+        {
+
+            Scene currentScene = SceneManager.GetActiveScene();
+            if (currentScene.name == "MainGameScene")
+            {
+                #region Give player's position to ScriptableObject.
+                playerTwoData.playerTwoPos = transform.position;
+                #endregion
+            }
+        }
+        #endregion
+        
     }
 }

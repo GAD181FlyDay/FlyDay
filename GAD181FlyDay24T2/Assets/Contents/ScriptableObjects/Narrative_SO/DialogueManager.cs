@@ -76,6 +76,13 @@ public class DialogueManager : MonoBehaviour
 
         currentState = currentOption.nextStage;
         DisplayDialogue();
+
+        if (Input.GetKeyDown("Space"))
+        {
+            currentState = currentOption.nextStage;
+            DisplayDialogue();
+            Debug.Log("Dialogue Advanced");
+        }
     }
 
     DialogueOption GetDialogueOption(DialogueStage stage)

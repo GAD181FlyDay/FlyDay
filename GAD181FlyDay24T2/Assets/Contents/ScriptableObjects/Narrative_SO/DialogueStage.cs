@@ -12,6 +12,7 @@ public enum DialogueStage
     TenMinsLater,
     Taxi,
     TaxiBook,
+
     EmptySuitcase,
     CleoYell,
     CleoSwear,

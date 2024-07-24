@@ -6,76 +6,76 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
+    path: Assets/FlyDay_24T2/Scenes/MainMenu.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/MainGameScene.unity
+    path: Assets/FlyDay_24T2/Scenes/MainGameScene.unity
     guid: 8c84950ce2efe9d44978907ba2540b30
   - enabled: 1
-    path: Assets/Scenes/Haqqi_ Minigame/SeesawBridge.unity
+    path: Assets/FlyDay_24T2/Scenes/Haqqi_ Minigame/SeesawBridge.unity
     guid: 382d16b44b7e9254aac4838ee10bf187
   - enabled: 1
-    path: Assets/Scenes/Dana_Minigame/JustifiableShoplifting.unity
+    path: Assets/FlyDay_24T2/Scenes/Dana_Minigame/JustifiableShoplifting.unity
     guid: d2a787a00aa376542bffacbd062720ba
   - enabled: 1
-    path: Assets/Scenes/Dana_Minigame/TaxiMeter.unity
+    path: Assets/FlyDay_24T2/Scenes/Dana_Minigame/TaxiMeter.unity
     guid: a232fa2e2507fd04384cc147e094b881
   - enabled: 1
-    path: Assets/Scenes/Dana_Minigame/XAndOMinigame_Test.unity
+    path: Assets/FlyDay_24T2/Scenes/Dana_Minigame/XAndOMinigame_Test.unity
     guid: dd723b2830df91d42996e0006200e928
   - enabled: 1
-    path: Assets/Scenes/Haqqi_ Minigame/DontMove.unity
+    path: Assets/FlyDay_24T2/Scenes/Haqqi_ Minigame/DontMove.unity
     guid: d66a377133b016c43a1eb0490b3ea191
   - enabled: 1
-    path: Assets/Scenes/Haqqi_ Minigame/MovingStatues.unity
+    path: Assets/FlyDay_24T2/Scenes/Haqqi_ Minigame/MovingStatues.unity
     guid: 82ec7d36a82a2624b9570e1efbc7df5f
   - enabled: 1
-    path: Assets/Scenes/Kalyamba_Minigame/CartRacing.unity
+    path: Assets/FlyDay_24T2/Scenes/Kalyamba_Minigame/CartRacing.unity
     guid: dd3858aab6ed69b4393d02eb5ac4ba00
   - enabled: 1
-    path: Assets/Scenes/Melina_Minigame/LuggageChecks.unity
+    path: Assets/FlyDay_24T2/Scenes/Melina_Minigame/LuggageChecks.unity
     guid: 952b9ea3aa133a64d9ea5413f74b2754
   - enabled: 1
-    path: Assets/Scenes/Melina_Minigame/Packing Suitcase.unity
+    path: Assets/FlyDay_24T2/Scenes/Melina_Minigame/Packing Suitcase.unity
     guid: 47b807ea5e78d3c49b33c9bd83220f73
   - enabled: 1
-    path: Assets/Scenes/Melina_Minigame/Tetris.unity
+    path: Assets/FlyDay_24T2/Scenes/Melina_Minigame/Tetris.unity
     guid: 7b53a2729042010498f1dfe50da5ee7d
   - enabled: 1
-    path: Assets/Scenes/NarrativeRelatedScenes/Arcade.unity
+    path: Assets/FlyDay_24T2/Scenes/NarrativeRelatedScenes/Arcade.unity
     guid: 34b65b21dd2d44d40b498cc9aafd4fd3
   - enabled: 1
-    path: Assets/Scenes/NarrativeRelatedScenes/BadEnding.unity
+    path: Assets/FlyDay_24T2/Scenes/NarrativeRelatedScenes/BadEnding.unity
     guid: 0c0503ef66d21c949a35dd2edaf36a01
   - enabled: 1
-    path: Assets/Scenes/NarrativeRelatedScenes/BoardingFlight.unity
+    path: Assets/FlyDay_24T2/Scenes/NarrativeRelatedScenes/BoardingFlight.unity
     guid: eb35bb17f9b1f5a45864fcfd31e9004f
   - enabled: 1
-    path: Assets/Scenes/NarrativeRelatedScenes/DutyFree.unity
+    path: Assets/FlyDay_24T2/Scenes/NarrativeRelatedScenes/DutyFree.unity
     guid: d2b0e542b3dbf7d429de58be282580f2
   - enabled: 1
-    path: Assets/Scenes/NarrativeRelatedScenes/Ending.unity
+    path: Assets/FlyDay_24T2/Scenes/NarrativeRelatedScenes/Ending.unity
     guid: 656e64cceed7af943a5089d233e840be
   - enabled: 1
-    path: Assets/Scenes/NarrativeRelatedScenes/Exploration.unity
+    path: Assets/FlyDay_24T2/Scenes/NarrativeRelatedScenes/Exploration.unity
     guid: 04f11f84cdd068446848bd7e2d9457e8
   - enabled: 1
-    path: Assets/Scenes/NarrativeRelatedScenes/HappyEnding.unity
+    path: Assets/FlyDay_24T2/Scenes/NarrativeRelatedScenes/HappyEnding.unity
     guid: 817922deb50cb8441bdbaa69f811a197
   - enabled: 1
-    path: Assets/Scenes/NarrativeRelatedScenes/Introduction.unity
+    path: Assets/FlyDay_24T2/Scenes/NarrativeRelatedScenes/Introduction.unity
     guid: 725a569be28f247428a1fb2b2212af87
   - enabled: 1
-    path: Assets/Scenes/NarrativeRelatedScenes/LoadingScene.unity
+    path: Assets/FlyDay_24T2/Scenes/NarrativeRelatedScenes/LoadingScene.unity
     guid: 48e6ee8e1fa49c34c9cbf4f07ffe6a0d
   - enabled: 1
-    path: Assets/Scenes/NarrativeRelatedScenes/LostPassport.unity
+    path: Assets/FlyDay_24T2/Scenes/NarrativeRelatedScenes/LostPassport.unity
     guid: 0104d16663f8c4847a0350fc4b5af980
   - enabled: 1
-    path: Assets/Scenes/NarrativeRelatedScenes/PassportCheck.unity
+    path: Assets/FlyDay_24T2/Scenes/NarrativeRelatedScenes/PassportCheck.unity
     guid: c057780ee8eaf5b4f8d443c891acbbef
   - enabled: 1
-    path: Assets/Scenes/Dana_Minigame/VoluntaryInVoluntaryAssistance.unity
+    path: Assets/FlyDay_24T2/Scenes/Dana_Minigame/VoluntaryInVoluntaryAssistance.unity
     guid: 9fd431ffb4be3924aaaf43b9aadbc590
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

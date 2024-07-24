@@ -5,7 +5,7 @@ using UnityEngine;
 public class CoinCollect : MonoBehaviour
 {
     [SerializeField]private GameObject Coin;
-    bool playerEnter;
+    
 
     private void OnTriggerEnter(Collider other)
     {

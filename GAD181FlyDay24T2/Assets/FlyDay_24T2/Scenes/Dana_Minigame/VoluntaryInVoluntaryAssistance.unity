@@ -1765,7 +1765,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 2.231, y: 0, z: 0.236}
-  m_LocalScale: {x: 0.78520936, y: 0.086596206, z: 2.9656794}
+  m_LocalScale: {x: 0.74121267, y: 0.086596206, z: 2.9656794}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1998286769}
@@ -1883,7 +1883,7 @@ Transform:
   m_GameObject: {fileID: 356438416}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.486, y: 0, z: 0.236}
+  m_LocalPosition: {x: 1.302, y: 0, z: 0.236}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4739,7 +4739,7 @@ Transform:
   m_GameObject: {fileID: 1270524501}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.035, y: 0, z: 0.236}
+  m_LocalPosition: {x: 3.213, y: 0, z: 0.236}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4779,7 +4779,7 @@ MonoBehaviour:
   activeOrders: []
   deliveryZone: {fileID: 103164793}
   orderText: {fileID: 1159241286}
-  orderInterval: 6
+  orderInterval: 4
   orderTimer: 0
 --- !u!4 &1291265787
 Transform:
@@ -4833,7 +4833,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fca541d553e46d4d9fc1c1f1dafa5e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameDuration: 180
+  gameDuration: 120
   timerText: {fileID: 1870734516}
   deliveryZone: {fileID: 103164793}
   endGamePanel: {fileID: 90335591}
@@ -7406,7 +7406,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 3:00
+  m_text: 2:00
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: be59a769cdba5704fa7f81ed5d77fb6f, type: 2}
   m_sharedMaterial: {fileID: 8803265262212735931, guid: be59a769cdba5704fa7f81ed5d77fb6f, type: 2}

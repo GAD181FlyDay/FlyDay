@@ -14,11 +14,11 @@ namespace VoluntaryInvoluntaryAssistance
         public List<Order> activeOrders = new List<Order>();
         public DeliveryZone deliveryZone;
         public TMP_Text orderText;
-        public float orderInterval = 23f; // Time interval for generating new orders
+        public float orderInterval = 4f; // Time interval for generating new orders
 
         [SerializeField] private float orderTimer; 
 
-        private float _orderTimerValue = 25f;
+        private float _orderTimerValue = 15f;
         private List<float> _orderTimers = new List<float>();
         #endregion
 

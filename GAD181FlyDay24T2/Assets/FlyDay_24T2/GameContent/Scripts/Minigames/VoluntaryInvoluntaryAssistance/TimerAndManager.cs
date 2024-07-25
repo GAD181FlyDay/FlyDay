@@ -11,7 +11,7 @@ namespace VoluntaryInvoluntaryAssistance
     public class TimerAndManager : MonoBehaviour
     {
         #region Variables
-        public float gameDuration = 180f;
+        public float gameDuration = 120f;
         public TMP_Text timerText;
         [SerializeField] private DeliveryZone deliveryZone;
         [SerializeField] private GameObject endGamePanel;

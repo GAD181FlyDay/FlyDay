@@ -522,7 +522,7 @@ Transform:
   m_GameObject: {fileID: 82409261}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.23985, y: 0.042668067, z: -0.09494078}
+  m_LocalPosition: {x: 7.23985, y: 0.014, z: -0.09494078}
   m_LocalScale: {x: 0.76733387, y: 0.034104303, z: 0.4657058}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3039,7 +3039,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointA: {fileID: 1001090366}
   pointB: {fileID: 82409262}
-  speed: 0.35
+  speed: 0.3
 --- !u!1001 &1041889349
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7016,7 +7016,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   disableDuration: 2
-  enableDuration: 4
+  enableDuration: 5
 --- !u!1 &1897128672
 GameObject:
   m_ObjectHideFlags: 0

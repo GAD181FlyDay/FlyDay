@@ -5,6 +5,7 @@ namespace Player.One
 {
     public class PlayerController : MonoBehaviour
     {
+        [SerializeField] PauseMenu pauseMenu;
         [SerializeField] private PlayerSaveData playerOneData;
         public Animator playerAnimator;
         public Rigidbody playerRigidbody;
@@ -17,7 +18,7 @@ namespace Player.One
 
         void Start()
         {
-            Time.timeScale = 1f; // makes sure that the scene is running.
+            pauseMenu = GetComponent<PauseMenu>();
             // According to the tranform case and the saved scriptable object transform, players spawn there.
         }
 
@@ -34,12 +35,12 @@ namespace Player.One
                 return;
             }
 
-           
+
             if (movement != Vector3.zero)
             {
                 currentSpeed = Mathf.MoveTowards(currentSpeed, dSpeed, acceleration * Time.fixedDeltaTime);
                 playerRigidbody.MovePosition(playerRigidbody.position + movement * currentSpeed * Time.fixedDeltaTime);
-                Quaternion rotateQuat = Quaternion.LookRotation(movement,Vector3.up);
+                Quaternion rotateQuat = Quaternion.LookRotation(movement, Vector3.up);
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, rotateQuat, rotateSpeed * Time.deltaTime);
             }
         }
@@ -48,7 +49,7 @@ namespace Player.One
         private void Update()
         {
             CurrentSceneChecker();
-            
+
 
             if (playerAnimator != null)
             {
@@ -98,11 +99,11 @@ namespace Player.One
 
             else
             {
-                playerAnimator.SetBool("Jumping", false) ;
+                playerAnimator.SetBool("Jumping", false);
             }
 
             if (Input.GetKey(KeyCode.C))
-            {   
+            {
                 if (walking == true)
                 {
                     playerAnimator.SetBool("Sneaking", true);
@@ -116,7 +117,7 @@ namespace Player.One
                 PlayerTwoSpeedChanger(inspectorChangeablePlayerSpeed);
             }
         }
-   
+
         private void PlayerTwoSpeedChanger(float speed)
         {
             dSpeed = speed;
@@ -131,6 +132,20 @@ namespace Player.One
             {
                 #region Give player's position to ScriptableObject.
                 playerOneData.playerOnePos = transform.position;
+
+                #region Control game time depending on whether the pause menu is on or off.
+                if (pauseMenu != null)
+                {
+                    if (pauseMenu.isPanelActive == true)
+                    {
+                        Debug.Log("Players can't move.");
+                    }
+                    else
+                    {
+                        Time.timeScale = 1.0f;
+                    }
+                }
+                #endregion
                 #endregion
             }
         }

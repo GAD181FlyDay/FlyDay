@@ -8,7 +8,7 @@ public class PauseMenu : MonoBehaviour
 
     #region Variables.
     public static PauseMenu Instance;
-
+    public bool isPanelActive;
     public GameObject optionsPanel;
     #endregion
 
@@ -41,7 +41,7 @@ public class PauseMenu : MonoBehaviour
     public void ToggleOptionsPanel()
     {
         // Depending on the options panel's active state the time pauses or unpauses.
-        bool isPanelActive = !optionsPanel.activeSelf; 
+        isPanelActive = !optionsPanel.activeSelf; 
         optionsPanel.SetActive(isPanelActive);
         Time.timeScale = isPanelActive ? 0 : 1;
 

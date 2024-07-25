@@ -6,13 +6,16 @@ namespace VoluntaryInvoluntaryAssistance
     /// <summary>
     ///  Creates luggage instances which are then reusable.
     /// </summary>
-
+    
     public class LuggagePooling : MonoBehaviour
     {
+        #region Variables.
         public static LuggagePooling luggagePoolingInstance;
+        public List<Pool> pools;
+        public Dictionary<string, Queue<GameObject>> poolDictionary;
+        #endregion
 
         [System.Serializable]
-
         #region Class.
         public class Pool
         {
@@ -22,11 +25,7 @@ namespace VoluntaryInvoluntaryAssistance
         }
         #endregion
 
-        #region Variables.
-        public List<Pool> pools;
-        public Dictionary<string, Queue<GameObject>> poolDictionary;
-        #endregion
-        
+
         private void Awake()
         {
             luggagePoolingInstance = this;
@@ -53,7 +52,7 @@ namespace VoluntaryInvoluntaryAssistance
         {
             if (!poolDictionary.ContainsKey(tag))
             {
-                Debug.LogWarning("Pool with tag " + tag + " does not exist.");
+                // Debug.LogWarning("Pool with tag " + tag + " does not exist.");
                 return null;
             }
 
@@ -69,4 +68,7 @@ namespace VoluntaryInvoluntaryAssistance
         }
         #endregion
     }
+
+
 }
+

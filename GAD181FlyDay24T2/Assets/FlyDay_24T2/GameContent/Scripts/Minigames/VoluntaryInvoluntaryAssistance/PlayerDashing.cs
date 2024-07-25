@@ -9,8 +9,8 @@ namespace VoluntaryInvoluntaryAssistance
     public class PlayerDashing : MonoBehaviour
     {
         #region Variables.
-        public float dashSpeed = 20f; // Speed of the dash
-        public float dashDuration = 0.5f; // Duration of the dash
+        public float dashSpeed = 150f;
+        public float dashDuration = 0.5f;
         public Players player;
 
         private KeyCode _dashKey;

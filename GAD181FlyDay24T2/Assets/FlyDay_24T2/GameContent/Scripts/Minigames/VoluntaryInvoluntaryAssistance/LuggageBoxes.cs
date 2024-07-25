@@ -6,51 +6,45 @@ namespace VoluntaryInvoluntaryAssistance
     /// Assign to luggage bags, 
     /// Creates a luggage bag prefab for the players to pick-up.
     /// </summary>
-
+    
     public class LuggageBoxes : MonoBehaviour
     {
         #region Variables.
         public string luggageType; // "black", "red", "green"
         #endregion
 
-        #region Private Functions.
-        private void OnTriggerStay(Collider other)
+        #region Public Functions.
+        public void TrySpawnLuggage(PlayersInteraction player)
         {
-            if (other.CompareTag("Player"))
+            if (player.CanPickUpLuggage())
             {
-                PlayersInteraction _player = other.GetComponent<PlayersInteraction>();
-                if (_player == null)
+                string tag = GetTagName(luggageType);
+                GameObject newLuggage = LuggagePooling.luggagePoolingInstance.SpawnLuggageFromPool(tag, player.transform.position, Quaternion.identity);
+                if (newLuggage == null)
                 {
-                    Debug.LogError("PlayerInteraction component not found on _player");
+                    // Debug.LogError("Couldn't spawn luggage from the pool: " + tag);
                     return;
                 }
 
-                if (Input.GetKeyDown(_player.interactionKey))
+                Luggage luggage = newLuggage.GetComponent<Luggage>();
+                if (luggage == null)
                 {
-                    if (_player.CanPickUpLuggage())
-                    {
-                        string tag = GetTagName(luggageType);
-                        GameObject newLuggage = LuggagePooling.luggagePoolingInstance.SpawnLuggageFromPool(tag, _player.transform.position, Quaternion.identity);
-                        if (newLuggage == null)
-                        {
-                            Debug.LogError("Couldn't spawn luggage from the pool: " + tag);
-                            return;
-                        }
-                       
-                        Luggage luggage = newLuggage.GetComponent<Luggage>();
-                        if (luggage == null)
-                        {
-                            Debug.LogError("Luggage component not found on spawned luggage");
-                            return;
-                        }
-
-                        luggage.luggageType = luggageType;
-                        _player.PickUpLuggage(newLuggage);
-                    }
+                    // Debug.LogError("Luggage component not found on spawned luggage");
+                    return;
                 }
+
+                luggage.luggageType = luggageType;
+                player.PickUpLuggage(newLuggage);
+            }
+            else
+            {
+                // Debug.Log("Player cannot pick up more luggage.");
             }
         }
 
+        #endregion
+
+        #region Private Functions.
         private string GetTagName(string type)
         {
             switch (type.ToLower())

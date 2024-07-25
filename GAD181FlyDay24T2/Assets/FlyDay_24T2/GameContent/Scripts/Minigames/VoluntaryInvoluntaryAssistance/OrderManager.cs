@@ -14,10 +14,12 @@ namespace VoluntaryInvoluntaryAssistance
         public List<Order> activeOrders = new List<Order>();
         public DeliveryZone deliveryZone;
         public TMP_Text orderText;
-        public float orderInterval = 20f; // Time interval for generating new orders
+        public float orderInterval = 23f; // Time interval for generating new orders
+
         [SerializeField] private float orderTimer; 
-        private float orderTimerValue = 25f;
-        private List<float> orderTimers = new List<float>();
+
+        private float _orderTimerValue = 25f;
+        private List<float> _orderTimers = new List<float>();
         #endregion
 
         private void Start()
@@ -35,10 +37,10 @@ namespace VoluntaryInvoluntaryAssistance
                 orderTimer = orderInterval;
             }
 
-            for (int i = 0; i < orderTimers.Count; i++)
+            for (int i = 0; i < _orderTimers.Count; i++)
             {
-                orderTimers[i] -= Time.deltaTime;
-                if (orderTimers[i] <= 0)
+                _orderTimers[i] -= Time.deltaTime;
+                if (_orderTimers[i] <= 0)
                 {
                     RemoveOrder(i);
                     deliveryZone.luckyCoins-= 2;
@@ -54,7 +56,7 @@ namespace VoluntaryInvoluntaryAssistance
             if (index >= 0 && index < activeOrders.Count)
             {
                 activeOrders.RemoveAt(index);
-                orderTimers.RemoveAt(index);
+                _orderTimers.RemoveAt(index);
                 UpdateOrderDisplay();
             }
         }
@@ -66,7 +68,7 @@ namespace VoluntaryInvoluntaryAssistance
 
             Order newOrder = new Order { luggageType = randomLuggageType };
             activeOrders.Add(newOrder);
-            orderTimers.Add(orderTimerValue);
+            _orderTimers.Add(_orderTimerValue);
             
             UpdateOrderDisplay();
         }
@@ -76,7 +78,7 @@ namespace VoluntaryInvoluntaryAssistance
             if (index >= 0 && index < activeOrders.Count)
             {
                 activeOrders.RemoveAt(index);
-                orderTimers.RemoveAt(index);
+                _orderTimers.RemoveAt(index);
                 UpdateOrderDisplay();
             }
         }

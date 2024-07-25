@@ -41,6 +41,7 @@ namespace TaxiMeter
         public void RetryGame()
         {
             Time.timeScale = 1;
+            Cursor.visible = false;
             UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
         }
 
@@ -59,6 +60,7 @@ namespace TaxiMeter
         #region Private Functions
         private void EndGame()
         {
+            Cursor.visible = true;
             endGamePanel.SetActive(true);
             Time.timeScale = 0;
         }

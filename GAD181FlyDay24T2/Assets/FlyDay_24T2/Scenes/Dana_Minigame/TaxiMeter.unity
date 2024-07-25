@@ -1527,6 +1527,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wasdNotePool: {fileID: 1079575553}
   arrowNotePool: {fileID: 1027297291}
+  minigameTimerScript: {fileID: 695733725}
   matchArea: {fileID: 1676528798}
 --- !u!1 &761383594
 GameObject:

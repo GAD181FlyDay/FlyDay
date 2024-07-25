@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace JustifyableShoplifting
 {
@@ -28,7 +29,7 @@ namespace JustifyableShoplifting
         public void Proceed()
         {
             Time.timeScale = 1f;
-            // load the next scene.
+            SceneManager.LoadScene("MainGameScene");
         }
         #endregion
     }

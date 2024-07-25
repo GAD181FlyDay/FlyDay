@@ -17,7 +17,8 @@ namespace Player.One
 
         void Start()
         {
-
+            Time.timeScale = 1f; // makes sure that the scene is running.
+            // According to the tranform case and the saved scriptable object transform, players spawn there.
         }
 
         void FixedUpdate()

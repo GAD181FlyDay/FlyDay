@@ -14,8 +14,10 @@ namespace TaxiMeter
         public bool gameEnded = false;
         public NotesSpawner noteSpawner;
         public float gameDuration = 120f; // 2 minutes
+
         [SerializeField] private TMP_Text timerText;
         [SerializeField] private TMP_Text endGameText;
+
         private float elapsedTime = 0f;
         
         #endregion

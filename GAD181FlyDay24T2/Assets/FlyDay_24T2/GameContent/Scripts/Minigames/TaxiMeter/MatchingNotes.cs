@@ -6,7 +6,10 @@ public class MatchingNotes : MonoBehaviour
     #region Variables
     public NotesPooling wasdNotePool;
     public NotesPooling arrowNotePool;
+
+    [SerializeField] MinigameTimer minigameTimerScript;
     [SerializeField] private Transform matchArea;
+
     private float _matchRangeMinY = -0.5f;
     private float _matchRangeMaxY = 0.5f;
     #endregion
@@ -42,6 +45,8 @@ public class MatchingNotes : MonoBehaviour
 
     private void InputChecker()
     {
+        if (minigameTimerScript.gameEnded == false)
+        {
         #region WASD inputs.
         if (Input.GetKeyDown(KeyCode.W))
         {
@@ -79,6 +84,11 @@ public class MatchingNotes : MonoBehaviour
             CheckMatch("Right");
         }
         #endregion
+        }
+        else
+        {
+            Debug.Log("game has ended.");
+        }
     }
 
     private bool IsWithinMatchArea(Transform noteTransform)

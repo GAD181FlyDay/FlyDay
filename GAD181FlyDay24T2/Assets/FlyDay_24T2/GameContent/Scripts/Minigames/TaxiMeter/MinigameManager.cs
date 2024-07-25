@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace TaxiMeter
 {
@@ -13,12 +12,12 @@ namespace TaxiMeter
     {
         #region Variables
         [SerializeField] private MinigameTimer minigameTimer;
-        public GameObject endGamePanel; 
+        public GameObject endGamePanel;
         #endregion
 
         private void Start()
         {
-            endGamePanel.SetActive(false); 
+            endGamePanel.SetActive(false);
         }
 
         private void Update()
@@ -27,28 +26,32 @@ namespace TaxiMeter
             if (minigameTimer == null) return;
 
             // If the timer has stopped. (Reached zero)
-            if(minigameTimer.gameEnded == true)
+            if (minigameTimer.gameEnded == true)
             {
                 EndGame();
             }
         }
 
         #region Public Functions
-        
+
         /// <summary>
         /// The following Functions are to be assigned to buttons.
         /// </summary>
-        
+
         public void RetryGame()
         {
-            Time.timeScale = 1; 
+            Time.timeScale = 1;
             UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
         }
 
         public void ProceedWithStory()
         {
-            Time.timeScale = 1; 
-            // SceneManager.LoadScene("..."); TO be changed when i decide on which scene to load.
+            Time.timeScale = 1;
+            if (Time.timeScale == 1)
+            {
+                SceneManager.LoadScene("MainGameScene");
+            }
+
         }
 
         #endregion

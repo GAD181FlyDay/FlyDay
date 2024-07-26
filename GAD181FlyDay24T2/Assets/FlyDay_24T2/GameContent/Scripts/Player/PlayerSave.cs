@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerSave : MonoBehaviour
 {
@@ -21,8 +22,26 @@ public class PlayerSave : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    //public static PlayerSaveData LoadPlayerData()
-    //{
-
-    //}
+    public static PlayerSaveData LoadPlayerData(PlayerSaveData playerData)
+    {
+        if (PlayerPrefs.HasKey(MoneyKey))
+        {
+            playerData.money = PlayerPrefs.GetInt(MoneyKey);
+            playerData.currentScene = PlayerPrefs.GetString(SceneKey);
+            playerData.currentDialogueStage = (DialogueStage)System.Enum.Parse(typeof(DialogueStage),
+            PlayerPrefs.GetString(DialogueStageKey));
+            playerData.position = new Vector3(
+                PlayerPrefs.GetFloat(PositionXKey),
+                PlayerPrefs.GetFloat(PositionYKey),
+                PlayerPrefs.GetFloat(PositionZKey));
+        }
+        else
+        {
+            playerData.money = 0;
+            playerData.currentScene = SceneManager.GetActiveScene().name;
+            playerData.currentDialogueStage = DialogueStage.PacHouse;
+            playerData.position = Vector3.zero;
+        }
+            return playerData;
+    }
 }

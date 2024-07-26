@@ -18,6 +18,7 @@ namespace Player.One
 
         void Start()
         {
+            transform.position = playerOneData.playerOnePos;
             pauseMenu = GetComponent<PauseMenu>();
             // According to the tranform case and the saved scriptable object transform, players spawn there.
         }

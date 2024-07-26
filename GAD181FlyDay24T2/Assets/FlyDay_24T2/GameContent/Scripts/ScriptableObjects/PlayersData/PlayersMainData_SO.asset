@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 495cf51ba46e969489a05bef4fe6e33b, type: 3}
   m_Name: PlayersMainData_SO
   m_EditorClassIdentifier: 
-  playerOnePos: {x: -0.4358988, y: -0.009270087, z: 0.17426619}
-  playerTwoPos: {x: -0.0279999, y: -0.0092701465, z: 0.351}
+  playerOnePos: {x: -0.569, y: 0, z: 0.351}
+  playerTwoPos: {x: -0.028, y: 0, z: 0.351}
   mainLuckyCoinsSource: 200
   money: 0
   currentScene: 

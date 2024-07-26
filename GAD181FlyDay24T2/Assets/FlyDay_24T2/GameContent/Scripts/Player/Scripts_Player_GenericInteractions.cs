@@ -1,16 +1,15 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Scripts_Player_GenericInteractions : MonoBehaviour
 {
     public Transform playerModel;
     public TextMeshProUGUI PressE;
-    public float InteractRange;
+    public float InteractRange = 0.9f;
     public LayerMask interactibleLayer;
-    private Scripts_Generic_InteractionBase currentInteraction;
-    private int currentMinigameIndex;
+    public KeyCode playerInteractionkey;
 
+    private Scripts_Generic_InteractionBase _currentInteraction;
 
     void Awake()
     {
@@ -24,41 +23,50 @@ public class Scripts_Player_GenericInteractions : MonoBehaviour
 
     private void Update()
     {
-        Ray interactRay = new Ray(playerModel.position, playerModel.forward);
-
-        Debug.DrawLine(playerModel.position, playerModel.position + playerModel.forward * InteractRange, Color.red);
-
-        if(PressE == null)
+        if (PressE == null)
         {
             return;
         }
 
-        if (Physics.Raycast(interactRay, out RaycastHit hitInfo, InteractRange, interactibleLayer))
+        Collider[] hitColliders = Physics.OverlapSphere(playerModel.position, InteractRange, interactibleLayer);
+
+        bool interactibleFound = false;
+        foreach (var hitCollider in hitColliders)
         {
-            if (hitInfo.collider.CompareTag("Interactible"))
+            if (hitCollider.CompareTag("Interactible"))
             {
                 PressE.gameObject.SetActive(true);
-                currentInteraction = hitInfo.collider.GetComponent<Scripts_Generic_InteractionBase>();
-
+                _currentInteraction = hitCollider.GetComponent<Scripts_Generic_InteractionBase>();
+                interactibleFound = true;
+                break;
             }
         }
-        else
+
+        if (!interactibleFound)
         {
             PressE.gameObject.SetActive(false);
         }
 
-        if (PressE.gameObject.activeSelf && Input.GetKeyDown(KeyCode.E))
+        if (PressE.gameObject.activeSelf && Input.GetKeyDown(playerInteractionkey))
         {
-            Debug.Log("touched!");
-            currentInteraction?.Interact();
+            Debug.Log("Interacted!");
+            _currentInteraction?.Interact();
         }
     }
 
-    private void TaxiMeterMiniGameLoad()
+    private void OnDrawGizmosSelected()
     {
-        if (currentMinigameIndex == 2)
-        {
-            SceneManager.LoadScene("TaxiMeterMinigame");
-        }
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(playerModel.position, InteractRange);
     }
 }
+
+
+//private void TaxiMeterMiniGameLoad()
+//{
+//    if (currentMinigameIndex == 2)
+//    {
+//        SceneManager.LoadScene("TaxiMeterMinigame");
+//    }
+//}
+

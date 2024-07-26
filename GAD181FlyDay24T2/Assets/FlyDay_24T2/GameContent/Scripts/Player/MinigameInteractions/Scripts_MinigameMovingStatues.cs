@@ -3,10 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Scripts_MinigameMovingStatues : Scripts_Generic_InteractionBase
+namespace Dana
 {
-    public override void Interact()
+
+
+    public class Scripts_MinigameMovingStatues : Scripts_Generic_InteractionBase
     {
-        SceneManager.LoadScene("MovingStatues");
+        public override void Interact()
+        {
+            SceneManager.LoadScene("MovingStatues");
+        }
     }
 }

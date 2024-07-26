@@ -1,9 +1,14 @@
 using UnityEngine.SceneManagement;
 
-public class Scripts_Minigame_DontMove : Scripts_Generic_InteractionBase
+namespace Dana
 {
-    public override void Interact()
+
+
+    public class Scripts_Minigame_DontMove : Scripts_Generic_InteractionBase
     {
-        SceneManager.LoadScene("DontMove");
+        public override void Interact()
+        {
+            SceneManager.LoadScene("DontMove");
+        }
     }
 }

@@ -4,10 +4,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
-public class SceneChange: MonoBehavior
+public class SceneChange: MonoBehaviour
 {
-   public void LoadScene(string LuggagePacking)
+   public void LoadScene(string _sceneName)
     {
-        SceneManager.LoadScene(LuggagePacking);
+        SceneManager.LoadScene(_sceneName);
     }
 }

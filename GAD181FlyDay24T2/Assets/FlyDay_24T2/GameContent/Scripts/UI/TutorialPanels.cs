@@ -38,10 +38,12 @@ public class TutorialPanels : MonoBehaviour
     {
         tutorialPanel.SetActive(true);
         Time.timeScale = 0;
+        Debug.Log("Time paused");
     }
 
     private void OnDisable()
     {
+        Debug.Log("Time unpaused");
         Time.timeScale = 1;
     }
     #endregion

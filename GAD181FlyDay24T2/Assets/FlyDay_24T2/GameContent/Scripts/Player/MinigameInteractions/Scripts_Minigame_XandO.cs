@@ -3,10 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Scripts_Minigame_XandO : Scripts_Generic_InteractionBase
+namespace Dana
 {
-    public override void Interact()
+
+
+    public class Scripts_Minigame_XandO : Scripts_Generic_InteractionBase
     {
-        SceneManager.LoadScene("XAndOMinigame_Test");
+        public override void Interact()
+        {
+            SceneManager.LoadScene("XAndOMinigame_Test");
+        }
     }
 }

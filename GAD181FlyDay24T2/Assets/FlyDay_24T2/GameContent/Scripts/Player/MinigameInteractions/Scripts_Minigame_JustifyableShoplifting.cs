@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Scripts_Minigame_JustifyableShoplifting : Scripts_Generic_InteractionBase
+namespace Dana
 {
-    public override void Interact()
+    public class Scripts_Minigame_JustifyableShoplifting : Scripts_Generic_InteractionBase
     {
-        SceneManager.LoadScene("JustifiableShoplifting");
+        public override void Interact()
+        {
+            SceneManager.LoadScene("JustifiableShoplifting");
+        }
     }
 }

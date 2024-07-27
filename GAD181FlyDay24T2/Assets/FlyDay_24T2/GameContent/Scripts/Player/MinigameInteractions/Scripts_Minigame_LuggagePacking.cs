@@ -3,22 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Scripts_Minigame_LuggagePacking : Scripts_Generic_InteractionBase
+namespace Dana
 {
-    #region Variables
-    [SerializeField] private GameObject taxiMeterWall; // The wall that hides taxi meter minigame.
-
-    #endregion
-
-    private void Start()
+    public class Scripts_Minigame_LuggagePacking : Scripts_Generic_InteractionBase
     {
-        taxiMeterWall.SetActive(true);
-    }
+        #region Variables
+        [SerializeField] private GameObject taxiMeterWall; // The wall that hides taxi meter minigame.
 
-    public override void Interact()
-    {
-        taxiMeterWall.SetActive(false);
-        this.gameObject.SetActive(false); // Make this stand disappear.
-        //SceneManager.LoadScene("PackingSuitcase");
+        #endregion
+
+        private void Start()
+        {
+            taxiMeterWall.SetActive(true);
+        }
+
+        public override void Interact()
+        {
+            taxiMeterWall.SetActive(false);
+            this.gameObject.SetActive(false); // Make this stand disappear.
+                                              //SceneManager.LoadScene("PackingSuitcase");
+        }
     }
 }

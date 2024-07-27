@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07b8dbfa90197324e8201a53f80413f1, type: 3}
   m_Name: BadGift
   m_EditorClassIdentifier: 
-  purchasedItem: 
+  purchasedItem: badGift
   hasPurchased: 0

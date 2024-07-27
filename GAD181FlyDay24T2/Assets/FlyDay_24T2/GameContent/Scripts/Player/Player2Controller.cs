@@ -15,7 +15,7 @@ namespace Player.Tw0
 
         void Start()
         {
-            transform.position = playerTwoData.playerTwoPos;
+            //transform.position = playerTwoData.playerTwoPos;
         }
 
         void FixedUpdate()

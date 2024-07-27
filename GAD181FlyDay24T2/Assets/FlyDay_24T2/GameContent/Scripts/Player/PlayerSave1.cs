@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace player.save.data.part.two
 {
 
 
-    public class PlayerSave : MonoBehaviour
+    public class PlayerSave1 : MonoBehaviour
     {
         private const string MoneyKey = "Money";
         private const string SceneKey = "CurrentScene";
@@ -14,7 +12,7 @@ namespace player.save.data.part.two
         private const string PositionXKey = "PositionX";
         private const string PositionYKey = "PositionY";
         private const string PositionZKey = "PositionZ";
-        // Start is called before the first frame update
+
         public static void SavePlayerStuff(PlayerSaveData saveData)
         {
             PlayerPrefs.SetInt(MoneyKey, saveData.money);

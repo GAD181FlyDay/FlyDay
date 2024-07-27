@@ -61,6 +61,7 @@ namespace TaxiMeter
         private void EndGame()
         {
             Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
             endGamePanel.SetActive(true);
             Time.timeScale = 0;
         }

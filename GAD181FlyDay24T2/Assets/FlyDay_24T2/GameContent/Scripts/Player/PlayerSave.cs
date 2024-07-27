@@ -9,14 +9,25 @@ public class PlayerSave : MonoBehaviour
     private const string PositionXKey = "PositionX";
     private const string PositionYKey = "PositionY";
     private const string PositionZKey = "PositionZ";
-    
+
+    private PlayerSaveData playerData;
+
+    private void Start()
+    {
+        playerData = GameObject.Find("GameManager").GetComponent<PlayerSaveData>();
+        if (playerData == null)
+        {
+            Debug.LogError("PlayerData script not found!");
+        }
+    }
+
     public static void SavePlayerStuff(PlayerSaveData saveData)
     {
-        PlayerPrefs.SetInt(MoneyKey,saveData.money);
-        PlayerPrefs.SetString(SceneKey,saveData.currentScene);
-        PlayerPrefs.SetString(DialogueStageKey,saveData.currentDialogueStage.ToString());
-        PlayerPrefs.SetFloat (PositionYKey,saveData.position.y);
-        PlayerPrefs.SetFloat (PositionXKey,saveData.position.x);
+        PlayerPrefs.SetInt(MoneyKey, saveData.money);
+        PlayerPrefs.SetString(SceneKey, saveData.currentScene);
+        PlayerPrefs.SetString(DialogueStageKey, saveData.currentDialogueStage.ToString());
+        PlayerPrefs.SetFloat(PositionXKey, saveData.position.x);
+        PlayerPrefs.SetFloat(PositionYKey, saveData.position.y);
         PlayerPrefs.SetFloat(PositionZKey, saveData.position.z);
 
         PlayerPrefs.Save();
@@ -28,8 +39,7 @@ public class PlayerSave : MonoBehaviour
         {
             playerData.money = PlayerPrefs.GetInt(MoneyKey);
             playerData.currentScene = PlayerPrefs.GetString(SceneKey);
-            playerData.currentDialogueStage = (DialogueStage)System.Enum.Parse(typeof(DialogueStage),
-            PlayerPrefs.GetString(DialogueStageKey));
+            playerData.currentDialogueStage = (DialogueStage)System.Enum.Parse(typeof(DialogueStage), PlayerPrefs.GetString(DialogueStageKey));
             playerData.position = new Vector3(
                 PlayerPrefs.GetFloat(PositionXKey),
                 PlayerPrefs.GetFloat(PositionYKey),
@@ -42,6 +52,20 @@ public class PlayerSave : MonoBehaviour
             playerData.currentDialogueStage = DialogueStage.PacHouse;
             playerData.position = Vector3.zero;
         }
-            return playerData;
+        return playerData;
+    }
+
+    // Reward System
+    public virtual void Reward(int amount)
+    {
+        if (playerData != null)
+        {
+            playerData.money += amount;
+            Debug.Log("Money added: " + amount + ". Total money: " + playerData.money);
+        }
+        else
+        {
+            Debug.LogError("PlayerData script not found");
+        }
     }
 }

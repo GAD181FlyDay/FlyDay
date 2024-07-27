@@ -8,7 +8,7 @@ public class WeightGauge : MonoBehaviour
     public RectTransform arrow;
     public float minAngle = -90.0f;
     public float maxAngle = 90.0f;
-    public TMP_text weightText;
+    public TMP_Text weightText;
     public GameObject gameManager;
 
     private bool isRunning = true;

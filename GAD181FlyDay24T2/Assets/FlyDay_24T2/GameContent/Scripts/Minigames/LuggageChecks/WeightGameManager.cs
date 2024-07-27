@@ -5,7 +5,7 @@ using TMPro;
 public class WeightGameManager : MonoBehaviour
 {
     public WeightGauge weightGauge;
-    public TMP_text resultText;
+    public TMP_Text resultText;
     public Button retryButton;
     public Button payButton; 
     public int luckyCoinsPenalty = 50;

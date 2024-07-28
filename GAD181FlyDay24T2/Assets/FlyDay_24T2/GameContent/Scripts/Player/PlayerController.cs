@@ -5,13 +5,19 @@ namespace Player.One
 {
     public class PlayerController : MonoBehaviour
     {
-        #region Variables.
-        [SerializeField] PauseMenu pauseMenu;
-        [SerializeField] private PlayerSaveData playerOneData;
+        #region Variables
         public Animator playerAnimator;
         public Rigidbody playerRigidbody;
-        public float dSpeed = 0.5f, rotateSpeed = 1000f;
+        public float moveSpeed = 0.5f, rotateSpeed = 1000f;
+        public float jumpForce = 100f;
+
+        [SerializeField] PauseMenu pauseMenu;
+        [SerializeField] private PlayerSaveData playerOneData;
+
         private bool walking;
+        private bool isGrounded;
+        private float walkingAnimationDelay = 0.25f;
+        private float walkingAnimationTimer;
         #endregion
 
         void Start()
@@ -21,75 +27,44 @@ namespace Player.One
 
         void FixedUpdate()
         {
-            float horizontal = Input.GetAxis("Horizontal");
-            float vertical = Input.GetAxis("Vertical");
-
-            Vector3 movement = new Vector3(horizontal, 0, vertical);
-            movement.Normalize();
-
-            if (movement != Vector3.zero)
-            {
-                playerRigidbody.MovePosition(playerRigidbody.position + movement * dSpeed * Time.fixedDeltaTime);
-                Quaternion rotateQuat = Quaternion.LookRotation(movement, Vector3.up);
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, rotateQuat, rotateSpeed * Time.deltaTime);
-            }
-            else
-            {
-                playerRigidbody.velocity = Vector3.zero; 
-            }
+            MovePlayer();
         }
 
         private void Update()
         {
             CurrentSceneChecker();
+            WalkingAnimationSetter();
+            WalkingAnimationDelayer();
+            PlayerJumpCheckerAndExecuter();
 
-            #region bool assigning to play animations
-            if (playerAnimator != null)
-            {
-                //bool pressSneak = (Input.GetKeyDown(KeyCode.C));
-                //bool pressWalk = (Input.GetKeyDown(KeyCode.D));
-                //bool pressRunning = (Input.GetKeyDown(KeyCode.LeftShift));
-                //bool running = playerAnimator.GetBool("Running");
-                walking = playerAnimator.GetBool("Walking");
-                //bool sneaking = playerAnimator.GetBool("Sneaking");
-            }
+            #region Do we need sneaking?? not really
+            //if (Input.GetKey(KeyCode.C) && walking)
+            //{
+            //    playerAnimator.SetBool("Sneaking", true);
+            //    moveSpeed = 0.07f;
+            //}
+            //else
+            //{
+            //    playerAnimator.SetBool("Sneaking", false);
+            //    moveSpeed = 0.5f;
+            //}
             #endregion
+        }
 
-            else if (playerAnimator == null)
+        void OnCollisionEnter(Collision collision)
+        {
+            if (collision.gameObject.CompareTag("Ground"))
             {
-                Debug.Log("Won't play animations");
-                return;
+                isGrounded = true;
             }
+        }
 
-            bool isMoving = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D);
-            playerAnimator.SetBool("Walking", isMoving);
-
-            #region Check if player is trying to jump.
-            if (Input.GetKeyDown(KeyCode.Space))
+        void OnCollisionExit(Collision collision)
+        {
+            if (collision.gameObject.CompareTag("Ground"))
             {
-                playerAnimator.SetBool("Jumping", true);
+                isGrounded = false;
             }
-            else
-            {
-                playerAnimator.SetBool("Jumping", false);
-            }
-            #endregion.
-
-            #region Check if player is sneaking.
-            if (Input.GetKey(KeyCode.C))
-            {
-                if (walking == true)
-                {
-                    playerAnimator.SetBool("Sneaking", true);
-                    dSpeed = 0.07f;
-                }
-            }
-            else
-            {
-                playerAnimator.SetBool("Sneaking", false);
-                dSpeed = 0.5f; 
-            }
-            #endregion
         }
 
         #region Private Functions
@@ -114,6 +89,75 @@ namespace Player.One
                 }
             }
         }
+
+        private void PlayerJumpCheckerAndExecuter()
+        {
+            if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+            {
+                playerRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+                playerAnimator.SetBool("Jumping", true);
+            }
+            else
+            {
+                playerAnimator.SetBool("Jumping", false);
+            }
+        }
+
+        private void WalkingAnimationSetter()
+        {
+            if (playerAnimator != null)
+            {
+                walking = playerAnimator.GetBool("Walking");
+            }
+            else
+            {
+                Debug.Log("Won't play animations");
+                return;
+            }
+        }
+
+        private void WalkingAnimationDelayer()
+        {
+            bool isMoving = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D);
+
+            if (isMoving)
+            {
+                walkingAnimationTimer = walkingAnimationDelay; // Reset timer when moving
+                playerAnimator.SetBool("Walking", true);
+            }
+            else
+            {
+                if (walkingAnimationTimer > 0)
+                {
+                    walkingAnimationTimer -= Time.deltaTime;
+                }
+                else
+                {
+                    playerAnimator.SetBool("Walking", false);
+                }
+            }
+        }
+
+        private void MovePlayer()
+        {
+            float horizontal = Input.GetAxis("Horizontal");
+            float vertical = Input.GetAxis("Vertical");
+
+            Vector3 movement = new Vector3(horizontal, 0, vertical);
+            movement.Normalize();
+
+            if (movement != Vector3.zero)
+            {
+                playerRigidbody.MovePosition(playerRigidbody.position + movement * moveSpeed * Time.fixedDeltaTime);
+                Quaternion rotateQuat = Quaternion.LookRotation(movement, Vector3.up);
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, rotateQuat, rotateSpeed * Time.deltaTime);
+            }
+            else
+            {
+                playerRigidbody.velocity = new Vector3(0, playerRigidbody.velocity.y, 0);
+            }
+        }
+
         #endregion
     }
 }

@@ -8,16 +8,16 @@ namespace Player.One
         #region Variables
         public Animator playerAnimator;
         public Rigidbody playerRigidbody;
-        public float moveSpeed = 0.5f, rotateSpeed = 1000f;
+        public float moveSpeed = 0.4f, rotateSpeed = 1000f; // used to be dSpeed
         public float jumpForce = 100f;
 
         [SerializeField] PauseMenu pauseMenu;
         [SerializeField] private PlayerSaveData playerOneData;
 
-        private bool walking;
-        private bool isGrounded;
-        private float walkingAnimationDelay = 0.25f;
-        private float walkingAnimationTimer;
+        private bool _walking;
+        private bool _isGrounded;
+        private float _walkingAnimationDelay = 0.25f;
+        private float _walkingAnimationTimer;
         #endregion
 
         void Start()
@@ -55,7 +55,7 @@ namespace Player.One
         {
             if (collision.gameObject.CompareTag("Ground"))
             {
-                isGrounded = true;
+                _isGrounded = true;
             }
         }
 
@@ -63,7 +63,7 @@ namespace Player.One
         {
             if (collision.gameObject.CompareTag("Ground"))
             {
-                isGrounded = false;
+                _isGrounded = false;
             }
         }
 
@@ -92,7 +92,7 @@ namespace Player.One
 
         private void PlayerJumpCheckerAndExecuter()
         {
-            if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+            if (Input.GetKeyDown(KeyCode.Space) && _isGrounded)
             {
                 playerRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
                 playerAnimator.SetBool("Jumping", true);
@@ -107,7 +107,7 @@ namespace Player.One
         {
             if (playerAnimator != null)
             {
-                walking = playerAnimator.GetBool("Walking");
+                _walking = playerAnimator.GetBool("Walking");
             }
             else
             {
@@ -122,14 +122,14 @@ namespace Player.One
 
             if (isMoving)
             {
-                walkingAnimationTimer = walkingAnimationDelay; // Reset timer when moving
+                _walkingAnimationTimer = _walkingAnimationDelay; // Reset timer when moving
                 playerAnimator.SetBool("Walking", true);
             }
             else
             {
-                if (walkingAnimationTimer > 0)
+                if (_walkingAnimationTimer > 0)
                 {
-                    walkingAnimationTimer -= Time.deltaTime;
+                    _walkingAnimationTimer -= Time.deltaTime;
                 }
                 else
                 {

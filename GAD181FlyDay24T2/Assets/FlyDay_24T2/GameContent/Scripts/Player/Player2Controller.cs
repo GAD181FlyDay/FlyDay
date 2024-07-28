@@ -5,20 +5,112 @@ namespace Player.Tw0
 {
     public class Player2Controller : MonoBehaviour
     {
+        #region Variables
         [SerializeField] private PlayerSaveData playerTwoData;
         public Animator playerAnimator;
         public Rigidbody playerRigidbody;
-        public float dSpeed = 0.175f, rotateSpeed = 200;
-        [SerializeField] private float inspectorChangeablePlayerSpeed = 2f;
-        public float acceleration;
-        private float currentSpeed = 0f;
+        public float moveSpeed = 0.4f, rotateSpeed = 1000f;
+        public float jumpForce = 100f;
+
+        private bool _isGrounded;
+        private float _walkingAnimationDelay = 0.25f;
+        private float _walkingAnimationTimer;
+        #endregion
 
         void Start()
         {
-            //transform.position = playerTwoData.playerTwoPos;
+            // transform.position = playerTwoData.playerTwoPos;
         }
 
         void FixedUpdate()
+        {
+            MovePlayer();
+        }
+
+        private void Update()
+        {
+            CurrentSceneChecker();
+            WalkingAnimationSetter();
+            WalkingAnimationDelayer();
+            PlayerJumpCheckerAndExecuter();
+        }
+
+        void OnCollisionEnter(Collision collision)
+        {
+            if (collision.gameObject.CompareTag("Ground"))
+            {
+                _isGrounded = true;
+            }
+        }
+
+        void OnCollisionExit(Collision collision)
+        {
+            if (collision.gameObject.CompareTag("Ground"))
+            {
+                _isGrounded = false;
+            }
+        }
+
+        #region Private Functions
+
+        private void CurrentSceneChecker()
+        {
+            Scene currentScene = SceneManager.GetActiveScene();
+            if (currentScene.name == "MainGameScene")
+            {
+                playerTwoData.playerTwoPos = transform.position;
+            }
+        }
+
+        private void PlayerJumpCheckerAndExecuter()
+        {
+            if (Input.GetKeyDown(KeyCode.RightControl) && _isGrounded)
+            {
+                playerRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+                playerAnimator.SetBool("Jumping", true);
+            }
+            else
+            {
+                playerAnimator.SetBool("Jumping", false);
+            }
+        }
+
+        private void WalkingAnimationSetter()
+        {
+            if (playerAnimator != null)
+            {
+                bool walking = playerAnimator.GetBool("Walking");
+            }
+            else
+            {
+                Debug.Log("Won't play animations");
+                return;
+            }
+        }
+
+        private void WalkingAnimationDelayer()
+        {
+            bool isMoving = Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.RightArrow);
+
+            if (isMoving)
+            {
+                _walkingAnimationTimer = _walkingAnimationDelay; 
+                playerAnimator.SetBool("Walking", true);
+            }
+            else
+            {
+                if (_walkingAnimationTimer > 0)
+                {
+                    _walkingAnimationTimer -= Time.deltaTime;
+                }
+                else
+                {
+                    playerAnimator.SetBool("Walking", false);
+                }
+            }
+        }
+
+        private void MovePlayer()
         {
             float horizontal = Input.GetAxis("Horizontal1");
             float vertical = Input.GetAxis("Vertical1");
@@ -26,102 +118,17 @@ namespace Player.Tw0
             Vector3 movement = new Vector3(horizontal, 0, vertical);
             movement.Normalize();
 
-            if (movement == Vector3.zero)
-            {
-                return;
-            }
-
-
             if (movement != Vector3.zero)
             {
-                currentSpeed = Mathf.MoveTowards(currentSpeed, dSpeed, acceleration * Time.fixedDeltaTime);
-                playerRigidbody.MovePosition(playerRigidbody.position + movement * currentSpeed * Time.fixedDeltaTime);
+                playerRigidbody.MovePosition(playerRigidbody.position + movement * moveSpeed * Time.fixedDeltaTime);
                 Quaternion rotateQuat = Quaternion.LookRotation(movement, Vector3.up);
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, rotateQuat, rotateSpeed * Time.deltaTime);
             }
-        }
-
-
-        private void Update()
-        {
-            CurrentSceneChecker();
-
-            bool pressSneak = (Input.GetKeyDown(KeyCode.C));
-            bool pressWalk = (Input.GetKeyDown(KeyCode.D));
-            bool pressRunning = (Input.GetKeyDown(KeyCode.LeftShift));
-            bool running = playerAnimator.GetBool("Running");
-            bool walking = playerAnimator.GetBool("Walking");
-            bool sneaking = playerAnimator.GetBool("Sneaking");
-
-
-            if (Input.GetKey(KeyCode.UpArrow))
-            {
-                playerAnimator.SetBool("Walking", true);
-            }
-
-            else if (Input.GetKey(KeyCode.LeftArrow))
-            {
-                playerAnimator.SetBool("Walking", true);
-
-            }
-
-            else if (Input.GetKey(KeyCode.DownArrow))
-            {
-                playerAnimator.SetBool("Walking", true);
-
-            }
-            else if (Input.GetKey(KeyCode.RightArrow))
-            {
-                playerAnimator.SetBool("Walking", true);
-
-            }
             else
             {
-                playerAnimator.SetBool("Walking", false);
-            }
-
-            if (Input.GetKeyDown(KeyCode.RightControl))
-            {
-                return;
-                // playerAnimator.SetBool("Jumping", true);
-                // This player can jump Higher than the other player.
-            }
-
-
-
-            if (Input.GetKey(KeyCode.RightShift))
-            {
-                if (walking == true)
-                {
-                    playerAnimator.SetBool("Sneaking", true);
-                    dSpeed = 0.2f;
-                }
-
-            }
-            else
-            {
-                playerAnimator.SetBool("Sneaking", false);
-                PlayerOneSpeedChanger(inspectorChangeablePlayerSpeed);
-            }
-        }
-        #region Private Functions
-        private void PlayerOneSpeedChanger(float speed)
-        {
-            dSpeed = speed;
-        }
-
-        private void CurrentSceneChecker()
-        {
-
-            Scene currentScene = SceneManager.GetActiveScene();
-            if (currentScene.name == "MainGameScene")
-            {
-                #region Give player's position to ScriptableObject.
-                playerTwoData.playerTwoPos = transform.position;
-                #endregion
+                playerRigidbody.velocity = new Vector3(0, playerRigidbody.velocity.y, 0);
             }
         }
         #endregion
-        
     }
 }

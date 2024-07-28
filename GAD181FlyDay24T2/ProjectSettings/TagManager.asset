@@ -17,6 +17,7 @@ TagManager:
   - LuggageBox
   - HeldLuggage
   - CartRacingWin
+  - Ground
   layers:
   - Default
   - TransparentFX

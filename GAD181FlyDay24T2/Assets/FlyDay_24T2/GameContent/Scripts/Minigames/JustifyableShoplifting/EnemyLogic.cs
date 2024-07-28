@@ -81,7 +81,7 @@ namespace JustifyableShoplifting
                     _currentTarget = _currentTarget == pointC ? pointD : pointC;
                     break;
                 case 3:
-                    Debug.Log("You won");
+                    // Debug.Log("You won");
                     playerWon.WinGame();
                     break;
             }
@@ -99,7 +99,7 @@ namespace JustifyableShoplifting
 
             if (players.Length == 0)
             {
-                Debug.Log("No players detected within radius");
+                // Debug.Log("No players detected within radius");
             }
 
             foreach (Collider player in players)
@@ -123,7 +123,7 @@ namespace JustifyableShoplifting
                 _detectionTime += Time.deltaTime;
                 if (_detectionTime >= detectionDuration)
                 {
-                    Debug.Log("You Lost");
+                    // Debug.Log("You Lost");
                     playerBusted.LoseGame();
                 }
             }

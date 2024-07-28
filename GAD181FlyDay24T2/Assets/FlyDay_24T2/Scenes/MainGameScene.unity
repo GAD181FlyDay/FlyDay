@@ -2203,7 +2203,7 @@ GameObject:
   m_Component:
   - component: {fileID: 919429220}
   m_Layer: 0
-  m_Name: -----------------
+  m_Name: DefaultUnityStuff------------
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3389,7 +3389,7 @@ MonoBehaviour:
   player1: {fileID: 1713083873}
   player2: {fileID: 408633360}
   cameraHeight: 0.58
-  cameraSmoothSpeed: 0.125
+  cameraSmoothSpeed: 1.5
   cam: {fileID: 1332616932}
 --- !u!114 &1332616935
 MonoBehaviour:
@@ -5341,6 +5341,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1238964025483861244, guid: e13c57158431bca48a31db8d4687e741, type: 3}
+      propertyPath: dSpeed
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1238964025483861244, guid: e13c57158431bca48a31db8d4687e741, type: 3}
+      propertyPath: moveSpeed
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1238964025483861244, guid: e13c57158431bca48a31db8d4687e741, type: 3}
       propertyPath: playerTwoData
       value: 
       objectReference: {fileID: 11400000, guid: 66e203a44be15dc42a3658148c263619, type: 2}
@@ -5483,7 +5491,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8116306560781045990, guid: 2a3ce45b007f7244b9c175fbfea79cc6, type: 3}
       propertyPath: moveSpeed
-      value: 0.5
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 8116306560781045990, guid: 2a3ce45b007f7244b9c175fbfea79cc6, type: 3}
       propertyPath: rotateSpeed

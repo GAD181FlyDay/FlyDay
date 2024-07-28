@@ -14,7 +14,6 @@ public class TutorialPanels : MonoBehaviour
     [SerializeField] private GameObject[] textsThatAreHidden;
     #endregion
 
-
     private void Update()
     {
         OnSpaceTurnOffThePanel();
@@ -38,12 +37,12 @@ public class TutorialPanels : MonoBehaviour
     {
         tutorialPanel.SetActive(true);
         Time.timeScale = 0;
-        Debug.Log("Time paused");
+        // Debug.Log("Time paused");
     }
 
     private void OnDisable()
     {
-        Debug.Log("Time unpaused");
+        // Debug.Log("Time unpaused");
         Time.timeScale = 1;
     }
     #endregion

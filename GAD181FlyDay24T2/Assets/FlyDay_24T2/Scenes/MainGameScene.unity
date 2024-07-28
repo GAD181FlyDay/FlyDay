@@ -5364,6 +5364,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3933927944803999143, guid: e13c57158431bca48a31db8d4687e741, type: 3}
+      propertyPath: m_Drag
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4162324074057881099, guid: e13c57158431bca48a31db8d4687e741, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.028
@@ -5474,11 +5478,23 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8116306560781045990, guid: 2a3ce45b007f7244b9c175fbfea79cc6, type: 3}
+      propertyPath: moveSpeed
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8116306560781045990, guid: 2a3ce45b007f7244b9c175fbfea79cc6, type: 3}
+      propertyPath: rotateSpeed
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8116306560781045990, guid: 2a3ce45b007f7244b9c175fbfea79cc6, type: 3}
       propertyPath: playerOneData
       value: 
       objectReference: {fileID: 11400000, guid: 66e203a44be15dc42a3658148c263619, type: 2}
     - target: {fileID: 8116306560781045990, guid: 2a3ce45b007f7244b9c175fbfea79cc6, type: 3}
       propertyPath: inspectorChangeablePlayerSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8741788125555376242, guid: 2a3ce45b007f7244b9c175fbfea79cc6, type: 3}
+      propertyPath: m_Drag
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

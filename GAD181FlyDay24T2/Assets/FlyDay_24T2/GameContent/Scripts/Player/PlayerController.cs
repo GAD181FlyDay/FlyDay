@@ -5,22 +5,18 @@ namespace Player.One
 {
     public class PlayerController : MonoBehaviour
     {
+        #region Variables.
         [SerializeField] PauseMenu pauseMenu;
         [SerializeField] private PlayerSaveData playerOneData;
         public Animator playerAnimator;
         public Rigidbody playerRigidbody;
-        public float dSpeed = 0.27f, rotateSpeed = 200;
-        [SerializeField] private float inspectorChangeablePlayerSpeed = 2f;
-        public float acceleration;
-        private float currentSpeed = 0f;
-        bool walking;
-
+        public float dSpeed = 0.5f, rotateSpeed = 1000f;
+        private bool walking;
+        #endregion
 
         void Start()
         {
-            //transform.position = playerOneData.playerOnePos;
             pauseMenu = GetComponent<PauseMenu>();
-            // According to the tranform case and the saved scriptable object transform, players spawn there.
         }
 
         void FixedUpdate()
@@ -31,78 +27,55 @@ namespace Player.One
             Vector3 movement = new Vector3(horizontal, 0, vertical);
             movement.Normalize();
 
-            if (movement == Vector3.zero)
-            {
-                return;
-            }
-
-
             if (movement != Vector3.zero)
             {
-                currentSpeed = Mathf.MoveTowards(currentSpeed, dSpeed, acceleration * Time.fixedDeltaTime);
-                playerRigidbody.MovePosition(playerRigidbody.position + movement * currentSpeed * Time.fixedDeltaTime);
+                playerRigidbody.MovePosition(playerRigidbody.position + movement * dSpeed * Time.fixedDeltaTime);
                 Quaternion rotateQuat = Quaternion.LookRotation(movement, Vector3.up);
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, rotateQuat, rotateSpeed * Time.deltaTime);
             }
+            else
+            {
+                playerRigidbody.velocity = Vector3.zero; 
+            }
         }
-
 
         private void Update()
         {
             CurrentSceneChecker();
 
-
+            #region bool assigning to play animations
             if (playerAnimator != null)
             {
-                bool pressSneak = (Input.GetKeyDown(KeyCode.C));
-                bool pressWalk = (Input.GetKeyDown(KeyCode.D));
-                bool pressRunning = (Input.GetKeyDown(KeyCode.LeftShift));
-                bool running = playerAnimator.GetBool("Running");
+                //bool pressSneak = (Input.GetKeyDown(KeyCode.C));
+                //bool pressWalk = (Input.GetKeyDown(KeyCode.D));
+                //bool pressRunning = (Input.GetKeyDown(KeyCode.LeftShift));
+                //bool running = playerAnimator.GetBool("Running");
                 walking = playerAnimator.GetBool("Walking");
-                bool sneaking = playerAnimator.GetBool("Sneaking");
+                //bool sneaking = playerAnimator.GetBool("Sneaking");
             }
+            #endregion
+
             else if (playerAnimator == null)
             {
-                Debug.Log("Won't play aniamtions");
+                Debug.Log("Won't play animations");
                 return;
             }
 
-            if (Input.GetKey(KeyCode.W))
-            {
-                playerAnimator.SetBool("Walking", true);
-            }
+            bool isMoving = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D);
+            playerAnimator.SetBool("Walking", isMoving);
 
-            else if (Input.GetKey(KeyCode.A))
-            {
-                playerAnimator.SetBool("Walking", true);
-
-            }
-
-            else if (Input.GetKey(KeyCode.S))
-            {
-                playerAnimator.SetBool("Walking", true);
-
-            }
-            else if (Input.GetKey(KeyCode.D))
-            {
-                playerAnimator.SetBool("Walking", true);
-
-            }
-            else
-            {
-                playerAnimator.SetBool("Walking", false);
-            }
-
+            #region Check if player is trying to jump.
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 playerAnimator.SetBool("Jumping", true);
             }
-
             else
             {
                 playerAnimator.SetBool("Jumping", false);
             }
+            #endregion.
 
+            #region Check if player is sneaking.
             if (Input.GetKey(KeyCode.C))
             {
                 if (walking == true)
@@ -110,18 +83,13 @@ namespace Player.One
                     playerAnimator.SetBool("Sneaking", true);
                     dSpeed = 0.07f;
                 }
-
             }
             else
             {
                 playerAnimator.SetBool("Sneaking", false);
-                PlayerTwoSpeedChanger(inspectorChangeablePlayerSpeed);
+                dSpeed = 0.5f; 
             }
-        }
-
-        private void PlayerTwoSpeedChanger(float speed)
-        {
-            dSpeed = speed;
+            #endregion
         }
 
         #region Private Functions
@@ -131,13 +99,11 @@ namespace Player.One
             Scene currentScene = SceneManager.GetActiveScene();
             if (currentScene.name == "MainGameScene")
             {
-                #region Give player's position to ScriptableObject.
                 playerOneData.playerOnePos = transform.position;
 
-                #region Control game time depending on whether the pause menu is on or off.
                 if (pauseMenu != null)
                 {
-                    if (pauseMenu.isPanelActive == true)
+                    if (pauseMenu.isPanelActive)
                     {
                         Debug.Log("Players can't move.");
                     }
@@ -146,11 +112,8 @@ namespace Player.One
                         Time.timeScale = 1.0f;
                     }
                 }
-                #endregion
-                #endregion
             }
         }
         #endregion
-
     }
 }

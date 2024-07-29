@@ -1437,6 +1437,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1238964025483861244, guid: e13c57158431bca48a31db8d4687e741, type: 3}
+      propertyPath: moveSpeed
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1238964025483861244, guid: e13c57158431bca48a31db8d4687e741, type: 3}
       propertyPath: inspectorChangeablePlayerSpeed
       value: 0.75
       objectReference: {fileID: 0}
@@ -8576,7 +8580,7 @@ MonoBehaviour:
   holdPoint: {fileID: 1310998097}
   interactionKey: 0
   dropKey: 0
-  luggageSpacing: 0.7
+  luggageSpacing: 0.5
   maxLuggageCount: 3
 --- !u!114 &2017905399
 MonoBehaviour:

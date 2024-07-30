@@ -11,6 +11,12 @@ public class PaintingPuzzle : MonoBehaviour
     [SerializeField] SpriteRenderer paintingSprite;
     int currentPainting;
     Ray ray;
+    public int currentCodeRotation = 0;
+
+    private void Start()
+    {
+        paintingSprite.sprite = puzzleImages[currentPainting];
+    }
 
     private void Update()
     {
@@ -23,8 +29,21 @@ public class PaintingPuzzle : MonoBehaviour
         {
             if(hit.transform.tag == "Player" && Input.GetKeyDown(KeyCode.P))
             {
+                
+                if(currentPainting >= puzzleImages.Length - 1)
+                {
+                    currentCodeRotation = 0;
+                    currentPainting = 0;
+                }
+                else
+                {
+                    currentCodeRotation += 90; 
+                    currentPainting++;
+                }
+
                 paintingSprite.sprite = puzzleImages[currentPainting];
-                currentPainting++;
+
+
             }
         }
     }

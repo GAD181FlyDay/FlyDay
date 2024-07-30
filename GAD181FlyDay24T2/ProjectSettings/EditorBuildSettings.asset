@@ -39,7 +39,7 @@ EditorBuildSettings:
     path: Assets/FlyDay_24T2/Scenes/Melina_Minigame/LuggageChecks.unity
     guid: 952b9ea3aa133a64d9ea5413f74b2754
   - enabled: 1
-    path: Assets/FlyDay_24T2/Scenes/Melina_Minigame/TutorialPackingMinigame.unity
+    path: Assets/Scenes/Melina_Minigame/Packing Suitcase.unity
     guid: 47b807ea5e78d3c49b33c9bd83220f73
   - enabled: 1
     path: Assets/FlyDay_24T2/Scenes/Melina_Minigame/Tetris.unity

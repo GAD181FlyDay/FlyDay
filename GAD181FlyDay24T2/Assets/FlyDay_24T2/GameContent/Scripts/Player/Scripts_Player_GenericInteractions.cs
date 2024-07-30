@@ -9,7 +9,7 @@ public class Scripts_Player_GenericInteractions : MonoBehaviour
     public LayerMask interactibleLayer;
     public KeyCode playerInteractionkey;
 
-    private Scripts_Generic_InteractionBase _currentInteraction;
+    private Scripts_InteractionBaseToOverride _currentInteraction;
 
     void Awake()
     {
@@ -36,7 +36,7 @@ public class Scripts_Player_GenericInteractions : MonoBehaviour
             if (hitCollider.CompareTag("Interactible"))
             {
                 PressE.gameObject.SetActive(true);
-                _currentInteraction = hitCollider.GetComponent<Scripts_Generic_InteractionBase>();
+                _currentInteraction = hitCollider.GetComponent<Scripts_InteractionBaseToOverride>();
                 interactibleFound = true;
                 break;
             }

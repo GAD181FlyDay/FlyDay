@@ -5,7 +5,7 @@ namespace Dana
 {
 
 
-    public class Scripts_Minigame_TaxiMeter : Scripts_Generic_InteractionBase
+    public class Scripts_Minigame_TaxiMeter : Scripts_InteractionBaseToOverride
     {
         #region Variables.
 

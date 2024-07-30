@@ -1,4 +1,3 @@
-using UnityEngine.SceneManagement;
 using UnityEngine;
 
 namespace Player.One
@@ -8,22 +7,21 @@ namespace Player.One
         #region Variables
         public Animator playerAnimator;
         public Rigidbody playerRigidbody;
-        public float moveSpeed = 0.4f, rotateSpeed = 1000f; // used to be dSpeed
+        public float moveSpeed = 0.4f, rotateSpeed = 1000f;
         public float jumpForce = 100f;
 
-        [SerializeField] PauseMenu pauseMenu;
-        [SerializeField] private PlayerSaveData playerOneData;
+        #region Raycast Vars
+        public Transform groundCheck; 
+        public float groundDistance = 0.1f; 
+        public LayerMask groundMask;
+        
+        private bool _isGrounded;
+        #endregion
 
         private bool _walking;
-        private bool _isGrounded;
         private float _walkingAnimationDelay = 0.25f;
         private float _walkingAnimationTimer;
         #endregion
-
-        void Start()
-        {
-            pauseMenu = GetComponent<PauseMenu>();
-        }
 
         void FixedUpdate()
         {
@@ -32,62 +30,17 @@ namespace Player.One
 
         private void Update()
         {
-            CurrentSceneChecker();
+            GroundCheck();
             WalkingAnimationSetter();
             WalkingAnimationDelayer();
             PlayerJumpCheckerAndExecuter();
-
-            #region Do we need sneaking?? not really
-            //if (Input.GetKey(KeyCode.C) && walking)
-            //{
-            //    playerAnimator.SetBool("Sneaking", true);
-            //    moveSpeed = 0.07f;
-            //}
-            //else
-            //{
-            //    playerAnimator.SetBool("Sneaking", false);
-            //    moveSpeed = 0.5f;
-            //}
-            #endregion
-        }
-
-        void OnCollisionEnter(Collision collision)
-        {
-            if (collision.gameObject.CompareTag("Ground"))
-            {
-                _isGrounded = true;
-            }
-        }
-
-        void OnCollisionExit(Collision collision)
-        {
-            if (collision.gameObject.CompareTag("Ground"))
-            {
-                _isGrounded = false;
-            }
         }
 
         #region Private Functions
 
-        private void CurrentSceneChecker()
+        private void GroundCheck()
         {
-            Scene currentScene = SceneManager.GetActiveScene();
-            if (currentScene.name == "MainGameScene")
-            {
-                playerOneData.playerOnePos = transform.position;
-
-                if (pauseMenu != null)
-                {
-                    if (pauseMenu.isPanelActive)
-                    {
-                        Debug.Log("Players can't move.");
-                    }
-                    else
-                    {
-                        Time.timeScale = 1.0f;
-                    }
-                }
-            }
+            _isGrounded = Physics.Raycast(groundCheck.position, Vector3.down, groundDistance, groundMask);
         }
 
         private void PlayerJumpCheckerAndExecuter()

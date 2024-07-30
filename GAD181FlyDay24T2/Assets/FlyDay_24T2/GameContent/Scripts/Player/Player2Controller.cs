@@ -1,26 +1,27 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-namespace Player.Tw0
+namespace Player.Two
 {
     public class Player2Controller : MonoBehaviour
     {
         #region Variables
-        [SerializeField] private PlayerSaveData playerTwoData;
+
         public Animator playerAnimator;
         public Rigidbody playerRigidbody;
         public float moveSpeed = 0.4f, rotateSpeed = 1000f;
         public float jumpForce = 100f;
 
+        #region Raycast Vars
+        public Transform groundCheck; 
+        public float groundDistance = 0.1f; 
+        public LayerMask groundMask;
+        
         private bool _isGrounded;
+        #endregion
+
         private float _walkingAnimationDelay = 0.25f;
         private float _walkingAnimationTimer;
         #endregion
-
-        void Start()
-        {
-            // transform.position = playerTwoData.playerTwoPos;
-        }
 
         void FixedUpdate()
         {
@@ -29,37 +30,17 @@ namespace Player.Tw0
 
         private void Update()
         {
-            CurrentSceneChecker();
+            GroundCheck();
             WalkingAnimationSetter();
             WalkingAnimationDelayer();
             PlayerJumpCheckerAndExecuter();
         }
 
-        void OnCollisionEnter(Collision collision)
-        {
-            if (collision.gameObject.CompareTag("Ground"))
-            {
-                _isGrounded = true;
-            }
-        }
-
-        void OnCollisionExit(Collision collision)
-        {
-            if (collision.gameObject.CompareTag("Ground"))
-            {
-                _isGrounded = false;
-            }
-        }
-
         #region Private Functions
 
-        private void CurrentSceneChecker()
+        private void GroundCheck()
         {
-            Scene currentScene = SceneManager.GetActiveScene();
-            if (currentScene.name == "MainGameScene")
-            {
-                playerTwoData.playerTwoPos = transform.position;
-            }
+            _isGrounded = Physics.Raycast(groundCheck.position, Vector3.down, groundDistance, groundMask);
         }
 
         private void PlayerJumpCheckerAndExecuter()
@@ -94,7 +75,7 @@ namespace Player.Tw0
 
             if (isMoving)
             {
-                _walkingAnimationTimer = _walkingAnimationDelay; 
+                _walkingAnimationTimer = _walkingAnimationDelay;
                 playerAnimator.SetBool("Walking", true);
             }
             else
@@ -129,6 +110,7 @@ namespace Player.Tw0
                 playerRigidbody.velocity = new Vector3(0, playerRigidbody.velocity.y, 0);
             }
         }
+
         #endregion
     }
 }

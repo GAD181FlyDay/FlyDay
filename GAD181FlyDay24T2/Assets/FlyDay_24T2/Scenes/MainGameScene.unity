@@ -2653,6 +2653,10 @@ PrefabInstance:
       value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 1238964025483861244, guid: e13c57158431bca48a31db8d4687e741, type: 3}
+      propertyPath: groundCheck
+      value: 
+      objectReference: {fileID: 1075420128}
+    - target: {fileID: 1238964025483861244, guid: e13c57158431bca48a31db8d4687e741, type: 3}
       propertyPath: playerTwoData
       value: 
       objectReference: {fileID: 11400000, guid: 66e203a44be15dc42a3658148c263619, type: 2}

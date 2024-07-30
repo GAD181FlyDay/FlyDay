@@ -49,7 +49,7 @@ public class GameManager1 : MonoBehaviour
     {
         gameActive = false;
         UIManager.instance.ShowLoseScreen();
-        Invoke("RestartGame", 3f); // Restart game after 3 seconds
+        Invoke("RestartGame", 3f); 
     }
 
     void RestartGame()

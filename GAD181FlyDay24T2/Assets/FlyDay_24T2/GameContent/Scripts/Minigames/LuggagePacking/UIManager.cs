@@ -21,13 +21,11 @@ public class UIManager : MonoBehaviour
     public void ShowWinScreen()
     {
         Debug.Log("Win screen is shown.");
-        // Display a panel or something idk.
     }
 
     public void ShowLoseScreen()
     {
         Debug.Log("Loss screen is shown.");
-        // Display a panel or something idk.
     }
 
     public void ShowInteractText(bool show)

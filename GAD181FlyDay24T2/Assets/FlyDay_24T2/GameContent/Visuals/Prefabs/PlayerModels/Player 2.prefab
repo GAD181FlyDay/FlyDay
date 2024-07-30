@@ -355,10 +355,10 @@ PrefabInstance:
       addedObject: {fileID: 4699334398877110556}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: aefe2b9ce1f43ed439a11bc2006b3f30, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2540735932083014516}
+      addedObject: {fileID: 1238964025483861244}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: aefe2b9ce1f43ed439a11bc2006b3f30, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1238964025483861244}
+      addedObject: {fileID: 2540735932083014516}
   m_SourcePrefab: {fileID: 100100000, guid: aefe2b9ce1f43ed439a11bc2006b3f30, type: 3}
 --- !u!1 &3641260482481261745 stripped
 GameObject:
@@ -437,6 +437,24 @@ CapsuleCollider:
   m_Height: 1.95
   m_Direction: 1
   m_Center: {x: 0, y: 0.98, z: 0}
+--- !u!114 &1238964025483861244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3641260482481261745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87b27cbe704e5c44faafecf5afca1f0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTwoData: {fileID: 0}
+  playerAnimator: {fileID: 3661773256298805639}
+  playerRigidbody: {fileID: 3933927944803999143}
+  moveSpeed: 0.4
+  rotateSpeed: 1200
+  jumpForce: 100
 --- !u!114 &2540735932083014516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -455,23 +473,7 @@ MonoBehaviour:
   interactibleLayer:
     serializedVersion: 2
     m_Bits: 64
---- !u!114 &1238964025483861244
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3641260482481261745}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87b27cbe704e5c44faafecf5afca1f0e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerAnimator: {fileID: 3661773256298805639}
-  playerRigidbody: {fileID: 3933927944803999143}
-  dSpeed: 0.175
-  rotateSpeed: 1200
-  acceleration: 0.75
+  playerInteractionkey: 303
 --- !u!4 &4162324074057881099 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: aefe2b9ce1f43ed439a11bc2006b3f30, type: 3}

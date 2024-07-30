@@ -7,6 +7,8 @@ public class PuzzleCode : MonoBehaviour
     [SerializeField] int[] puzzleCode;
     [SerializeField] StatueMovingCode[] statueMovingCode;
     public bool codeHasMatch;
+    [SerializeField] PaintingPuzzle[] paintingPuzzles;
+    [SerializeField] GameObject[] paintingPuzzleCheckBox;
 
     void CheckStatueCode()
     {
@@ -20,9 +22,24 @@ public class PuzzleCode : MonoBehaviour
         }
         codeHasMatch = true;
     }
+    void CheckBoxes()
+    {
+        for(int i = 0;i < puzzleCode.Length; i++)
+        {
+            if (paintingPuzzles[i].currentCodeRotation == puzzleCode[i])
+            {
+                paintingPuzzleCheckBox[i].GetComponent<MeshRenderer>().material.color = Color.green;
+            }
+            else
+            {
+                paintingPuzzleCheckBox[i].GetComponent<MeshRenderer>().material.color = Color.red;
+            }
+        }    
+    }
 
     private void Update()
     {
         CheckStatueCode();
+        CheckBoxes();
     }
 }

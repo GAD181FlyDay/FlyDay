@@ -2826,7 +2826,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2540735932083014516, guid: e13c57158431bca48a31db8d4687e741, type: 3}
       propertyPath: playerInteractionkey
-      value: 0
+      value: 303
       objectReference: {fileID: 0}
     - target: {fileID: 3641260482481261745, guid: e13c57158431bca48a31db8d4687e741, type: 3}
       propertyPath: m_Name
@@ -2922,7 +2922,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 657493425264459359, guid: 2a3ce45b007f7244b9c175fbfea79cc6, type: 3}
       propertyPath: playerInteractionkey
-      value: 0
+      value: 101
       objectReference: {fileID: 0}
     - target: {fileID: 711096015399636897, guid: 2a3ce45b007f7244b9c175fbfea79cc6, type: 3}
       propertyPath: m_Layer

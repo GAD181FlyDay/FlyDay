@@ -16,12 +16,17 @@ namespace Narrative
         [SerializeField] private NarrativePanelManager panelController;
         [SerializeField] private NarrativeStateStorage currentState;
         [SerializeField] private PlayerSaveData playerSaveData;
-        [SerializeField] private List<NarrativeStateStorage> narrativeStates; // List of possible states
+        [SerializeField] private List<NarrativeStateStorage> narrativeStates;
+        [SerializeField] private List<PlayerPositionsStorage> playersPositions;
+        [SerializeField] private Transform player1Transform;
+        [SerializeField] private Transform player2Transform;
 
         private int _currentEntryIndex;
-        private float _inputDelay = 3f;
-        private float _timer = 0f;
-        private bool _canProgress = true;
+
+        //private float _inputDelay = 1.5f;
+        //private float _timer = 0f; 
+        //private bool _canProgress = true;
+
         // Places the enums states in NarrativeStateStorage objects to dictionary and initializes it.
         private Dictionary<NarrativeStateStorage.NarrativeStates, NarrativeStateStorage> _stateDictionary;
         #endregion
@@ -35,19 +40,19 @@ namespace Narrative
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                ProgressToNextEntry();
-            }
+            InputDelayThenProgress();
         }
 
 
+
         #region Public Functions.
+
         public void ProgressToNextEntry()
         {
             _currentEntryIndex++;
             DisplayCurrentNarrativeEntry();
         }
+
 
         public void SetStateInt(int newStateInt)
         {
@@ -55,15 +60,37 @@ namespace Narrative
             UpdateCurrentState();
             DisplayCurrentNarrativeEntry();
         }
+
         #endregion
 
         #region Private Functions
+        private void InputDelayThenProgress()
+        {
+            //if (!_canProgress)
+            //{
+            //    _timer += Time.deltaTime;
+            //    if (_timer >= _inputDelay)
+            //    {
+            //        _canProgress = true;
+            //        _timer = 0f;
+            //    }
+            //}
+
+            if (Input.GetKeyUp(KeyCode.Space)) // && _canProgress
+            {
+                ProgressToNextEntry();
+                // _canProgress = false;
+            }
+        }
+
+
         private void UpdateCurrentState()
         {
             if (playerSaveData.currentStateInt >= 0 && playerSaveData.currentStateInt < narrativeStates.Count)
             {
                 currentState = narrativeStates[playerSaveData.currentStateInt];
                 _currentEntryIndex = 0;
+                UpdatePlayerPositions();
             }
             else
             {
@@ -71,19 +98,35 @@ namespace Narrative
             }
         }
 
+
         private void DisplayCurrentNarrativeEntry()
         {
             if (currentState != null && _currentEntryIndex < currentState.narrativeEntries.Length)
             {
-                string narrative = currentState.narrativeEntries[_currentEntryIndex];
+                string _narrative = currentState.narrativeEntries[_currentEntryIndex];
                 Sprite image = currentState.narrativeImages[_currentEntryIndex];
-                panelController.ShowPanel(narrative, image);
+                panelController.ShowPanel(_narrative, image);
             }
             else
             {
                 panelController.HidePanel();
             }
         }
+
+
+        private void UpdatePlayerPositions()
+        {
+            if (playerSaveData.currentStateInt >= 0 && playerSaveData.currentStateInt < playersPositions.Count)
+            {
+                player1Transform.position = playersPositions[playerSaveData.currentStateInt].playerOnePos;
+                player2Transform.position = playersPositions[playerSaveData.currentStateInt].playerTwoPos;
+            }
+            else
+            {
+                Debug.LogError("Invalid stateInt for player positions.");
+            }
+        }
+
         #endregion
 
     }

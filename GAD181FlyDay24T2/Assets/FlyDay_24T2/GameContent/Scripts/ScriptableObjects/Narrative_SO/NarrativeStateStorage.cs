@@ -6,7 +6,7 @@ namespace Narrative
     /// This is a Scriptable object that stores Narrative related data.
     /// </summary>
 
-    [CreateAssetMenu(fileName = "NarrativeStateData")]
+    [CreateAssetMenu]
     public class NarrativeStateStorage : ScriptableObject
     {
         #region Enum

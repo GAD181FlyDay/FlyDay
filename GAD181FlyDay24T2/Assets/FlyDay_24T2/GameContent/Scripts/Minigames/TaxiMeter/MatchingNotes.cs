@@ -87,7 +87,7 @@ public class MatchingNotes : MonoBehaviour
         }
         else
         {
-            Debug.Log("game has ended.");
+           // Debug.Log("game has ended.");
         }
     }
 

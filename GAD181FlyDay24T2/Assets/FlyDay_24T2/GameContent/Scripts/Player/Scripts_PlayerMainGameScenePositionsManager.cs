@@ -3,13 +3,15 @@ using UnityEngine.SceneManagement;
 
 namespace MainGameScene.Players
 {
-
+    /// <summary>
+    /// Might get rid of this script or change the name
+    /// </summary>
 
     public class Scripts_PlayerMainGameScenePositionsManager : MonoBehaviour
     {
         #region Variables
         [SerializeField] PauseMenu pauseMenu;
-        [SerializeField] private PlayerSaveData playersData;
+        //[SerializeField] private PlayerPositionsStorage playersPositions;
         #endregion
 
         void Start()
@@ -27,8 +29,8 @@ namespace MainGameScene.Players
             Scene currentScene = SceneManager.GetActiveScene();
             if (currentScene.name == "MainGameScene")
             {
-                playersData.playerOnePos = transform.position;
-                playersData.playerTwoPos = transform.position;
+                //playersPositions.playerOnePos = transform.position;
+                //playersPositions.playerTwoPos = transform.position;
                 if (pauseMenu != null)
                 {
                     if (pauseMenu.isPanelActive)

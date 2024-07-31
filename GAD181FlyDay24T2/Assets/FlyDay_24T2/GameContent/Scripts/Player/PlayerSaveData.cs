@@ -7,6 +7,7 @@ public class PlayerSaveData : ScriptableObject
     public Vector3 playerOnePos;
     public Vector3 playerTwoPos;
     public float mainLuckyCoinsSource;
+    public int currentStateInt = 0;
     #endregion
 
     public int money;

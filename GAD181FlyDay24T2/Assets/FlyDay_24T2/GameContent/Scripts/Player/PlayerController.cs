@@ -11,10 +11,10 @@ namespace Player.One
         public float jumpForce = 100f;
 
         #region Raycast Vars
-        public Transform groundCheck; 
-        public float groundDistance = 0.1f; 
+        public Transform groundCheck;
+        public float groundDistance = 0.1f;
         public LayerMask groundMask;
-        
+
         private bool _isGrounded;
         #endregion
 
@@ -45,14 +45,17 @@ namespace Player.One
 
         private void PlayerJumpCheckerAndExecuter()
         {
-            if (Input.GetKeyDown(KeyCode.Space) && _isGrounded)
+            if (Time.timeScale == 1)
             {
-                playerRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-                playerAnimator.SetBool("Jumping", true);
-            }
-            else
-            {
-                playerAnimator.SetBool("Jumping", false);
+                if (Input.GetKeyDown(KeyCode.Space) && _isGrounded)
+                {
+                    playerRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+                    playerAnimator.SetBool("Jumping", true);
+                }
+                else
+                {
+                    playerAnimator.SetBool("Jumping", false);
+                }
             }
         }
 

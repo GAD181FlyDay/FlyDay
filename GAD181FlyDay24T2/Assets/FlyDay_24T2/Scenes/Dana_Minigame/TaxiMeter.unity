@@ -1035,7 +1035,7 @@ GameObject:
   m_Component:
   - component: {fileID: 600426902}
   m_Layer: 0
-  m_Name: WASDSpawnPoint_One
+  m_Name: WASpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1490,8 +1490,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f30bac45c70de5a439192b3f0b232044, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minigameTimer: {fileID: 695733725}
   endGamePanel: {fileID: 1093549928}
+  playerSaveData: {fileID: 11400000, guid: 66e203a44be15dc42a3658148c263619, type: 2}
+  minigameTimer: {fileID: 695733725}
 --- !u!114 &695733727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1771,7 +1772,7 @@ GameObject:
   m_Component:
   - component: {fileID: 861475172}
   m_Layer: 0
-  m_Name: WASDSpawnPoint_Two
+  m_Name: SDSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2705,7 +2706,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1516283796}
   m_Layer: 0
-  m_Name: ArrowsSpawnPoint_Two
+  m_Name: DownRightSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3438,7 +3439,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1890841853}
   m_Layer: 0
-  m_Name: ArrowsSpawnPoint_One
+  m_Name: UpLeftSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

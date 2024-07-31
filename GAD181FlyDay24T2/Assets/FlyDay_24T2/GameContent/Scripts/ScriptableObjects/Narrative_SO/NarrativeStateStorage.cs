@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Narrative
@@ -15,28 +13,20 @@ namespace Narrative
         public enum NarrativeStates
         {
             PacsonsHouse,
-            Taxi,
-            ReachedAirport,
-            PassportControl,
-            LuggageCheck,
-            InsideAirport,
-            ReachedDutyFree,
-            PlaneBoarded,
-            FinchsHouse,
-            TetrisMiniGame,
-            GoodEnding,
-            BadEnding,
-            LuggagePackingMiniGame
-
-            // Add more stages as needed
+            Airport,
+            StoreBeforeDutyFree,
+            DutyFree,
+            Boarding,
+            FinchsHouse
         }
         #endregion
 
         // What state is it right now?
         public NarrativeStates stateType;
 
-        // What narrative is related to that state?
+        // What narrative (text and images) are related to that state?
         public string[] narrativeEntries;
+        public Sprite[] narrativeImages;
 
         // What state is it after the narrative has been played?
         public NarrativeStates nextState;

@@ -1,3 +1,5 @@
+using Narrative;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,8 +13,12 @@ namespace TaxiMeter
     public class MinigameManager : MonoBehaviour
     {
         #region Variables
-        [SerializeField] private MinigameTimer minigameTimer;
         public GameObject endGamePanel;
+
+        [SerializeField] private PlayerSaveData playerSaveData;
+        [SerializeField] private MinigameTimer minigameTimer;
+
+        private StateManager stateManager;
         #endregion
 
         private void Start()
@@ -47,6 +53,7 @@ namespace TaxiMeter
 
         public void ProceedWithStory()
         {
+            playerSaveData.currentStateInt = 1;
             Time.timeScale = 1;
             if (Time.timeScale == 1)
             {

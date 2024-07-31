@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static Narrative.NarrativeStateStorage;
 
 namespace Narrative
 {
@@ -10,190 +11,80 @@ namespace Narrative
 
     public class StateManager : MonoBehaviour
     {
-        #region Variables
-        #region Script references
-        // The initial narrative state set through scriptable object.
+        #region Variables.
         [SerializeField] private NarrativeStateStorage initialState;
+        [SerializeField] private NarrativePanelManager panelController;
+        [SerializeField] private NarrativeStateStorage currentState;
+        [SerializeField] private PlayerSaveData playerSaveData;
+        [SerializeField] private List<NarrativeStateStorage> narrativeStates; // List of possible states
 
-        // The current narrative state set through the scriptable object.
-        private NarrativeStateStorage _currentState;
-        #endregion
-
-        #region ints and floats
-        // The current Array index of displayed narrative text.
-        private int _currentNarrativeIndex;
-
-        // The delay between inputs to prevent narrative skip spamming. 
-        private float _inputDelay = 1f;  // (in seconds).
-
-        // Timer to track the delay.
+        private int _currentEntryIndex;
+        private float _inputDelay = 3f;
         private float _timer = 0f;
-        #endregion
-
-        // Checks to see if the delay is done to allow the players to progress,
         private bool _canProgress = true;
-
-        // Places the enums states into to NarrativeStateStorage objects dictionary and initializes it.
-        private Dictionary<NarrativeStateStorage.NarrativeStates, NarrativeStateStorage> _stateDictionary = new Dictionary<NarrativeStateStorage.NarrativeStates, NarrativeStateStorage>();
+        // Places the enums states in NarrativeStateStorage objects to dictionary and initializes it.
+        private Dictionary<NarrativeStateStorage.NarrativeStates, NarrativeStateStorage> _stateDictionary;
         #endregion
 
-        void Start()
+
+        private void Start()
         {
-            // Find all NarrativeStateStorage objects in the Resources folder.
-            NarrativeStateStorage[] allStates = Resources.LoadAll<NarrativeStateStorage>("");
-            foreach (NarrativeStateStorage state in allStates)
-            {
-                // Add each state to the dictionary.
-                _stateDictionary[state.stateType] = state;
-            }
-
-            // Set the initial state and start the narrative from 0.
-            _currentState = initialState;
-            _currentNarrativeIndex = 0;
-
-            // Display the first narrative entry
+            UpdateCurrentState();
             DisplayCurrentNarrativeEntry();
         }
 
-        void Update()
+        private void Update()
         {
-            // If input is not allowed, update the timer
-            if (!_canProgress)
+            if (Input.GetKeyDown(KeyCode.Space))
             {
-                _timer += Time.deltaTime;
-                if (_timer >= _inputDelay)
-                {
-                    // Allow input and reset the timer
-                    _canProgress = true;
-                    _timer = 0f;
-                }
-            }
-
-            // Check for mouse click input and if input is allowed
-            if (Input.GetMouseButtonDown(0) && _canProgress)
-            {
-                // Progress to the next narrative entry and disable input
                 ProgressToNextEntry();
-                _canProgress = false;
             }
         }
 
-        #region Public Functions
 
-        #region Progress to the next narrative entry.
+        #region Public Functions.
         public void ProgressToNextEntry()
         {
-            /// <summary>
-            /// This Function moves down the narrative array and then displays
-            /// the next narrative line if there are any.
-            /// </summary>
-            _currentNarrativeIndex++;
+            _currentEntryIndex++;
             DisplayCurrentNarrativeEntry();
         }
-        #endregion
 
-        #region State setter.
-        public void SetState(NarrativeStateStorage newState)
+        public void SetStateInt(int newStateInt)
         {
-            /// <summary>
-            /// This Function is responsible for updating the current state to the new state
-            /// and then display them.
-            /// </summary>
-            _currentState = newState;
-            _currentNarrativeIndex = 0;
-
+            playerSaveData.currentStateInt = newStateInt;
+            UpdateCurrentState();
             DisplayCurrentNarrativeEntry();
         }
-        #endregion
-
         #endregion
 
         #region Private Functions
+        private void UpdateCurrentState()
+        {
+            if (playerSaveData.currentStateInt >= 0 && playerSaveData.currentStateInt < narrativeStates.Count)
+            {
+                currentState = narrativeStates[playerSaveData.currentStateInt];
+                _currentEntryIndex = 0;
+            }
+            else
+            {
+                Debug.LogError("Invalid stateInt value in NarrativeStateManager.");
+            }
+        }
 
-        #region Show current state's narrative.
         private void DisplayCurrentNarrativeEntry()
         {
-            /// <summary>
-            /// This Function checks if there are more narrative entries to display then displays them.
-            /// Currently it just logs them onto the console, change that with UI later on.
-            /// If there isn't anymore any narrative entries to display then it would transition to the next state.
-            /// </summary>
-            if (_currentNarrativeIndex < _currentState.narrativeEntries.Length)
+            if (currentState != null && _currentEntryIndex < currentState.narrativeEntries.Length)
             {
-                Debug.Log(_currentState.narrativeEntries[_currentNarrativeIndex]);
+                string narrative = currentState.narrativeEntries[_currentEntryIndex];
+                Sprite image = currentState.narrativeImages[_currentEntryIndex];
+                panelController.ShowPanel(narrative, image);
             }
             else
             {
-                TransitionToNextState();
+                panelController.HidePanel();
             }
         }
         #endregion
 
-        #region Transition to the next state.
-        private void TransitionToNextState()
-        {
-            /// <summary>
-            /// This Function checks if the next state exists in the dictionary. (to avoid null issues)
-            /// If there is then it would set up the new state.
-            /// If there isn't then the narrative has ended. no more to display.
-            /// </summary>
-            if (_stateDictionary.ContainsKey(_currentState.nextState))
-            {
-                SetState(_stateDictionary[_currentState.nextState]);
-            }
-            else
-            {
-                Debug.Log("End of narrative.");
-            }
-        }
-        #endregion
-
-        #endregion
-
-        //-----------------------------------------------------------------------------------------------------------------------------------------------
-        #region Previous script content
-        //    public enum Stages
-        //    {
-        //        PacsonsHouse,
-        //        Taxi,
-        //        ReachedAirport,
-        //        InsideAirport,
-        //        ReachedDutyFree,
-        //        PlaneBoarded,
-        //        FinchsHouse
-        //        // Add more stages as needed
-        //    }
-
-        //    #region Variables
-        //    public Text stageText; // Reference to the Text component on the canvas
-        //    public Stages currentStage; // The current stage
-        //    #endregion
-
-        //    void Start()
-        //    {
-        //        UpdateStageText();
-        //    }
-
-        //    private string[] stageMessages =
-        //    {
-        //    "Pacson's House",
-        //    "Get ready for Stage 2",
-        //    "Final Stage 3",
-        //    // Add more messages corresponding to the stages
-        //};
-
-
-
-        //    public void SetStage(Stages newStage)
-        //    {
-        //        currentStage = newStage;
-        //        UpdateStageText();
-        //    }
-
-        //    void UpdateStageText()
-        //    {
-        //        stageText.text = stageMessages[(int)currentStage];
-        //    }
-        #endregion
     }
 }

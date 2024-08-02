@@ -56,7 +56,7 @@ public class OldPlayerSave : MonoBehaviour
     }
 
     // Reward System
-    public virtual void Reward(int amount)
+    public void Reward(int amount)
     {
         if (playerData != null)
         {

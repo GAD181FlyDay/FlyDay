@@ -28,7 +28,7 @@ public class DialogueManager : MonoBehaviour
 
         if (dialogueText == null)
         {
-            Debug.LogError("there is no assigned dialogueText.");
+            Debug.LogError("There is no assigned dialogueText.");
             return;
         }
         dialogueText.text = currentOption.dialogueText;
@@ -42,16 +42,19 @@ public class DialogueManager : MonoBehaviour
                     Debug.LogError("There is no Option button in slot " + i + ", It isn't assigned.");
                     continue;
                 }
-                
+
                 TMP_Text buttonText = optionButtons[i].GetComponentInChildren<TMP_Text>();
                 if (buttonText == null)
                 {
                     Debug.LogError("No child text found in optionButtons at " + i + " index.");
                     continue;
                 }
-                
+
                 buttonText.text = currentOption.buttonTexts[i];
                 optionButtons[i].gameObject.SetActive(true);
+
+                // Clear previous listeners to avoid stacking
+                optionButtons[i].onClick.RemoveAllListeners();
                 int optionIndex = i; // Capture the loop variable
                 optionButtons[i].onClick.AddListener(() => AdvanceDialogue(optionIndex));
             }
@@ -70,19 +73,13 @@ public class DialogueManager : MonoBehaviour
         DialogueOption currentOption = GetDialogueOption(currentState);
         if (currentOption == null)
         {
-            Debug.LogError("Didnt find a DialogueOption for this state: " + currentState);
+            Debug.LogError("Didn't find a DialogueOption for this state: " + currentState);
             return;
         }
 
         currentState = currentOption.nextStage;
         DisplayDialogue();
-
-        if (Input.GetKeyDown("Space"))
-        {
-            currentState = currentOption.nextStage;
-            DisplayDialogue();
-            Debug.Log("Dialogue Advanced");
-        }
+        Debug.Log("Dialogue Advanced");
     }
 
     DialogueOption GetDialogueOption(DialogueStage stage)
@@ -98,7 +95,7 @@ public class DialogueManager : MonoBehaviour
             if (option == null)
             {
                 Debug.LogError("One (or more) of the dialogueOptions is null!");
-                continue; // continue sifting through options.
+                continue; // Continue sifting through options.
             }
 
             if (option.nextStage == stage)

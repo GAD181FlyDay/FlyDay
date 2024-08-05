@@ -60,13 +60,3 @@ public class Scripts_Player_GenericInteractions : MonoBehaviour
         Gizmos.DrawWireSphere(playerModel.position, InteractRange);
     }
 }
-
-
-//private void TaxiMeterMiniGameLoad()
-//{
-//    if (currentMinigameIndex == 2)
-//    {
-//        SceneManager.LoadScene("TaxiMeterMinigame");
-//    }
-//}
-

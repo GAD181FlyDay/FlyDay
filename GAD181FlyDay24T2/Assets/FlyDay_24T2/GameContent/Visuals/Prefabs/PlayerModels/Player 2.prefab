@@ -511,7 +511,7 @@ MonoBehaviour:
   interactibleLayer:
     serializedVersion: 2
     m_Bits: 64
-  playerInteractionkey: 303
+  playerInteractionkey: 0
 --- !u!4 &4162324074057881099 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: aefe2b9ce1f43ed439a11bc2006b3f30, type: 3}

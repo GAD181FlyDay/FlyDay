@@ -28,7 +28,7 @@ namespace Player.Two
             MovePlayer();
         }
 
-        private void Update()
+        protected virtual void Update()
         {
             GroundCheck();
             WalkingAnimationSetter();

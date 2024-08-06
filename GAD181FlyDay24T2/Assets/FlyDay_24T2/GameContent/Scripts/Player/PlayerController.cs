@@ -22,13 +22,12 @@ namespace Player.One
         private float _walkingAnimationDelay = 0.25f;
         private float _walkingAnimationTimer;
         #endregion
-
         void FixedUpdate()
         {
             MovePlayer();
         }
 
-        private void Update()
+        protected virtual void Update()
         {
             GroundCheck();
             WalkingAnimationSetter();
@@ -78,7 +77,7 @@ namespace Player.One
 
             if (isMoving)
             {
-                _walkingAnimationTimer = _walkingAnimationDelay; // Reset timer when moving
+                _walkingAnimationTimer = _walkingAnimationDelay;
                 playerAnimator.SetBool("Walking", true);
             }
             else

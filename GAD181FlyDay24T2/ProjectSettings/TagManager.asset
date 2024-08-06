@@ -18,6 +18,9 @@ TagManager:
   - HeldLuggage
   - CartRacingWin
   - Ground
+  - GridTile
+  - PlayerOne
+  - PlayerTwo
   layers:
   - Default
   - TransparentFX

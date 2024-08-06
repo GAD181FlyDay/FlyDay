@@ -212,6 +212,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1001 &148789180
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8705794882549079929, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_Name
+      value: LuckyCoin_Prefab (6)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
 --- !u!1 &223347899
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,6 +405,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 223347899}
   m_CullTransparentMesh: 1
+--- !u!1001 &256528740
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 5.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8705794882549079929, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_Name
+      value: LuckyCoin_Prefab (8)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
 --- !u!1 &257453260
 GameObject:
   m_ObjectHideFlags: 0
@@ -517,6 +631,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &534860365
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.576
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.265
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.622
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8705794882549079929, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_Name
+      value: LuckyCoin_Prefab (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
 --- !u!1 &544464635
 GameObject:
   m_ObjectHideFlags: 0
@@ -838,6 +1009,177 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &600245365
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8705794882549079929, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_Name
+      value: LuckyCoin_Prefab (3)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+--- !u!1001 &677233796
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8705794882549079929, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_Name
+      value: LuckyCoin_Prefab (5)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+--- !u!1001 &739204092
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 5.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8705794882549079929, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_Name
+      value: LuckyCoin_Prefab (7)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
 --- !u!1 &760316956
 GameObject:
   m_ObjectHideFlags: 0
@@ -2395,6 +2737,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1499382790
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8705794882549079929, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_Name
+      value: LuckyCoin_Prefab (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
 --- !u!1 &1561646115
 GameObject:
   m_ObjectHideFlags: 0
@@ -2531,6 +2930,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1561646115}
   m_CullTransparentMesh: 1
+--- !u!1001 &1641164170
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.077
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.265
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.622
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8705794882549079929, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_Name
+      value: LuckyCoin_Prefab
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
 --- !u!1 &1658895656
 GameObject:
   m_ObjectHideFlags: 0
@@ -2838,6 +3294,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1913399312}
   m_CullTransparentMesh: 1
+--- !u!1001 &1967223194
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 698237449518081562, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8705794882549079929, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
+      propertyPath: m_Name
+      value: LuckyCoin_Prefab (4)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5d56ac15c38a2074696de832d0789dc9, type: 3}
 --- !u!1 &2140701707
 GameObject:
   m_ObjectHideFlags: 0
@@ -3034,3 +3547,12 @@ SceneRoots:
   - {fileID: 1807629282}
   - {fileID: 550288174}
   - {fileID: 257453264}
+  - {fileID: 1641164170}
+  - {fileID: 534860365}
+  - {fileID: 1499382790}
+  - {fileID: 600245365}
+  - {fileID: 1967223194}
+  - {fileID: 677233796}
+  - {fileID: 148789180}
+  - {fileID: 739204092}
+  - {fileID: 256528740}

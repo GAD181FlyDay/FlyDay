@@ -17,7 +17,8 @@ namespace Narrative
             StoreBeforeDutyFree,
             DutyFree,
             Boarding,
-            FinchsHouse
+            FinchsHouse,
+            EmptyState
         }
         #endregion
 

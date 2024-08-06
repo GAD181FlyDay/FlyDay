@@ -1,13 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace XAndOMinigame
 {
     public class XAndOMinigameNewLogic : MonoBehaviour
     {
-        #region Variables
+        #region Variables.
+        public Material xMaterial;
+        public Material oMaterial;
+        public Material resetMaterial;
+        public PlayerSaveData playerSaveData;
+        public string CurrentPlayer => _currentPlayer;
+        public bool IsGameOver => _gameOver;
+
         [SerializeField] private XAndOFloorTiles[] floorTiles;
         [SerializeField] private GameObject endGamePanel;
         [SerializeField] private TMP_Text playerWonOrDrawText;
@@ -16,34 +22,41 @@ namespace XAndOMinigame
         private string _currentPlayer;
         private int _moveCount = 0;
         private bool _gameOver = false;
-        public Material xMaterial;
-        public Material oMaterial;
+        private int[] gameState;
         #endregion
-
-        public string CurrentPlayer => _currentPlayer;
-        public bool IsGameOver => _gameOver;
 
         private void Start()
         {
-            endGamePanel.gameObject.SetActive(false);
-
+            endGamePanel.SetActive(false);
             _currentPlayer = Random.Range(0, 2) == 0 ? "X" : "O";
             UpdateCurrentPlayerText();
+
+            gameState = new int[floorTiles.Length];
+
+            for (int i = 0; i < floorTiles.Length; i++)
+            {
+                floorTiles[i].tileIndex = i;
+            }
         }
 
-        public bool SetCurrentPlayerOnTile(XAndOFloorTiles tile, string playerTag)
+        #region Public Functions.
+        public bool SetCurrentPlayerOnTile(XAndOFloorTiles tile, string playerTag, int tileIndex)
         {
-            if (tile.cellRenderer.material != xMaterial && tile.cellRenderer.material != oMaterial)
+            if (gameState[tileIndex] == 0)
             {
                 _moveCount++;
 
                 if (playerTag == "PlayerOne")
                 {
                     tile.SetMaterial(xMaterial);
+                    gameState[tileIndex] = 1;
+                    Debug.Log("Player One set a tile.");
                 }
                 else if (playerTag == "PlayerTwo")
                 {
                     tile.SetMaterial(oMaterial);
+                    gameState[tileIndex] = 2;
+                    Debug.Log("Player Two set a tile.");
                 }
 
                 if (CheckWin())
@@ -65,7 +78,34 @@ namespace XAndOMinigame
             }
             return false;
         }
+        public void RestartGame()
+        {
+            foreach (XAndOFloorTiles tile in floorTiles)
+            {
+                tile.cellRenderer.material = resetMaterial;
+                tile.gameObject.tag = "GridTile";
+                tile.GetType().GetField("_tileSet", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).SetValue(tile, false);
+            }
 
+            _currentPlayer = Random.Range(0, 2) == 0 ? "X" : "O";
+            _moveCount = 0;
+            _gameOver = false;
+            gameState = new int[floorTiles.Length];
+            playerWonOrDrawText.text = "";
+            endGamePanel.SetActive(false);
+            currentPlayerText.gameObject.SetActive(true);
+            UpdateCurrentPlayerText();
+        }
+
+        public void ExitMinigame()
+        {
+            Debug.Log("Game has been exited.");
+            playerSaveData.currentStateInt = 3;
+            SceneManager.LoadScene("MainGameScene");
+        }
+        #endregion
+
+        #region Private Functions
         private void SwitchPlayer()
         {
             _currentPlayer = _currentPlayer == "X" ? "O" : "X";
@@ -75,14 +115,14 @@ namespace XAndOMinigame
         {
             int[,] winningConditions = new int[,]
             {
-        { 0, 1, 2 },
-        { 3, 4, 5 },
-        { 6, 7, 8 },
-        { 0, 3, 6 },
-        { 1, 4, 7 },
-        { 2, 5, 8 },
-        { 0, 4, 8 },
-        { 2, 4, 6 }
+                { 0, 1, 2 },
+                { 3, 4, 5 },
+                { 6, 7, 8 },
+                { 0, 3, 6 },
+                { 1, 4, 7 },
+                { 2, 5, 8 },
+                { 0, 4, 8 },
+                { 2, 4, 6 }
             };
 
             for (int i = 0; i < winningConditions.GetLength(0); i++)
@@ -91,29 +131,17 @@ namespace XAndOMinigame
                 int b = winningConditions[i, 1];
                 int c = winningConditions[i, 2];
 
-                Material aMat = floorTiles[a].cellRenderer.material;
-                Material bMat = floorTiles[b].cellRenderer.material;
-                Material cMat = floorTiles[c].cellRenderer.material;
-
-                // Debug.Log($"Checking tiles: {a}, {b}, {c}");
-                // Debug.Log($"Materials: {aMat?.name}, {bMat?.name}, {cMat?.name}");
-
-                if (aMat != null && aMat == bMat && bMat == cMat)
+                if (gameState[a] != 0 && gameState[a] == gameState[b] && gameState[b] == gameState[c])
                 {
-                    if (aMat == xMaterial || aMat == oMaterial)
-                    {
-                        Debug.Log($"Win detected for: {aMat.name}");
-                        return true;
-                    }
+                    return true;
                 }
             }
             return false;
         }
 
-
         private void ShowEndGamePanel(string result)
         {
-            endGamePanel.gameObject.SetActive(true);
+            endGamePanel.SetActive(true);
             playerWonOrDrawText.text = result;
             currentPlayerText.gameObject.SetActive(false);
         }
@@ -122,28 +150,6 @@ namespace XAndOMinigame
         {
             currentPlayerText.text = "Current Player: " + _currentPlayer;
         }
-
-        public void RestartGame()
-        {
-            foreach (XAndOFloorTiles tiles in floorTiles)
-            {
-                tiles.cellRenderer.material = null;
-                tiles.gameObject.tag = "Tile";
-                typeof(XAndOFloorTiles).GetField("_tileSet", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).SetValue(tiles, false);
-            }
-
-            _currentPlayer = Random.Range(0, 2) == 0 ? "X" : "O";
-            _moveCount = 0;
-            _gameOver = false;
-            playerWonOrDrawText.text = "";
-            endGamePanel.gameObject.SetActive(false);
-            currentPlayerText.gameObject.SetActive(true);
-            UpdateCurrentPlayerText();
-        }
-
-        public void ExitMinigame()
-        {
-            Debug.Log("Game has been exited.");
-        }
+        #endregion
     }
 }

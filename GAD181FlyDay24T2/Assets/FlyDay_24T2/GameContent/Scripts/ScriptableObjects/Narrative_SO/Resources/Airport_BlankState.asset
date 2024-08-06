@@ -9,8 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd5baa0f53cbb5845b263ce6537133a6, type: 3}
-  m_Name: PlayerPositions_Airport
+  m_Script: {fileID: 11500000, guid: bbee9beeb50adb74498cc76d28238f5e, type: 3}
+  m_Name: Airport_BlankState
   m_EditorClassIdentifier: 
-  playerOnePos: {x: 0, y: 0, z: 0}
-  playerTwoPos: {x: 0, y: 0, z: 0}
+  stateType: 6
+  narrativeEntries: []
+  narrativeImages: []
+  nextState: 6

@@ -1443,9 +1443,13 @@ MonoBehaviour:
   narrativeStates:
   - {fileID: 11400000, guid: cdc4127bf089e2740bdbbbf32389c334, type: 2}
   - {fileID: 11400000, guid: ad32169c6c677e0478e72f3e5dbadfb9, type: 2}
+  - {fileID: 11400000, guid: 2867ff4decaba6e4c8ed23eaf35e23a8, type: 2}
+  - {fileID: 11400000, guid: 6532b603a5249a24f952a462c4f46338, type: 2}
   playersPositions:
   - {fileID: 11400000, guid: 7c3d68cc46096244e9b7724e3c4382e7, type: 2}
   - {fileID: 11400000, guid: 2138692a321015f4599bedd36d436a8a, type: 2}
+  - {fileID: 11400000, guid: ff9ca7df044ec634082a0c8d8b2397bb, type: 2}
+  - {fileID: 11400000, guid: 2e8a025ca144cf54d8c294f9fa51eabe, type: 2}
   player1Transform: {fileID: 1713083873}
   player2Transform: {fileID: 408633360}
 --- !u!1 &771654849

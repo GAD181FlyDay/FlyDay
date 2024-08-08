@@ -10,8 +10,10 @@ namespace Audio
 
     public class VolumeSlider : MonoBehaviour
     {
+        #region Variables.
         public AudioMixer audioMixer;
         public Slider volumeSlider;
+        #endregion
 
         private void Start()
         {
@@ -20,9 +22,10 @@ namespace Audio
             SetVolume(savedVolume);
         }
 
+        #region Public Functions.
         public void SetVolume(float volume)
         {
-            if (volume <= 0.1)
+            if (volume <= 0.001)
             {
                 audioMixer.SetFloat("MyExposedParam", -80f);
             }
@@ -33,5 +36,6 @@ namespace Audio
 
             PlayerPrefs.SetFloat("MyExposedParam", volume);
         }
+        #endregion
     }
 }

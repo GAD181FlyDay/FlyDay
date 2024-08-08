@@ -11,13 +11,13 @@ namespace MainGameScene.Players
     public class Scripts_PlayerMainGameScenePositionsManager : MonoBehaviour
     {
         #region Variables
-        [SerializeField] PauseMenu pauseMenu;
+        [SerializeField] OptionsPanelLogic pauseMenu;
         //[SerializeField] private PlayerPositionsStorage playersPositions;
         #endregion
 
         void Start()
         {
-            pauseMenu = GetComponent<PauseMenu>();
+            pauseMenu = GetComponent<OptionsPanelLogic>();
         }
 
         void Update()

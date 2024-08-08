@@ -7,10 +7,10 @@ namespace UI
     /// Responsible for having the pause menu be available accross all scenes.
     /// </summary>
 
-    public class PauseMenu : MonoBehaviour
+    public class OptionsPanelLogic : MonoBehaviour
     {
         #region Variables
-        public static PauseMenu Instance;
+        public static OptionsPanelLogic Instance;
         public bool isPanelActive;
         public GameObject optionsPanel;
         public GameObject mainMenuFirstSelected;

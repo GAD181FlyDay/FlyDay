@@ -13,7 +13,7 @@ namespace UI
         public static OptionsPanelLogic Instance;
         public bool isPanelActive;
         public GameObject optionsPanel;
-        public GameObject mainMenuFirstSelected;
+        public GameObject playerButtonFirstSelected;
         public GameObject optionsPanelFirstSelected;
 
         private EventSystem eventSystem;
@@ -21,9 +21,9 @@ namespace UI
 
         private void Start()
         {
-            if (mainMenuFirstSelected != null)
+            if (playerButtonFirstSelected != null)
             {
-                eventSystem.SetSelectedGameObject(mainMenuFirstSelected);
+                eventSystem.SetSelectedGameObject(playerButtonFirstSelected);
             }
             else if (optionsPanelFirstSelected != null)
             {
@@ -77,10 +77,10 @@ namespace UI
             {
                 Cursor.visible = false;
                 Cursor.lockState = CursorLockMode.Locked;
-                if (mainMenuFirstSelected != null)
+                if (playerButtonFirstSelected != null)
                 {
                     // Debug.Log("Options panel off, Event system button should be play (if available)");
-                    eventSystem.SetSelectedGameObject(mainMenuFirstSelected);
+                    eventSystem.SetSelectedGameObject(playerButtonFirstSelected);
                 }
                 else
                 {

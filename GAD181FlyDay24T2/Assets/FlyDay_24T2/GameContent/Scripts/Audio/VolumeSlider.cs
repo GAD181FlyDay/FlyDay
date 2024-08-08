@@ -22,7 +22,7 @@ namespace Audio
 
         public void SetVolume(float volume)
         {
-            if (volume <= 40f)
+            if (volume <= 0.1)
             {
                 audioMixer.SetFloat("MyExposedParam", -80f);
             }

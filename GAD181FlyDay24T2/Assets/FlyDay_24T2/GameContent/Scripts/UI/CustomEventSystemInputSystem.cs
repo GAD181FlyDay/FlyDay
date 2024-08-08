@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace EventSystem
+namespace DanasEventSystem
 {
     /// <summary>
     /// This script is to override a Unity script so that

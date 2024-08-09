@@ -10,10 +10,14 @@ namespace TaxiMeter
     {
         #region Variables
 
-        public NotesPooling wasdNotePool;
-        public NotesPooling arrowNotePool;
-        public Transform[] wasdSpawnPoints;
-        public Transform[] arrowSpawnPoints;
+        public NotesPooling waNotePool;   
+        public NotesPooling sdNotePool;       
+        public NotesPooling upLeftNotePool;     
+        public NotesPooling downRightNotePool; 
+        public Transform waSpawnPoint;        
+        public Transform sdSpawnPoint;          
+        public Transform upLeftSpawnPoint;      
+        public Transform downRightSpawnPoint;   
         public float spawnInterval = 1f;
         private float nextSpawnTime;
 
@@ -37,22 +41,36 @@ namespace TaxiMeter
         #region Private Functions
         private void SpawnNotes()
         {
-            // Spawn a WASD note
-            GameObject wasdNote = wasdNotePool.GetPooledNote();
-            if (wasdNote != null)
+            // Spawn a WA note
+            GameObject waNote = waNotePool.GetPooledNote();
+            if (waNote != null)
             {
-                Transform wasdSpawnPoint = wasdSpawnPoints[Random.Range(0, wasdSpawnPoints.Length)];
-                wasdNote.transform.position = wasdSpawnPoint.position;
-                wasdNote.SetActive(true);
+                waNote.transform.position = waSpawnPoint.position;
+                waNote.SetActive(true);
             }
 
-            // Spawn an arrow note
-            GameObject arrowNote = arrowNotePool.GetPooledNote();
-            if (arrowNote != null)
+            // Spawn an SD note
+            GameObject sdNote = sdNotePool.GetPooledNote();
+            if (sdNote != null)
             {
-                Transform arrowSpawnPoint = arrowSpawnPoints[Random.Range(0, arrowSpawnPoints.Length)];
-                arrowNote.transform.position = arrowSpawnPoint.position;
-                arrowNote.SetActive(true);
+                sdNote.transform.position = sdSpawnPoint.position;
+                sdNote.SetActive(true);
+            }
+
+            // Spawn an Up or Left note
+            GameObject upLeftNote = upLeftNotePool.GetPooledNote();
+            if (upLeftNote != null)
+            {
+                upLeftNote.transform.position = upLeftSpawnPoint.position;
+                upLeftNote.SetActive(true);
+            }
+
+            // Spawn a Down or Right note
+            GameObject downRightNote = downRightNotePool.GetPooledNote();
+            if (downRightNote != null)
+            {
+                downRightNote.transform.position = downRightSpawnPoint.position;
+                downRightNote.SetActive(true);
             }
         }
         #endregion

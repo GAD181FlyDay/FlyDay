@@ -31,7 +31,7 @@ public class PlayerControls : MonoBehaviour
         MovePlayer();
     }
 
-    void Update()
+    protected virtual void Update()
     {
         GroundCheck();
         WalkingAnimationSetter();

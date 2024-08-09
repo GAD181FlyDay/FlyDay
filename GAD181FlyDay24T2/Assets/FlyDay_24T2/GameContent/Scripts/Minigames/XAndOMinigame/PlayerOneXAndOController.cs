@@ -6,7 +6,7 @@ namespace XAndOMinigame
     /// <summary>
     /// This script overrides regular player controller for x and o minigame.
     /// </summary>
-    public class PlayerOneXAndOController : PlayerController
+    public class PlayerOneXAndOController : PlayerControls
     {
         #region Variables.
         private XAndOMinigameNewLogic _xAndOLogic;

@@ -740,7 +740,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5443016217510239027, guid: 2a3ce45b007f7244b9c175fbfea79cc6, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.2689401
+      value: 0.26894015
       objectReference: {fileID: 0}
     - target: {fileID: 5443016217510239027, guid: 2a3ce45b007f7244b9c175fbfea79cc6, type: 3}
       propertyPath: m_LocalScale.y
@@ -748,11 +748,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5443016217510239027, guid: 2a3ce45b007f7244b9c175fbfea79cc6, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.2689401
+      value: 0.26894015
       objectReference: {fileID: 0}
     - target: {fileID: 5443016217510239027, guid: 2a3ce45b007f7244b9c175fbfea79cc6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.6
+      value: 0.6000003
       objectReference: {fileID: 0}
     - target: {fileID: 5443016217510239027, guid: 2a3ce45b007f7244b9c175fbfea79cc6, type: 3}
       propertyPath: m_LocalPosition.y
@@ -760,7 +760,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5443016217510239027, guid: 2a3ce45b007f7244b9c175fbfea79cc6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.16
+      value: -0.16000001
       objectReference: {fileID: 0}
     - target: {fileID: 5443016217510239027, guid: 2a3ce45b007f7244b9c175fbfea79cc6, type: 3}
       propertyPath: m_LocalRotation.w
@@ -834,6 +834,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52e6f69e8d7b71b4f9e3b0f6c98cb0a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectedPlayer: 0
   playerAnimator: {fileID: 265134537}
   playerRigidbody: {fileID: 265134536}
   moveSpeed: 0.4
@@ -2476,6 +2477,10 @@ PrefabInstance:
       propertyPath: jumpForce
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 2540735932083014516, guid: e13c57158431bca48a31db8d4687e741, type: 3}
+      propertyPath: selectedPlayers
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3641260482481261745, guid: e13c57158431bca48a31db8d4687e741, type: 3}
       propertyPath: m_Name
       value: Player 2
@@ -2576,6 +2581,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc3a9c1118c2a6a4cab78aa181a8c1cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectedPlayer: 1
   playerAnimator: {fileID: 1539301870}
   playerRigidbody: {fileID: 1539301869}
   moveSpeed: 0.4

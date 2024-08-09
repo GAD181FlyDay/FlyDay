@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd5baa0f53cbb5845b263ce6537133a6, type: 3}
   m_Name: PlayerPositions_Airport
   m_EditorClassIdentifier: 
-  playerOnePos: {x: 0, y: 0, z: 0}
-  playerTwoPos: {x: 0, y: 0, z: 0}
+  playerOnePos: {x: -15.121, y: 0.037, z: -0.38}
+  playerTwoPos: {x: -14.665, y: 0.04400001, z: -0.3799999}

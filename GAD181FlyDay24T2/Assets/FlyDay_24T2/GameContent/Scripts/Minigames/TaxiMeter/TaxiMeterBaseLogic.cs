@@ -45,7 +45,7 @@ namespace TaxiMeter
             /// whether the match is correct or incorrect.
             /// </summary>
 
-            MakeSureTheMeterDoesntExceed100();
+            MakeSureTheMeterDoesntExceed150();
 
             if (isCorrectMatch)
             {
@@ -59,7 +59,7 @@ namespace TaxiMeter
             // Debug.Log("Meter Value: " + meterValue);
         }
 
-        public void MakeSureTheMeterDoesntExceed100()
+        public void MakeSureTheMeterDoesntExceed150()
         {
             /// <summary>
             /// This is to be edited, I need the meter 

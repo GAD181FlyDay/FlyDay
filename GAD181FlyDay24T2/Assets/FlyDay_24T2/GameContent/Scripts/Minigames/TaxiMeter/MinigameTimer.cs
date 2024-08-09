@@ -15,6 +15,7 @@ namespace TaxiMeter
         public NotesSpawner noteSpawner;
         public float gameDuration = 120f; // 2 minutes
 
+        [SerializeField] private PlayerSaveData playerSaveData;
         [SerializeField] private TMP_Text timerText;
         [SerializeField] private TMP_Text endGameText;
 
@@ -51,14 +52,18 @@ namespace TaxiMeter
         {
             gameEnded = true;
             timerText.text = "Time: 0";
-            // Handle end of the game, like showing results, etc.
+            playerSaveData.mainLuckyCoinsSource -= TaxiMeterBaseLogic.taxiMeterBaseLogic.meterValue;
+            Debug.Log("Here is your money despite the loss " + playerSaveData.mainLuckyCoinsSource);
+
             if (TaxiMeterBaseLogic.taxiMeterBaseLogic.meterValue > 100)
             {
-                Debug.Log("Game Ended. You owe the Taxi driver: 100 lucky coins");
+                endGameText.text = ("Are Taxis usually this expensive?" + " You paid the driver " + TaxiMeterBaseLogic.taxiMeterBaseLogic.meterValue + " Lucky Coins");
+                // Debug.Log("Are Taxis usually this expensive?" + " You paid the driver " + TaxiMeterBaseLogic.taxiMeterBaseLogic.meterValue + " Lucky Coins");
             }
             else
             {
-                Debug.Log("Game Ended. Final Meter Value: " + TaxiMeterBaseLogic.taxiMeterBaseLogic.meterValue);
+                endGameText.text = ("Not a bad price for a long Taxi ride!, You paid the driver " + TaxiMeterBaseLogic.taxiMeterBaseLogic.meterValue + " Lucky Coins");
+                // Debug.Log("Not a bad price for a long Taxi ride!, You paid the driver " + TaxiMeterBaseLogic.taxiMeterBaseLogic.meterValue + " Lucky Coins");
             }
 
         }

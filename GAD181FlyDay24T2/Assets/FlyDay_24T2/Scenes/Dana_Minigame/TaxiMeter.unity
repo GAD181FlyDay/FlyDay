@@ -1065,7 +1065,6 @@ Transform:
   - {fileID: 1281775384}
   - {fileID: 1436025353}
   - {fileID: 356620548}
-  - {fileID: 1389115190}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &576715030
@@ -1550,6 +1549,7 @@ MonoBehaviour:
   gameEnded: 0
   noteSpawner: {fileID: 695733727}
   gameDuration: 60
+  playerSaveData: {fileID: 11400000, guid: 66e203a44be15dc42a3658148c263619, type: 2}
   timerText: {fileID: 2093657666}
   endGameText: {fileID: 634516577}
 --- !u!114 &695733726
@@ -2693,7 +2693,7 @@ Transform:
   m_GameObject: {fileID: 1389115189}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 7.6478043, y: -3.1909053, z: -8.193224}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2701,7 +2701,7 @@ Transform:
   - {fileID: 801277661}
   - {fileID: 1688985082}
   - {fileID: 1394186499}
-  m_Father: {fileID: 468292812}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1389115191
 MonoBehaviour:
@@ -4453,6 +4453,7 @@ SceneRoots:
   - {fileID: 1159115776}
   - {fileID: 576715031}
   - {fileID: 468292812}
+  - {fileID: 1389115190}
   - {fileID: 1177007166}
   - {fileID: 2067671110}
   - {fileID: 1676528798}

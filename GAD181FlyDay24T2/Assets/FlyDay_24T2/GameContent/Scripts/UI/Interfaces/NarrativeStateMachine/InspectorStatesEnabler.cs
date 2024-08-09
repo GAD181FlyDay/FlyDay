@@ -25,8 +25,7 @@ public class InspectorStatesEnabler : MonoBehaviour
         if (fifthState) { playerSaveData.currentStateInt = 4; }
         if (sixthState) { playerSaveData.currentStateInt = 5; }
         if (seventhState) { playerSaveData.currentStateInt = 6;}
-        if (eighthState) { playerSaveData.currentStateInt= 7;}
-        if (ninthState) { playerSaveData.currentStateInt= 8;}
-    
+        if (eighthState) { playerSaveData.currentStateInt = 7;}
+        if (ninthState) { playerSaveData.currentStateInt = 8;}
     }
 }

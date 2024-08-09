@@ -7,6 +7,6 @@ public class Scripts_Minigame_XnOs : Scripts_InteractionBaseToOverride
 {
     public override void Interact()
     {
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("XAndOMinigame_Test");
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("XAndOMinigame");
     }
 }

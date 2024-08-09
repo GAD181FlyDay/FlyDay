@@ -1,6 +1,3 @@
-using Player.One;
-using XAndOMinigame;
-
 namespace XAndOMinigame
 {
     /// <summary>

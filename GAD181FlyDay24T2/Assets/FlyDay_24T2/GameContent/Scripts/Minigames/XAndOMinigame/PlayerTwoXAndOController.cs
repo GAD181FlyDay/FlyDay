@@ -1,4 +1,3 @@
-using Player.Two;
 using XAndOMinigame;
 
 public class PlayerTwoXAndOController : PlayerControls

@@ -1,6 +1,5 @@
 using UnityEngine;
 
-
 /// <summary>
 /// This is a unified script version of old player controllers.
 /// </summary>

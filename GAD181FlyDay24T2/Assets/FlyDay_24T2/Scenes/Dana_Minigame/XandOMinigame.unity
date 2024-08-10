@@ -268,7 +268,6 @@ GameObject:
   - component: {fileID: 63395187}
   - component: {fileID: 63395186}
   - component: {fileID: 63395185}
-  - component: {fileID: 63395188}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -350,35 +349,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 55.648, y: 0, z: 0}
---- !u!114 &63395188
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 63395184}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5d6b91420c8a864fa94d35e3cf4f2e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  xMaterial: {fileID: 2100000, guid: aa9e44b4c9c2ef04a93628134b16e180, type: 2}
-  oMaterial: {fileID: 2100000, guid: a155891ce9debfc4684f759d117de407, type: 2}
-  resetMaterial: {fileID: 2100000, guid: dcafe9f2313fbf54f989e76b908d18f1, type: 2}
-  playerSaveData: {fileID: 11400000, guid: 66e203a44be15dc42a3658148c263619, type: 2}
-  floorTiles:
-  - {fileID: 1304422690}
-  - {fileID: 1421319785}
-  - {fileID: 164789869}
-  - {fileID: 674426204}
-  - {fileID: 1191401277}
-  - {fileID: 1703875800}
-  - {fileID: 1072045650}
-  - {fileID: 220463026}
-  - {fileID: 626853301}
-  endGamePanel: {fileID: 1496042376}
-  playerWonOrDrawText: {fileID: 2049451307}
-  currentPlayerText: {fileID: 650005536}
 --- !u!1 &133136827
 GameObject:
   m_ObjectHideFlags: 0
@@ -595,7 +565,7 @@ MonoBehaviour:
   cellRenderer: {fileID: 164789866}
   xMaterial: {fileID: 2100000, guid: aa9e44b4c9c2ef04a93628134b16e180, type: 2}
   oMaterial: {fileID: 2100000, guid: a155891ce9debfc4684f759d117de407, type: 2}
-  gameLogic: {fileID: 63395188}
+  gameLogic: {fileID: 1997610929}
   tileIndex: 2
 --- !u!1 &220463021
 GameObject:
@@ -720,7 +690,7 @@ MonoBehaviour:
   cellRenderer: {fileID: 220463023}
   xMaterial: {fileID: 2100000, guid: aa9e44b4c9c2ef04a93628134b16e180, type: 2}
   oMaterial: {fileID: 2100000, guid: a155891ce9debfc4684f759d117de407, type: 2}
-  gameLogic: {fileID: 63395188}
+  gameLogic: {fileID: 1997610929}
   tileIndex: 7
 --- !u!1001 &265134533
 PrefabInstance:
@@ -790,6 +760,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6335667798164480536, guid: 2a3ce45b007f7244b9c175fbfea79cc6, type: 3}
+      propertyPath: jumpForce
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 8116306560781045990, guid: 2a3ce45b007f7244b9c175fbfea79cc6, type: 3}
       propertyPath: jumpForce
       value: 50
@@ -839,7 +813,7 @@ MonoBehaviour:
   playerRigidbody: {fileID: 265134536}
   moveSpeed: 0.4
   rotateSpeed: 1000
-  jumpForce: 100
+  jumpForce: 50
   groundCheck: {fileID: 265134535}
   groundDistance: 0.1
   groundMask:
@@ -1148,7 +1122,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 63395188}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: XAndOMinigame.XAndOMinigameNewLogic, Assembly-CSharp
         m_MethodName: ExitMinigame
         m_Mode: 1
@@ -1321,7 +1295,7 @@ MonoBehaviour:
   cellRenderer: {fileID: 626853298}
   xMaterial: {fileID: 2100000, guid: aa9e44b4c9c2ef04a93628134b16e180, type: 2}
   oMaterial: {fileID: 2100000, guid: a155891ce9debfc4684f759d117de407, type: 2}
-  gameLogic: {fileID: 63395188}
+  gameLogic: {fileID: 1997610929}
   tileIndex: 8
 --- !u!1 &650005534
 GameObject:
@@ -1335,7 +1309,7 @@ GameObject:
   - component: {fileID: 650005537}
   - component: {fileID: 650005536}
   m_Layer: 5
-  m_Name: temponww (2)
+  m_Name: Current player's turn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1582,7 +1556,7 @@ MonoBehaviour:
   cellRenderer: {fileID: 674426201}
   xMaterial: {fileID: 2100000, guid: aa9e44b4c9c2ef04a93628134b16e180, type: 2}
   oMaterial: {fileID: 2100000, guid: a155891ce9debfc4684f759d117de407, type: 2}
-  gameLogic: {fileID: 63395188}
+  gameLogic: {fileID: 1997610929}
   tileIndex: 3
 --- !u!1 &677797275
 GameObject:
@@ -1942,7 +1916,7 @@ MonoBehaviour:
   cellRenderer: {fileID: 1072045647}
   xMaterial: {fileID: 2100000, guid: aa9e44b4c9c2ef04a93628134b16e180, type: 2}
   oMaterial: {fileID: 2100000, guid: a155891ce9debfc4684f759d117de407, type: 2}
-  gameLogic: {fileID: 63395188}
+  gameLogic: {fileID: 1997610929}
   tileIndex: 6
 --- !u!1 &1191401272
 GameObject:
@@ -2067,7 +2041,7 @@ MonoBehaviour:
   cellRenderer: {fileID: 1191401274}
   xMaterial: {fileID: 2100000, guid: aa9e44b4c9c2ef04a93628134b16e180, type: 2}
   oMaterial: {fileID: 2100000, guid: a155891ce9debfc4684f759d117de407, type: 2}
-  gameLogic: {fileID: 63395188}
+  gameLogic: {fileID: 1997610929}
   tileIndex: 4
 --- !u!1 &1304422685
 GameObject:
@@ -2192,7 +2166,7 @@ MonoBehaviour:
   cellRenderer: {fileID: 1304422687}
   xMaterial: {fileID: 2100000, guid: aa9e44b4c9c2ef04a93628134b16e180, type: 2}
   oMaterial: {fileID: 2100000, guid: a155891ce9debfc4684f759d117de407, type: 2}
-  gameLogic: {fileID: 63395188}
+  gameLogic: {fileID: 1997610929}
   tileIndex: 0
 --- !u!1 &1421319780
 GameObject:
@@ -2317,7 +2291,7 @@ MonoBehaviour:
   cellRenderer: {fileID: 1421319782}
   xMaterial: {fileID: 2100000, guid: aa9e44b4c9c2ef04a93628134b16e180, type: 2}
   oMaterial: {fileID: 2100000, guid: a155891ce9debfc4684f759d117de407, type: 2}
-  gameLogic: {fileID: 63395188}
+  gameLogic: {fileID: 1997610929}
   tileIndex: 1
 --- !u!1 &1479581511
 GameObject:
@@ -2404,7 +2378,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1496042377
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2480,6 +2454,10 @@ PrefabInstance:
     - target: {fileID: 2540735932083014516, guid: e13c57158431bca48a31db8d4687e741, type: 3}
       propertyPath: selectedPlayers
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2580269024414191445, guid: e13c57158431bca48a31db8d4687e741, type: 3}
+      propertyPath: jumpForce
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 3641260482481261745, guid: e13c57158431bca48a31db8d4687e741, type: 3}
       propertyPath: m_Name
@@ -2586,7 +2564,7 @@ MonoBehaviour:
   playerRigidbody: {fileID: 1539301869}
   moveSpeed: 0.4
   rotateSpeed: 1000
-  jumpForce: 100
+  jumpForce: 50
   groundCheck: {fileID: 1539301868}
   groundDistance: 0.1
   groundMask:
@@ -2828,7 +2806,7 @@ MonoBehaviour:
   cellRenderer: {fileID: 1703875797}
   xMaterial: {fileID: 2100000, guid: aa9e44b4c9c2ef04a93628134b16e180, type: 2}
   oMaterial: {fileID: 2100000, guid: a155891ce9debfc4684f759d117de407, type: 2}
-  gameLogic: {fileID: 63395188}
+  gameLogic: {fileID: 1997610929}
   tileIndex: 5
 --- !u!1 &1749478152
 GameObject:
@@ -2947,7 +2925,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 63395188}
+      - m_Target: {fileID: 1997610929}
         m_TargetAssemblyTypeName: XAndOMinigame.XAndOMinigameNewLogic, Assembly-CSharp
         m_MethodName: RestartGame
         m_Mode: 1
@@ -3238,6 +3216,67 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1956200568}
   m_CullTransparentMesh: 1
+--- !u!1 &1997610928
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1997610930}
+  - component: {fileID: 1997610929}
+  m_Layer: 0
+  m_Name: -----------ScriptHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1997610929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1997610928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5d6b91420c8a864fa94d35e3cf4f2e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xMaterial: {fileID: 2100000, guid: aa9e44b4c9c2ef04a93628134b16e180, type: 2}
+  oMaterial: {fileID: 2100000, guid: a155891ce9debfc4684f759d117de407, type: 2}
+  resetMaterial: {fileID: 2100000, guid: dcafe9f2313fbf54f989e76b908d18f1, type: 2}
+  playerSaveData: {fileID: 11400000, guid: 66e203a44be15dc42a3658148c263619, type: 2}
+  floorTiles:
+  - {fileID: 1304422690}
+  - {fileID: 1421319785}
+  - {fileID: 164789869}
+  - {fileID: 674426204}
+  - {fileID: 1191401277}
+  - {fileID: 1703875800}
+  - {fileID: 1072045650}
+  - {fileID: 220463026}
+  - {fileID: 626853301}
+  endGamePanel: {fileID: 1496042376}
+  playerWonOrDrawText: {fileID: 2049451307}
+  currentPlayerText: {fileID: 650005536}
+--- !u!4 &1997610930
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1997610928}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2049451305
 GameObject:
   m_ObjectHideFlags: 0
@@ -3387,3 +3426,4 @@ SceneRoots:
   - {fileID: 1539301866}
   - {fileID: 1749478153}
   - {fileID: 1479581514}
+  - {fileID: 1997610930}

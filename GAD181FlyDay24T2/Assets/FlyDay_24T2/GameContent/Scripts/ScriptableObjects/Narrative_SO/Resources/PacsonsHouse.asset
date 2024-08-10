@@ -14,12 +14,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stateType: 0
   narrativeEntries:
-  - Welcome to the Pacsons' House!
-  - This is Cleo
-  - and That is Theo
-  - And you're both heading to the airport right now
-  - Go ahead and book a taxi!
+  - <Pacson's House>
+  - 'Theo is engrossed in a racing game on the TV while Cleo hurriedly packs her
+    open suitcase in the living room. '
+  - Go, go, go! Beat the record!
+  - Theo, switch the television off!!
+  - We do not want to miss our flight
+  - Oops... I got caught up in the game.
+  - We do not want to miss our flight
+  - Taxi's here! Come on, Theo!
+  - 'They rush out the door and hop into the waiting taxi. '
+  - 'They rush out the door and hop into the waiting taxi. '
+  - I think we forgot to bring the gift along! It is too late now to go back
+  - 'They rush out the door and hop into the waiting taxi. '
+  - Yes! Let us try to find something at the duty free airport
   narrativeImages:
+  - {fileID: 21300000, guid: 0c90c46330c82594db780e86e2376a41, type: 3}
+  - {fileID: 21300000, guid: 0c90c46330c82594db780e86e2376a41, type: 3}
+  - {fileID: 21300000, guid: 0c90c46330c82594db780e86e2376a41, type: 3}
+  - {fileID: 21300000, guid: 0c90c46330c82594db780e86e2376a41, type: 3}
+  - {fileID: 21300000, guid: 0c90c46330c82594db780e86e2376a41, type: 3}
+  - {fileID: 21300000, guid: 0c90c46330c82594db780e86e2376a41, type: 3}
+  - {fileID: 21300000, guid: 0c90c46330c82594db780e86e2376a41, type: 3}
+  - {fileID: 21300000, guid: 0c90c46330c82594db780e86e2376a41, type: 3}
   - {fileID: 21300000, guid: 0c90c46330c82594db780e86e2376a41, type: 3}
   - {fileID: 21300000, guid: 0c90c46330c82594db780e86e2376a41, type: 3}
   - {fileID: 21300000, guid: 0c90c46330c82594db780e86e2376a41, type: 3}

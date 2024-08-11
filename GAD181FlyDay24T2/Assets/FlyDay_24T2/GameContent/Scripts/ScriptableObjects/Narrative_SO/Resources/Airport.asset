@@ -14,11 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stateType: 1
   narrativeEntries:
-  - Welcome to the airport!
-  - Make sure to check in!
-  - blabla
-  - wfewfwfe
-  - wegetrjrhr
+  - 'Inside the airport terminal, Cleo and Theo navigate their way towards the immigration
+    counter. '
+  - '"Hello, do you have your documents ready?" '
+  - '"Yes, here they are." '
+  - '"Alright, you''re all checked. Please proceed this way." '
+  - 'Cleo and Theo take control and start exploring the airport. '
   narrativeImages:
   - {fileID: 21300000, guid: 0c90c46330c82594db780e86e2376a41, type: 3}
   - {fileID: 21300000, guid: 0c90c46330c82594db780e86e2376a41, type: 3}

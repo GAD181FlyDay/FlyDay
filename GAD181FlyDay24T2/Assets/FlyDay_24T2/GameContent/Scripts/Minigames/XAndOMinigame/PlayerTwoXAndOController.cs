@@ -1,7 +1,6 @@
-using Player.Two;
 using XAndOMinigame;
 
-public class PlayerTwoXAndOController : Player2Controller
+public class PlayerTwoXAndOController : PlayerControls
 {
     #region Variables.
     private XAndOMinigameNewLogic _xAndOLogic;

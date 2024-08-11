@@ -16,30 +16,41 @@ namespace XAndOMinigame
         public int tileIndex;
 
         private bool _tileSet = false;
+        private string _occupyingPlayerTag;
         #endregion
 
-        private void OnTriggerStay(Collider other)
+        private void Update()
         {
-            if (!gameLogic.IsGameOver && !_tileSet)
+            if (!gameLogic.IsGameOver && !_tileSet && _occupyingPlayerTag != null)
             {
-                if (other.CompareTag("PlayerOne") && gameLogic.CurrentPlayer == "X")
+                if (_occupyingPlayerTag == "PlayerOne" && gameLogic.CurrentPlayer == "X" && Input.GetKeyDown(KeyCode.Space))
                 {
-                    if (Input.GetKeyDown(KeyCode.Space))
-                    {
-                        gameLogic.SetCurrentPlayerOnTile(this, other.tag, tileIndex);
-                    }
+                    gameLogic.SetCurrentPlayerOnTile(this, _occupyingPlayerTag, tileIndex);
                 }
-                else if (other.CompareTag("PlayerTwo") && gameLogic.CurrentPlayer == "O")
+                else if (_occupyingPlayerTag == "PlayerTwo" && gameLogic.CurrentPlayer == "O" && Input.GetKeyDown(KeyCode.RightControl))
                 {
-                    if (Input.GetKeyDown(KeyCode.RightControl))
-                    {
-                        gameLogic.SetCurrentPlayerOnTile(this, other.tag, tileIndex);
-                    }
+                    gameLogic.SetCurrentPlayerOnTile(this, _occupyingPlayerTag, tileIndex);
                 }
             }
         }
 
-        #region Public
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.CompareTag("PlayerOne") || other.CompareTag("PlayerTwo"))
+            {
+                _occupyingPlayerTag = other.tag;
+            }
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            if (other.CompareTag("PlayerOne") || other.CompareTag("PlayerTwo"))
+            {
+                _occupyingPlayerTag = null;
+            }
+        }
+
+        #region Public Functions.
         public void SetMaterial(Material material)
         {
             cellRenderer.material = material;

@@ -13,7 +13,7 @@ namespace TaxiMeter
         #region Variables
         public bool gameEnded = false;
         public NotesSpawner noteSpawner;
-        public float gameDuration = 120f; // 2 minutes
+        public float gameDuration = 90f; // 1 and a half minutes.
 
         [SerializeField] private PlayerSaveData playerSaveData;
         [SerializeField] private TMP_Text timerText;
@@ -40,12 +40,17 @@ namespace TaxiMeter
             {
                 EndMiniGame();
             }
-            else if (remainingTime <= 60f)
+            else if (remainingTime <= 30f)
             {
-                noteSpawner.spawnInterval = Mathf.Lerp(1f, 0.5f, (60f - remainingTime) / 60f); // Speed up notes in the last minute
+                noteSpawner.spawnInterval = Mathf.Lerp(1f, 0.5f, (60f - remainingTime) / 60f); // Speed up notes in the last 30 seconds.
             }
 
-            timerText.text = "Time: " + Mathf.CeilToInt(remainingTime).ToString();
+            // Changed the look of the timer.
+            int minutes = Mathf.FloorToInt(remainingTime / 60F);
+            int seconds = Mathf.FloorToInt(remainingTime % 60F);
+
+            string timeText = string.Format("{0:00}:{1:00}", minutes, seconds);
+            timerText.text = "Time: " + timeText;
         }
 
         private void EndMiniGame()

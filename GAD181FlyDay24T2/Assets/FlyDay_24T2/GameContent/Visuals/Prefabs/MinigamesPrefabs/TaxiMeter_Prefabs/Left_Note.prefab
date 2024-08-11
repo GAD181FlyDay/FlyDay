@@ -101,7 +101,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab88a6cab3ff0f14c908e440e65f4d81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
+  noteSpeed: 2
+  taxiMeterBaseLogicInstance: {fileID: 0}
 --- !u!65 &2767273146573239787
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -135,4 +136,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ba5e621a19cd4940b0df94955b0b784, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noteType: Left
+  noteType: Nopes

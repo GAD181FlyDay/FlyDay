@@ -1,6 +1,5 @@
 using UnityEngine;
 
-
 /// <summary>
 /// This is a unified script version of old player controllers.
 /// </summary>
@@ -31,7 +30,7 @@ public class PlayerControls : MonoBehaviour
         MovePlayer();
     }
 
-    void Update()
+    protected virtual void Update()
     {
         GroundCheck();
         WalkingAnimationSetter();

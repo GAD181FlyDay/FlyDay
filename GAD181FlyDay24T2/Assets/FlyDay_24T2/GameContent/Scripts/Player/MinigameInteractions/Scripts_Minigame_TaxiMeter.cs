@@ -1,15 +1,30 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Dana
+public class Scripts_Minigame_TaxiMeter : Scripts_InteractionBaseToOverride
 {
+    [SerializeField] private GameObject minigameStand;
+    [SerializeField] private PlayerInteractions playerInteractions;
 
-    public class Scripts_Minigame_TaxiMeter : Scripts_InteractionBaseToOverride
+    private void Start()
     {
-        #region Variables.
-        #endregion
+        if (playerInteractions.taxiStand == true)
+        {
+            minigameStand.tag = "Untagged";
+        }
+    }
+    public override void Interact()
+    {
+        playerInteractions.taxiStand = true;
 
-        public override void Interact()
+        minigameStand.tag = "Untagged";
+
+        Invoke("LoadSceneIfUntagged", 0.2f);
+    }
+
+    private void LoadSceneIfUntagged()
+    {
+        if (minigameStand.tag == "Untagged")
         {
             SceneManager.LoadScene("TaxiMeter");
         }

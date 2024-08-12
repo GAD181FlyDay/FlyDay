@@ -4,8 +4,30 @@ using UnityEngine.SceneManagement;
 
 public class Scripts_Minigame_JustifiableShoplifting : Scripts_InteractionBaseToOverride
 {
+    [SerializeField] private GameObject minigameStand;
+    [SerializeField] private PlayerInteractions playerInteractions;
+
+    private void Start()
+    {
+        if (playerInteractions.taxiStand == true)
+        {
+            minigameStand.tag = "Untagged";
+        }
+    }
     public override void Interact()
     {
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("JustifiableShoplifting");
+        playerInteractions.taxiStand = true;
+
+        minigameStand.tag = "Untagged";
+
+        Invoke("LoadSceneIfUntagged", 0.2f);
+    }
+
+    private void LoadSceneIfUntagged()
+    {
+        if (minigameStand.tag == "Untagged")
+        {
+            SceneManager.LoadScene("JustifiableShoplifting");
+        }
     }
 }

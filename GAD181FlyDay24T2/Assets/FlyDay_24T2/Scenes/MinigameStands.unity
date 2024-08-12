@@ -225,16 +225,28 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3820083208335792418, guid: 5b2721a5e1a080045919ba2e37f89d77, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 70.804504
+      objectReference: {fileID: 0}
+    - target: {fileID: 3820083208335792418, guid: 5b2721a5e1a080045919ba2e37f89d77, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 70.804504
+      objectReference: {fileID: 0}
+    - target: {fileID: 3820083208335792418, guid: 5b2721a5e1a080045919ba2e37f89d77, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 70.804504
+      objectReference: {fileID: 0}
+    - target: {fileID: 3820083208335792418, guid: 5b2721a5e1a080045919ba2e37f89d77, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.561
+      value: -58.17
       objectReference: {fileID: 0}
     - target: {fileID: 3820083208335792418, guid: 5b2721a5e1a080045919ba2e37f89d77, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.43
+      value: 0.389
       objectReference: {fileID: 0}
     - target: {fileID: 3820083208335792418, guid: 5b2721a5e1a080045919ba2e37f89d77, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.0728
+      value: 1.8559
       objectReference: {fileID: 0}
     - target: {fileID: 3820083208335792418, guid: 5b2721a5e1a080045919ba2e37f89d77, type: 3}
       propertyPath: m_LocalRotation.w
@@ -268,11 +280,24 @@ PrefabInstance:
       propertyPath: m_Name
       value: XandOStand
       objectReference: {fileID: 0}
+    - target: {fileID: 8362557700986154858, guid: 5b2721a5e1a080045919ba2e37f89d77, type: 3}
+      propertyPath: minigameStand
+      value: 
+      objectReference: {fileID: 1537912933}
+    - target: {fileID: 8362557700986154858, guid: 5b2721a5e1a080045919ba2e37f89d77, type: 3}
+      propertyPath: playerInteractions
+      value: 
+      objectReference: {fileID: 11400000, guid: 58812d5d68858b3488fa9c8be3f2373f, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b2721a5e1a080045919ba2e37f89d77, type: 3}
+--- !u!1 &1537912933 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4487971017426879384, guid: 5b2721a5e1a080045919ba2e37f89d77, type: 3}
+  m_PrefabInstance: {fileID: 1537912932}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8656522572963126897
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -333,11 +358,24 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Interactible
       objectReference: {fileID: 0}
+    - target: {fileID: 7711952387217113553, guid: 5268f4d4a319ead43b3b9bf61475c337, type: 3}
+      propertyPath: minigameStand
+      value: 
+      objectReference: {fileID: 8656522572963126898}
+    - target: {fileID: 7711952387217113553, guid: 5268f4d4a319ead43b3b9bf61475c337, type: 3}
+      propertyPath: playerInteractions
+      value: 
+      objectReference: {fileID: 11400000, guid: 58812d5d68858b3488fa9c8be3f2373f, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5268f4d4a319ead43b3b9bf61475c337, type: 3}
+--- !u!1 &8656522572963126898 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1741309420746284903, guid: 5268f4d4a319ead43b3b9bf61475c337, type: 3}
+  m_PrefabInstance: {fileID: 8656522572963126897}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

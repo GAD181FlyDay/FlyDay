@@ -346,6 +346,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de8946e725615f741875bfaef91017b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minigameStand: {fileID: 0}
+  playerInteractions: {fileID: 11400000, guid: 58812d5d68858b3488fa9c8be3f2373f, type: 2}
 --- !u!65 &2624386849679533557
 BoxCollider:
   m_ObjectHideFlags: 0

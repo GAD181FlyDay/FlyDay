@@ -14,11 +14,12 @@ namespace Narrative
         {
             PacsonsHouse,
             Airport,
-            StoreBeforeDutyFree,
+            NoNarrativeStateAtAirport,
             DutyFree,
+            NoNarrativeStateAtDutyFree,
             Boarding,
-            FinchsHouse,
-            EmptyState
+            FinchsHouseGood,
+            FinchsHouseBad
         }
         #endregion
 

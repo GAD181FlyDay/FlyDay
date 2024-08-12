@@ -18,20 +18,15 @@ MonoBehaviour:
   - 'Theo is engrossed in a racing game on the TV while Cleo hurriedly packs her
     open suitcase in the living room. '
   - Go, go, go! Beat the record!
-  - Theo, switch the television off!!
-  - We do not want to miss our flight
+  - THEeooO, switch the television off!!
+  - We do not want to miss our flight!!!
   - Oops... I got caught up in the game.
-  - We do not want to miss our flight
-  - Taxi's here! Come on, Theo!
-  - 'They rush out the door and hop into the waiting taxi. '
-  - 'They rush out the door and hop into the waiting taxi. '
-  - I think we forgot to bring the gift along! It is too late now to go back
-  - 'They rush out the door and hop into the waiting taxi. '
-  - Yes! Let us try to find something at the duty free airport
+  - Taxi's here! Come on!!
+  - I think we forgot to buy our parents a gift... You know how much they like their
+    gifts..
+  - Let us try to find something to purchase at the duty free in the airport!
+  - Right! Let's head to the Taxi now!!
   narrativeImages:
-  - {fileID: 21300000, guid: 0c90c46330c82594db780e86e2376a41, type: 3}
-  - {fileID: 21300000, guid: 0c90c46330c82594db780e86e2376a41, type: 3}
-  - {fileID: 21300000, guid: 0c90c46330c82594db780e86e2376a41, type: 3}
   - {fileID: 21300000, guid: 0c90c46330c82594db780e86e2376a41, type: 3}
   - {fileID: 21300000, guid: 0c90c46330c82594db780e86e2376a41, type: 3}
   - {fileID: 21300000, guid: 0c90c46330c82594db780e86e2376a41, type: 3}

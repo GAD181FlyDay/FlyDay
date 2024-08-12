@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbee9beeb50adb74498cc76d28238f5e, type: 3}
   m_Name: BoardingFlight
   m_EditorClassIdentifier: 
-  stateType: 0
+  stateType: 5
   narrativeEntries:
   - 
   narrativeImages:
   - {fileID: 21300000, guid: 0c90c46330c82594db780e86e2376a41, type: 3}
-  nextState: 0
+  nextState: 5

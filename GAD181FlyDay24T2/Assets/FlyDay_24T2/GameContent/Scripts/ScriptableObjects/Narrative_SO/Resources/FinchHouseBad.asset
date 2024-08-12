@@ -10,13 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbee9beeb50adb74498cc76d28238f5e, type: 3}
-  m_Name: BeforeDutyFree
+  m_Name: FinchHouseBad
   m_EditorClassIdentifier: 
-  stateType: 2
+  stateType: 7
   narrativeEntries:
-  - 'Look over there! '
-  - Maybe you could get some cash while she isn't paying attention.
+  - 
   narrativeImages:
   - {fileID: 21300000, guid: 0c90c46330c82594db780e86e2376a41, type: 3}
-  - {fileID: 21300000, guid: 0c90c46330c82594db780e86e2376a41, type: 3}
-  nextState: 3
+  nextState: 7

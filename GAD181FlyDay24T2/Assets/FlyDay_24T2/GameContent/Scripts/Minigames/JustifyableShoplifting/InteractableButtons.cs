@@ -14,6 +14,8 @@ namespace JustifyableShoplifting
         public string[] wallTags;
         public LayerMask playerLayer;
         public float interactionRadius = 2.0f;
+
+        [SerializeField] private GameObject RedWall;
         #endregion
 
         private void Update()
@@ -29,11 +31,19 @@ namespace JustifyableShoplifting
             {
                 if (Input.GetKeyDown(KeyCode.RightControl)) 
                 {
+                    TryToEnableRedWall();
                     DisableWalls();
                 }
             }
         }
 
+        private void TryToEnableRedWall()
+        {
+            if(RedWall != null)
+            {
+                RedWall.SetActive(true);
+            }
+        }
         private void DisableWalls()
         {
             foreach (string tag in wallTags)

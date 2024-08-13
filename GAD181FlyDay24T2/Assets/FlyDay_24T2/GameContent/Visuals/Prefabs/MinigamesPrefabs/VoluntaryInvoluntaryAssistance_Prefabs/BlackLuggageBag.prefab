@@ -148,6 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 954107ee17e4ba841a8ee06d5e82a548, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  luggageType: black
+  luggageType: 
   isOnPlate: 0
   stackCount: 0
+  playerRespawnLogic: {fileID: 0}

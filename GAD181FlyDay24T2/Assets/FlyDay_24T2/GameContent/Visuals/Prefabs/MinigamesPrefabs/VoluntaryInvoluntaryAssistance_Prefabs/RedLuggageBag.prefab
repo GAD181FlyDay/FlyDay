@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2196333363825917868, guid: 49328eb787838674b8a66ae86275b71e, type: 3}
       propertyPath: luggageType
-      value: red
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2699248596386096006, guid: 49328eb787838674b8a66ae86275b71e, type: 3}
       propertyPath: m_Name

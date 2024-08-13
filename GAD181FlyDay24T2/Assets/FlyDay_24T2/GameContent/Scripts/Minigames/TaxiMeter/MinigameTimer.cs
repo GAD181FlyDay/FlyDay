@@ -5,9 +5,8 @@ namespace TaxiMeter
 {
     /// <summary>
     /// This script is responsible for the minigame's 
-    /// timer and overall game durtion.
+    /// timer and overall game duration.
     /// </summary>
-
     public class MinigameTimer : MonoBehaviour
     {
         #region Variables
@@ -20,7 +19,7 @@ namespace TaxiMeter
         [SerializeField] private TMP_Text endGameText;
 
         private float elapsedTime = 0f;
-        
+
         #endregion
 
         void Update()
@@ -42,10 +41,11 @@ namespace TaxiMeter
             }
             else if (remainingTime <= 30f)
             {
-                noteSpawner.spawnInterval = Mathf.Lerp(1f, 0.5f, (60f - remainingTime) / 60f); // Speed up notes in the last 30 seconds.
+                noteSpawner.initialMinSpawnInterval = Mathf.Lerp(1f, 0.5f, (30f - remainingTime) / 30f);
+                noteSpawner.initialMaxSpawnInterval = Mathf.Lerp(2f, 1f, (30f - remainingTime) / 30f);
             }
 
-            // Changed the look of the timer.
+            // Update the timer display
             int minutes = Mathf.FloorToInt(remainingTime / 60F);
             int seconds = Mathf.FloorToInt(remainingTime % 60F);
 
@@ -63,14 +63,11 @@ namespace TaxiMeter
             if (TaxiMeterBaseLogic.taxiMeterBaseLogic.meterValue > 100)
             {
                 endGameText.text = ("Are Taxis usually this expensive?" + " You paid the driver " + TaxiMeterBaseLogic.taxiMeterBaseLogic.meterValue + " Lucky Coins");
-                // Debug.Log("Are Taxis usually this expensive?" + " You paid the driver " + TaxiMeterBaseLogic.taxiMeterBaseLogic.meterValue + " Lucky Coins");
             }
             else
             {
                 endGameText.text = ("Not a bad price for a long Taxi ride!, You paid the driver " + TaxiMeterBaseLogic.taxiMeterBaseLogic.meterValue + " Lucky Coins");
-                // Debug.Log("Not a bad price for a long Taxi ride!, You paid the driver " + TaxiMeterBaseLogic.taxiMeterBaseLogic.meterValue + " Lucky Coins");
             }
-
         }
         #endregion
     }

@@ -3,76 +3,110 @@ using UnityEngine;
 namespace TaxiMeter
 {
     /// <summary>
-    /// This script is responsible for spawning notes.
+    /// This script is responsible for spawning notes for both players.
     /// </summary>
-
     public class NotesSpawner : MonoBehaviour
     {
         #region Variables
 
-        public NotesPooling waNotePool;   
-        public NotesPooling sdNotePool;       
-        public NotesPooling upLeftNotePool;     
-        public NotesPooling downRightNotePool; 
-        public Transform waSpawnPoint;        
-        public Transform sdSpawnPoint;          
-        public Transform upLeftSpawnPoint;      
-        public Transform downRightSpawnPoint;   
-        public float spawnInterval = 1f;
-        private float nextSpawnTime;
+        public NotesPooling waNotePool;  
+        public NotesPooling sdNotePool; 
+        public NotesPooling upLeftNotePool; 
+        public NotesPooling downRightNotePool;  
+        public Transform waSpawnPoint;
+        public Transform sdSpawnPoint;
+        public Transform upLeftSpawnPoint;
+        public Transform downRightSpawnPoint;
+        public float initialMinSpawnInterval = 0.3f; 
+        public float initialMaxSpawnInterval = 1.0f;
+        public float speedUpFactor = 0.9f; 
+        private float currentMinSpawnInterval;
+        private float currentMaxSpawnInterval;
+        private float nextSpawnTimePlayer1;
+        private float nextSpawnTimePlayer2;
 
         #endregion
 
         private void Start()
         {
-            nextSpawnTime = Time.time + spawnInterval;
+            currentMinSpawnInterval = initialMinSpawnInterval;
+            currentMaxSpawnInterval = initialMaxSpawnInterval;
+            PlanNextSpawnTime();
         }
 
         private void Update()
         {
-            // Spawn a new note when it is time to do so.
-            if (Time.time >= nextSpawnTime)
+            if (Time.time >= nextSpawnTimePlayer1)
             {
-                SpawnNotes();
-                nextSpawnTime = Time.time + spawnInterval;
+                SpawnRandomNoteForPlayerOne();
+                PlayerOneNextSpawnTime();
+            }
+
+            if (Time.time >= nextSpawnTimePlayer2)
+            {
+                SpawnRandomNoteForPlayerTwo();
+                PlayerTwoNextSpawnTime();
             }
         }
 
         #region Private Functions
-        private void SpawnNotes()
+
+        private void SpawnRandomNoteForPlayerOne()
         {
-            // Spawn a WA note
-            GameObject waNote = waNotePool.GetPooledNote();
-            if (waNote != null)
-            {
-                waNote.transform.position = waSpawnPoint.position;
-                waNote.SetActive(true);
-            }
+            int noteType = Random.Range(0, 2);
 
-            // Spawn an SD note
-            GameObject sdNote = sdNotePool.GetPooledNote();
-            if (sdNote != null)
+            switch (noteType)
             {
-                sdNote.transform.position = sdSpawnPoint.position;
-                sdNote.SetActive(true);
-            }
-
-            // Spawn an Up or Left note
-            GameObject upLeftNote = upLeftNotePool.GetPooledNote();
-            if (upLeftNote != null)
-            {
-                upLeftNote.transform.position = upLeftSpawnPoint.position;
-                upLeftNote.SetActive(true);
-            }
-
-            // Spawn a Down or Right note
-            GameObject downRightNote = downRightNotePool.GetPooledNote();
-            if (downRightNote != null)
-            {
-                downRightNote.transform.position = downRightSpawnPoint.position;
-                downRightNote.SetActive(true);
+                case 0:
+                    SpawnNoteFromPool(waNotePool, waSpawnPoint);
+                    break;
+                case 1:
+                    SpawnNoteFromPool(sdNotePool, sdSpawnPoint);
+                    break;
             }
         }
+
+        private void SpawnRandomNoteForPlayerTwo()
+        {
+            int noteType = Random.Range(0, 2);
+
+            switch (noteType)
+            {
+                case 0:
+                    SpawnNoteFromPool(upLeftNotePool, upLeftSpawnPoint);
+                    break;
+                case 1:
+                    SpawnNoteFromPool(downRightNotePool, downRightSpawnPoint);
+                    break;
+            }
+        }
+
+        private void SpawnNoteFromPool(NotesPooling pool, Transform spawnPoint)
+        {
+            GameObject note = pool.GetPooledNote();
+            if (note != null)
+            {
+                note.transform.position = spawnPoint.position;
+                note.SetActive(true);
+            }
+        }
+
+        private void PlanNextSpawnTime()
+        {
+            PlayerOneNextSpawnTime();
+            PlayerTwoNextSpawnTime();
+        }
+
+        private void PlayerOneNextSpawnTime()
+        {
+            nextSpawnTimePlayer1 = Time.time + Random.Range(currentMinSpawnInterval, currentMaxSpawnInterval);
+        }
+
+        private void PlayerTwoNextSpawnTime()
+        {
+            nextSpawnTimePlayer2 = Time.time + Random.Range(currentMinSpawnInterval, currentMaxSpawnInterval);
+        }
+
         #endregion
     }
 }

@@ -1,29 +1,43 @@
-using TMPro;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace VoluntaryInvoluntaryAssistance
 {
     /// <summary>
     /// manages order timing and display and generation.
     /// </summary>
-
     public class OrderManager : MonoBehaviour
     {
         #region Variables
         public List<Order> activeOrders = new List<Order>();
         public DeliveryZone deliveryZone;
-        public TMP_Text orderText;
-        public float orderInterval = 4f; // Time interval for generating new orders
+        public GameObject orderDisplayPrefab; 
+        public Transform orderDisplayParent;  
+        public float orderInterval = 10f; 
 
-        [SerializeField] private float orderTimer; 
+        public Sprite blueSprite;
+        public Sprite redSprite;
+        public Sprite greenSprite;
 
-        private float _orderTimerValue = 15f;
+        [SerializeField] private float orderTimer;
+        private float _orderTimerValue = 23f;
         private List<float> _orderTimers = new List<float>();
+
+        private Dictionary<string, Sprite> _luggageSprites;
         #endregion
 
         private void Start()
         {
+            _luggageSprites = new Dictionary<string, Sprite>
+        {
+            { "blue", blueSprite },
+            { "red", redSprite },
+            { "green", greenSprite }
+        };
+
+            GenerateNewOrder();
+            orderTimer = orderInterval;
             GenerateNewOrder();
             orderTimer = orderInterval;
         }
@@ -43,9 +57,9 @@ namespace VoluntaryInvoluntaryAssistance
                 if (_orderTimers[i] <= 0)
                 {
                     RemoveOrder(i);
-                    deliveryZone.luckyCoins-= 2;
+                    deliveryZone.luckyCoins -= 2;
                     deliveryZone.UpdateScoreText();
-                    i--; 
+                    i--;
                 }
             }
         }
@@ -55,21 +69,21 @@ namespace VoluntaryInvoluntaryAssistance
         {
             if (index >= 0 && index < activeOrders.Count)
             {
+                Destroy(orderDisplayParent.GetChild(index).gameObject); // Remove the corresponding UI element
                 activeOrders.RemoveAt(index);
                 _orderTimers.RemoveAt(index);
-                UpdateOrderDisplay();
             }
         }
 
         public void GenerateNewOrder()
         {
-            string[] luggageTypes = { "black", "red", "green" };
+            string[] luggageTypes = { "blue", "red", "green" };
             string randomLuggageType = luggageTypes[Random.Range(0, luggageTypes.Length)];
 
             Order newOrder = new Order { luggageType = randomLuggageType };
             activeOrders.Add(newOrder);
             _orderTimers.Add(_orderTimerValue);
-            
+
             UpdateOrderDisplay();
         }
 
@@ -77,20 +91,31 @@ namespace VoluntaryInvoluntaryAssistance
         {
             if (index >= 0 && index < activeOrders.Count)
             {
+                Destroy(orderDisplayParent.GetChild(index).gameObject); 
                 activeOrders.RemoveAt(index);
                 _orderTimers.RemoveAt(index);
-                UpdateOrderDisplay();
             }
         }
 
         private void UpdateOrderDisplay()
         {
-            if (orderText != null)
+            foreach (Transform child in orderDisplayParent)
             {
-                orderText.text = string.Empty;
-                foreach (var order in activeOrders)
+                Destroy(child.gameObject);
+            }
+
+            foreach (var order in activeOrders)
+            {
+                GameObject newOrderDisplay = Instantiate(orderDisplayPrefab, orderDisplayParent);
+                Image orderImage = newOrderDisplay.GetComponent<Image>();
+
+                if (_luggageSprites.TryGetValue(order.luggageType, out Sprite sprite))
                 {
-                    orderText.text += order.luggageType + "\n";
+                    orderImage.sprite = sprite;
+                }
+                else
+                {
+                    Debug.LogWarning("No sprite found for luggage type: " + order.luggageType);
                 }
             }
         }

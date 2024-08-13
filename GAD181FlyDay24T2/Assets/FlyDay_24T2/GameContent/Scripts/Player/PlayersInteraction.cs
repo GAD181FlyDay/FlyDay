@@ -44,6 +44,14 @@ public class PlayersInteraction : MonoBehaviour
                 interactibleFound = true;
                 break;
             }
+
+            if (hitCollider.CompareTag("Shop"))
+            {
+                PressE.gameObject.SetActive(true);
+                _currentInteraction = hitCollider.GetComponent<Scripts_InteractionBaseToOverride>();
+                interactibleFound = true;
+                break;
+            }
         }
 
         if (!interactibleFound)

@@ -14,14 +14,14 @@ namespace VoluntaryInvoluntaryAssistance
         public DeliveryZone deliveryZone;
         public GameObject orderDisplayPrefab; 
         public Transform orderDisplayParent;  
-        public float orderInterval = 10f; 
+        public float orderInterval = 7f; 
 
         public Sprite blueSprite;
         public Sprite redSprite;
         public Sprite greenSprite;
 
         [SerializeField] private float orderTimer;
-        private float _orderTimerValue = 23f;
+        private float _orderTimerValue = 20;
         private List<float> _orderTimers = new List<float>();
 
         private Dictionary<string, Sprite> _luggageSprites;

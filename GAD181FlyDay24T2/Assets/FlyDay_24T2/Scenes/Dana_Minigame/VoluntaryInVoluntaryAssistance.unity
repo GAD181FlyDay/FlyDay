@@ -1436,6 +1436,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 41.645, y: 0, z: 0}
+--- !u!1 &294463284 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3118292022919078758, guid: c583f26f26417c64ca9beb8ea7c6c9f1, type: 3}
+  m_PrefabInstance: {fileID: 4475249424186395272}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &356438416
 GameObject:
   m_ObjectHideFlags: 0
@@ -1713,7 +1718,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0c1bfcd9ab3052d49b8eaf653b881b1b, type: 3}
       propertyPath: m_LocalScale.y
-      value: 45.977943
+      value: 52.801067
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0c1bfcd9ab3052d49b8eaf653b881b1b, type: 3}
       propertyPath: m_LocalScale.z
@@ -1729,7 +1734,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0c1bfcd9ab3052d49b8eaf653b881b1b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.66979
+      value: 0.67
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0c1bfcd9ab3052d49b8eaf653b881b1b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6647,13 +6652,37 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3118292022919078758, guid: c583f26f26417c64ca9beb8ea7c6c9f1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4475249424186395276}
   m_SourcePrefab: {fileID: 100100000, guid: c583f26f26417c64ca9beb8ea7c6c9f1, type: 3}
 --- !u!4 &4475249424186395273 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2309703112525806044, guid: c583f26f26417c64ca9beb8ea7c6c9f1, type: 3}
   m_PrefabInstance: {fileID: 4475249424186395272}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &4475249424186395276
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 294463284}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.03306795, y: 0.035250887, z: 0.014799026}
+  m_Center: {x: -0.044277348, y: 0.011354214, z: 0.033928826}
 --- !u!1001 &4614751648960439639
 PrefabInstance:
   m_ObjectHideFlags: 0

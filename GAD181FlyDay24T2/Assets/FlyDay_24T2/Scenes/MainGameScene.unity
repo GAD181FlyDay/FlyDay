@@ -5254,7 +5254,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2540735932083014516, guid: e13c57158431bca48a31db8d4687e741, type: 3}
       propertyPath: selectedPlayers
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2540735932083014516, guid: e13c57158431bca48a31db8d4687e741, type: 3}
       propertyPath: playerInteractionkey
@@ -5266,7 +5266,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2580269024414191445, guid: e13c57158431bca48a31db8d4687e741, type: 3}
       propertyPath: selectedPlayer
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3641260482481261745, guid: e13c57158431bca48a31db8d4687e741, type: 3}
       propertyPath: m_Name

@@ -27,7 +27,7 @@ public class Scripts_Minigame_XnOs : Scripts_InteractionBaseToOverride
     {
         if (minigameStand.tag == "Untagged")
         {
-            SceneManager.LoadScene("JustifiableShoplifting");
+            SceneManager.LoadScene("XandOMinigame");
         }
     }
 }

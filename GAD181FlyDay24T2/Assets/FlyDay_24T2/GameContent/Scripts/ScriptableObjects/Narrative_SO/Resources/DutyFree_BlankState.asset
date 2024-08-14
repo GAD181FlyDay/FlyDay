@@ -13,10 +13,6 @@ MonoBehaviour:
   m_Name: DutyFree_BlankState
   m_EditorClassIdentifier: 
   stateType: 2
-  narrativeEntries:
-  - 'Look over there! '
-  - Maybe you could get some cash while she isn't paying attention.
-  narrativeImages:
-  - {fileID: 21300000, guid: 0c90c46330c82594db780e86e2376a41, type: 3}
-  - {fileID: 21300000, guid: 0c90c46330c82594db780e86e2376a41, type: 3}
+  narrativeEntries: []
+  narrativeImages: []
   nextState: 5

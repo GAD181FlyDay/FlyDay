@@ -14,7 +14,7 @@ namespace VoluntaryInvoluntaryAssistance
         public DeliveryZone deliveryZone;
         public GameObject orderDisplayPrefab; 
         public Transform orderDisplayParent;  
-        public float orderInterval = 7f; 
+        public float orderInterval = 5f; 
 
         public Sprite blueSprite;
         public Sprite redSprite;

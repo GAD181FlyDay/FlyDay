@@ -62,6 +62,7 @@ namespace VoluntaryInvoluntaryAssistance
             playerSaveData.mainLuckyCoinsSource += deliveryZone.luckyCoins;
             timerTextComponent.SetActive(false);
             Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
             Time.timeScale = 0f; 
         }
 

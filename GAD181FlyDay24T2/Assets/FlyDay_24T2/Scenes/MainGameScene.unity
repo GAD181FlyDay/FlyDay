@@ -514,7 +514,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.2}
-  m_AnchoredPosition: {x: -0.5001221, y: -5.5598755}
+  m_AnchoredPosition: {x: -0.5001221, y: -5.5598145}
   m_SizeDelta: {x: -1, y: -11.119995}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &138379444
@@ -1426,7 +1426,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Box Of Chocolates
+  m_text: 'Box Of Chocolates
+
+
+    350 L.C.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1620,7 +1623,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 473943515}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1304649556}
+        m_TargetAssemblyTypeName: DutyFreeShop_Interactible, Assembly-CSharp
+        m_MethodName: ExitShopPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &473943515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2605,8 +2620,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9a5f7456d94bc64d88f6297da58fd2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pacsonHouse: 0
-  Airport: 1
+  pacsonHouse: 1
+  Airport: 0
   airportBlankState: 0
   dutyFree: 0
   dutyFreeBlankState: 0
@@ -6446,6 +6461,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Mystery Gift Box
 
+
+    225 L.C.
+
 '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6570,6 +6588,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1672668815}
   - component: {fileID: 1672668816}
+  - component: {fileID: 1672668817}
   m_Layer: 0
   m_Name: NarrativeColliderTrigger
   m_TagString: Untagged
@@ -6613,6 +6632,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1672668817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1672668814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54bfc8affea55bc47ad583d1b1bca63b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  purchasedItemData: {fileID: 11400000, guid: a5c51f7e094dd7a4782f9fc2134e459e, type: 2}
+  playerSaveData: {fileID: 11400000, guid: 66e203a44be15dc42a3658148c263619, type: 2}
 --- !u!4 &1713083873 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5443016217510239027, guid: 2a3ce45b007f7244b9c175fbfea79cc6, type: 3}

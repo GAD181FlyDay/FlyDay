@@ -97,6 +97,8 @@ namespace XAndOMinigame
             endGamePanel.SetActive(false);
             currentPlayerText.gameObject.SetActive(true);
             UpdateCurrentPlayerText();
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
         }
 
         public void ExitMinigame()
@@ -145,6 +147,8 @@ namespace XAndOMinigame
 
         private void ShowEndGamePanel(string result)
         {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
             endGamePanel.SetActive(true);
             playerWonOrDrawText.text = result;
             currentPlayerText.gameObject.SetActive(false);

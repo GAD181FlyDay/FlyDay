@@ -14,9 +14,10 @@ namespace SeesawBridge
         public Transform player1;
         public Transform player2;
         public float cameraSmoothSpeed = 0.125f;
+        public const float DistanceFromCamera = 2;
         private float fixedXPosition;
         private float fixedYPosition;
-        private const float DistanceFromCamera = 1.2f;
+
         #endregion
 
         void Start()

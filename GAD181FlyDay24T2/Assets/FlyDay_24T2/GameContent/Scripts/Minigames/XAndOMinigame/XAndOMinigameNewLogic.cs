@@ -1,3 +1,4 @@
+using DutyFree;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -18,6 +19,7 @@ namespace XAndOMinigame
         [SerializeField] private GameObject endGamePanel;
         [SerializeField] private TMP_Text playerWonOrDrawText;
         [SerializeField] private TMP_Text currentPlayerText;
+        [SerializeField] private PurchasedItemData purchasedItemData;
 
         private string _currentPlayer;
         private int _moveCount = 0;
@@ -99,8 +101,16 @@ namespace XAndOMinigame
 
         public void ExitMinigame()
         {
+            if (purchasedItemData.purchasedItem == "goodGift")
+            {
+                playerSaveData.currentStateInt = 6;
+            }
+            if (purchasedItemData.purchasedItem == "badGift")
+            {
+                playerSaveData.currentStateInt = 7;
+            }
             Debug.Log("Game has been exited.");
-            playerSaveData.currentStateInt = 3;
+
             SceneManager.LoadScene("MainGameScene");
         }
         #endregion

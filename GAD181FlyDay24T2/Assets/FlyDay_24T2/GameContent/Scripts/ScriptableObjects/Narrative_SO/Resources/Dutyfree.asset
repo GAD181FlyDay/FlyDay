@@ -13,7 +13,25 @@ MonoBehaviour:
   m_Name: Dutyfree
   m_EditorClassIdentifier: 
   stateType: 3
-  narrativeEntries: []
+  narrativeEntries:
+  - With some coins in their hands, the players make it to the Duty-free, hopefully
+    they can buy something for their parents!
+  - 'Oh darn, Our options are limited '
+  - 'Why? '
+  - ' It says ages below 18 are not allowed to enter.. '
+  - 'How are we supposed to get a gift then!? '
+  - "That\u2019s why I said the options are limited. "
+  - 'We can only purchase a gift from what is displayed on the outside of the shop. '
+  - 'We can only purchase a gift from what is displayed on the outside of the shop. '
+  - "Let\u2019s check it out then!"
   narrativeImages:
+  - {fileID: 21300000, guid: 0c90c46330c82594db780e86e2376a41, type: 3}
+  - {fileID: 21300000, guid: 0c90c46330c82594db780e86e2376a41, type: 3}
+  - {fileID: 21300000, guid: 0c90c46330c82594db780e86e2376a41, type: 3}
+  - {fileID: 21300000, guid: 0c90c46330c82594db780e86e2376a41, type: 3}
+  - {fileID: 21300000, guid: 0c90c46330c82594db780e86e2376a41, type: 3}
+  - {fileID: 21300000, guid: 0c90c46330c82594db780e86e2376a41, type: 3}
+  - {fileID: 21300000, guid: 0c90c46330c82594db780e86e2376a41, type: 3}
+  - {fileID: 21300000, guid: 0c90c46330c82594db780e86e2376a41, type: 3}
   - {fileID: 21300000, guid: 0c90c46330c82594db780e86e2376a41, type: 3}
   nextState: 4

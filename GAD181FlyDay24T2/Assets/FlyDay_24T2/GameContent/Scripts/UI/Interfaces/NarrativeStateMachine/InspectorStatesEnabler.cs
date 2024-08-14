@@ -3,29 +3,27 @@ using UnityEngine;
 public class InspectorStatesEnabler : MonoBehaviour
 {
     #region Variables.
-    public bool firstState;
-    public bool secondState;
-    public bool thirdState;
-    public bool fourthState;
-    public bool fifthState;
-    public bool sixthState;
-    public bool seventhState;
-    public bool eighthState;
-    public bool ninthState;
+    public bool pacsonHouse;
+    public bool Airport;
+    public bool airportBlankState;
+    public bool dutyFree;
+    public bool dutyFreeBlankState;
+    public bool boarding;
+    public bool finchsHouseGood;
+    public bool finchsHouseBad;
 
     [SerializeField] private PlayerSaveData playerSaveData;
     #endregion
     
     private void Update()
     {
-        if (firstState) { playerSaveData.currentStateInt = 0; }
-        if (secondState) { playerSaveData.currentStateInt = 1; }
-        if (thirdState) { playerSaveData.currentStateInt = 2; }
-        if (fourthState) { playerSaveData.currentStateInt = 3; }
-        if (fifthState) { playerSaveData.currentStateInt = 4; }
-        if (sixthState) { playerSaveData.currentStateInt = 5; }
-        if (seventhState) { playerSaveData.currentStateInt = 6;}
-        if (eighthState) { playerSaveData.currentStateInt = 7;}
-        if (ninthState) { playerSaveData.currentStateInt = 8;}
+        if (pacsonHouse) { playerSaveData.currentStateInt = 0; }
+        if (Airport) { playerSaveData.currentStateInt = 1; }
+        if (airportBlankState) { playerSaveData.currentStateInt = 2; }
+        if (dutyFree) { playerSaveData.currentStateInt = 3; }
+        if (dutyFreeBlankState) { playerSaveData.currentStateInt = 4; }
+        if (boarding) { playerSaveData.currentStateInt = 5; }
+        if (finchsHouseGood) { playerSaveData.currentStateInt = 6;}
+        if (finchsHouseBad) { playerSaveData.currentStateInt = 7;}
     }
 }

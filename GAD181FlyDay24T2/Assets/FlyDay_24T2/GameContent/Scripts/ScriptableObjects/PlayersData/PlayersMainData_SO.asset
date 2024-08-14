@@ -12,10 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 495cf51ba46e969489a05bef4fe6e33b, type: 3}
   m_Name: PlayersMainData_SO
   m_EditorClassIdentifier: 
-  playerOnePos: {x: -0.569, y: 0, z: 0.351}
-  playerTwoPos: {x: -0.028, y: 0, z: 0.351}
-  mainLuckyCoinsSource: 200
-  money: 0
-  currentScene: 
-  currentDialogueStage: 0
-  position: {x: 0, y: 0, z: 0}
+  mainLuckyCoinsSource: 150
+  currentStateInt: 0

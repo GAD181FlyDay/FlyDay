@@ -8602,6 +8602,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3641260482481261745, guid: e13c57158431bca48a31db8d4687e741, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3933927944803999143, guid: e13c57158431bca48a31db8d4687e741, type: 3}
       propertyPath: m_Drag
       value: 1
@@ -8658,6 +8662,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6497261709501132404, guid: e13c57158431bca48a31db8d4687e741, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 3143485803880685963, guid: aefe2b9ce1f43ed439a11bc2006b3f30, type: 3}
+    - target: {fileID: 6497261709501132404, guid: e13c57158431bca48a31db8d4687e741, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: dc6dc3f0fe572bc40a13935573bd0ec1, type: 2}
     m_RemovedComponents:
     - {fileID: 1238964025483861244, guid: e13c57158431bca48a31db8d4687e741, type: 3}
     m_RemovedGameObjects: []

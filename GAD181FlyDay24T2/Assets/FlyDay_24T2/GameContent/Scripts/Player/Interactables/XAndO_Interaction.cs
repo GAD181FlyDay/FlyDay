@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Scripts_Minigame_XnOs : Scripts_InteractionBaseToOverride
+public class XAndO_Interaction : Scripts_InteractionBaseToOverride
 {
     [SerializeField] private GameObject minigameStand;
     [SerializeField] private PlayerInteractions playerInteractions;

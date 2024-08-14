@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Scripts_Minigame_JustifiableShoplifting : Scripts_InteractionBaseToOverride
+public class JustifiableShoplifting_Interaction : Scripts_InteractionBaseToOverride
 {
     
     [SerializeField] private GameObject minigameStand;

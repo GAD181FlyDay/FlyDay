@@ -6,7 +6,7 @@ public class Goal : MonoBehaviour
 {
     [SerializeField] private PlayerSaveData playerSaveData;
     private float _players = 0;
-    private float _earnedMoney = 20;
+    private float _earnedMoney = 200;
     public GameObject panel;
     public GameObject win;
 

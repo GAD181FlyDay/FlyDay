@@ -3,21 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Scripts_MinigameLoad_SeeSawBridge : Scripts_InteractionBaseToOverride
+public class SeesawBridge_Interaction : Scripts_InteractionBaseToOverride
 {
     [SerializeField] private GameObject minigameStand;
     [SerializeField] private PlayerInteractions playerInteractions;
 
     private void Start()
     {
-        if (playerInteractions.taxiStand == true)
+        if (playerInteractions.seeSawBridge == true)
         {
             minigameStand.tag = "Untagged";
         }
     }
     public override void Interact()
     {
-        playerInteractions.taxiStand = true;
+        playerInteractions.seeSawBridge = true;
 
         minigameStand.tag = "Untagged";
 

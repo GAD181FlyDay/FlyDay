@@ -57,15 +57,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: aefe2b9ce1f43ed439a11bc2006b3f30, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.03099978
+      value: 0.10400182
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: aefe2b9ce1f43ed439a11bc2006b3f30, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.082
+      value: 0.044000007
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: aefe2b9ce1f43ed439a11bc2006b3f30, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.598
+      value: -0.3189999
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: aefe2b9ce1f43ed439a11bc2006b3f30, type: 3}
       propertyPath: m_LocalRotation.w
@@ -322,7 +322,7 @@ PrefabInstance:
     - target: {fileID: 7233867138446155668, guid: aefe2b9ce1f43ed439a11bc2006b3f30, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: a155891ce9debfc4684f759d117de407, type: 2}
+      objectReference: {fileID: 2100000, guid: dc6dc3f0fe572bc40a13935573bd0ec1, type: 2}
     - target: {fileID: 7319839544897422191, guid: aefe2b9ce1f43ed439a11bc2006b3f30, type: 3}
       propertyPath: m_Layer
       value: 8
@@ -483,7 +483,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb0616a55d1854b48972787359b0997f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedPlayers: 0
+  selectedPlayers: 1
   playerModel: {fileID: 4162324074057881099}
   PressE: {fileID: 0}
   InteractRange: 0.5

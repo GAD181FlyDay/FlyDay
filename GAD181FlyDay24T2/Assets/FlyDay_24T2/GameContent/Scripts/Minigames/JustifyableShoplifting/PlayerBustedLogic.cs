@@ -21,20 +21,18 @@ namespace JustifyableShoplifting
         #region Public Functions.
         public void LoseGame()
         {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
             lostPanel.SetActive(true);
             Time.timeScale = 0f;
         }
 
         public void Retry()
         {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
             Time.timeScale = 1f;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); // Reloads the current scene.
-        }
-
-        public void Proceed()
-        {
-            Time.timeScale = 1f;
-            // Load next scene.
         }
         #endregion
     }

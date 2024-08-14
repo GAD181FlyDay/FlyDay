@@ -15,6 +15,8 @@ namespace UI
         public GameObject optionsPanel;
         public GameObject playerButtonFirstSelected;
         public GameObject optionsPanelFirstSelected;
+        public GameObject chleoControlPanel;
+        public GameObject theoControlPanel;
 
         private EventSystem eventSystem;
         #endregion
@@ -51,7 +53,19 @@ namespace UI
         private void Update()
         {
             OnInputTogglePanel();
+            OnETurnOffPanels();
             // Debug.Log( eventSystem.currentSelectedGameObject + " is currently selected");
+        }
+
+        #region Public Functions.
+
+        public void TurnOnChleosPanel()
+        {
+            chleoControlPanel.SetActive(true);
+        }
+        public void TurnOnTheosPanel()
+        {
+            theoControlPanel.SetActive(true);
         }
 
         #region OptionsToggler
@@ -89,7 +103,9 @@ namespace UI
             }
         }
         #endregion
+        #endregion
 
+        #region Private Functions.
         #region Inputs Detector
         /// <summary>
         /// Actions to take when key input is detected.
@@ -101,6 +117,17 @@ namespace UI
                 ToggleOptionsPanel();
             }
         }
+
+        private void OnETurnOffPanels()
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                chleoControlPanel.SetActive(false);
+                theoControlPanel.SetActive(false);
+            }
+
+        }
+        #endregion
         #endregion
     }
 }

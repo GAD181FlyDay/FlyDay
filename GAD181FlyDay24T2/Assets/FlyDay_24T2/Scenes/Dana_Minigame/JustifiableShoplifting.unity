@@ -584,7 +584,7 @@ Transform:
   m_GameObject: {fileID: 82409261}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.695, y: 0.014, z: -0.09494078}
+  m_LocalPosition: {x: 10.083, y: 0.014, z: -0.09494078}
   m_LocalScale: {x: 0.76733387, y: 0.034104303, z: 0.4657058}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2890,7 +2890,7 @@ Transform:
   m_GameObject: {fileID: 1001090365}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.695, y: 1.723, z: -0.09494078}
+  m_LocalPosition: {x: 10.083, y: 1.723, z: -0.09494078}
   m_LocalScale: {x: 0.76733387, y: 0.034104303, z: 0.4657058}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3204,7 +3204,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6335667798164480536, guid: 2a3ce45b007f7244b9c175fbfea79cc6, type: 3}
       propertyPath: moveSpeed
-      value: 1
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 6924642086214827731, guid: 2a3ce45b007f7244b9c175fbfea79cc6, type: 3}
       propertyPath: m_IncludeLayers.m_Bits
@@ -6604,7 +6604,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2580269024414191445, guid: e13c57158431bca48a31db8d4687e741, type: 3}
       propertyPath: moveSpeed
-      value: 1
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 3641260482481261745, guid: e13c57158431bca48a31db8d4687e741, type: 3}
       propertyPath: m_Name
@@ -7433,8 +7433,8 @@ Transform:
   m_GameObject: {fileID: 1897128672}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.82, y: -0.691, z: 2.632}
-  m_LocalScale: {x: 2.5567317, y: 1.1367099, z: 0.118261866}
+  m_LocalPosition: {x: -3.808, y: -0.655, z: 2.632}
+  m_LocalScale: {x: 3.3495822, y: 1.2128695, z: 0.118261866}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1788101563}
@@ -8128,7 +8128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wallTags:
-  - DestroyableWallTwo
+  - DestroyableWallThree
   playerLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -8504,6 +8504,10 @@ PrefabInstance:
       propertyPath: playerBusted
       value: 
       objectReference: {fileID: 1271766128}
+    - target: {fileID: 2760681334253757098, guid: 1ff5d602261d3a94981b6b22ac9f772d, type: 3}
+      propertyPath: detectionRadius
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3886613814674424423, guid: 1ff5d602261d3a94981b6b22ac9f772d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.8327

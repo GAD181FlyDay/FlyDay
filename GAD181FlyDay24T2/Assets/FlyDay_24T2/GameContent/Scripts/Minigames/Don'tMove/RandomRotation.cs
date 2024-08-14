@@ -24,7 +24,7 @@ public class RandomRotation : MonoBehaviour
             {
                 Time.timeScale = 0;
             }
-            
+
         }
     }
     IEnumerator RotationLoop()
@@ -50,10 +50,10 @@ public class RandomRotation : MonoBehaviour
     IEnumerator RotateEnemy(float rotationAmount)
     {
         Quaternion rotation = transform.rotation;
-        Quaternion targetRotation = transform.rotation * Quaternion.Euler(0, rotationAmount, 0);
+        Quaternion targetRotation = transform.rotation * Quaternion.Euler(0, 0, rotationAmount);
         float timelapse = 0;
 
-        while (timelapse < Mathf.Abs(rotationAmount) / rotationSpeed) 
+        while (timelapse < Mathf.Abs(rotationAmount) / rotationSpeed)
         {
             transform.rotation = Quaternion.Slerp(rotation, targetRotation, timelapse / (Mathf.Abs(rotationAmount) / rotationSpeed));
             timelapse += Time.deltaTime;

@@ -111,6 +111,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8455944910106380230}
+  - component: {fileID: 5620175436780553335}
+  - component: {fileID: 9178783467673133947}
   m_Layer: 6
   m_Name: JustifiableShopliftingStand
   m_TagString: Interactible
@@ -135,6 +137,42 @@ Transform:
   - {fileID: 2817915472212976142}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5620175436780553335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1851709014258437004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5414653c189e764399029fa43252fbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minigameStand: {fileID: 1851709014258437004}
+  playerInteractions: {fileID: 11400000, guid: 58812d5d68858b3488fa9c8be3f2373f, type: 2}
+  playerSaveData: {fileID: 11400000, guid: 66e203a44be15dc42a3658148c263619, type: 2}
+--- !u!65 &9178783467673133947
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1851709014258437004}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.7977351, y: 1.4106278, z: 1.3984392}
+  m_Center: {x: -0.0054160487, y: 0.20531365, z: 0.027411772}
 --- !u!1 &6363173975275653002
 GameObject:
   m_ObjectHideFlags: 0

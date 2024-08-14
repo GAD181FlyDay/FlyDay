@@ -1,7 +1,7 @@
 using DutyFree;
 using UnityEngine;
 
-public class DutyFreeShop_Interactible : OverrideableInteractionBase
+public class DutyFreeShop_Interactible : Scripts_InteractionBaseToOverride
 {
     #region Variables
     [SerializeField] private GameObject dutyFreeShop;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Scripts_MinigameLoad_SeeSawBridge : OverrideableInteractionBase
+public class Scripts_MinigameLoad_SeeSawBridge : Scripts_InteractionBaseToOverride
 {
     [SerializeField] private GameObject minigameStand;
     [SerializeField] private PlayerInteractions playerInteractions;

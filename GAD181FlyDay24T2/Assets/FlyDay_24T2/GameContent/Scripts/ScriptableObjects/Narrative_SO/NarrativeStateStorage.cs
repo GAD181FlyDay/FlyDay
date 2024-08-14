@@ -18,6 +18,7 @@ namespace Narrative
             DutyFree,
             NoNarrativeStateAtDutyFree,
             Boarding,
+            AtFinchsHouse,
             FinchsHouseGood,
             FinchsHouseBad
         }

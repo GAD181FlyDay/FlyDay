@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class VIVA_Interactible : OverrideableInteractionBase
+public class VIVA_Interactible : Scripts_InteractionBaseToOverride
 {
     [SerializeField] private GameObject minigameStand;
     [SerializeField] private PlayerInteractions playerInteractions;

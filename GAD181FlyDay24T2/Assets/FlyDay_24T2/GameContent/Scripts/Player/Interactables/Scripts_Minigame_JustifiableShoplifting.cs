@@ -1,15 +1,16 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Scripts_Minigame_XnOs : OverrideableInteractionBase
+public class Scripts_Minigame_JustifiableShoplifting : Scripts_InteractionBaseToOverride
 {
+    
     [SerializeField] private GameObject minigameStand;
     [SerializeField] private PlayerInteractions playerInteractions;
     [SerializeField] private PlayerSaveData playerSaveData;
 
     private void Start()
     {
-        if (playerInteractions.taxiStand == true)
+        if (playerInteractions.xAndOStand == true)
         {
             float rewardMoneyForDiscoveringMinigame = 10f;
             minigameStand.tag = "Untagged";
@@ -18,7 +19,7 @@ public class Scripts_Minigame_XnOs : OverrideableInteractionBase
     }
     public override void Interact()
     {
-        playerInteractions.taxiStand = true;
+        playerInteractions.xAndOStand = true;
 
         minigameStand.tag = "Untagged";
 
@@ -28,7 +29,7 @@ public class Scripts_Minigame_XnOs : OverrideableInteractionBase
     {
         if (minigameStand.tag == "Untagged")
         {
-            SceneManager.LoadScene("XandOMinigame");
+            SceneManager.LoadScene("JustifiableShoplifting");
         }
     }
 }

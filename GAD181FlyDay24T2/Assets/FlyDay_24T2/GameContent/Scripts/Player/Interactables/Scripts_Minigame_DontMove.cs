@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Scripts_Minigame_DontMove1 : OverrideableInteractionBase
+public class Scripts_Minigame_DontMove1 : Scripts_InteractionBaseToOverride
 {
     [SerializeField] private GameObject minigameStand;
     [SerializeField] private PlayerInteractions playerInteractions;

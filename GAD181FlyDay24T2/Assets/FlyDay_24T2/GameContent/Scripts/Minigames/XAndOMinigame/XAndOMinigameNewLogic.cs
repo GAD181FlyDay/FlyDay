@@ -101,14 +101,8 @@ namespace XAndOMinigame
 
         public void ExitMinigame()
         {
-            if (purchasedItemData.purchasedItem == "goodGift")
-            {
-                playerSaveData.currentStateInt = 6;
-            }
-            if (purchasedItemData.purchasedItem == "badGift")
-            {
-                playerSaveData.currentStateInt = 7;
-            }
+            playerSaveData.currentStateInt = 6;
+
             Debug.Log("Game has been exited.");
 
             SceneManager.LoadScene("MainGameScene");

@@ -11,7 +11,7 @@ public class PlayersInteraction : MonoBehaviour
     [SerializeField] private LayerMask interactibleLayer;
 
     private KeyCode _playerInteractionKey;
-    private OverrideableInteractionBase _currentInteraction;
+    private Scripts_InteractionBaseToOverride _currentInteraction;
 
     void Awake()
     {
@@ -40,18 +40,10 @@ public class PlayersInteraction : MonoBehaviour
             if (hitCollider.CompareTag("Interactible"))
             {
                 PressE.gameObject.SetActive(true);
-                _currentInteraction = hitCollider.GetComponent<OverrideableInteractionBase>();
+                _currentInteraction = hitCollider.GetComponent<Scripts_InteractionBaseToOverride>();
                 interactibleFound = true;
                 break;
-            }
-
-            if (hitCollider.CompareTag("Shop"))
-            {
-                PressE.gameObject.SetActive(true);
-                _currentInteraction = hitCollider.GetComponent<OverrideableInteractionBase>();
-                interactibleFound = true;
-                break;
-            }
+            }  break;
         }
 
         if (!interactibleFound)

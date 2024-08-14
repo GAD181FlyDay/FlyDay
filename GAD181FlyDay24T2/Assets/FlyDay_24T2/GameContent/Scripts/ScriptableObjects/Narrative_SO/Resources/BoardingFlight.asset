@@ -14,7 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stateType: 5
   narrativeEntries:
-  - 
+  - The players make it to their boarding gate
+  - Chleo look! is that Tic Tac Toe???
+  - Let's rest Theoo..
+  - But but.. Fine, but after that we should play it!
+  - Alright...
   narrativeImages:
+  - {fileID: 21300000, guid: 0c90c46330c82594db780e86e2376a41, type: 3}
+  - {fileID: 21300000, guid: 0c90c46330c82594db780e86e2376a41, type: 3}
+  - {fileID: 21300000, guid: 0c90c46330c82594db780e86e2376a41, type: 3}
+  - {fileID: 21300000, guid: 0c90c46330c82594db780e86e2376a41, type: 3}
   - {fileID: 21300000, guid: 0c90c46330c82594db780e86e2376a41, type: 3}
   nextState: 5

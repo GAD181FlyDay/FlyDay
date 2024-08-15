@@ -28,12 +28,16 @@ namespace JustifyableShoplifting
             // Activate the win panel and pause the game
             totalCoinAmount.text = "Good work! You now have " + playerSaveData.mainLuckyCoinsSource + " lucky coins in total!";
             playerSaveData.currentStateInt = 3;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             winPanel.SetActive(true);
             Time.timeScale = 0f; // Pause the game
         }
 
         public void Proceed()
         {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
             Time.timeScale = 1f;
             SceneManager.LoadScene("MainGameScene");
         }

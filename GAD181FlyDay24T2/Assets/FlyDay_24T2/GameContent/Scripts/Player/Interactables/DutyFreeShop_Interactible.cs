@@ -1,13 +1,17 @@
 using DutyFree;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DutyFreeShop_Interactible : Scripts_InteractionBaseToOverride
 {
     #region Variables
+    public PurchasedItemData purchasedItemData;
+
     [SerializeField] private GameObject dutyFreeShop;
     [SerializeField] private GameObject dutyFreeShopPanel;
     [SerializeField] private PlayerInteractions playerInteractions;
-    public PurchasedItemData purchasedItemData;
+    [SerializeField] private PlayerSaveData playerSaveData;
+
     #endregion
 
 
@@ -20,7 +24,10 @@ public class DutyFreeShop_Interactible : Scripts_InteractionBaseToOverride
         }
         if (purchasedItemData.hasPurchased == true)
         {
+            playerSaveData.currentStateInt = 5;
             dutyFreeShop.tag = "Untagged";
+            purchasedItemData.hasPurchased = false;
+            Invoke("LoadBoardingScene", 3f);
         }
     }
 
@@ -46,6 +53,12 @@ public class DutyFreeShop_Interactible : Scripts_InteractionBaseToOverride
     }
     #endregion
 
+    #region Private Functions
+    private void LoadBoardingScene()
+    {
+        SceneManager.LoadScene("MainGameScene");
+    }
+    #endregion
     // If an item has been bought set the duty free bool to true
     // if the duty free bool is true then players can't interact anymore with the shop
 }

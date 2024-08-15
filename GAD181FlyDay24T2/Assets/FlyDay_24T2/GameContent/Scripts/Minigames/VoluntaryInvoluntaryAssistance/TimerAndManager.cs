@@ -17,6 +17,7 @@ namespace VoluntaryInvoluntaryAssistance
         [SerializeField] private GameObject endGamePanel;
         [SerializeField] private GameObject timerTextComponent;
         [SerializeField] private TMP_Text endGameText;
+        [SerializeField] private PlayerSaveData playerSaveData;
 
         private float _timeRemaining;
         private bool _isGameActive;
@@ -54,20 +55,22 @@ namespace VoluntaryInvoluntaryAssistance
 
         private void EndGame()
         {
+            playerSaveData.currentStateInt = 4;
             _isGameActive = false;
             endGamePanel.SetActive(true);
             endGameText.text = "Game Over! You Earned: " + deliveryZone.luckyCoins;
+            playerSaveData.mainLuckyCoinsSource += deliveryZone.luckyCoins;
             timerTextComponent.SetActive(false);
             Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
             Time.timeScale = 0f; 
         }
 
-        public void Retry()
+        public void Proceed()
         {
             Time.timeScale = 1f;
-            timerTextComponent.SetActive(true);
             Cursor.visible = false;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); 
+            SceneManager.LoadScene("MainGameScene");
         }
         #endregion
     }

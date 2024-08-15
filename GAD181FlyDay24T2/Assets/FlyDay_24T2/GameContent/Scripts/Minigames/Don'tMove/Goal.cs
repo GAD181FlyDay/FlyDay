@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Goal : MonoBehaviour
 {
+    [SerializeField] private PlayerSaveData playerSaveData;
     private float _players = 0;
+    private float _earnedMoney = 200;
     public GameObject panel;
     public GameObject win;
 
@@ -24,6 +26,8 @@ public class Goal : MonoBehaviour
 
     public void EndPointReached()
     {
+        playerSaveData.mainLuckyCoinsSource += _earnedMoney;
+        playerSaveData.currentStateInt = 4;
         panel.SetActive(true);
         win.SetActive(true);
         Time.timeScale = 0f;

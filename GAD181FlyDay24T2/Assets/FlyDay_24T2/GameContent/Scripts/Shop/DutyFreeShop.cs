@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,13 +13,15 @@ namespace DutyFree
     public class DutyFreeShop : MonoBehaviour
     {
         #region Variables
-        public int luckyCoins = 100; // Temporary variable until the coin system is fully integrated within the game.
-        public int goodGiftPrice = 50;
-        public int badGiftPrice = 20;
+        public PlayerSaveData playerSaveData;
+        public int goodGiftPrice = 350;
+        public int badGiftPrice = 225;
         public PurchasedItemData purchasedItemData;
         public Button goodGiftButton;
         public Button badGiftButton;
         public GameObject shopPanel;
+
+        [SerializeField] private TMP_Text cantPurchase;
         #endregion
 
         private void Start()
@@ -29,25 +32,37 @@ namespace DutyFree
         #region Public Functions.
         public void PurchaseGoodGift()
         {
-            if (!purchasedItemData.hasPurchased && luckyCoins >= goodGiftPrice)
+            Debug.Log("Button works");
+            if (!purchasedItemData.hasPurchased && playerSaveData.mainLuckyCoinsSource >= goodGiftPrice)
             {
-                luckyCoins -= goodGiftPrice;
-                purchasedItemData.purchasedItem = "goodGift";
+                playerSaveData.mainLuckyCoinsSource -= goodGiftPrice;
+                purchasedItemData.purchasedItem = "goodGift"; // Note to self, make it so that if its goodGift string then the proceed after boarding sets the int to 4, else to 5.
                 purchasedItemData.hasPurchased = true;
                 Debug.Log("Purchased good gift");
                 LockShop();
+            }
+            else
+            {
+                cantPurchase.text = " You don't have enough money to purchase. ";
+                Invoke("HideText", 1f);
             }
         }
 
         public void PurchaseBadGift()
         {
-            if (!purchasedItemData.hasPurchased && luckyCoins >= badGiftPrice)
+            Debug.Log("Button works");
+            if (!purchasedItemData.hasPurchased && playerSaveData.mainLuckyCoinsSource >= badGiftPrice)
             {
-                luckyCoins -= badGiftPrice;
+                playerSaveData.mainLuckyCoinsSource -= badGiftPrice;
                 purchasedItemData.purchasedItem = "badGift";
                 purchasedItemData.hasPurchased = true;
                 Debug.Log("Purchased bad gift");
                 LockShop();
+            }
+            else
+            {
+                cantPurchase.text = " You don't have enough money to purchase. ";
+                Invoke("HideText", 1f);
             }
         }
         #endregion
@@ -67,6 +82,11 @@ namespace DutyFree
             {
                 LockShop();
             }
+        }
+
+        private void HideText()
+        {
+            cantPurchase.text = "";
         }
         #endregion
     }

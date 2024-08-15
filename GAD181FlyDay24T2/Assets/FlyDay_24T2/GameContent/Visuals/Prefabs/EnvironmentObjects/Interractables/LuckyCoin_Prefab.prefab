@@ -56,7 +56,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bccd4fd8b9a0add438422c6466855e7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Coin: {fileID: 0}
+  Coin: {fileID: 8705794882549079929}
+  playerTotalMoney: {fileID: 11400000, guid: 66e203a44be15dc42a3658148c263619, type: 2}
 --- !u!23 &3588853774457822699
 MeshRenderer:
   m_ObjectHideFlags: 0

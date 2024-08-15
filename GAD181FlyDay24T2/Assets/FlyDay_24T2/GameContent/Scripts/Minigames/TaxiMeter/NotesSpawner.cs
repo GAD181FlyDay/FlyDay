@@ -3,58 +3,110 @@ using UnityEngine;
 namespace TaxiMeter
 {
     /// <summary>
-    /// This script is responsible for spawning notes.
+    /// This script is responsible for spawning notes for both players.
     /// </summary>
-
     public class NotesSpawner : MonoBehaviour
     {
         #region Variables
 
-        public NotesPooling wasdNotePool;
-        public NotesPooling arrowNotePool;
-        public Transform[] wasdSpawnPoints;
-        public Transform[] arrowSpawnPoints;
-        public float spawnInterval = 1f;
-        private float nextSpawnTime;
+        public NotesPooling waNotePool;  
+        public NotesPooling sdNotePool; 
+        public NotesPooling upLeftNotePool; 
+        public NotesPooling downRightNotePool;  
+        public Transform waSpawnPoint;
+        public Transform sdSpawnPoint;
+        public Transform upLeftSpawnPoint;
+        public Transform downRightSpawnPoint;
+        public float initialMinSpawnInterval = 0.3f; 
+        public float initialMaxSpawnInterval = 1.0f;
+        public float speedUpFactor = 0.9f; 
+        private float currentMinSpawnInterval;
+        private float currentMaxSpawnInterval;
+        private float nextSpawnTimePlayer1;
+        private float nextSpawnTimePlayer2;
 
         #endregion
 
         private void Start()
         {
-            nextSpawnTime = Time.time + spawnInterval;
+            currentMinSpawnInterval = initialMinSpawnInterval;
+            currentMaxSpawnInterval = initialMaxSpawnInterval;
+            PlanNextSpawnTime();
         }
 
         private void Update()
         {
-            // Spawn a new note when it is time to do so.
-            if (Time.time >= nextSpawnTime)
+            if (Time.time >= nextSpawnTimePlayer1)
             {
-                SpawnNotes();
-                nextSpawnTime = Time.time + spawnInterval;
+                SpawnRandomNoteForPlayerOne();
+                PlayerOneNextSpawnTime();
+            }
+
+            if (Time.time >= nextSpawnTimePlayer2)
+            {
+                SpawnRandomNoteForPlayerTwo();
+                PlayerTwoNextSpawnTime();
             }
         }
 
         #region Private Functions
-        private void SpawnNotes()
-        {
-            // Spawn a WASD note
-            GameObject wasdNote = wasdNotePool.GetPooledNote();
-            if (wasdNote != null)
-            {
-                Transform wasdSpawnPoint = wasdSpawnPoints[Random.Range(0, wasdSpawnPoints.Length)];
-                wasdNote.transform.position = wasdSpawnPoint.position;
-                wasdNote.SetActive(true);
-            }
 
-            // Spawn an arrow note
-            GameObject arrowNote = arrowNotePool.GetPooledNote();
-            if (arrowNote != null)
+        private void SpawnRandomNoteForPlayerOne()
+        {
+            int noteType = Random.Range(0, 2);
+
+            switch (noteType)
             {
-                Transform arrowSpawnPoint = arrowSpawnPoints[Random.Range(0, arrowSpawnPoints.Length)];
-                arrowNote.transform.position = arrowSpawnPoint.position;
-                arrowNote.SetActive(true);
+                case 0:
+                    SpawnNoteFromPool(waNotePool, waSpawnPoint);
+                    break;
+                case 1:
+                    SpawnNoteFromPool(sdNotePool, sdSpawnPoint);
+                    break;
             }
         }
+
+        private void SpawnRandomNoteForPlayerTwo()
+        {
+            int noteType = Random.Range(0, 2);
+
+            switch (noteType)
+            {
+                case 0:
+                    SpawnNoteFromPool(upLeftNotePool, upLeftSpawnPoint);
+                    break;
+                case 1:
+                    SpawnNoteFromPool(downRightNotePool, downRightSpawnPoint);
+                    break;
+            }
+        }
+
+        private void SpawnNoteFromPool(NotesPooling pool, Transform spawnPoint)
+        {
+            GameObject note = pool.GetPooledNote();
+            if (note != null)
+            {
+                note.transform.position = spawnPoint.position;
+                note.SetActive(true);
+            }
+        }
+
+        private void PlanNextSpawnTime()
+        {
+            PlayerOneNextSpawnTime();
+            PlayerTwoNextSpawnTime();
+        }
+
+        private void PlayerOneNextSpawnTime()
+        {
+            nextSpawnTimePlayer1 = Time.time + Random.Range(currentMinSpawnInterval, currentMaxSpawnInterval);
+        }
+
+        private void PlayerTwoNextSpawnTime()
+        {
+            nextSpawnTimePlayer2 = Time.time + Random.Range(currentMinSpawnInterval, currentMaxSpawnInterval);
+        }
+
         #endregion
     }
 }

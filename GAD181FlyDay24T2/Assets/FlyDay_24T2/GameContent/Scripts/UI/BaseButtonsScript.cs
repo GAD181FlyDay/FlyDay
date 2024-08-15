@@ -11,6 +11,9 @@ namespace UnityEngine.EventSystems
     {
         #region Variables.
         [SerializeField] private GameObject creditsPanel;
+        [SerializeField] private EventSystem eventSystem;
+        [SerializeField] private GameObject playButtonFirstSelected;
+        [SerializeField] private GameObject creditsFirstSelected;
         #endregion
 
 
@@ -32,6 +35,7 @@ namespace UnityEngine.EventSystems
         public void TurnOnCreditsPanel()
         {
             creditsPanel.SetActive(true);
+            eventSystem.SetSelectedGameObject(creditsFirstSelected);
         }
 
         ///<summary>
@@ -40,6 +44,7 @@ namespace UnityEngine.EventSystems
         public void TurnOffCreditsPanel()
         {
             creditsPanel.SetActive(false);
+            eventSystem.SetSelectedGameObject(playButtonFirstSelected);
         }
         #endregion
 

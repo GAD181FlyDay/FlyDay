@@ -12,40 +12,28 @@ EditorBuildSettings:
     path: Assets/FlyDay_24T2/Scenes/MainGameScene.unity
     guid: 8c84950ce2efe9d44978907ba2540b30
   - enabled: 1
-    path: Assets/FlyDay_24T2/Scenes/NarrativeRelatedScenes/MinigameStands.unity
+    path: Assets/FlyDay_24T2/Scenes/MinigameStands.unity
     guid: 34b65b21dd2d44d40b498cc9aafd4fd3
-  - enabled: 1
-    path: Assets/FlyDay_24T2/Scenes/Haqqi_ Minigame/SeesawBridge.unity
-    guid: 382d16b44b7e9254aac4838ee10bf187
-  - enabled: 1
-    path: Assets/FlyDay_24T2/Scenes/Dana_Minigame/JustifiableShoplifting.unity
-    guid: d2a787a00aa376542bffacbd062720ba
   - enabled: 1
     path: Assets/FlyDay_24T2/Scenes/Dana_Minigame/TaxiMeter.unity
     guid: a232fa2e2507fd04384cc147e094b881
   - enabled: 1
-    path: Assets/FlyDay_24T2/Scenes/Dana_Minigame/XAndOMinigame_Test.unity
-    guid: dd723b2830df91d42996e0006200e928
+    path: Assets/FlyDay_24T2/Scenes/Dana_Minigame/XandOMinigame.unity
+    guid: 176817adcb0cb0246865901d0eacf295
+  - enabled: 1
+    path: Assets/FlyDay_24T2/Scenes/Dana_Minigame/JustifiableShoplifting.unity
+    guid: d2a787a00aa376542bffacbd062720ba
   - enabled: 1
     path: Assets/FlyDay_24T2/Scenes/Haqqi_ Minigame/DontMove.unity
     guid: d66a377133b016c43a1eb0490b3ea191
   - enabled: 1
-    path: Assets/FlyDay_24T2/Scenes/Haqqi_ Minigame/MovingStatues.unity
-    guid: 82ec7d36a82a2624b9570e1efbc7df5f
-  - enabled: 1
-    path: Assets/FlyDay_24T2/Scenes/Kalyamba_Minigame/CartRacing.unity
-    guid: dd3858aab6ed69b4393d02eb5ac4ba00
-  - enabled: 1
-    path: Assets/FlyDay_24T2/Scenes/Melina_Minigame/LuggageChecks.unity
-    guid: 952b9ea3aa133a64d9ea5413f74b2754
-  - enabled: 1
-    path: Assets/Scenes/Melina_Minigame/Packing Suitcase.unity
-    guid: 47b807ea5e78d3c49b33c9bd83220f73
-  - enabled: 1
-    path: Assets/FlyDay_24T2/Scenes/Melina_Minigame/Tetris.unity
-    guid: 7b53a2729042010498f1dfe50da5ee7d
+    path: Assets/FlyDay_24T2/Scenes/Haqqi_ Minigame/SeesawBridge.unity
+    guid: 382d16b44b7e9254aac4838ee10bf187
   - enabled: 1
     path: Assets/FlyDay_24T2/Scenes/Dana_Minigame/VoluntaryInVoluntaryAssistance.unity
     guid: 9fd431ffb4be3924aaaf43b9aadbc590
+  - enabled: 1
+    path: Assets/FlyDay_24T2/Scenes/Kalyamba_Minigame/CartRacing.unity
+    guid: dd3858aab6ed69b4393d02eb5ac4ba00
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

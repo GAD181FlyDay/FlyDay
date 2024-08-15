@@ -5,21 +5,21 @@ namespace TaxiMeter
 {
     /// <summary>
     /// This script is responsible for the minigame's 
-    /// timer and overall game durtion.
+    /// timer and overall game duration.
     /// </summary>
-
     public class MinigameTimer : MonoBehaviour
     {
         #region Variables
         public bool gameEnded = false;
         public NotesSpawner noteSpawner;
-        public float gameDuration = 120f; // 2 minutes
+        public float gameDuration = 90f; // 1 and a half minutes.
 
+        [SerializeField] private PlayerSaveData playerSaveData;
         [SerializeField] private TMP_Text timerText;
         [SerializeField] private TMP_Text endGameText;
 
         private float elapsedTime = 0f;
-        
+
         #endregion
 
         void Update()
@@ -39,28 +39,35 @@ namespace TaxiMeter
             {
                 EndMiniGame();
             }
-            else if (remainingTime <= 60f)
+            else if (remainingTime <= 30f)
             {
-                noteSpawner.spawnInterval = Mathf.Lerp(1f, 0.5f, (60f - remainingTime) / 60f); // Speed up notes in the last minute
+                noteSpawner.initialMinSpawnInterval = Mathf.Lerp(1f, 0.5f, (30f - remainingTime) / 30f);
+                noteSpawner.initialMaxSpawnInterval = Mathf.Lerp(2f, 1f, (30f - remainingTime) / 30f);
             }
 
-            timerText.text = "Time: " + Mathf.CeilToInt(remainingTime).ToString();
+            // Update the timer display
+            int minutes = Mathf.FloorToInt(remainingTime / 60F);
+            int seconds = Mathf.FloorToInt(remainingTime % 60F);
+
+            string timeText = string.Format("{0:00}:{1:00}", minutes, seconds);
+            timerText.text = "Time: " + timeText;
         }
 
         private void EndMiniGame()
         {
             gameEnded = true;
             timerText.text = "Time: 0";
-            // Handle end of the game, like showing results, etc.
+            playerSaveData.mainLuckyCoinsSource -= TaxiMeterBaseLogic.taxiMeterBaseLogic.meterValue;
+            Debug.Log("Here is your money despite the loss " + playerSaveData.mainLuckyCoinsSource);
+
             if (TaxiMeterBaseLogic.taxiMeterBaseLogic.meterValue > 100)
             {
-                Debug.Log("Game Ended. You owe the Taxi driver: 100 lucky coins");
+                endGameText.text = ("Are Taxis usually this expensive?" + " You paid the driver " + TaxiMeterBaseLogic.taxiMeterBaseLogic.meterValue + " Lucky Coins");
             }
             else
             {
-                Debug.Log("Game Ended. Final Meter Value: " + TaxiMeterBaseLogic.taxiMeterBaseLogic.meterValue);
+                endGameText.text = ("Not a bad price for a long Taxi ride!, You paid the driver " + TaxiMeterBaseLogic.taxiMeterBaseLogic.meterValue + " Lucky Coins");
             }
-
         }
         #endregion
     }

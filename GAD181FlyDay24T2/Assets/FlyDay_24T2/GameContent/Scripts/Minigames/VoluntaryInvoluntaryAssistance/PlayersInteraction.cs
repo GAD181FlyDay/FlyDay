@@ -14,7 +14,7 @@ namespace VoluntaryInvoluntaryAssistance
         public Transform holdPoint;
         public KeyCode interactionKey;
         public KeyCode dropKey;
-        public float luggageSpacing = 0.5f;
+        public float luggageSpacing = 2f;
         public int maxLuggageCount = 3;
 
         private List<GameObject> _heldLuggage = new List<GameObject>();

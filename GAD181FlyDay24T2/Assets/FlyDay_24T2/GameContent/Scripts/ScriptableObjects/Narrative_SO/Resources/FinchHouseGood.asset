@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbee9beeb50adb74498cc76d28238f5e, type: 3}
+  m_Name: FinchHouseGood
+  m_EditorClassIdentifier: 
+  stateType: 6
+  narrativeEntries:
+  - <The Finchs House.>
+  - 'They ring the bell, and the door opens to their parents'' smiles. '
+  - Oh, what a surprise, kids!
+  - We missed you guys' tons!
+  - How was your journey
+  - It was our best day ever!
+  - We also bought a gift for you guys!
+  - This gift is wonderful, kids. Thank you!
+  - You remembered that we love chocolates!
+  - Group hugg!!!
+  - The family shares laughter and embraces, filled with joy
+  narrativeImages:
+  - {fileID: 21300000, guid: 0c90c46330c82594db780e86e2376a41, type: 3}
+  - {fileID: 21300000, guid: 0c90c46330c82594db780e86e2376a41, type: 3}
+  - {fileID: 21300000, guid: 0c90c46330c82594db780e86e2376a41, type: 3}
+  - {fileID: 21300000, guid: 0c90c46330c82594db780e86e2376a41, type: 3}
+  - {fileID: 21300000, guid: 0c90c46330c82594db780e86e2376a41, type: 3}
+  - {fileID: 21300000, guid: 0c90c46330c82594db780e86e2376a41, type: 3}
+  - {fileID: 21300000, guid: 0c90c46330c82594db780e86e2376a41, type: 3}
+  - {fileID: 21300000, guid: 0c90c46330c82594db780e86e2376a41, type: 3}
+  - {fileID: 21300000, guid: 0c90c46330c82594db780e86e2376a41, type: 3}
+  - {fileID: 21300000, guid: 0c90c46330c82594db780e86e2376a41, type: 3}
+  - {fileID: 21300000, guid: 0c90c46330c82594db780e86e2376a41, type: 3}
+  nextState: 6

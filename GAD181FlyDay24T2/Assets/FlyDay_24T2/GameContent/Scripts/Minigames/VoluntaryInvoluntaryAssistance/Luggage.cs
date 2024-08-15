@@ -34,9 +34,12 @@ namespace VoluntaryInvoluntaryAssistance
 
         private void OnCollisionEnter(Collision collision)
         {
-            if (collision.gameObject == playerRespawnLogic.outboundObject )
+            if (playerRespawnLogic != null)
             {
-                this.gameObject.SetActive(false);
+                if (collision.gameObject == playerRespawnLogic.outboundObject)
+                {
+                    this.gameObject.SetActive(false);
+                }
             }
         }
         #endregion

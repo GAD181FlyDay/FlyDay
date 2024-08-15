@@ -10,7 +10,7 @@ namespace VoluntaryInvoluntaryAssistance
     public class LuggageBoxes : MonoBehaviour
     {
         #region Variables.
-        public string luggageType; // "black", "red", "green"
+        public string luggageType; // "blue", "red", "green"
         #endregion
 
         #region Public Functions.
@@ -41,7 +41,7 @@ namespace VoluntaryInvoluntaryAssistance
                 // Debug.Log("Player cannot pick up more luggage.");
             }
         }
-
+        
         #endregion
 
         #region Private Functions.
@@ -49,8 +49,8 @@ namespace VoluntaryInvoluntaryAssistance
         {
             switch (type.ToLower())
             {
-                case "black":
-                    return "BlackLuggageBag";
+                case "blue":
+                    return "BlueLuggageBag";
                 case "red":
                     return "RedLuggageBag";
                 case "green":

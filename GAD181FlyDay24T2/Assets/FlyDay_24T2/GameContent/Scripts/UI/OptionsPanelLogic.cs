@@ -82,15 +82,11 @@ namespace UI
 
             if (isPanelActive)
             {
-                Cursor.visible = true;
-                Cursor.lockState = CursorLockMode.None;
                 // Debug.Log("Options panel turned on. Event system button should change now");
                 eventSystem.SetSelectedGameObject(optionsPanelFirstSelected);
             }
             else
             {
-                Cursor.visible = false;
-                Cursor.lockState = CursorLockMode.Locked;
                 if (playerButtonFirstSelected != null)
                 {
                     // Debug.Log("Options panel off, Event system button should be play (if available)");

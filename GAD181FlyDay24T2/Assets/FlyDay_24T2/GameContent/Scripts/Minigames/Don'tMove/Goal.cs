@@ -26,6 +26,8 @@ public class Goal : MonoBehaviour
 
     public void EndPointReached()
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         playerSaveData.mainLuckyCoinsSource += _earnedMoney;
         playerSaveData.currentStateInt = 4;
         panel.SetActive(true);

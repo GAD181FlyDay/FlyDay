@@ -9,10 +9,14 @@ public class GoalPointManager : MonoBehaviour
 
     public void EnableGameOverUI()
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         youWinPanel.SetActive(true);
     }
     public void EnableLostPanel()
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         youLostPanel.SetActive(true);
     }
 }

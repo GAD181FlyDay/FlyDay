@@ -2,8 +2,12 @@ using UnityEngine;
 
 public class CoinCollect : MonoBehaviour
 {
+    #region Variables.
     [SerializeField] private GameObject Coin;
     [SerializeField] private PlayerSaveData playerTotalMoney;
+    [SerializeField] private AudioClip luckyCoinCollectedSound;
+    [SerializeField] private AudioSource audioSource;
+    #endregion
 
     private void OnTriggerEnter(Collider other)
     {
@@ -12,10 +16,13 @@ public class CoinCollect : MonoBehaviour
             if (playerTotalMoney != null)
             {
                 playerTotalMoney.mainLuckyCoinsSource += 5;
-                Debug.Log("You just earned + 5 coins! Here's how much money you've got in total: " + playerTotalMoney.mainLuckyCoinsSource);
+                Debug.Log("You just earned +5 coins! Here's how much money you've got in total: " + playerTotalMoney.mainLuckyCoinsSource);
             }
 
-            //Debug.Log("You got +5 Lucky Coins!!! ");
+            if (luckyCoinCollectedSound != null)
+            {
+                audioSource.PlayOneShot(luckyCoinCollectedSound);
+            }
             Destroy(Coin);
         }
     }

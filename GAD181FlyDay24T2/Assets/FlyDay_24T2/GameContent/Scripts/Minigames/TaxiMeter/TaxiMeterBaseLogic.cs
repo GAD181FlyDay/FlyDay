@@ -69,8 +69,8 @@ namespace TaxiMeter
              
             if (meterValue > 150f)
             {
-                meterValue = 149f;
-                meterText.text = 149 + " $";
+                meterValue = 145f;
+                meterText.text = 145 + " $";
                 return;
             }
         }

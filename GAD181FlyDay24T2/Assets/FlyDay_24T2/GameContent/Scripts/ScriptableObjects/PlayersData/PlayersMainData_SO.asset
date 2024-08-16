@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 495cf51ba46e969489a05bef4fe6e33b, type: 3}
   m_Name: PlayersMainData_SO
   m_EditorClassIdentifier: 
-  mainLuckyCoinsSource: 50
-  currentStateInt: 4
+  mainLuckyCoinsSource: 150
+  currentStateInt: 0

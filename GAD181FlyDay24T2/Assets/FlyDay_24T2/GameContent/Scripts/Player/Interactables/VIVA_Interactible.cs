@@ -9,7 +9,7 @@ public class VIVA_Interactible : Scripts_InteractionBaseToOverride
 
     private void Start()
     {
-        if (playerInteractions.taxiStand == true)
+        if (playerInteractions.voluntaryInVoluntaryAssistance == true)
         {
             minigameStand.tag = "Untagged";
         }

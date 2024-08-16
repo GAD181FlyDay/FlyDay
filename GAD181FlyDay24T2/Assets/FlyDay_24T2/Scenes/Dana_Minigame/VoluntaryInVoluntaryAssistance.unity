@@ -335,7 +335,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -160, y: -160}
+  m_SizeDelta: {x: -800, y: -100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &90335593
 MonoBehaviour:
@@ -357,7 +357,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 3ece8d39ae26d4f4d80528c6410e9d4c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1766,6 +1766,26 @@ PrefabInstance:
       propertyPath: playerRespawnLogic
       value: 
       objectReference: {fileID: 784390207}
+    - target: {fileID: 3117888231566529049, guid: b3a298b150e767e4ca28e5f455c2d341, type: 3}
+      propertyPath: m_Size.y
+      value: 0.009727496
+      objectReference: {fileID: 0}
+    - target: {fileID: 3117888231566529049, guid: b3a298b150e767e4ca28e5f455c2d341, type: 3}
+      propertyPath: m_Size.z
+      value: 0.0071002
+      objectReference: {fileID: 0}
+    - target: {fileID: 3117888231566529049, guid: b3a298b150e767e4ca28e5f455c2d341, type: 3}
+      propertyPath: m_Center.x
+      value: 0.000039959366
+      objectReference: {fileID: 0}
+    - target: {fileID: 3117888231566529049, guid: b3a298b150e767e4ca28e5f455c2d341, type: 3}
+      propertyPath: m_Center.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3117888231566529049, guid: b3a298b150e767e4ca28e5f455c2d341, type: 3}
+      propertyPath: m_Center.z
+      value: 0.004899993
+      objectReference: {fileID: 0}
     - target: {fileID: 4960835784531842257, guid: b3a298b150e767e4ca28e5f455c2d341, type: 3}
       propertyPath: m_Name
       value: Luggage_blue
@@ -1985,7 +2005,7 @@ MonoBehaviour:
   holdPoint: {fileID: 1815003836}
   interactionKey: 0
   dropKey: 0
-  luggageSpacing: 0.5
+  luggageSpacing: 1
   maxLuggageCount: 3
 --- !u!4 &784390201 stripped
 Transform:
@@ -3871,6 +3891,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1291265787}
     m_Modifications:
+    - target: {fileID: -7994736390489480498, guid: 7e36fa8933b43d547bd199cf4412e161, type: 3}
+      propertyPath: m_Size.y
+      value: 0.009936543
+      objectReference: {fileID: 0}
+    - target: {fileID: -7994736390489480498, guid: 7e36fa8933b43d547bd199cf4412e161, type: 3}
+      propertyPath: m_Size.z
+      value: 0.0071002
+      objectReference: {fileID: 0}
+    - target: {fileID: -7994736390489480498, guid: 7e36fa8933b43d547bd199cf4412e161, type: 3}
+      propertyPath: m_Center.x
+      value: 0.000039959366
+      objectReference: {fileID: 0}
+    - target: {fileID: -7994736390489480498, guid: 7e36fa8933b43d547bd199cf4412e161, type: 3}
+      propertyPath: m_Center.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7994736390489480498, guid: 7e36fa8933b43d547bd199cf4412e161, type: 3}
+      propertyPath: m_Center.z
+      value: 0.004899993
+      objectReference: {fileID: 0}
     - target: {fileID: 4887548097297488506, guid: 7e36fa8933b43d547bd199cf4412e161, type: 3}
       propertyPath: m_Name
       value: Luggage_Green
@@ -4744,7 +4784,7 @@ MonoBehaviour:
   holdPoint: {fileID: 1310998097}
   interactionKey: 0
   dropKey: 0
-  luggageSpacing: 0.5
+  luggageSpacing: 1
   maxLuggageCount: 3
 --- !u!1001 &2028718742
 PrefabInstance:
@@ -4985,6 +5025,10 @@ PrefabInstance:
     - target: {fileID: 5497660216741251681, guid: 413a7c47d082d01418118b968e64dc48, type: 3}
       propertyPath: m_Name
       value: Tutorial_Panel
+      objectReference: {fileID: 0}
+    - target: {fileID: 5497660216741251681, guid: 413a7c47d082d01418118b968e64dc48, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6049449026788965522, guid: 413a7c47d082d01418118b968e64dc48, type: 3}
       propertyPath: m_Sprite
@@ -5270,6 +5314,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1291265787}
     m_Modifications:
+    - target: {fileID: -3202442430192219870, guid: 749177ea6180f1848b735e86e5cdc74b, type: 3}
+      propertyPath: m_Size.y
+      value: 0.009755287
+      objectReference: {fileID: 0}
+    - target: {fileID: -3202442430192219870, guid: 749177ea6180f1848b735e86e5cdc74b, type: 3}
+      propertyPath: m_Size.z
+      value: 0.0071002
+      objectReference: {fileID: 0}
+    - target: {fileID: -3202442430192219870, guid: 749177ea6180f1848b735e86e5cdc74b, type: 3}
+      propertyPath: m_Center.x
+      value: 0.000039959366
+      objectReference: {fileID: 0}
+    - target: {fileID: -3202442430192219870, guid: 749177ea6180f1848b735e86e5cdc74b, type: 3}
+      propertyPath: m_Center.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3202442430192219870, guid: 749177ea6180f1848b735e86e5cdc74b, type: 3}
+      propertyPath: m_Center.z
+      value: 0.004899993
+      objectReference: {fileID: 0}
     - target: {fileID: 2681683654179957859, guid: 749177ea6180f1848b735e86e5cdc74b, type: 3}
       propertyPath: playerRespawnLogic
       value: 

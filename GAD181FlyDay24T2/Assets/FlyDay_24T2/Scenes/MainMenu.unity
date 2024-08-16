@@ -471,7 +471,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 343.09998, y: -538.29224}
+  m_AnchoredPosition: {x: 343.09998, y: -538.5981}
   m_SizeDelta: {x: 347.783, y: 67.899}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &164964920
@@ -1926,12 +1926,12 @@ MonoBehaviour:
     Right Arrow Key - Move Right.
 
     Right Control
-    - Dash / Jump. (You can only dash in one minigame.)
-
-    Right Shift - Pick-up.
+    - Dash / Jump. (You can only dash in  Voluntary Involuntary Assistance.)
 
     Right
-    Alt - Drop.'
+    Shift - Pick-up.
+
+    Right Alt - Drop.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ae3c0526a6b512f46b51ab4622c469e1, type: 2}
   m_sharedMaterial: {fileID: 636103958651709442, guid: ae3c0526a6b512f46b51ab4622c469e1, type: 2}
@@ -3656,7 +3656,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 343.09998, y: -420.39322}
+  m_AnchoredPosition: {x: 343.09998, y: -420.69907}
   m_SizeDelta: {x: 347.783, y: 67.899}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1397093944
@@ -3995,8 +3995,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "W -  Move Forward.\nA - Move Left.\nS - Move Backward.\nD - Move Right.\nQ
-    - Dash (You can only dash in one minigame.)\nE - Pick-up.\nSpace - Jump. \nRight
-    Alt - Drop."
+    - Dash (You can only dash in Voluntary Involuntary Assistance.)\nE - Pick-up.\nSpace
+    - Jump. \nRight Alt - Drop."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ae3c0526a6b512f46b51ab4622c469e1, type: 2}
   m_sharedMaterial: {fileID: 636103958651709442, guid: ae3c0526a6b512f46b51ab4622c469e1, type: 2}
@@ -4320,7 +4320,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 343.09998, y: -302.49423}
+  m_AnchoredPosition: {x: 343.09998, y: -302.80005}
   m_SizeDelta: {x: 347.783, y: 67.899}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1684329046
@@ -5673,7 +5673,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 343.09998, y: -200.68224}
+  m_AnchoredPosition: {x: 343.09998, y: -200.98805}
   m_SizeDelta: {x: 396.803, y: 35.725}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2131643205

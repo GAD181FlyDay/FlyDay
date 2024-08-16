@@ -58,6 +58,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Coin: {fileID: 8705794882549079929}
   playerTotalMoney: {fileID: 11400000, guid: 66e203a44be15dc42a3658148c263619, type: 2}
+  luckyCoinCollectedSound: {fileID: 8300000, guid: ee8f5569e4da71040be314f97e4861b5, type: 3}
+  audioSource: {fileID: 0}
 --- !u!23 &3588853774457822699
 MeshRenderer:
   m_ObjectHideFlags: 0

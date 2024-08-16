@@ -27,7 +27,7 @@ public class DutyFreeShop_Interactible : Scripts_InteractionBaseToOverride
             dutyFreeShop.tag = "Untagged";
             purchasedItemData.hasPurchased = false;
             playerSaveData.currentStateInt = 5;
-            Invoke("LoadBoardingScene", 5f);
+            Invoke("LoadBoardingScene", 2f);
         }
     }
 

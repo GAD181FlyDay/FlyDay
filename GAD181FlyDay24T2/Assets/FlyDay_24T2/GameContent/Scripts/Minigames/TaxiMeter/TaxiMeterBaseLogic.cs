@@ -15,9 +15,9 @@ namespace TaxiMeter
         public static TaxiMeterBaseLogic taxiMeterBaseLogic;
 
         public float meterValue = 0.00f;
-        private float _correctMatchIncrease = 0.25f;
+        private float _correctMatchIncrease = 0.5f;
         [SerializeField] private TMP_Text meterText;
-        private float _incorrectMatchIncrease = 0.75f;
+        private float _incorrectMatchIncrease = 1.5f;
 
         #endregion
 

@@ -39,6 +39,7 @@ namespace DutyFree
                 purchasedItemData.purchasedItem = "goodGift"; // Note to self, make it so that if its goodGift string then the proceed after boarding sets the int to 4, else to 5.
                 purchasedItemData.hasPurchased = true;
                 Debug.Log("Purchased good gift");
+                playerSaveData.currentStateInt = 5;
                 LockShop();
             }
             else
@@ -57,6 +58,7 @@ namespace DutyFree
                 purchasedItemData.purchasedItem = "badGift";
                 purchasedItemData.hasPurchased = true;
                 Debug.Log("Purchased bad gift");
+                playerSaveData.currentStateInt = 5;
                 LockShop();
             }
             else

@@ -1928,13 +1928,13 @@ MonoBehaviour:
     Right Control
     - Dash / Jump. (You can only dash in  Voluntary Involuntary Assistance.)
 
-    Right
-    Shift - Pick-up.
+    Left
+    Mouse Click - Pick-up.
 
-    Right Alt - Drop.
+    Right Mouse Click - Drop.
 
-    Hold M to enable cursor in minigame
-    scenes.'
+    Hold M to enable cursor
+    in minigame scenes.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ae3c0526a6b512f46b51ab4622c469e1, type: 2}
   m_sharedMaterial: {fileID: 636103958651709442, guid: ae3c0526a6b512f46b51ab4622c469e1, type: 2}

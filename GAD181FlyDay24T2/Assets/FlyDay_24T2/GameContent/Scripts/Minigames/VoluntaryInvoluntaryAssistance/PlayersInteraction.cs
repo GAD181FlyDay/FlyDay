@@ -29,8 +29,8 @@ namespace VoluntaryInvoluntaryAssistance
                     dropKey = KeyCode.LeftAlt;
                     break;
                 case Players.two:
-                    interactionKey = KeyCode.RightShift;
-                    dropKey = KeyCode.RightAlt;
+                    interactionKey = KeyCode.Mouse0;
+                    dropKey = KeyCode.Mouse1;
                     break;
             }
         }

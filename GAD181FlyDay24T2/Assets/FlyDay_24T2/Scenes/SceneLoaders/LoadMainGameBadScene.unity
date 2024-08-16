@@ -224,6 +224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72044f645f1d5744b81bec9781923493, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purchasedItemData: {fileID: 11400000, guid: a5c51f7e094dd7a4782f9fc2134e459e, type: 2}
   playerSaveData: {fileID: 11400000, guid: 66e203a44be15dc42a3658148c263619, type: 2}
 --- !u!1 &388265399
 GameObject:

@@ -10,7 +10,6 @@ namespace VoluntaryInvoluntaryAssistance
 
     public class ConveyorBeltEmulation : MonoBehaviour
     {
-
         public float conveyorSpeed = 1f;
 
         private void OnTriggerStay(Collider other)

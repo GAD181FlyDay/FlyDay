@@ -44,7 +44,7 @@ namespace DutyFree
                 playerSaveData.mainLuckyCoinsSource -= goodGiftPrice;
                 purchasedItemData.purchasedItem = "goodGift"; // Note to self, make it so that if its goodGift string then the proceed after boarding sets the int to 4, else to 5.
                 purchasedItemData.hasPurchased = true;
-                Debug.Log("Purchased good gift");
+                Debug.Log(purchasedItemData.purchasedItem);
 
                 LockShop();
             }

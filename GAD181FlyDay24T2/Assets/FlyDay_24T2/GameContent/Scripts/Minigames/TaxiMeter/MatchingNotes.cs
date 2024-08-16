@@ -13,8 +13,8 @@ namespace TaxiMeter
         [SerializeField] MinigameTimer minigameTimerScript;
         [SerializeField] private Transform matchArea;
 
-        private float _matchRangeMinY = -0.5f;
-        private float _matchRangeMaxY = 0.5f;
+        private float _matchRangeMinY = -0.7f;
+        private float _matchRangeMaxY = 0.7f;
         #endregion
 
         void Update()

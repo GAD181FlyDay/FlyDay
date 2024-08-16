@@ -39,11 +39,6 @@ namespace DutyFree
             if (!purchasedItemData.hasPurchased && playerSaveData.mainLuckyCoinsSource >= goodGiftPrice)
             {
                 playerSaveData.currentStateInt = 5;
-                if (playerSaveData.currentStateInt != 5)
-                {
-
-                    return;
-                }
                 stateManager.currentState = stateStorage;
                 Debug.Log(playerSaveData.currentStateInt);
                 playerSaveData.mainLuckyCoinsSource -= goodGiftPrice;
@@ -66,11 +61,6 @@ namespace DutyFree
             if (!purchasedItemData.hasPurchased && playerSaveData.mainLuckyCoinsSource >= badGiftPrice)
             {
                 playerSaveData.currentStateInt = 5;
-                if (playerSaveData.currentStateInt != 5)
-                {
-
-                    return;
-                }
                 stateManager.currentState = stateStorage;
                 Debug.Log(playerSaveData.currentStateInt);
                 playerSaveData.mainLuckyCoinsSource -= badGiftPrice;

@@ -19,6 +19,8 @@ public class GameOverManager : MonoBehaviour
 
     public void EnableGameOverUI()
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         gameOverPanel.SetActive(true);
         Time.timeScale = 0;
     }

@@ -21,10 +21,10 @@ MonoBehaviour:
   - 'The Flight arrives '
   - After collecting their luggage, they both head towards their parents' House.
   narrativeImages:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 0c90c46330c82594db780e86e2376a41, type: 3}
+  - {fileID: 21300000, guid: 0c90c46330c82594db780e86e2376a41, type: 3}
+  - {fileID: 21300000, guid: 0c90c46330c82594db780e86e2376a41, type: 3}
+  - {fileID: 21300000, guid: 0c90c46330c82594db780e86e2376a41, type: 3}
+  - {fileID: 21300000, guid: 0c90c46330c82594db780e86e2376a41, type: 3}
+  - {fileID: 21300000, guid: 0c90c46330c82594db780e86e2376a41, type: 3}
   nextState: 6

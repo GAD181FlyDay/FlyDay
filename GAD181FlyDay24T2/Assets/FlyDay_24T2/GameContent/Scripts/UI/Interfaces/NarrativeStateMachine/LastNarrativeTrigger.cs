@@ -1,4 +1,5 @@
 using DutyFree;
+using Narrative;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,20 +8,18 @@ public class LastNarrativeTrigger : MonoBehaviour
 
     #region Variables
     public PurchasedItemData purchasedItemData;
-    public PlayerSaveData playerSaveData;
     #endregion
 
     private void OnTriggerEnter(Collider other)
     {
         if (purchasedItemData.purchasedItem == "goodGift")
         {
-            playerSaveData.currentStateInt = 7;
-            SceneManager.LoadScene("MainGameScene");
+            SceneManager.LoadScene("LoadMainGameGoodScene");
         }
         if (purchasedItemData.purchasedItem == "badGift")
         {
-            playerSaveData.currentStateInt = 8;
-            SceneManager.LoadScene("MainGameScene");
+            SceneManager.LoadScene("LoadMainGameBadScene");
         }
     }
+
 }

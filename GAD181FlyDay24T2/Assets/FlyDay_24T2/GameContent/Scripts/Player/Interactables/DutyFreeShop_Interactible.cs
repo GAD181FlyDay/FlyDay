@@ -26,7 +26,8 @@ public class DutyFreeShop_Interactible : Scripts_InteractionBaseToOverride
         {
             dutyFreeShop.tag = "Untagged";
             purchasedItemData.hasPurchased = false;
-            Invoke("LoadBoardingScene", 3f);
+            playerSaveData.currentStateInt = 5;
+            Invoke("LoadBoardingScene", 5f);
         }
     }
 
@@ -55,9 +56,7 @@ public class DutyFreeShop_Interactible : Scripts_InteractionBaseToOverride
     #region Private Functions
     private void LoadBoardingScene()
     {
-        SceneManager.LoadScene("MainGameScene");
+        SceneManager.LoadScene("BlankSceneRefresher");
     }
     #endregion
-    // If an item has been bought set the duty free bool to true
-    // if the duty free bool is true then players can't interact anymore with the shop
 }

@@ -1,3 +1,4 @@
+using Narrative;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -20,6 +21,8 @@ namespace DutyFree
         public Button goodGiftButton;
         public Button badGiftButton;
         public GameObject shopPanel;
+        public StateManager stateManager;
+        public NarrativeStateStorage stateStorage;
 
         [SerializeField] private TMP_Text cantPurchase;
         #endregion
@@ -36,6 +39,12 @@ namespace DutyFree
             if (!purchasedItemData.hasPurchased && playerSaveData.mainLuckyCoinsSource >= goodGiftPrice)
             {
                 playerSaveData.currentStateInt = 5;
+                if (playerSaveData.currentStateInt != 5)
+                {
+
+                    return;
+                }
+                stateManager.currentState = stateStorage;
                 Debug.Log(playerSaveData.currentStateInt);
                 playerSaveData.mainLuckyCoinsSource -= goodGiftPrice;
                 purchasedItemData.purchasedItem = "goodGift"; // Note to self, make it so that if its goodGift string then the proceed after boarding sets the int to 4, else to 5.
@@ -57,6 +66,12 @@ namespace DutyFree
             if (!purchasedItemData.hasPurchased && playerSaveData.mainLuckyCoinsSource >= badGiftPrice)
             {
                 playerSaveData.currentStateInt = 5;
+                if (playerSaveData.currentStateInt != 5)
+                {
+
+                    return;
+                }
+                stateManager.currentState = stateStorage;
                 Debug.Log(playerSaveData.currentStateInt);
                 playerSaveData.mainLuckyCoinsSource -= badGiftPrice;
                 purchasedItemData.purchasedItem = "badGift";

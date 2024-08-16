@@ -12,9 +12,10 @@ namespace Narrative
     public class StateManager : MonoBehaviour
     {
         #region Variables.
+        public NarrativeStateStorage currentState;
+
         [SerializeField] private NarrativeStateStorage initialState;
         [SerializeField] private NarrativePanelManager panelController;
-        [SerializeField] private NarrativeStateStorage currentState;
         [SerializeField] private PlayerSaveData playerSaveData;
         [SerializeField] private List<NarrativeStateStorage> narrativeStates;
         [SerializeField] private List<PlayerPositionsStorage> playersPositions;

@@ -11,6 +11,7 @@ public class Scripts_Minigame_TaxiMeter : Scripts_InteractionBaseToOverride
         if (playerInteractions.taxiStand == true)
         {
             minigameStand.tag = "Untagged";
+            minigameStand.layer = 0;
         }
     }
     public override void Interact()

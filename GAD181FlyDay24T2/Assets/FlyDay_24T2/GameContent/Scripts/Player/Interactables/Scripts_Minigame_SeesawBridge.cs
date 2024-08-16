@@ -13,6 +13,7 @@ public class SeesawBridge_Interaction : Scripts_InteractionBaseToOverride
         if (playerInteractions.seeSawBridge == true)
         {
             minigameStand.tag = "Untagged";
+            minigameStand.layer = 0;
         }
     }
     public override void Interact()

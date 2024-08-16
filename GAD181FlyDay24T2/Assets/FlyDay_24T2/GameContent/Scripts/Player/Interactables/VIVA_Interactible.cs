@@ -12,6 +12,7 @@ public class VIVA_Interactible : Scripts_InteractionBaseToOverride
         if (playerInteractions.voluntaryInVoluntaryAssistance == true)
         {
             minigameStand.tag = "Untagged";
+            minigameStand.layer = 0;
         }
     }
     public override void Interact()

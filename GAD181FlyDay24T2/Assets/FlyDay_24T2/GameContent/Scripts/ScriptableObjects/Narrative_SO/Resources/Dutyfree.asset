@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stateType: 3
   narrativeEntries:
-  - With some coins in their hands, the players make it to the Duty-free, hopefully
+  - With some coins in their hands, the siblings make it to the Duty-free, hopefully
     they can buy something for their parents!
   - 'Oh darn, Our options are limited '
   - 'Why? '

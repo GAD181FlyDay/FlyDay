@@ -16,8 +16,8 @@ MonoBehaviour:
   narrativeEntries:
   - 'The siblings board the plane, exhausted from all the action they went through. '
   - Aboard, they settle into their seats
-  - I can't wait to visit Mom and Dad!
-  - 
+  - 'Theo: I can''t wait to visit Mom and Dad!'
+  - After a while..
   - 'The Flight arrives '
   - After collecting their luggage, they both head towards their parents' House.
   narrativeImages:

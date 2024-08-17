@@ -14,19 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stateType: 0
   narrativeEntries:
+  - Press space to progress through narrative scenes.
   - <Pacson's House>
   - 'Theo is engrossed in a racing game on the TV while Cleo hurriedly packs her
     open suitcase in the living room. '
-  - Go, go, go! Beat the record!
-  - THEeooO, switch the television off!!
-  - We do not want to miss our flight!!!
-  - Oops... I got caught up in the game.
-  - Taxi's here! Come on!!
-  - I think we forgot to buy our parents a gift... You know how much they like their
-    gifts..
-  - Let us try to find something to purchase at the duty free in the airport!
-  - Right! Let's head to the Taxi now!!
+  - 'Theo: Go, go, go! Beat the record!'
+  - 'Chleo: THEeooO, switch the television off!!'
+  - 'Chleo: We do not want to miss our flight!!!'
+  - 'Theo: Oops... I got caught up in the game.'
+  - 'Chleo: Taxi''s here! Come on!!'
+  - 'Chleo: I think we forgot to buy our parents a gift... You know how much they
+    like their gifts..'
+  - 'Chleo: Let us try to find something to purchase at the duty free in the airport!'
+  - 'Theo: Right! Let''s head to the Taxi now!!'
   narrativeImages:
+  - {fileID: 21300000, guid: 0c90c46330c82594db780e86e2376a41, type: 3}
   - {fileID: 21300000, guid: 0c90c46330c82594db780e86e2376a41, type: 3}
   - {fileID: 21300000, guid: 0c90c46330c82594db780e86e2376a41, type: 3}
   - {fileID: 21300000, guid: 0c90c46330c82594db780e86e2376a41, type: 3}

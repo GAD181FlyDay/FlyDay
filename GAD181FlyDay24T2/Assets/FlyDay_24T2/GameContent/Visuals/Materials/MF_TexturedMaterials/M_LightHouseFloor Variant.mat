@@ -37,6 +37,6 @@ Material:
     m_Floats:
     - _GlossMapScale: 0.51
     m_Colors:
-    - _Color: {r: 0.8679245, g: 0.8679245, b: 0.8679245, a: 1}
+    - _Color: {r: 0.254717, g: 0.254717, b: 0.254717, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

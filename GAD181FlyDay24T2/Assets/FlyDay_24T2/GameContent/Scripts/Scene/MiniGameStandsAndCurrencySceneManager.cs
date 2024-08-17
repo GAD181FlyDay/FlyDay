@@ -21,4 +21,9 @@ public class MiniGameStandsAndCurrencySceneManager : MonoBehaviour
             SceneManager.LoadScene("MinigameStands", LoadSceneMode.Additive);
         }
     }
+
+    private void Update()
+    {
+        currencyText.text = playerSaveData.mainLuckyCoinsSource + "";
+    }
 }

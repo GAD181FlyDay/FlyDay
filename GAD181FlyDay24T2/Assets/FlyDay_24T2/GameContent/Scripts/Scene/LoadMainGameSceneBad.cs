@@ -7,12 +7,11 @@ public class LoadMainGameSceneBad : MonoBehaviour
     public PurchasedItemData purchasedItemData;
     public PlayerSaveData playerSaveData;
 
-
     void Start()
     {
         playerSaveData.currentStateInt = 8;
         purchasedItemData.purchasedItem = "badGift";
-        if (purchasedItemData.purchasedItem == "badGift")
+        if (purchasedItemData.purchasedItem == "badGift" )
         {
             Debug.Log("the purchase item is bad gift");
         }

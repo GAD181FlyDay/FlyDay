@@ -12,6 +12,12 @@ EditorBuildSettings:
     path: Assets/FlyDay_24T2/Scenes/SceneLoaders/BlankSceneRefresher.unity
     guid: 54e82bc3e7a62bd4887898a67be211c4
   - enabled: 1
+    path: Assets/FlyDay_24T2/Scenes/SceneLoaders/LoadMainGameBadScene.unity
+    guid: c564f0b0956f02f4dbff199c4e5e72f4
+  - enabled: 1
+    path: Assets/FlyDay_24T2/Scenes/SceneLoaders/LoadMainGameGoodScene.unity
+    guid: 5700522aa4db5b34d925f4908ffeae4f
+  - enabled: 1
     path: Assets/FlyDay_24T2/Scenes/MainGameScene.unity
     guid: 8c84950ce2efe9d44978907ba2540b30
   - enabled: 1
@@ -35,11 +41,5 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/FlyDay_24T2/Scenes/Dana_Minigame/VoluntaryInVoluntaryAssistance.unity
     guid: 9fd431ffb4be3924aaaf43b9aadbc590
-  - enabled: 1
-    path: Assets/FlyDay_24T2/Scenes/SceneLoaders/LoadMainGameBadScene.unity
-    guid: c564f0b0956f02f4dbff199c4e5e72f4
-  - enabled: 1
-    path: Assets/FlyDay_24T2/Scenes/SceneLoaders/LoadMainGameGoodScene.unity
-    guid: 5700522aa4db5b34d925f4908ffeae4f
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

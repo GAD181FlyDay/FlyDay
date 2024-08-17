@@ -9,14 +9,14 @@ public class XAndO_Interaction : Scripts_InteractionBaseToOverride
 
     private void Start()
     {
-        if (playerInteractions.taxiStand == true)
+        if (playerInteractions.xAndOStand == true)
         {
             minigameStand.tag = "Untagged";
         }
     }
     public override void Interact()
     {
-        playerInteractions.taxiStand = true;
+        playerInteractions.xAndOStand = true;
 
         minigameStand.tag = "Untagged";
 

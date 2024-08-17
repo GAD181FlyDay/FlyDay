@@ -20,6 +20,10 @@ public class LastNarrativeTrigger : MonoBehaviour
         {
             SceneManager.LoadScene("LoadMainGameBadScene");
         }
+        else if (purchasedItemData.purchasedItem == "")
+        {
+            Debug.LogWarning("Scriptable object is empty.");
+        }
     }
 
 }

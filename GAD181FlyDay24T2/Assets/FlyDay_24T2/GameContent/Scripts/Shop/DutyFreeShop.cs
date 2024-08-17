@@ -40,11 +40,11 @@ namespace DutyFree
             {
                 playerSaveData.currentStateInt = 5;
                 stateManager.currentState = stateStorage;
-                Debug.Log(playerSaveData.currentStateInt);
+                // Debug.Log(playerSaveData.currentStateInt);
                 playerSaveData.mainLuckyCoinsSource -= goodGiftPrice;
-                purchasedItemData.purchasedItem = "goodGift"; // Note to self, make it so that if its goodGift string then the proceed after boarding sets the int to 4, else to 5.
+                purchasedItemData.purchasedItem = "goodGift";
                 purchasedItemData.hasPurchased = true;
-                Debug.Log(purchasedItemData.purchasedItem);
+                // Debug.Log(purchasedItemData.purchasedItem);
 
                 LockShop();
             }
@@ -62,11 +62,11 @@ namespace DutyFree
             {
                 playerSaveData.currentStateInt = 5;
                 stateManager.currentState = stateStorage;
-                Debug.Log(playerSaveData.currentStateInt);
+                // Debug.Log(playerSaveData.currentStateInt);
                 playerSaveData.mainLuckyCoinsSource -= badGiftPrice;
                 purchasedItemData.purchasedItem = "badGift";
                 purchasedItemData.hasPurchased = true;
-                Debug.Log("Purchased bad gift");
+                // Debug.Log("Purchased bad gift");
                 LockShop();
             }
             else

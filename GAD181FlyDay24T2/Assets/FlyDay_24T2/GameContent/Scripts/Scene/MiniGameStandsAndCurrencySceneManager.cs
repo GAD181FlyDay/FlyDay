@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class MiniGameStandsAndCurrencySceneManager : MonoBehaviour
 {
     #region Variables.
-    public string sceneToAlwaysLoad = "MinigameStands"; 
+    public string sceneToAlwaysLoad = "MinigameStands";
     public PlayerSaveData playerSaveData;
 
     [SerializeField] private TMP_Text currencyText;
@@ -15,7 +15,9 @@ public class MiniGameStandsAndCurrencySceneManager : MonoBehaviour
 
     private void Start()
     {
+        playerSaveData = PlayerSaveData.LoadData();
         currencyText.text = playerSaveData.mainLuckyCoinsSource + "";
+
         if (!SceneManager.GetSceneByName(sceneToAlwaysLoad).isLoaded)
         {
             SceneManager.LoadScene("MinigameStands", LoadSceneMode.Additive);
@@ -25,5 +27,6 @@ public class MiniGameStandsAndCurrencySceneManager : MonoBehaviour
     private void Update()
     {
         currencyText.text = playerSaveData.mainLuckyCoinsSource + "";
+        playerSaveData.SaveData();
     }
 }

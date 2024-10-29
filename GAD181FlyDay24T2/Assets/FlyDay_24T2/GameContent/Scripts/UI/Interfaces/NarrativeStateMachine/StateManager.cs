@@ -67,20 +67,10 @@ namespace Narrative
         #region Private Functions
         private void InputDelayThenProgress()
         {
-            //if (!_canProgress)
-            //{
-            //    _timer += Time.deltaTime;
-            //    if (_timer >= _inputDelay)
-            //    {
-            //        _canProgress = true;
-            //        _timer = 0f;
-            //    }
-            //}
 
-            if (Input.GetKeyUp(KeyCode.Space)) // && _canProgress
+            if (Input.GetKeyUp(KeyCode.Space)) 
             {
                 ProgressToNextEntry();
-                // _canProgress = false;
             }
         }
 

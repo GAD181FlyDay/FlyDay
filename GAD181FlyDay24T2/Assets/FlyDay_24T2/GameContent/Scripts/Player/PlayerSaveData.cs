@@ -2,7 +2,7 @@ using UnityEngine;
 using System.IO;
 
 [System.Serializable]
-public class PlayerSaveData
+public class PlayerSaveData : MonoBehaviour
 {
     public float mainLuckyCoinsSource;
     public int currentStateInt = 0;

@@ -14,12 +14,10 @@ namespace TaxiMeter
         public NotesSpawner noteSpawner;
         public float gameDuration = 90f; // 1 and a half minutes.
 
-        [SerializeField] private PlayerSaveData playerSaveData;
         [SerializeField] private TMP_Text timerText;
         [SerializeField] private TMP_Text endGameText;
 
         private float elapsedTime = 0f;
-
         #endregion
 
         void Update()
@@ -45,7 +43,6 @@ namespace TaxiMeter
                 noteSpawner.initialMaxSpawnInterval = Mathf.Lerp(2f, 1f, (30f - remainingTime) / 30f);
             }
 
-            // Update the timer display
             int minutes = Mathf.FloorToInt(remainingTime / 60F);
             int seconds = Mathf.FloorToInt(remainingTime % 60F);
 
@@ -57,16 +54,18 @@ namespace TaxiMeter
         {
             gameEnded = true;
             timerText.text = "Time: 0";
-            playerSaveData.mainLuckyCoinsSource -= TaxiMeterBaseLogic.taxiMeterBaseLogic.meterValue;
-            Debug.Log("Here is your money despite the loss " + playerSaveData.mainLuckyCoinsSource);
+
+            DataManager.Instance.UpdateCoinAmount(-TaxiMeterBaseLogic.taxiMeterBaseLogic.meterValue);
+
+            Debug.Log("Here is your money despite the loss " + DataManager.Instance.PlayerData.mainLuckyCoinsSource);
 
             if (TaxiMeterBaseLogic.taxiMeterBaseLogic.meterValue > 100)
             {
-                endGameText.text = ("Are Taxis usually this expensive?" + " You paid the driver " + TaxiMeterBaseLogic.taxiMeterBaseLogic.meterValue + " Lucky Coins");
+                endGameText.text = "Are Taxis usually this expensive? You paid the driver " + TaxiMeterBaseLogic.taxiMeterBaseLogic.meterValue + " Lucky Coins";
             }
             else
             {
-                endGameText.text = ("Not a bad price for a long Taxi ride!, You paid the driver " + TaxiMeterBaseLogic.taxiMeterBaseLogic.meterValue + " Lucky Coins");
+                endGameText.text = "Not a bad price for a long Taxi ride! You paid the driver " + TaxiMeterBaseLogic.taxiMeterBaseLogic.meterValue + " Lucky Coins";
             }
         }
         #endregion

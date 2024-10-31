@@ -5,38 +5,27 @@ using static Narrative.NarrativeStateStorage;
 
 namespace Narrative
 {
-    /// <summary>
-    /// This Script manages all states.
-    /// </summary>
-
     public class StateManager : MonoBehaviour
     {
-        #region Variables.
+        #region Variables
         public NarrativeStateStorage currentState;
 
         [SerializeField] private NarrativeStateStorage initialState;
         [SerializeField] private NarrativePanelManager panelController;
-        [SerializeField] private PlayerSaveData playerSaveData;
         [SerializeField] private List<NarrativeStateStorage> narrativeStates;
         [SerializeField] private List<PlayerPositionsStorage> playersPositions;
         [SerializeField] private Transform player1Transform;
         [SerializeField] private Transform player2Transform;
 
         private int _currentEntryIndex;
+        private int _lastStateInt = -1;  
 
-        //private float _inputDelay = 1.5f;
-        //private float _timer = 0f; 
-        //private bool _canProgress = true;
-
-        // Places the enums states in NarrativeStateStorage objects to dictionary and initializes it.
         private Dictionary<NarrativeStateStorage.NarrativeStates, NarrativeStateStorage> _stateDictionary;
         #endregion
 
-
         private void Start()
         {
-            UpdateCurrentState();
-            DisplayCurrentNarrativeEntry();
+            LoadInitialState();
         }
 
         private void Update()
@@ -44,9 +33,7 @@ namespace Narrative
             InputDelayThenProgress();
         }
 
-
-
-        #region Public Functions.
+        #region Public Functions
 
         public void ProgressToNextEntry()
         {
@@ -54,49 +41,59 @@ namespace Narrative
             DisplayCurrentNarrativeEntry();
         }
 
-
         public void SetStateInt(int newStateInt)
         {
-            playerSaveData.currentStateInt = newStateInt;
-            UpdateCurrentState();
-            DisplayCurrentNarrativeEntry();
+            if (newStateInt != DataManager.Instance.PlayerData.currentStateInt)
+            {
+                DataManager.Instance.SetGameState(newStateInt);
+                SceneTransitionManager.Instance.LoadSceneBasedOnState(newStateInt); 
+                UpdateCurrentState();
+            }
         }
+
 
         #endregion
 
         #region Private Functions
+
         private void InputDelayThenProgress()
         {
-
-            if (Input.GetKeyUp(KeyCode.Space)) 
+            if (Input.GetKeyUp(KeyCode.Space))
             {
                 ProgressToNextEntry();
             }
         }
 
+        private void LoadInitialState()
+        {
+            UpdateCurrentState();
+            DisplayCurrentNarrativeEntry();
+        }
 
         private void UpdateCurrentState()
         {
-            if (playerSaveData.currentStateInt >= 0 && playerSaveData.currentStateInt < narrativeStates.Count)
+            int currentStateInt = DataManager.Instance.PlayerData.currentStateInt;
+
+            if (currentStateInt != _lastStateInt && currentStateInt >= 0 && currentStateInt < narrativeStates.Count)
             {
-                currentState = narrativeStates[playerSaveData.currentStateInt];
+                _lastStateInt = currentStateInt;
+                currentState = narrativeStates[currentStateInt];
                 _currentEntryIndex = 0;
                 UpdatePlayerPositions();
             }
-            else
+            else if (currentStateInt < 0 || currentStateInt >= narrativeStates.Count)
             {
                 Debug.LogError("Invalid stateInt value in NarrativeStateManager.");
             }
         }
 
-
         private void DisplayCurrentNarrativeEntry()
         {
             if (currentState != null && _currentEntryIndex < currentState.narrativeEntries.Length)
             {
-                string _narrative = currentState.narrativeEntries[_currentEntryIndex];
+                string narrativeText = currentState.narrativeEntries[_currentEntryIndex];
                 Sprite image = currentState.narrativeImages[_currentEntryIndex];
-                panelController.ShowPanel(_narrative, image);
+                panelController.ShowPanel(narrativeText, image);
             }
             else
             {
@@ -104,13 +101,14 @@ namespace Narrative
             }
         }
 
-
         private void UpdatePlayerPositions()
         {
-            if (playerSaveData.currentStateInt >= 0 && playerSaveData.currentStateInt < playersPositions.Count)
+            int currentStateInt = DataManager.Instance.PlayerData.currentStateInt;
+
+            if (currentStateInt >= 0 && currentStateInt < playersPositions.Count)
             {
-                player1Transform.position = playersPositions[playerSaveData.currentStateInt].playerOnePos;
-                player2Transform.position = playersPositions[playerSaveData.currentStateInt].playerTwoPos;
+                player1Transform.position = playersPositions[currentStateInt].playerOnePos;
+                player2Transform.position = playersPositions[currentStateInt].playerTwoPos;
             }
             else
             {
@@ -119,6 +117,5 @@ namespace Narrative
         }
 
         #endregion
-
     }
 }

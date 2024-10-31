@@ -7,7 +7,6 @@ namespace VoluntaryInvoluntaryAssistance
     /// <summary>
     /// Handles timer and End Game logic for the game.
     /// </summary>
-    
     public class TimerAndManager : MonoBehaviour
     {
         #region Variables
@@ -17,7 +16,6 @@ namespace VoluntaryInvoluntaryAssistance
         [SerializeField] private GameObject endGamePanel;
         [SerializeField] private GameObject timerTextComponent;
         [SerializeField] private TMP_Text endGameText;
-        [SerializeField] private PlayerSaveData playerSaveData;
 
         private float _timeRemaining;
         private bool _isGameActive;
@@ -55,19 +53,23 @@ namespace VoluntaryInvoluntaryAssistance
 
         private void EndGame()
         {
-            playerSaveData.currentStateInt = 4;
+            DataManager.Instance.SetGameState(4);
+            DataManager.Instance.UpdateCoinAmount(deliveryZone.luckyCoins);
+
             _isGameActive = false;
             endGamePanel.SetActive(true);
             endGameText.text = "Game Over! You Earned: " + deliveryZone.luckyCoins;
-            playerSaveData.mainLuckyCoinsSource += deliveryZone.luckyCoins;
+
             timerTextComponent.SetActive(false);
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
-            Time.timeScale = 0f; 
+            Time.timeScale = 0f;
         }
 
         public void Proceed()
         {
+            DataManager.Instance.SaveData();
+
             Time.timeScale = 1f;
             Cursor.visible = false;
             SceneManager.LoadScene("MainGameScene");

@@ -1,10 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Goal : MonoBehaviour
 {
-    [SerializeField] private PlayerSaveData playerSaveData;
     private float _players = 0;
     private float _earnedMoney = 200;
     public GameObject panel;
@@ -14,12 +11,11 @@ public class Goal : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            _players += 1; ;
+            _players += 1;
 
             if (_players == 2)
             {
                 EndPointReached();
-
             }
         }
     }
@@ -28,8 +24,10 @@ public class Goal : MonoBehaviour
     {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-        playerSaveData.mainLuckyCoinsSource += _earnedMoney;
-        playerSaveData.currentStateInt = 4;
+
+        DataManager.Instance.UpdateCoinAmount(_earnedMoney);
+        DataManager.Instance.SetGameState(4);
+
         panel.SetActive(true);
         win.SetActive(true);
         Time.timeScale = 0f;

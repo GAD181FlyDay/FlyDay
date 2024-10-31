@@ -1,26 +1,19 @@
 using DutyFree;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class LoadMainGameSceneGood : MonoBehaviour
 {
-    public PlayerSaveData playerSaveData;
-    public PurchasedItemData purchasedItemData;
-
-    void Start()
+    private void Start()
     {
-        playerSaveData.currentStateInt = 7;
-        purchasedItemData.purchasedItem = "goodGift";
-        if (purchasedItemData.purchasedItem == "goodGift" )
-        {
-            Debug.Log("the purchase item is good gift");
-        }
-
-        Invoke("LoadMainGameScene", 2f);
+        DataManager.Instance.SetGameState(7);
+        Invoke("SceneLoadDelayer", 5f);
     }
 
-    private void LoadMainGameScene()
+    private void SceneLoadDelayer()
     {
-        SceneManager.LoadScene("MainGameScene");
+        if (DataManager.Instance.PlayerData.currentStateInt == 7)
+        {
+            SceneTransitionManager.Instance.LoadSceneBasedOnState(9); 
+        }
     }
 }

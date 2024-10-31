@@ -1,16 +1,36 @@
+using System;
+using System.IO;
 using UnityEngine;
 
 namespace DutyFree
 {
-    /// <summary>
-    /// tracks which item players decided to choose. (bad gift or good gift.)
-    /// </summary>
-
-    [CreateAssetMenu]
-
-    public class PurchasedItemData : ScriptableObject
+    [Serializable]
+    public class PurchasedItemData
     {
-        public string purchasedItem; 
+        public string purchasedItem;
         public bool hasPurchased;
+
+        private static string FilePath => Path.Combine(Application.persistentDataPath, "PurchasedItemData.json");
+
+        public void SaveData()
+        {
+            string jsonData = JsonUtility.ToJson(this, true);
+            File.WriteAllText(FilePath, jsonData);
+        }
+        public static PurchasedItemData LoadData()
+        {
+            if (File.Exists(FilePath))
+            {
+                string jsonData = File.ReadAllText(FilePath);
+                return JsonUtility.FromJson<PurchasedItemData>(jsonData);
+            }
+            return new PurchasedItemData();
+        }
+        public void ResetData()
+        {
+            purchasedItem = "";   
+            hasPurchased = false; 
+            SaveData();           
+        }
     }
 }

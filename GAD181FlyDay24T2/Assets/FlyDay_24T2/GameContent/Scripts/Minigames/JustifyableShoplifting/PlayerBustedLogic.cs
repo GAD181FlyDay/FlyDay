@@ -11,7 +11,6 @@ namespace JustifyableShoplifting
     {
         #region Variables
         public GameObject lostPanel;
-        public PlayerSaveData playerSaveData;
         #endregion
 
         private void Start()
@@ -19,10 +18,11 @@ namespace JustifyableShoplifting
             lostPanel.SetActive(false);
         }
 
-        #region Public Functions.
+        #region Public Functions
         public void LoseGame()
         {
-            playerSaveData.currentStateInt = 3;
+            DataManager.Instance.SetGameState(3);
+
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
             lostPanel.SetActive(true);

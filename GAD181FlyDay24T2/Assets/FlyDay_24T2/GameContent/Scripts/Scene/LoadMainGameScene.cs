@@ -1,18 +1,18 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class LoadMainGameScene : MonoBehaviour
 {
-    public PlayerSaveData playerSaveData;
-
-    void Start()
+    private void Start()
     {
-        playerSaveData.currentStateInt = 5;
-        Invoke("LoadTheMainGameScene", 2f);
+        DataManager.Instance.SetGameState(5);
+        Invoke("SceneLoadDelayer", 5f);
     }
 
-    private void LoadTheMainGameScene()
+    private void SceneLoadDelayer()
     {
-        SceneManager.LoadScene("MainGameScene");
+        if (DataManager.Instance.PlayerData.currentStateInt == 5)
+        {
+            SceneTransitionManager.Instance.LoadSceneBasedOnState(5);
+        }
     }
 }

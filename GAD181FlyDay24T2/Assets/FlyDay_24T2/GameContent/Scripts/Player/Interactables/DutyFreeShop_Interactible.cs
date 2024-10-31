@@ -5,15 +5,18 @@ using UnityEngine.SceneManagement;
 public class DutyFreeShop_Interactible : Scripts_InteractionBaseToOverride
 {
     #region Variables
-    public PurchasedItemData purchasedItemData;
-
     [SerializeField] private GameObject dutyFreeShop;
     [SerializeField] private GameObject dutyFreeShopPanel;
     [SerializeField] private PlayerInteractions playerInteractions;
-    [SerializeField] private PlayerSaveData playerSaveData;
 
+    private PurchasedItemData purchasedItemData;
     #endregion
 
+    private void Start()
+    {
+        // Load the purchased item data at the start
+        purchasedItemData = PurchasedItemData.LoadData();
+    }
 
     private void Update()
     {
@@ -22,19 +25,23 @@ public class DutyFreeShop_Interactible : Scripts_InteractionBaseToOverride
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
         }
+
         if (purchasedItemData.hasPurchased == true)
         {
             dutyFreeShop.tag = "Untagged";
             purchasedItemData.hasPurchased = false;
-            playerSaveData.currentStateInt = 5;
+            purchasedItemData.SaveData();
+
+            DataManager.Instance.SetGameState(5);
+
             Invoke("LoadBoardingScene", 2f);
         }
     }
 
-    #region Public Functions.
+    #region Public Functions
     public override void Interact()
     {
-        if (purchasedItemData.hasPurchased is false)
+        if (!purchasedItemData.hasPurchased)
         {
             dutyFreeShopPanel.SetActive(true);
             Cursor.visible = true;

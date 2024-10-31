@@ -12,7 +12,6 @@ namespace MainGameScene.Players
     {
         #region Variables
         [SerializeField] OptionsPanelLogic pauseMenu;
-        //[SerializeField] private PlayerPositionsStorage playersPositions;
         #endregion
 
         void Start()
@@ -43,7 +42,6 @@ namespace MainGameScene.Players
                         Time.timeScale = 1.0f;
                     }
                 }
-
             }
         }
     }

@@ -2,9 +2,9 @@ using UnityEngine;
 using System.IO;
 
 [System.Serializable]
-public class PlayerSaveData : MonoBehaviour
+public class PlayerSaveData 
 {
-    public float mainLuckyCoinsSource;
+    public float mainLuckyCoinsSource = 200f;
     public int currentStateInt = 0;
 
     private static string FilePath => Path.Combine(Application.persistentDataPath, "PlayerSaveData.json");

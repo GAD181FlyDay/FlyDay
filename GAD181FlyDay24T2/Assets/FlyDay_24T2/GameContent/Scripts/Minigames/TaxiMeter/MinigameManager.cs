@@ -1,5 +1,4 @@
 using Narrative;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,13 +8,10 @@ namespace TaxiMeter
     /// This script is responsible for handling the minigame.
     /// It handles retrying and continuing with the narrative options.
     /// </summary>
-
     public class MinigameManager : MonoBehaviour
     {
         #region Variables
         public GameObject endGamePanel;
-
-        [SerializeField] private PlayerSaveData playerSaveData;
         [SerializeField] private MinigameTimer minigameTimer;
 
         private StateManager stateManager;
@@ -48,18 +44,15 @@ namespace TaxiMeter
         {
             Time.timeScale = 1;
             Cursor.visible = false;
-            UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
         public void ProceedWithStory()
         {
-            playerSaveData.currentStateInt = 1;
-            Time.timeScale = 1;
-            if (Time.timeScale == 1)
-            {
-                SceneManager.LoadScene("MainGameScene");
-            }
+            DataManager.Instance.SetGameState(1);
 
+            Time.timeScale = 1;
+            SceneManager.LoadScene("MainGameScene");
         }
 
         #endregion

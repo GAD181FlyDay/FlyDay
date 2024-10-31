@@ -2372,6 +2372,9 @@ GameObject:
   - component: {fileID: 868547207}
   - component: {fileID: 868547208}
   - component: {fileID: 868547209}
+  - component: {fileID: 868547210}
+  - component: {fileID: 868547211}
+  - component: {fileID: 868547212}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -2490,6 +2493,42 @@ MonoBehaviour:
   eventSystem: {fileID: 868547203}
   playButtonFirstSelected: {fileID: 1707474985}
   creditsFirstSelected: {fileID: 378491542}
+--- !u!114 &868547210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 868547201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b4408dbb5b75754592268f88d7ddad0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &868547211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 868547201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7843b5bc4084974584d3d77e696628a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &868547212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 868547201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52ff947fd489d1b429b199ceb96e4bcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &894036011
 GameObject:
   m_ObjectHideFlags: 0
@@ -4789,6 +4828,30 @@ MonoBehaviour:
       - m_Target: {fileID: 868547209}
         m_TargetAssemblyTypeName: UnityEngine.EventSystems.BaseButtonsScript, Assembly-CSharp
         m_MethodName: StartTheGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 868547210}
+        m_TargetAssemblyTypeName: DataManager, Assembly-CSharp
+        m_MethodName: ResetGameData
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 868547212}
+        m_TargetAssemblyTypeName: PurchasedItemDataReseter, Assembly-CSharp
+        m_MethodName: ResetPurchasedData
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -8,15 +8,14 @@ public class MiniGameStandsAndCurrencySceneManager : MonoBehaviour
 {
     #region Variables.
     public string sceneToAlwaysLoad = "MinigameStands";
-    public PlayerSaveData playerSaveData;
-
     [SerializeField] private TMP_Text currencyText;
+    private float lastKnownCoinAmount;
     #endregion
 
     private void Start()
     {
-        playerSaveData = PlayerSaveData.LoadData();
-        currencyText.text = playerSaveData.mainLuckyCoinsSource + "";
+        lastKnownCoinAmount = DataManager.Instance.PlayerData.mainLuckyCoinsSource;
+        UpdateCurrencyText();
 
         if (!SceneManager.GetSceneByName(sceneToAlwaysLoad).isLoaded)
         {
@@ -26,7 +25,15 @@ public class MiniGameStandsAndCurrencySceneManager : MonoBehaviour
 
     private void Update()
     {
-        currencyText.text = playerSaveData.mainLuckyCoinsSource + "";
-        playerSaveData.SaveData();
+        if (DataManager.Instance.PlayerData.mainLuckyCoinsSource != lastKnownCoinAmount)
+        {
+            lastKnownCoinAmount = DataManager.Instance.PlayerData.mainLuckyCoinsSource;
+            UpdateCurrencyText();
+        }
+    }
+
+    private void UpdateCurrencyText()
+    {
+        currencyText.text = DataManager.Instance.PlayerData.mainLuckyCoinsSource.ToString();
     }
 }

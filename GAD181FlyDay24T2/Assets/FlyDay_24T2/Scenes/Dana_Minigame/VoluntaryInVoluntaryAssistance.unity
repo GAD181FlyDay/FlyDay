@@ -489,7 +489,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c58a71a0d9a4aee4596fb5ebd354dcdd, type: 2}
+  - {fileID: 2100000, guid: e91d4b8e8b03c0c47a2b989752497071, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2116,13 +2116,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 836740850}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.6535811, y: -0.14969626, z: 0.13938658, w: 0.7286935}
+  m_LocalRotation: {x: 0.5880072, y: -0.13706031, z: 0.15182911, w: 0.78256625}
   m_LocalPosition: {x: -92.962, y: -8.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 753205480}
-  m_LocalEulerAnglesHint: {x: 83.854, y: -19.628, z: 3.997}
+  m_LocalEulerAnglesHint: {x: 74.139, y: -7.562, z: 16.244}
 --- !u!1001 &866040662
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3164,7 +3164,9 @@ MonoBehaviour:
   endGamePanel: {fileID: 90335591}
   timerTextComponent: {fileID: 1870734514}
   endGameText: {fileID: 1164614755}
-  playerSaveData: {fileID: 11400000, guid: 66e203a44be15dc42a3658148c263619, type: 2}
+  playerSaveData:
+    mainLuckyCoinsSource: 0
+    currentStateInt: 0
 --- !u!4 &1291927610 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6474471422261352122, guid: a3409330a10966b438a451c0720d473a, type: 3}

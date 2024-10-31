@@ -1,29 +1,36 @@
 using DutyFree;
-using Narrative;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class LastNarrativeTrigger : MonoBehaviour
 {
-
     #region Variables
     public PurchasedItemData purchasedItemData;
+    private bool hasTriggered = false;  // Prevents multiple triggers
     #endregion
+
+    private void Start()
+    {
+        purchasedItemData = PurchasedItemData.LoadData();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
+        if (hasTriggered) return;
+
+        hasTriggered = true;
+
         if (purchasedItemData.purchasedItem == "goodGift")
         {
-            SceneManager.LoadScene("LoadMainGameGoodScene");
+            SceneTransitionManager.Instance.LoadSceneBasedOnState(7);
         }
-        if (purchasedItemData.purchasedItem == "badGift")
+        else if (purchasedItemData.purchasedItem == "badGift")
         {
-            SceneManager.LoadScene("LoadMainGameBadScene");
+            SceneTransitionManager.Instance.LoadSceneBasedOnState(8);
         }
-        else if (purchasedItemData.purchasedItem == "")
+        else
         {
-            Debug.LogWarning("Scriptable object is empty.");
+            Debug.LogWarning("No purchase detected.");
         }
-    }
 
+    }
 }

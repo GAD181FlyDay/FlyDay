@@ -7,11 +7,10 @@ namespace XAndOMinigame
 {
     public class XAndOMinigameNewLogic : MonoBehaviour
     {
-        #region Variables.
+        #region Variables
         public Material xMaterial;
         public Material oMaterial;
         public Material resetMaterial;
-        public PlayerSaveData playerSaveData;
         public string CurrentPlayer => _currentPlayer;
         public bool IsGameOver => _gameOver;
 
@@ -41,7 +40,7 @@ namespace XAndOMinigame
             }
         }
 
-        #region Public Functions.
+        #region Public Functions
         public bool SetCurrentPlayerOnTile(XAndOFloorTiles tile, string playerTag, int tileIndex)
         {
             if (gameState[tileIndex] == 0)
@@ -80,6 +79,7 @@ namespace XAndOMinigame
             }
             return false;
         }
+
         public void RestartGame()
         {
             foreach (XAndOFloorTiles tile in floorTiles)
@@ -103,11 +103,9 @@ namespace XAndOMinigame
 
         public void ExitMinigame()
         {
-            playerSaveData.currentStateInt = 6;
-
+            DataManager.Instance.SetGameState(6);
+            SceneTransitionManager.Instance.LoadSceneBasedOnState(6);
             Debug.Log("Game has been exited.");
-
-            SceneManager.LoadScene("MainGameScene");
         }
         #endregion
 

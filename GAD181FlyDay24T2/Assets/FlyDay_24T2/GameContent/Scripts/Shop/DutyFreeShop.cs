@@ -1,6 +1,7 @@
 using Narrative;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace DutyFree
@@ -10,14 +11,12 @@ namespace DutyFree
     /// if players have enugh money then they can purchase somethin.
     /// After they purchase somethin, they cant purchase anything else and the shop locks.
     /// </summary>
-
+    
     public class DutyFreeShop : MonoBehaviour
     {
         #region Variables
-        public PlayerSaveData playerSaveData;
         public int goodGiftPrice = 350;
         public int badGiftPrice = 225;
-        public PurchasedItemData purchasedItemData;
         public Button goodGiftButton;
         public Button badGiftButton;
         public GameObject shopPanel;
@@ -25,59 +24,57 @@ namespace DutyFree
         public NarrativeStateStorage stateStorage;
 
         [SerializeField] private TMP_Text cantPurchase;
+
+        private PurchasedItemData purchasedItemData;
+        private bool purchaseComplete = false; 
         #endregion
 
         private void Start()
         {
+            purchasedItemData = PurchasedItemData.LoadData();
             UpdateShopState();
         }
 
         #region Public Functions.
         public void PurchaseGoodGift()
         {
-            Debug.Log("Button works");
-            if (!purchasedItemData.hasPurchased && playerSaveData.mainLuckyCoinsSource >= goodGiftPrice)
+            if (!purchaseComplete && !purchasedItemData.hasPurchased && DataManager.Instance.PlayerData.mainLuckyCoinsSource >= goodGiftPrice)
             {
-                playerSaveData.currentStateInt = 5;
-                stateManager.currentState = stateStorage;
-                // Debug.Log(playerSaveData.currentStateInt);
-                playerSaveData.mainLuckyCoinsSource -= goodGiftPrice;
-                purchasedItemData.purchasedItem = "goodGift";
-                purchasedItemData.hasPurchased = true;
-                // Debug.Log(purchasedItemData.purchasedItem);
-
-                LockShop();
+                CompletePurchase("goodGift", goodGiftPrice);
+                Invoke("LoadBlankLoadScene", 2f);
             }
             else
             {
-                cantPurchase.text = " You don't have enough money to purchase. ";
-                Invoke("HideText", 1f);
+                InsufficientCurrencyMessage();
             }
         }
 
         public void PurchaseBadGift()
         {
-            Debug.Log("Button works");
-            if (!purchasedItemData.hasPurchased && playerSaveData.mainLuckyCoinsSource >= badGiftPrice)
+            if (!purchaseComplete && !purchasedItemData.hasPurchased && DataManager.Instance.PlayerData.mainLuckyCoinsSource >= badGiftPrice)
             {
-                playerSaveData.currentStateInt = 5;
-                stateManager.currentState = stateStorage;
-                // Debug.Log(playerSaveData.currentStateInt);
-                playerSaveData.mainLuckyCoinsSource -= badGiftPrice;
-                purchasedItemData.purchasedItem = "badGift";
-                purchasedItemData.hasPurchased = true;
-                // Debug.Log("Purchased bad gift");
-                LockShop();
+                CompletePurchase("badGift", badGiftPrice);
+                Invoke("LoadBlankLoadScene", 2f);
             }
             else
             {
-                cantPurchase.text = " You don't have enough money to purchase. ";
-                Invoke("HideText", 1f);
+                InsufficientCurrencyMessage();
             }
         }
         #endregion
 
         #region Private Functions.
+        private void CompletePurchase(string item, int price)
+        {
+            DataManager.Instance.UpdateCoinAmount(-price);
+            purchasedItemData.purchasedItem = item;
+            purchasedItemData.hasPurchased = true;
+            purchasedItemData.SaveData();
+
+            purchaseComplete = true;
+            LockShop();
+        }
+
         private void LockShop()
         {
             goodGiftButton.interactable = false;
@@ -94,9 +91,20 @@ namespace DutyFree
             }
         }
 
+        private void InsufficientCurrencyMessage()
+        {
+            cantPurchase.text = "You don't have enough money to purchase.";
+            Invoke("HideText", 1f);
+        }
+
         private void HideText()
         {
             cantPurchase.text = "";
+        }
+
+        private void LoadBlankLoadScene()
+        {
+            SceneTransitionManager.Instance.LoadSceneBasedOnState(10);
         }
         #endregion
     }

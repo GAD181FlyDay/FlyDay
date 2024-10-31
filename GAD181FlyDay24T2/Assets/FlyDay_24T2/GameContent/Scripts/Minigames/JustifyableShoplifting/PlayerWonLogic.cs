@@ -13,7 +13,6 @@ namespace JustifyableShoplifting
         #region Variables
         public GameObject winPanel;
 
-        [SerializeField] private PlayerSaveData playerSaveData;
         [SerializeField] private TMP_Text totalCoinAmount;
         #endregion
 
@@ -25,9 +24,8 @@ namespace JustifyableShoplifting
         #region Public Functions
         public void WinGame()
         {
-            // Activate the win panel and pause the game
-            totalCoinAmount.text = "Good work! You now have " + playerSaveData.mainLuckyCoinsSource + " lucky coins in total!";
-            playerSaveData.currentStateInt = 3;
+            totalCoinAmount.text = "Good work! You now have " + DataManager.Instance.PlayerData.mainLuckyCoinsSource + " lucky coins in total!";
+            DataManager.Instance.SetGameState(3);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             winPanel.SetActive(true);

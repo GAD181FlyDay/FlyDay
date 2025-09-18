@@ -19,10 +19,11 @@ namespace JustifyableShoplifting
         [SerializeField] private Transform pointC;
         [SerializeField] private Transform pointD;
         [SerializeField] private float moveSpeed = 2.0f;
-        [SerializeField] private float detectionRadius = 5.0f;
+        [SerializeField] private Vector3 detectionRadius = new Vector3(3, 5, 5);
         [SerializeField] private LayerMask playerLayer;
         [SerializeField] private LayerMask wallLayer;
         [SerializeField] private float detectionDuration = 1.0f;
+        [SerializeField] private Transform guardCastPosition;
 
         private Transform _currentTarget;
         private Transform _playerTransform;
@@ -95,25 +96,20 @@ namespace JustifyableShoplifting
 
         private void DetectPlayer()
         {
-            Collider[] players = Physics.OverlapSphere(transform.position, detectionRadius, playerLayer);
-
-            if (players.Length == 0)
-            {
-                // Debug.Log("No players detected within radius");
-            }
+            Collider[] players = Physics.OverlapBox(guardCastPosition.position, detectionRadius, guardCastPosition.rotation, playerLayer);
 
             foreach (Collider player in players)
             {
+                #region Checks if the guard is facing a wall or not.
                 if (!Physics.Linecast(transform.position, player.transform.position, wallLayer))
                 {
-                    // Debug.Log("Player detected without obstruction");
                     _playerDetected = true;
                     _playerTransform = player.transform;
                     break;
                 }
+                #endregion
                 else
                 {
-                    // Debug.Log("Player detected but obstructed by wall");
                     _playerDetected = false;
                 }
             }
@@ -123,7 +119,6 @@ namespace JustifyableShoplifting
                 _detectionTime += Time.deltaTime;
                 if (_detectionTime >= detectionDuration)
                 {
-                    // Debug.Log("You Lost");
                     playerBusted.LoseGame();
                 }
             }
@@ -136,7 +131,7 @@ namespace JustifyableShoplifting
         private void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(transform.position, detectionRadius);
+            Gizmos.DrawWireCube(guardCastPosition.position, detectionRadius);
         }
         #endregion
     }

@@ -36,15 +36,25 @@ namespace XAndOMinigame
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("PlayerOne") || other.CompareTag("PlayerTwo"))
+            #region Check the player on the tile and the current player turn before setting the occupied tile tag.
+            if (other.CompareTag("PlayerOne") && gameLogic.CurrentPlayer == "X")
             {
                 _occupyingPlayerTag = other.tag;
             }
+            else if(other.CompareTag("PlayerTwo") && gameLogic.CurrentPlayer == "O")
+            {
+                _occupyingPlayerTag = other.tag;
+            }
+            #endregion
         }
 
         private void OnTriggerExit(Collider other)
         {
-            if (other.CompareTag("PlayerOne") || other.CompareTag("PlayerTwo"))
+            if (other.CompareTag("PlayerOne") && gameLogic.CurrentPlayer == "X")
+            {
+                _occupyingPlayerTag = null;
+            }
+            else if (other.CompareTag("PlayerTwo") && gameLogic.CurrentPlayer == "O")
             {
                 _occupyingPlayerTag = null;
             }
